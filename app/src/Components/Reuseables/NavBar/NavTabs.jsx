@@ -1,10 +1,10 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import {LinkTab} from "./LinkTab";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import { LinkTab } from "./LinkTab";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -29,7 +29,7 @@ function TabPanel(props) {
 function a11yProps(index) {
     return {
         id: `nav-tab-${index}`,
-        'aria-controls': `nav-tabpanel-${index}`,
+        "aria-controls": `nav-tabpanel-${index}`,
     };
 }
 
@@ -57,9 +57,17 @@ export default function NavTabs() {
                     onChange={handleChange}
                     aria-label="nav tabs example"
                 >
-                    <LinkTab label="Page One" href="/drafts" {...a11yProps(0)} />
+                    <LinkTab
+                        label="Page One"
+                        href="/drafts"
+                        {...a11yProps(0)}
+                    />
                     <LinkTab label="Page Two" href="/trash" {...a11yProps(1)} />
-                    <LinkTab label="Page Three" href="/spam" {...a11yProps(2)} />
+                    <LinkTab
+                        label="Page Three"
+                        href="/spam"
+                        {...a11yProps(2)}
+                    />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>

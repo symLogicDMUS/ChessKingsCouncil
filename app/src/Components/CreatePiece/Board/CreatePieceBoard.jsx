@@ -1,8 +1,7 @@
 import React from "react";
 import "../../helpers/stepFuncs";
 import { useMediaQuery } from "@material-ui/core";
-import { getAngleLocations } from
-        "../Range/SpanArrowButtons/getAngleLocations";
+import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
 import { difference } from "../../helpers/setOps";
 import { rankfiles } from "../../helpers/rankfiles";
 import CreatePiecePiece from "./CreatePiecePiece";
@@ -30,7 +29,7 @@ function CreatePieceBoard(props) {
     const isWide = useMediaQuery("(min-width: 960px)");
     const screenCase = isWide ? "wide" : "thin";
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const getRegularSquare = (rf) => {
         return (
@@ -66,11 +65,7 @@ function CreatePieceBoard(props) {
                 hasFabChild={false}
                 hasToolChild={false}
             >
-                <CreatePiecePiece
-                    rf={rf}
-                    theme={theme}
-                    imgUrl={imgUrl}
-                />
+                <CreatePiecePiece rf={rf} theme={theme} imgUrl={imgUrl} />
             </CreatePieceSquare>
         );
     };
@@ -93,7 +88,7 @@ function CreatePieceBoard(props) {
                 <ArrowButton
                     rf={rf}
                     angle={angle}
-                    key={'location-' + rf}
+                    key={"location-" + rf}
                     toggleSpan={toggleSpan}
                     isActive={spanDisplays[rf]}
                     isOffset={offsetDisplays[rf]}
@@ -124,15 +119,17 @@ function CreatePieceBoard(props) {
                     rf={rf}
                     theme={theme}
                     onClick={() => setLoc(rf)}
-                    hasPieceChild={rf===pieceLoc}
+                    hasPieceChild={rf === pieceLoc}
                 >
-                    {rf===pieceLoc ? (
+                    {rf === pieceLoc ? (
                         <CreatePiecePiece
                             rf={rf}
                             theme={theme}
                             imgUrl={imgUrl}
                         />
-                    ) : rf}
+                    ) : (
+                        rf
+                    )}
                 </LocationButton>
             </CreatePieceSquare>
         );
@@ -199,7 +196,9 @@ function CreatePieceBoard(props) {
 
     return (
         <>
-            <div className={classes.board} {...other}>{getBoard()}</div>
+            <div className={classes.board} {...other}>
+                {getBoard()}
+            </div>
         </>
     );
 }

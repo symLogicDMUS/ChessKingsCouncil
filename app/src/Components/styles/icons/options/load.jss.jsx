@@ -1,6 +1,11 @@
 import React from "react";
 export const load = (stroke) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 4.762 6.35">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 4.762 6.35"
+    >
         <g id="layer1" transform="translate(-0.821 0.001)">
             <path
                 id="path1037-8-8-3-5"

@@ -1,1 +1,1 @@
-export const getColorNameLc = (color) => color === 'W' ? "white" : "black";
+export const getColorNameLc = (color) => (color === "W" ? "white" : "black");

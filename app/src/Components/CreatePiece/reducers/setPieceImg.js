@@ -4,6 +4,6 @@ export const setPieceImg = (state, color, imgStr) => {
         whiteAndBlackImgs: {
             ...state.whiteAndBlackImgs,
             [color]: imgStr,
-        }
-    }
+        },
+    };
 };

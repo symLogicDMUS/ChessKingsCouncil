@@ -1,14 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import {Slide, Tabs} from "@material-ui/core";
-import {Tab} from "@material-ui/core";
-import {AppBar} from "@material-ui/core";
+import { Slide, Tabs } from "@material-ui/core";
+import { Tab } from "@material-ui/core";
+import { AppBar } from "@material-ui/core";
 import NavBarButton from "./NavBarButton";
 import HelpButton from "./Help/HelpButton";
 import SettingsButton from "./SettingsButton";
 import SignInOutButton from "../../Home/Sign In/SignInOutButton";
-import {updateFirstVisit} from "../../CreatePiece/reducers/updateFirstVisit";
-import {marginLeftZero, useStyles} from "./NavBarRow.jss";
+import { updateFirstVisit } from "../../CreatePiece/reducers/updateFirstVisit";
+import { marginLeftZero, useStyles } from "./NavBarRow.jss";
 
 /**
  * This component is intended to be wrapped in ternary condition and only rendered for view widths > 960px
@@ -24,28 +24,28 @@ function NavBarRow(props) {
         additionalSettings,
     } = props;
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const indexes = {
-        "Home": 0,
-        "Help": 1,
-        "Settings": 2,
-        "NewGame": 3,
-        "LoadGame": 4,
-        "CreatePiece": 5,
-        "MyPieces": 6,
-        "ChessRules": 7,
-        "CouncilRules": 8,
-        "AuthorGithub": 9,
-        "SignInOut": 10,
-    }
+        Home: 0,
+        Help: 1,
+        Settings: 2,
+        NewGame: 3,
+        LoadGame: 4,
+        CreatePiece: 5,
+        MyPieces: 6,
+        ChessRules: 7,
+        CouncilRules: 8,
+        AuthorGithub: 9,
+        SignInOut: 10,
+    };
 
     return (
         <div className={classes.root}>
             <AppBar
                 className={clsx(classes.nav_tab_row, {
                     [classes.full_width]: fullWidth,
-                    [classes.condensed]: ! fullWidth,
+                    [classes.condensed]: !fullWidth,
                 })}
             >
                 <Slide in={show} direction={"right"}>

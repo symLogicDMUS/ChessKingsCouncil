@@ -3,5 +3,5 @@ function getOffsets() {
 }
 
 if (require.main === module) {
-    console.log(getOffsets())
+    console.log(getOffsets());
 }

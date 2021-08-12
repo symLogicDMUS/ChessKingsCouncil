@@ -1,10 +1,10 @@
 import React from "react";
-import {NBA} from "./NBA.jss";
-import {tan} from "./tan.jss";
-import {dark} from "./dark.jss";
-import {star_wars} from "./star_wars.jss";
-import {blue} from "./blue.jss";
-import {mechwarrior_theme} from "./mechwarrior_theme.jss";
+import { NBA } from "./NBA.jss";
+import { tan } from "./tan.jss";
+import { dark } from "./dark.jss";
+import { star_wars } from "./star_wars.jss";
+import { blue } from "./blue.jss";
+import { mechwarrior_theme } from "./mechwarrior_theme.jss";
 
 /**values repeated when theme only differs by color of pieces*/
 export const themes = {
@@ -13,15 +13,15 @@ export const themes = {
     blue: blue,
     tan_dark: {
         ...tan,
-        title: '#d7bb99',
-        text_alt3: '#d7bb99',
-        outline_alt: '#d7bb99',
-        page_link: '#d7bb99',
-        page_link_hover: '#90caf9',
-        light_normal: '#f0d9b5',
-        dark_normal: '#d0bd99',
-        menu_container: '#313131',
-        site_description_text: '#d7bb99',
+        title: "#d7bb99",
+        text_alt3: "#d7bb99",
+        outline_alt: "#d7bb99",
+        page_link: "#d7bb99",
+        page_link_hover: "#90caf9",
+        light_normal: "#f0d9b5",
+        dark_normal: "#d0bd99",
+        menu_container: "#313131",
+        site_description_text: "#d7bb99",
     },
     red_blue: dark,
     dark_alt: dark,

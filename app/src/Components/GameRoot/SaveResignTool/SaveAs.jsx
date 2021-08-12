@@ -4,14 +4,13 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
-import {useStyles} from "./SaveAs.jss";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import { MuiTextField } from "../../Reuseables/UserInput/MuiTextField";
+import { useStyles } from "./SaveAs.jss";
 
-function SaveAs({changeName, save, close, theme}) {
-
-    const classes = useStyles({theme: theme});
+function SaveAs({ changeName, save, close, theme }) {
+    const classes = useStyles({ theme: theme });
 
     const handleChange = (e) => {
         changeName(e.target.value);
@@ -22,12 +21,14 @@ function SaveAs({changeName, save, close, theme}) {
             open={true}
             classes={{
                 container: classes.container,
-                paper: classes.dialog_window
+                paper: classes.dialog_window,
             }}
             aria-labelledby="title"
             onBackdropClick={close}
         >
-            <DialogTitle id="title" className={classes.title}>Save As</DialogTitle>
+            <DialogTitle id="title" className={classes.title}>
+                Save As
+            </DialogTitle>
             <DialogContent>
                 <MuiTextField
                     id="name"
@@ -44,20 +45,20 @@ function SaveAs({changeName, save, close, theme}) {
                 <Button
                     onClick={save}
                     className={classes.button}
-                    startIcon={<CheckCircleOutlineIcon/>}
+                    startIcon={<CheckCircleOutlineIcon />}
                 >
                     Ok
                 </Button>
                 <Button
                     onClick={close}
                     className={classes.button}
-                    startIcon={<HighlightOffIcon/>}
+                    startIcon={<HighlightOffIcon />}
                 >
                     Cancel
                 </Button>
             </DialogActions>
         </Dialog>
-    )
+    );
 }
 
 export default SaveAs;

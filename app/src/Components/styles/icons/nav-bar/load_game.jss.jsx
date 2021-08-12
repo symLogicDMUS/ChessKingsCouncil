@@ -1,7 +1,12 @@
 import React from "react";
 
 export const load_game = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+    >
         <g id="g2532" transform="translate(-12.237 -7.589)">
             <path
                 id="path3097"

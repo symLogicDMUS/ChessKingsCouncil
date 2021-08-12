@@ -1,26 +1,29 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Background/_backgrounds.scss";
 import SearchIcon from "@material-ui/icons/Search";
 import { SavedPiecesHelp } from "./Help/SavedPiecesHelp";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
-import { TwoItemAppBarContent } from
-        "../Reuseables/AppBar/Content/TwoItemAppBarContent";
+import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
+import { TwoItemAppBarContent } from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
-import {ThemeContext} from "../../Context/ThemeContext";
+import { ThemeContext } from "../../Context/ThemeContext";
 import { textColor, useStyles } from "./MyPieces.jss";
 
-const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
-const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'));
-const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
+const NavBar = React.lazy(() => import("../Reuseables/NavBar/NavBar"));
+const PieceProfiles = React.lazy(() =>
+    import("../PieceProfiles/PieceProfiles")
+);
+const ResponsiveDrawer = React.lazy(() =>
+    import("../Reuseables/Drawers/ResponsiveDrawer")
+);
 
 function MyPieces() {
-    const {themes, themeDispatch} = useContext(ThemeContext)
+    const { themes, themeDispatch } = useContext(ThemeContext);
     const [searchText, setSearchText] = useState("");
     const isWide = useMediaQuery("(min-width:960px)");
-    const classes = useStyles({theme: themes.myPieces});
+    const classes = useStyles({ theme: themes.myPieces });
 
     const updateSearchText = (searchText) => {
         setSearchText(searchText);
@@ -32,7 +35,7 @@ function MyPieces() {
                 theme={themes.myPieces}
                 title={"Saved Pieces"}
                 currentPage={"MyPieces"}
-                initialState={{pos: 0, numSlides: 3}}
+                initialState={{ pos: 0, numSlides: 3 }}
             >
                 {SavedPiecesHelp(themes.myPieces)}
             </HelpSlideshow>
@@ -77,7 +80,10 @@ function MyPieces() {
                 }
                 appBarType="2item"
                 seeMoreIcon={
-                    <SearchIcon className={classes.icon} style={textColor(themes.myPieces)} />
+                    <SearchIcon
+                        className={classes.icon}
+                        style={textColor(themes.myPieces)}
+                    />
                 }
                 tools={null}
                 toolButtons={null}

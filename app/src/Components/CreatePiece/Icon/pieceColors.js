@@ -1,4 +1,4 @@
 export const pieceColors = {
-    'W': 'white',
-    'B': 'black',
-}
+    W: "white",
+    B: "black",
+};

@@ -1,4 +1,10 @@
-export const offsetExample2 = (dark_sqr_fill, light_sqr_fill, offset_color, width, height) => (
+export const offsetExample2 = (
+    dark_sqr_fill,
+    light_sqr_fill,
+    offset_color,
+    width,
+    height
+) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}

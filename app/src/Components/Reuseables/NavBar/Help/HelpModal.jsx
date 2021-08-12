@@ -3,7 +3,7 @@ import { HelpSlides } from "./HelpSlides";
 import { HelpTable } from "./HelpTable";
 import { Portal } from "@material-ui/core";
 
-export function HelpModal({onClose, theme, screenCase }) {
+export function HelpModal({ onClose, theme, screenCase }) {
     const [helpItem, setHelpItem] = useState(null);
     return (
         <>
@@ -18,7 +18,11 @@ export function HelpModal({onClose, theme, screenCase }) {
                 </Portal>
             ) : null}
             <Portal>
-                <HelpTable setHelpItem={setHelpItem} theme={theme} onClose={onClose} />
+                <HelpTable
+                    setHelpItem={setHelpItem}
+                    theme={theme}
+                    onClose={onClose}
+                />
             </Portal>
         </>
     );

@@ -5,7 +5,7 @@ export const standardPieceNames = [
     "Knight",
     "Pawn",
     "King",
-]
+];
 Object.preventExtensions(standardPieceNames);
 Object.seal(standardPieceNames);
 Object.freeze(standardPieceNames);

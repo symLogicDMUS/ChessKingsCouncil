@@ -1,3 +1,3 @@
 export function charNotInStr(char, str) {
-    return ! str.includes(char)
+    return !str.includes(char);
 }

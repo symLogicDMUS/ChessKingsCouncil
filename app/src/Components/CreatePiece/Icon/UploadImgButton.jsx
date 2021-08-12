@@ -2,13 +2,13 @@ import React from "react";
 import "firebase/storage";
 import "firebase/database";
 import clsx from "clsx";
-import {Button} from "@material-ui/core";
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import {useStyles} from "./UploadImgButton.jss";
-
+import { Button } from "@material-ui/core";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import { useStyles } from "./UploadImgButton.jss";
 
 export function UploadImgButton(props) {
-    const {color,
+    const {
+        color,
         id,
         setImgFileObj,
         setPieceImg,
@@ -17,10 +17,10 @@ export function UploadImgButton(props) {
         className,
         addedClassName,
         style,
-        children
+        children,
     } = props;
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const handleChange = (e) => {
         const files = e.target.files;
@@ -32,14 +32,14 @@ export function UploadImgButton(props) {
             () => {
                 const b64Str = myFileItemReader.result;
                 setPieceImg(color, b64Str);
-                setImgFileObj(color, currentFile)
+                setImgFileObj(color, currentFile);
                 close();
             },
             false
         );
 
         myFileItemReader.readAsDataURL(currentFile);
-    }
+    };
 
     return (
         <>
@@ -51,12 +51,16 @@ export function UploadImgButton(props) {
                     [addedClassName]: addedClassName,
                 })}
                 style={style}
-                startIcon={<CloudUploadIcon className={classes.icon}/>}
+                startIcon={<CloudUploadIcon className={classes.icon} />}
             >
                 {children}
-                <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>
+                <input
+                    id={id}
+                    type="file"
+                    onChange={(e) => handleChange(e)}
+                    hidden
+                />
             </Button>
         </>
-
     );
 }

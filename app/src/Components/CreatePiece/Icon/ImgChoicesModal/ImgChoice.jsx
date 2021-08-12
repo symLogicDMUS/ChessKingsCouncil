@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import { Tooltip } from "@material-ui/core";
@@ -20,13 +20,13 @@ export function ImgChoice({
     const [bValue, reRender] = useState(false);
     useEffect(() => {
         function handleResize() {
-            reRender(! bValue)
+            reRender(!bValue);
         }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    })
+        window.addEventListener("resize", handleResize);
+        return (_) => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
 
     return (
         <div className={classes.item_choice}>
@@ -34,7 +34,7 @@ export function ImgChoice({
                 onClick={() => setChoice(name)}
                 className={clsx(classes.item_container, {
                     [classes.item_selected]: isSelected,
-                    [classes.item_unselected]: ! isSelected,
+                    [classes.item_unselected]: !isSelected,
                 })}
             >
                 {!showName ? (
@@ -44,7 +44,7 @@ export function ImgChoice({
                     >
                         <motion.img
                             src={src}
-                            className='image'
+                            className="image"
                             whileHover={{ scale: 1.2 }}
                             alt="list of icons that can be used as pieces"
                             onContextMenu={(e) => e.preventDefault()}
@@ -53,7 +53,7 @@ export function ImgChoice({
                 ) : (
                     <motion.img
                         src={src}
-                        className='image'
+                        className="image"
                         whileHover={{ scale: 1.175 }}
                         alt="list of icons that can be used as pieces"
                         onContextMenu={(e) => e.preventDefault()}

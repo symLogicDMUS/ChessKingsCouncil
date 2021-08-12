@@ -1,7 +1,12 @@
 import React from "react";
 
 export const save = (stroke) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 12.31 12.302">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 12.31 12.302"
+    >
         <g id="layer1" transform="translate(-28.183 -58.827)">
             <g id="g1411">
                 <g id="g849" transform="translate(2.83 5.892)">

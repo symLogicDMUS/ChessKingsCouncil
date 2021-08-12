@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import React from "react";
-import {useState} from "react";
-import {useContext} from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import { Close } from "../Modals/Close";
 import { Undo } from "@material-ui/icons";
-import {Button} from "@material-ui/core";
-import {Typography} from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { Dialog } from "@material-ui/core";
-import {DialogTitle} from "@material-ui/core";
-import {DialogActions} from "@material-ui/core";
-import {DialogContent} from "@material-ui/core";
+import { DialogTitle } from "@material-ui/core";
+import { DialogActions } from "@material-ui/core";
+import { DialogContent } from "@material-ui/core";
 import { saveThemes } from "../../../API/saveThemes";
 import MuiAccordion from "../Accordions/MuiAccordion";
 import ThemeDropdown from "../UserInput/ThemeDropdown";
@@ -19,11 +19,11 @@ import { ThemeContext } from "../../../Context/ThemeContext";
 import AskLoginButton from "../../Home/Sign In/AskLoginButton";
 import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../Animations/ThemeSavedSuccessfully";
-import {smResetButton, useStyles} from "./SettingsModal.jss";
+import { smResetButton, useStyles } from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
-    const {currentPage, closeModal, theme, children, ...other} = props;
-    
+    const { currentPage, closeModal, theme, children, ...other } = props;
+
     const uid = useContext(UserContext);
     const { themes, themeDispatch } = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
@@ -37,7 +37,7 @@ export function SettingsModal(props) {
     };
 
     const resetDefaults = () => {
-        themeDispatch({type: 'reset-default-themes'})
+        themeDispatch({ type: "reset-default-themes" });
     };
 
     const added = "(Current Page)";
@@ -71,23 +71,26 @@ export function SettingsModal(props) {
                 />
                 <DialogTitle className={classes.normal}>Settings</DialogTitle>
                 <DialogContent>
-                    <Typography variant={"subtitle1"} className={classes.normal} paragraph>Theme</Typography>
+                    <Typography
+                        variant={"subtitle1"}
+                        className={classes.normal}
+                        paragraph
+                    >
+                        Theme
+                    </Typography>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
                                 className={classes.accordion_summary}
-                                variant={'button'}
+                                variant={"button"}
                                 noWrap
                             >
                                 All Pages
                             </Typography>
                         }
                     >
-                        <ThemeDropdown
-                            theme={theme}
-                            pageName={"all"}
-                        />
+                        <ThemeDropdown theme={theme} pageName={"all"} />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
@@ -96,12 +99,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "MainMenu",
-                                    [classes.normal]: currentPage !== "MainMenu",
+                                    [classes.normal]:
+                                        currentPage !== "MainMenu",
                                 })}
                                 noWrap
                             >
                                 Home Page{" "}
-                                {! sm && currentPage === "MainMenu" && added}
+                                {!sm && currentPage === "MainMenu" && added}
                             </Typography>
                         }
                     >
@@ -123,7 +127,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 New Game{" "}
-                                {! sm && currentPage === "NewGame" && added}
+                                {!sm && currentPage === "NewGame" && added}
                             </Typography>
                         }
                     >
@@ -140,12 +144,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "LoadGame",
-                                    [classes.normal]: currentPage !== "LoadGame",
+                                    [classes.normal]:
+                                        currentPage !== "LoadGame",
                                 })}
                                 noWrap
                             >
                                 Load Game{" "}
-                                {! sm && currentPage === "LoadGame" && added}
+                                {!sm && currentPage === "LoadGame" && added}
                             </Typography>
                         }
                     >
@@ -162,12 +167,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "CreatePiece",
-                                    [classes.normal]: currentPage !== "CreatePiece",
+                                    [classes.normal]:
+                                        currentPage !== "CreatePiece",
                                 })}
                                 noWrap
                             >
                                 Create Piece{" "}
-                                {! sm && currentPage === "CreatePiece" && added}
+                                {!sm && currentPage === "CreatePiece" && added}
                             </Typography>
                         }
                     >
@@ -184,12 +190,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "Customize",
-                                    [classes.normal]: currentPage !== "Customize",
+                                    [classes.normal]:
+                                        currentPage !== "Customize",
                                 })}
                                 noWrap
                             >
                                 Customize Game{" "}
-                                {! sm && currentPage === "Customize" && added}
+                                {!sm && currentPage === "Customize" && added}
                             </Typography>
                         }
                     >
@@ -206,12 +213,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "GameRoot",
-                                    [classes.normal]: currentPage !== "GameRoot",
+                                    [classes.normal]:
+                                        currentPage !== "GameRoot",
                                 })}
                                 noWrap
                             >
                                 Playing Game page{" "}
-                                {! sm && currentPage === "GameRoot" && added}
+                                {!sm && currentPage === "GameRoot" && added}
                             </Typography>
                         }
                     >
@@ -228,12 +236,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "MyPieces",
-                                    [classes.normal]: currentPage !== "MyPieces",
+                                    [classes.normal]:
+                                        currentPage !== "MyPieces",
                                 })}
                                 noWrap
                             >
                                 Saved Pieces{" "}
-                                {! sm && currentPage === "MyPieces" && added}
+                                {!sm && currentPage === "MyPieces" && added}
                             </Typography>
                         }
                     >
@@ -250,12 +259,13 @@ export function SettingsModal(props) {
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
                                         currentPage === "CouncilRules",
-                                    [classes.normal]: currentPage !== "CouncilRules",
+                                    [classes.normal]:
+                                        currentPage !== "CouncilRules",
                                 })}
                                 noWrap
                             >
                                 Council Rules{" "}
-                                {! sm && currentPage === "CouncilRules" && added}
+                                {!sm && currentPage === "CouncilRules" && added}
                             </Typography>
                         }
                     >

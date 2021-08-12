@@ -1,12 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
-export const useStyles = makeStyles({
-    piece: props => ({
-        cursor: 'grab',
-        width: props.sqrSize * 0.95,
-        maxHeight: props.sqrSize * 0.95,
-        textAlign: 'center',
-        verticalAlign: 'center'
-    }),
-}, {index: 1});
+export const useStyles = makeStyles(
+    {
+        piece: (props) => ({
+            cursor: "grab",
+            width: props.sqrSize * 0.95,
+            maxHeight: props.sqrSize * 0.95,
+            textAlign: "center",
+            verticalAlign: "center",
+        }),
+    },
+    { index: 1 }
+);

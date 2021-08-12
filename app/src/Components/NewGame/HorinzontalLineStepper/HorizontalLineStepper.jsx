@@ -1,17 +1,16 @@
-import React, {useEffect, useMemo} from "react";
+import React, { useEffect, useMemo } from "react";
 import { getSteps } from "./getSteps";
 import Step from "@material-ui/core/Step";
 import Button from "@material-ui/core/Button";
-import {getStepContent} from "./getStepContent";
-import {invalids} from "../../helpers/invalids";
+import { getStepContent } from "./getStepContent";
+import { invalids } from "../../helpers/invalids";
 import StepLabel from "@material-ui/core/StepLabel";
-import {charNotInStr} from "../../helpers/charNotInStr";
-import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
-import {MuiThemeProvider, Stepper, Typography} from "@material-ui/core";
-import {getStepperTheme} from "./stepper themes/getMuiStepperTheme";
+import { charNotInStr } from "../../helpers/charNotInStr";
+import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
+import { MuiThemeProvider, Stepper, Typography } from "@material-ui/core";
+import { getStepperTheme } from "./stepper themes/getMuiStepperTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./HorizontalLineStepper.jss";
-
 
 export default function HorizontalLinearStepper({
     activeStep,
@@ -25,36 +24,38 @@ export default function HorizontalLinearStepper({
 }) {
     const steps = getSteps();
     const sm = useMediaQuery("(max-width: 600px)");
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const getIsNextDisabled = () => {
         switch (activeStep) {
             case 0:
-                return ! gameName
+                return !gameName;
             case 1:
-                return ! gameType
+                return !gameType;
             case 2:
-                return ! playerType && playerType !== 'None'
+                return !playerType && playerType !== "None";
             default:
-                console.log("ERROR in HorizontalLineStepper.jsx: Unknown step")
+                console.log("ERROR in HorizontalLineStepper.jsx: Unknown step");
                 return false;
         }
-    }; const isNextDisabled = getIsNextDisabled()
+    };
+    const isNextDisabled = getIsNextDisabled();
 
-    const predicate = (c) => charNotInStr(c, gameName)
-    const isPlayDisabled = ! (
+    const predicate = (c) => charNotInStr(c, gameName);
+    const isPlayDisabled = !(
         playerType &&
         gameType &&
         gameName !== "" &&
         invalids.every(predicate)
     );
 
-    const stepperTheme = useMemo(() => getStepperTheme(theme), [theme])
+    const stepperTheme = useMemo(() => getStepperTheme(theme), [theme]);
 
-    const instructions =
-    <Typography className={classes.instructions}>
-        {getStepContent(activeStep)}
-    </Typography>
+    const instructions = (
+        <Typography className={classes.instructions}>
+            {getStepContent(activeStep)}
+        </Typography>
+    );
 
     return (
         <>

@@ -1,13 +1,13 @@
-import React, {useEffect, useMemo, useState} from "react";
-import {motion} from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
-import {Tooltip} from "@material-ui/core";
-import {Typography} from "@material-ui/core";
+import { Tooltip } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { rankfiles } from "../../helpers/rankfiles";
 import { binaryBoard } from "../../helpers/binaryBoard";
 import { GameSnapshotSquare } from "./GameSnapshotSquare";
-import {useStyles} from "../../Reuseables/Modals/MuiGridItem.jss";
-import {GameSnapshotSqrContent} from "./GameSnapshotSqrContent";
+import { useStyles } from "../../Reuseables/Modals/MuiGridItem.jss";
+import { GameSnapshotSqrContent } from "./GameSnapshotSqrContent";
 import clsx from "clsx";
 import "./GameSnapshot.scss";
 
@@ -24,13 +24,13 @@ export function GameSnapshot({
     const [bValue, reRender] = useState(false);
     useEffect(() => {
         function handleResize() {
-            reRender(! bValue)
+            reRender(!bValue);
         }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    })
+        window.addEventListener("resize", handleResize);
+        return (_) => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
 
     const getBoard = () => {
         const squares = [];
@@ -56,7 +56,7 @@ export function GameSnapshot({
                 onClick={() => setChoice(name)}
                 className={clsx(classes.item_container, {
                     [classes.item_selected]: isSelected,
-                    [classes.item_unselected]: ! isSelected,
+                    [classes.item_unselected]: !isSelected,
                 })}
             >
                 {!showName ? (
@@ -65,7 +65,7 @@ export function GameSnapshot({
                         classes={{ tooltip: classes.tooltip }}
                     >
                         <motion.div
-                            className='board'
+                            className="board"
                             whileHover={{ scale: 1.1 }}
                             onContextMenu={(e) => e.preventDefault()}
                         >
@@ -74,7 +74,7 @@ export function GameSnapshot({
                     </Tooltip>
                 ) : (
                     <motion.div
-                        className='board'
+                        className="board"
                         whileHover={{ scale: 1.1 }}
                         onContextMenu={(e) => e.preventDefault()}
                     >

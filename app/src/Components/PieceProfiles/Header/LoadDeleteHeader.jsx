@@ -1,18 +1,17 @@
 import React from "react";
 import clsx from "clsx";
-import {PieceName} from "./PieceName";
-import {useHistory} from "react-router-dom";
+import { PieceName } from "./PieceName";
+import { useHistory } from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
-import {deleteDef} from "../../../API/deleteDef";
+import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
-import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
-import {MuiDeleteButton as DeleteButton} from "../../Reuseables/Clickables/MuiDeleteButton";
-import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss";
-import {filterSamples} from "../../../API/filterSamples";
-import {marginRight, useStyles} from "./LoadDeleteHeader.jss";
-import {getModalText, getModalTitle} from "./deleteModalTitleAndText";
-
+import { decrementImgRefCounts } from "../../../API/decrementImgRefCounts";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
+import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
+import { useStyles as useMoreStyles } from "../../PieceProfiles/Header/ProfileHeader.jss";
+import { filterSamples } from "../../../API/filterSamples";
+import { marginRight, useStyles } from "./LoadDeleteHeader.jss";
+import { getModalText, getModalTitle } from "./deleteModalTitleAndText";
 
 function LoadDeleteHeader(props) {
     const {
@@ -86,7 +85,9 @@ function LoadDeleteHeader(props) {
                 </PieceName>
                 <Button
                     theme={theme}
-                    className={clsx(classes.button, {[classes.load_button]:true})}
+                    className={clsx(classes.button, {
+                        [classes.load_button]: true,
+                    })}
                     startIcon={<StorageIcon className={classes.icon} />}
                     onClick={loadMethod}
                 >
@@ -104,7 +105,9 @@ function LoadDeleteHeader(props) {
                         />
                     }
                     variant="outlined"
-                    className={clsx(classes.button, {[classes.delete_button]:true})}
+                    className={clsx(classes.button, {
+                        [classes.delete_button]: true,
+                    })}
                     theme={theme}
                 />
             </div>

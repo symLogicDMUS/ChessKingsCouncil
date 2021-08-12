@@ -12,10 +12,10 @@ export const useStyles = makeStyles(
             width: "50vw",
             marginBottom: 26,
         }),
-        content: props => ({
-            position: 'fixed',
+        content: (props) => ({
+            position: "fixed",
             width: "100vw",
-            height: '100vh',
+            height: "100vh",
             display: "flex",
             flexDirection: "column",
         }),

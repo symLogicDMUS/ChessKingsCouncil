@@ -2,14 +2,13 @@ import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { TextField } from "@material-ui/core";
-import { useStyles as useMoreStyles } from
-        "../../Reuseables/MiniVariantTool/ToolWindow.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./Name.jss";
 
 /*Note: if want to add close button or drag indicator back in use TopArea.jsx  */
 
 function NameModal(props) {
-    const {pieceName, updateName, theme} = props;
+    const { pieceName, updateName, theme } = props;
 
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
@@ -17,7 +16,7 @@ function NameModal(props) {
     const variants = {
         initial: {
             scale: 0,
-            left: 'calc(50vw + 6px)',
+            left: "calc(50vw + 6px)",
         },
         animate: {
             scale: 1,
@@ -27,11 +26,10 @@ function NameModal(props) {
         },
         exit: {
             scale: 0,
-            left: 'calc(50vw + 6px)',
+            left: "calc(50vw + 6px)",
             y: -16,
         },
     };
-
 
     const handleInput = (e) => {
         updateName(e.target.value);

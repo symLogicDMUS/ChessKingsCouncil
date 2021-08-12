@@ -27,7 +27,7 @@ function AIMove({
     const getDestPos = () => {
         const [destX, destY] = rfToXy(aiDest);
         const [destLeft, destTop] = xyToPx(destX, destY, sqrSize);
-        return {left: destLeft, top: destTop, duration: 5 };
+        return { left: destLeft, top: destTop, duration: 5 };
     };
 
     return (
@@ -38,7 +38,7 @@ function AIMove({
                         <motion.img
                             src={piece.src}
                             className={classes.piece}
-                            style={{left: piece.left, top: piece.top }}
+                            style={{ left: piece.left, top: piece.top }}
                             animate={{ ...getDestPos() }}
                             transition={{ duration: 1 }}
                             onAnimationComplete={() => {
@@ -49,7 +49,7 @@ function AIMove({
                         />
                         <Box
                             className={classes.start_sqr}
-                            style={{left: piece.left, top: piece.top }}
+                            style={{ left: piece.left, top: piece.top }}
                         />
                     </Box>
                 </Portal>

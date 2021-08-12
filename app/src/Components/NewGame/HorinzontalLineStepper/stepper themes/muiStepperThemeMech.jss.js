@@ -1,19 +1,19 @@
-import {createMuiTheme} from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core";
 
 export const muiStepperThemeMech = createMuiTheme({
     overrides: {
         MuiStepper: {
             root: {
-                backgroundColor: 'rgba(0, 0, 0, 0)',
+                backgroundColor: "rgba(0, 0, 0, 0)",
             },
         },
         MuiStepIcon: {
             root: {
-                '&$completed': {
-                    color: 'pink',
+                "&$completed": {
+                    color: "pink",
                 },
-                '&$active': {
-                    color: 'red',
+                "&$active": {
+                    color: "red",
                 },
             },
             active: {},
@@ -21,6 +21,6 @@ export const muiStepperThemeMech = createMuiTheme({
         },
     },
     palette: {
-        type: 'dark'
+        type: "dark",
     },
-})
+});

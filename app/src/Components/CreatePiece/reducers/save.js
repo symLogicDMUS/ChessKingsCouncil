@@ -1,11 +1,11 @@
-import {getStepFuncNames} from "../helpers/getStepFuncNames";
-import {getRotations} from "../helpers/getRotations";
-import {flipOffsets} from "../helpers/flipOffsets";
+import { getStepFuncNames } from "../helpers/getStepFuncNames";
+import { getRotations } from "../helpers/getRotations";
+import { flipOffsets } from "../helpers/flipOffsets";
 
 export const save = (state) => {
     const newPiece = {
-        W: {spans: null, offsets: null, img: null, imgFileObj: null},
-        B: {spans: null, offsets: null, img: null, imgFileObj: null},
+        W: { spans: null, offsets: null, img: null, imgFileObj: null },
+        B: { spans: null, offsets: null, img: null, imgFileObj: null },
     };
     const angles = [];
     for (const s of Object.keys(state.spans)) {
@@ -23,5 +23,5 @@ export const save = (state) => {
         ...state,
         newPiece: newPiece,
         saveInstance: state.state.saveInstance + 1,
-    }
+    };
 };

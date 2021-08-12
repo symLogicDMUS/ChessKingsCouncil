@@ -7,7 +7,10 @@ import WallpaperIcon from "@material-ui/icons/Wallpaper";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
 import { SeeMore } from "../../../Reuseables/UserInput/SeeMore";
 import { SearchBox } from "../../../Reuseables/UserInput/SearchBox";
-import {searchBackgroundColor, useStyles} from "../../../Reuseables/Modals/MuiGridTitle.jss";
+import {
+    searchBackgroundColor,
+    useStyles,
+} from "../../../Reuseables/Modals/MuiGridTitle.jss";
 
 export function ImgChoicesTitle({ theme, updateSearchText }) {
     const classes = useStyles({ theme: theme });
@@ -52,8 +55,8 @@ export function ImgChoicesTitle({ theme, updateSearchText }) {
                     icon={
                         <ImageSearchIcon
                             className={clsx(classes.search_icon, {
-                                [classes.small_icon]: true,}
-                                )}
+                                [classes.small_icon]: true,
+                            })}
                         />
                     }
                 />

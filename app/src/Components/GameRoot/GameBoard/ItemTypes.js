@@ -51,5 +51,5 @@ export const ItemTypes = [
     "BW",
     "BX",
     "BY",
-    "BZ"
-]
+    "BZ",
+];

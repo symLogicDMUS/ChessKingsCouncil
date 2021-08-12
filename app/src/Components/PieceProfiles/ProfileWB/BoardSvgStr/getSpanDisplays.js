@@ -1,6 +1,6 @@
-import {getBinaryBoarAllFalse} from "../../../helpers/getBinaryBoardAllFalse";
-import {stepFuncDict2} from "../../../helpers/stepFuncs";
-import {outOfBounds as oob} from "../../../helpers/oob";
+import { getBinaryBoarAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
+import { stepFuncDict2 } from "../../../helpers/stepFuncs";
+import { outOfBounds as oob } from "../../../helpers/oob";
 
 function getSpanDisplay(spanDisplays, funcName, location) {
     const stepFunc = stepFuncDict2[funcName];
@@ -14,8 +14,8 @@ function getSpanDisplay(spanDisplays, funcName, location) {
 
 export const getSpanDisplays = (spans, location) => {
     let spanDisplays = getBinaryBoarAllFalse();
-    spans.forEach(funcName => {
+    spans.forEach((funcName) => {
         spanDisplays = getSpanDisplay(spanDisplays, funcName, location);
     });
     return spanDisplays;
-}
+};

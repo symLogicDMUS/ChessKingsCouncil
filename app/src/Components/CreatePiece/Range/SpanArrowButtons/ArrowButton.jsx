@@ -1,41 +1,35 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import clsx from "clsx";
-import {Frame} from "framer";
+import { Frame } from "framer";
 import Box from "@material-ui/core/Box";
-import {IconButton} from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {icons} from "../../../styles/icons/top/icons.jss";
-import {transition, useStyles, variants} from "./ArrowButton.jss";
+import { icons } from "../../../styles/icons/top/icons.jss";
+import { transition, useStyles, variants } from "./ArrowButton.jss";
 
 const ArrowButton = memo(
-    ({
-        angle,
-        isActive,
-        toggleSpan,
-        screenCase,
-        isOffset,
-        theme,
-    }) => {
+    ({ angle, isActive, toggleSpan, screenCase, isOffset, theme }) => {
         const classes = useStyles({ theme: theme });
 
         return (
             <>
                 <MediaQuery maxWidth={960}>
                     <Frame
-                        width='100%'
-                        height='100%'
-                        initial='start'
-                        animate='end'
+                        width="100%"
+                        height="100%"
+                        initial="start"
+                        animate="end"
                         variants={variants}
                         transition={transition}
-                        backgroundColor='unset'
+                        backgroundColor="unset"
                     >
                         <IconButton
                             onClick={() => toggleSpan(angle)}
                             className={clsx(classes.arrow_button_sm, {
                                 [classes.arrow_button_selected]: isActive,
-                                [classes.arrow_button_adjust]: isOffset && !isActive,
+                                [classes.arrow_button_adjust]:
+                                    isOffset && !isActive,
                                 [classes.hover]: true,
                             })}
                         >

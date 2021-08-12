@@ -1,4 +1,4 @@
-import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
+import { rfToXy, xyToRf } from "../../helpers/crdCnvrt";
 
 export const setOffsetDisplays = (newState) => {
     let [x1, y1] = rfToXy(newState.location);

@@ -1,22 +1,25 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
-import {angleToText} from "../../helpers/spanToText";
-import {offsetToText} from "../../helpers/offsetToText";
-import {useStyles as useMoreStyles} from "../CreatePiece.jss"
+import { angleToText } from "../../helpers/spanToText";
+import { offsetToText } from "../../helpers/offsetToText";
+import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {useStyles} from "./Range.jss";
+import { useStyles } from "./Range.jss";
 
-const SpanArrowButtons = React.lazy(() => import("./SpanArrowButtons/SpanArrowButtons"));
-const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
+const SpanArrowButtons = React.lazy(() =>
+    import("./SpanArrowButtons/SpanArrowButtons")
+);
+const ScrollTable = React.lazy(() =>
+    import("../../Reuseables/ScrollTable/ScrollTable")
+);
 
-
-function Range({spans, offsets, toggleSpan, theme, styles}) {
+function Range({ spans, offsets, toggleSpan, theme, styles }) {
     const isWide = useMediaQuery("(min-width:960px)");
-    const screenCase = isWide ? 'wide' : 'thin';
+    const screenCase = isWide ? "wide" : "thin";
 
-    const classes = useStyles({theme: theme, styles: styles});
-    const classes2 = useMoreStyles({theme: theme})
+    const classes = useStyles({ theme: theme, styles: styles });
+    const classes2 = useMoreStyles({ theme: theme });
 
     const getSpanTextLabels = () => {
         const newSpans = [];

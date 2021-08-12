@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { useStyles as useMoreStyles } from "./Profile.jss";
 import { useStyles } from "./ProfileSkeleton.jss";
 
 function ProfileSkeleton({ theme }) {
-
     const [timeEnded, setTimeEnded] = useState(false);
     const [seconds, setSeconds] = useState(12);
 
@@ -23,14 +22,22 @@ function ProfileSkeleton({ theme }) {
     const classes = useStyles({ theme });
     const classes2 = useMoreStyles({ theme });
 
-    const createPieceLink = <Link to='/CreatePiece' className={classes.text_link}>Create Piece page</Link>;
+    const createPieceLink = (
+        <Link to="/CreatePiece" className={classes.text_link}>
+            Create Piece page
+        </Link>
+    );
 
     return (
         <>
             {timeEnded ? (
                 <div className={classes.no_pieces}>
-                    <Typography variant={"caption"} className={classes.time_ended}>
-                        No saved pieces. To create one, go the the {createPieceLink}.
+                    <Typography
+                        variant={"caption"}
+                        className={classes.time_ended}
+                    >
+                        No saved pieces. To create one, go the the{" "}
+                        {createPieceLink}.
                     </Typography>
                 </div>
             ) : (

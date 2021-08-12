@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import { HelpModal } from "./HelpModal";
-import {ListItem} from "@material-ui/core";
-import {ListItemIcon} from "@material-ui/core";
-import {ListItemText} from "@material-ui/core";
-import {ContactSupport} from "@material-ui/icons";
+import { ListItem } from "@material-ui/core";
+import { ListItemIcon } from "@material-ui/core";
+import { ListItemText } from "@material-ui/core";
+import { ContactSupport } from "@material-ui/icons";
 import { useStyles } from "../NavBarButton.jss";
 
 function HelpButton(props) {

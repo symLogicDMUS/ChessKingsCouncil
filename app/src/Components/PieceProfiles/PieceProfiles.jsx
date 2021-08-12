@@ -1,42 +1,42 @@
 import clsx from "clsx";
 import React from "react";
-import {useEffect} from "react";
-import {useContext} from "react";
-import {useReducer} from "react";
-import {copy} from "../helpers/copy";
-import {getDefs} from "../../API/getDefs";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { useReducer } from "react";
+import { copy } from "../helpers/copy";
+import { getDefs } from "../../API/getDefs";
 import CustomizeHeader from "./Header/CustomizeHeader";
 import LoadDeleteHeader from "./Header/LoadDeleteHeader";
-import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {getSampleDefs} from "../../API/sampleData/getSampleDefs";
+import { ProfileHeaderError } from "./Header/ProfileHeaderError";
+import { getSampleDefs } from "../../API/sampleData/getSampleDefs";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {UserContext} from "../../Context/UserContext";
-import {reducer} from "./PieceProfiles.red";
-import {useStyles} from "./PieceProfiles.jss";
+import { UserContext } from "../../Context/UserContext";
+import { reducer } from "./PieceProfiles.red";
+import { useStyles } from "./PieceProfiles.jss";
 
-const Profile = React.lazy(() => import('./Profile'));
-const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
+const Profile = React.lazy(() => import("./Profile"));
+const ProfileSkeleton = React.lazy(() => import("./ProfileSkeleton"));
 
 /*children is a header or none, depending on the parent page*/
-function PieceProfiles (props) {
+function PieceProfiles(props) {
     const {
-        updateParent, 
-        parentPage, 
-        load, 
-        erase, 
-        expand, 
-        subs, 
-        promos, 
-        toggleSub, 
-        togglePromo, 
-        toggleModal, 
+        updateParent,
+        parentPage,
+        load,
+        erase,
+        expand,
+        subs,
+        promos,
+        toggleSub,
+        togglePromo,
+        toggleModal,
         searchText,
         className,
-        theme, 
-        children
+        theme,
+        children,
     } = props;
-    
-    const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
+
+    const [state, dispatch] = useReducer(reducer, { defs: {}, loaded: false });
 
     const uid = useContext(UserContext);
     useEffect(() => {
@@ -44,24 +44,22 @@ function PieceProfiles (props) {
         if (uid) {
             getDefs().then(([result]) => {
                 if (!result) {
-                    defs = {}
+                    defs = {};
                 } else {
                     defs = result;
                 }
-                afterLoaded(defs)
+                afterLoaded(defs);
             });
+        } else {
+            defs = getSampleDefs();
+            afterLoaded(defs);
         }
-        else {
-            defs = getSampleDefs()
-            afterLoaded(defs)
-        }
-
     }, [uid]);
 
     const isWide = useMediaQuery("(min-width:960px)");
-    const screenCase = isWide ? 'wide' : 'thin';
+    const screenCase = isWide ? "wide" : "thin";
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const afterLoaded = (defs) => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
@@ -73,8 +71,8 @@ function PieceProfiles (props) {
                 delete defs[pieceName];
             }
         }
-        dispatch({type: "load", payload: defs, theme: theme});
-    }
+        dispatch({ type: "load", payload: defs, theme: theme });
+    };
 
     const getPieceNames = () => {
         if (searchText && searchText !== "") {
@@ -89,10 +87,7 @@ function PieceProfiles (props) {
     const getProfiles = () => {
         const profiles = [];
         const pieceNames = getPieceNames();
-        if (
-            parentPage === "CreatePiece" ||
-            parentPage === "MyPieces"
-        ) {
+        if (parentPage === "CreatePiece" || parentPage === "MyPieces") {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
@@ -143,23 +138,24 @@ function PieceProfiles (props) {
                 );
             }
         } else {
-            return <ProfileHeaderError/>;
+            return <ProfileHeaderError />;
         }
 
         return profiles;
     };
 
     return (
-        <div className={clsx(classes.piece_profiles, {
-            [className]: className,
-        })}
+        <div
+            className={clsx(classes.piece_profiles, {
+                [className]: className,
+            })}
         >
             {children}
             <div className={classes.profiles_area}>
                 {state.loaded ? (
                     getProfiles()
                 ) : (
-                    <ProfileSkeleton theme={theme}/>
+                    <ProfileSkeleton theme={theme} />
                 )}
             </div>
         </div>

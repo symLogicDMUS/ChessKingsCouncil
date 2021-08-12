@@ -1,5 +1,5 @@
 import React from "react";
-import {themes} from "../../styles/themes/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 
 export const fourLocationsBoard = (className, theme) => (
     <svg
@@ -462,7 +462,7 @@ export const fourLocationsBoard = (className, theme) => (
                 fontSize="50"
                 transform="translate(938 1552)"
                 fontFamily="SegoeUI, Segoe UI"
-                fill='#fff'
+                fill="#fff"
             >
                 <tspan x="0" y="0">
                     D4
@@ -474,7 +474,7 @@ export const fourLocationsBoard = (className, theme) => (
                 fontSize="50"
                 transform="translate(1035 1552)"
                 fontFamily="SegoeUI, Segoe UI"
-                fill='#fff'
+                fill="#fff"
             >
                 <tspan x="0" y="0">
                     E4
@@ -486,7 +486,7 @@ export const fourLocationsBoard = (className, theme) => (
                 fontSize="50"
                 transform="translate(938 1462)"
                 fontFamily="SegoeUI, Segoe UI"
-                fill='#fff'
+                fill="#fff"
             >
                 <tspan x="0" y="0">
                     D5
@@ -496,10 +496,10 @@ export const fourLocationsBoard = (className, theme) => (
                 id="E5-2"
                 data-name="E5"
                 fontSize="50"
-                color='#fff'
+                color="#fff"
                 transform="translate(1035 1462)"
                 fontFamily="SegoeUI, Segoe UI"
-                fill='#fff'
+                fill="#fff"
             >
                 <tspan x="0" y="0">
                     E5

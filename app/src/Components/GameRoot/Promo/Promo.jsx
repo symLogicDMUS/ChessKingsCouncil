@@ -1,7 +1,4 @@
-import React, {
-    useEffect,
-    useReducer,
-    useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { PromoChoice } from "./PromoChoice";
@@ -12,7 +9,7 @@ import ForwardIcon from "@material-ui/icons/Forward";
 import { ArrowLeft, ArrowRight } from "@material-ui/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Backdrop, IconButton, Portal } from "@material-ui/core";
-import {standardPieceNames} from "../../helpers/standardPieceNames";
+import { standardPieceNames } from "../../helpers/standardPieceNames";
 import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
 import { specialThemeList } from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import { franchisePieceImgs } from "../../styles/themes/specialThemeImgs/franchisePieceImgs";
@@ -46,7 +43,10 @@ function Promo(props) {
 
     const getPromoImg = () => {
         const pieceName = props.promoChoices[state.current];
-        if (standardPieceNames.includes(pieceName) && specialThemeList.includes(props.theme)) {
+        if (
+            standardPieceNames.includes(pieceName) &&
+            specialThemeList.includes(props.theme)
+        ) {
             return franchisePieceImgs[props.theme][pieceName][props.color];
         } else {
             return props.defs[pieceName][props.color].img;
@@ -163,9 +163,7 @@ function Promo(props) {
                         color={props.color}
                         pieceName={pieceName}
                         pieceId={props.pieceDict[pieceName]}
-                        isCurrent={
-                            currentPieceName === pieceName
-                        }
+                        isCurrent={currentPieceName === pieceName}
                         isLast={i === props.promoChoices.length - 1}
                         reverseDirection={state.reverseDirection}
                         direction={state.direction}
@@ -195,7 +193,7 @@ function Promo(props) {
                             className={clsx(classes.icon, {
                                 [classes.icon2]: true,
                             })}
-                            edge={'end'}
+                            edge={"end"}
                         >
                             <ListAltIcon />
                         </IconButton>

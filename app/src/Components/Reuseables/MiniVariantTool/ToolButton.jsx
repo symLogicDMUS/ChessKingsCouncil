@@ -31,7 +31,7 @@ function ToolButton({ onClick, isActive, iconName, text, theme, children }) {
                     className={clsx(classes.text, {
                         [classes.active_color]: isActive,
                         [classes.inactive_color]: !isActive,
-                        [classes.non_descender]: ! containsDescenders(text),
+                        [classes.non_descender]: !containsDescenders(text),
                     })}
                 />
             </ListItem>

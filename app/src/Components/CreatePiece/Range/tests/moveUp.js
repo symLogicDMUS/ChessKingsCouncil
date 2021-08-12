@@ -1,14 +1,8 @@
-let aboveView = [1, 
-                 2, 
-                 3];
+let aboveView = [1, 2, 3];
 
-let inView =    [4, 
-                 5, 
-                 6];
+let inView = [4, 5, 6];
 
-let belowView = [7, 
-                 8, 
-                 9];
+let belowView = [7, 8, 9];
 
 function moveUp() {
     let firstIn = inView.shift();

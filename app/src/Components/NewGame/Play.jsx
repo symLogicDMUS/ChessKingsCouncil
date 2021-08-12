@@ -1,8 +1,14 @@
 import clsx from "clsx";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { invalids } from "../helpers/invalids";
 import Button from "@material-ui/core/Button";
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from "@material-ui/core";
 import { useStyles } from "./Play.jss";
 
 function Play(props) {
@@ -20,27 +26,34 @@ function Play(props) {
 
     const getMessage = () => {
         const message = ["you need to choose a "];
-        if (! playerType) message.push("player type");
-        if (! gameType) message.push("game type");
-        if (! gameName) message.push("game name");
+        if (!playerType) message.push("player type");
+        if (!gameType) message.push("game type");
+        if (!gameName) message.push("game name");
 
         if (message.length === 1) {
             return null;
         }
 
-        if (message.length===2) {
+        if (message.length === 2) {
             return message[0] + message[1] + ".";
         }
 
-        if (message.length===3) {
+        if (message.length === 3) {
             return message[0] + message[1] + " and a " + message[2] + ".";
         }
 
-        return message[0] + message[1] + ", " + message[2] + ", and " + message[3] + ".";
-
+        return (
+            message[0] +
+            message[1] +
+            ", " +
+            message[2] +
+            ", and " +
+            message[3] +
+            "."
+        );
     };
 
-    const isDisabled = ! (
+    const isDisabled = !(
         playerType &&
         gameType &&
         gameName !== "" &&
@@ -49,9 +62,8 @@ function Play(props) {
 
     const onClick = () => {
         if (isDisabled) {
-            setShowMessage(true)
-        }
-        else {
+            setShowMessage(true);
+        } else {
             finish();
         }
     };
@@ -61,11 +73,14 @@ function Play(props) {
             <Button
                 onClick={onClick}
                 variant={"contained"}
-                className={clsx({[classes.disabled]: isDisabled})}
+                className={clsx({ [classes.disabled]: isDisabled })}
             >
                 Play
             </Button>
-            <Dialog open={showMessage} onBackdropClick={() => setShowMessage(false)}>
+            <Dialog
+                open={showMessage}
+                onBackdropClick={() => setShowMessage(false)}
+            >
                 <DialogTitle className={classes.dialog}>
                     You haven't entered all the necessary information.
                 </DialogTitle>
@@ -75,7 +90,11 @@ function Play(props) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions className={classes.dialog}>
-                    <Button className={classes.dialog_button} onClick={() => setShowMessage(false)} variant={"contained"}>
+                    <Button
+                        className={classes.dialog_button}
+                        onClick={() => setShowMessage(false)}
+                        variant={"contained"}
+                    >
                         Ok
                     </Button>
                 </DialogActions>

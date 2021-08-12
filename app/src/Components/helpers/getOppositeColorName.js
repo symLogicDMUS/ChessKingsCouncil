@@ -1,1 +1,2 @@
-export const getOppositeColorName = (color) => color === 'W' ? "Black" : "White"; 
+export const getOppositeColorName = (color) =>
+    color === "W" ? "Black" : "White";

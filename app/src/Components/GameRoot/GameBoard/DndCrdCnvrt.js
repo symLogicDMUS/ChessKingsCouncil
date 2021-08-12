@@ -1,9 +1,9 @@
-import {sqrSize} from "../../Reuseables/Board/Board.jss";
+import { sqrSize } from "../../Reuseables/Board/Board.jss";
 
 const xMapR = [null, "a", "b", "c", "d", "e", "f", "g", "h"];
 const yMapUnitTop = [null, 7, 6, 5, 4, 3, 2, 1, 0];
-const unitLeftMapX = [1, 2, 3, 4, 5, 6, 7, 8]
-const unitTopMapY = [8, 7, 6, 5, 4, 3, 2, 1]
+const unitLeftMapX = [1, 2, 3, 4, 5, 6, 7, 8];
+const unitTopMapY = [8, 7, 6, 5, 4, 3, 2, 1];
 
 export function xyToRf(x, y) {
     const r = xMapR[x];
@@ -18,9 +18,9 @@ export function rfToXy(rf) {
 }
 
 export function xyToPx(x, y, sqrSize) {
-    let left = (x-1)*sqrSize
-    let top = yMapUnitTop[y]*sqrSize
-    return [left, top]
+    let left = (x - 1) * sqrSize;
+    let top = yMapUnitTop[y] * sqrSize;
+    return [left, top];
 }
 
 /**
@@ -34,8 +34,8 @@ export function xyToPx(x, y, sqrSize) {
  * @attr: unitTop: the position top if the board was 8px by 8px and each square was 1px by 1px
  */
 export function pxPosToXy(left, top, sqrSize) {
-    let unitLeft = Math.round(left / (sqrSize));
-    let unitTop = Math.round(top / (sqrSize));
+    let unitLeft = Math.round(left / sqrSize);
+    let unitTop = Math.round(top / sqrSize);
     return [unitLeftMapX[unitLeft], unitTopMapY[unitTop]];
 }
 

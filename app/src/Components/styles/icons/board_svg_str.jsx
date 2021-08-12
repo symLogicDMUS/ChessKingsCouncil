@@ -1,4 +1,4 @@
-export const board_svg_str = (svgPieces) => (`
+export const board_svg_str = (svgPieces) => `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480">
   <g id="Group_2" data-name="Group 2" transform="translate(-685 -79.752)">
     <g id="Group_1" data-name="Group 1" transform="translate(685 79.736)">
@@ -80,4 +80,4 @@ export const board_svg_str = (svgPieces) => (`
     </g>
   </g>
 </svg>
-`)
+`;

@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
 
-const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ProfilesModal = React.lazy(() => import('./ProfilesModal'));
-const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
+const Option = React.lazy(() => import("../../Reuseables/Clickables/Option"));
+const ProfilesModal = React.lazy(() => import("./ProfilesModal"));
+const ToolButton = React.lazy(() =>
+    import("../../Reuseables/MiniVariantTool/ToolButton")
+);
 
 function Load(props) {
-    const {
-        load,
-        erase,
-        theme,
-        buttonType,
-        className,
-    } = props;
+    const { load, erase, theme, buttonType, className } = props;
 
     const [modal, setModal] = useState(false);
 

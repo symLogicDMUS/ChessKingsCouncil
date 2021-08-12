@@ -1,7 +1,12 @@
 import React from "react";
-import {useStyles} from "./IconModalButton.jss";
+import { useStyles } from "./IconModalButton.jss";
 
-export function IconModalButton({ buttonText, buttonType, clickMethod, imgNameChoice }) {
+export function IconModalButton({
+    buttonText,
+    buttonType,
+    clickMethod,
+    imgNameChoice,
+}) {
     const classes = useStyles();
     return (
         <button

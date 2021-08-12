@@ -5,7 +5,12 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { MuiButton } from "../Clickables/MuiButton";
 import { StandardModal } from "../Modals/StandardModal";
 import { icons } from "../../styles/icons/top/icons.jss";
-import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
+import {
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Portal,
+} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../Modals/StandardModal.jss";
 import { useStyles } from "./NavBarButton.jss";
 
@@ -23,7 +28,7 @@ function NavBarButton(props) {
     const history = useHistory();
     const [redirectModal, toggleRedirectModal] = useState(false);
 
-    const classes = useStyles({theme: theme, screenCase: screenCase,});
+    const classes = useStyles({ theme: theme, screenCase: screenCase });
     const classes2 = useMoreStyles({ theme });
 
     const goToPage = () => {
@@ -52,7 +57,9 @@ function NavBarButton(props) {
                     >
                         <MuiButton
                             onClick={() => goToPage()}
-                            className={clsx(classes2.button, {[classes2.yes_button]: true})}
+                            className={clsx(classes2.button, {
+                                [classes2.yes_button]: true,
+                            })}
                             variant={"contained"}
                             theme={theme}
                         >
@@ -60,7 +67,9 @@ function NavBarButton(props) {
                         </MuiButton>
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
-                            className={clsx(classes2.button, {[classes2.no_button]:true})}
+                            className={clsx(classes2.button, {
+                                [classes2.no_button]: true,
+                            })}
                             variant={"contained"}
                             theme={theme}
                         >
@@ -75,13 +84,9 @@ function NavBarButton(props) {
                 className={classes.nav_bar_button}
             >
                 <ListItemIcon>
-                    <SvgIcon>
-                        {icons[pageIcon]}
-                    </SvgIcon>
+                    <SvgIcon>{icons[pageIcon]}</SvgIcon>
                 </ListItemIcon>
-                <ListItemText primary={pageName}>
-                    {pageName}
-                </ListItemText>
+                <ListItemText primary={pageName}>{pageName}</ListItemText>
             </ListItem>
         </>
     );

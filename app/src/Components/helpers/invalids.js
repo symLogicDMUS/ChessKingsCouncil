@@ -1,1 +1,1 @@
-export const invalids = [ ".", "#", "$", "[", "]"];
+export const invalids = [".", "#", "$", "[", "]"];

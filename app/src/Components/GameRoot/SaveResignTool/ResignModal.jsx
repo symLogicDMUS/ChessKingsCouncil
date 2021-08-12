@@ -1,8 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { useStyles as useMoreStyles }
-        from "../../Reuseables/Modals/StandardModal.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/Modals/StandardModal.jss";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./ResignModal.jss";
 

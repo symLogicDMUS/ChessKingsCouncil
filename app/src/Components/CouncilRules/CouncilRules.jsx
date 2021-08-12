@@ -1,25 +1,25 @@
 import clsx from "clsx";
 import React from "react";
-import {useState} from "react";
-import {useContext} from "react";
+import { useState } from "react";
+import { useContext } from "react";
 import AppBar from "@material-ui/core/AppBar";
-import {useTheme} from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
 import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import {ThemeContext} from "../../Context/ThemeContext";
+import { ThemeContext } from "../../Context/ThemeContext";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import {CouncilRulesBody} from "./CouncilRulesBody";
+import { CouncilRulesBody } from "./CouncilRulesBody";
 import NavBar from "../Reuseables/NavBar/NavBar";
-import {useStyles} from "./CouncilRules.jss";
+import { useStyles } from "./CouncilRules.jss";
 
 function CouncilRules() {
-    const {themes, themeDispatch} = useContext(ThemeContext);
+    const { themes, themeDispatch } = useContext(ThemeContext);
     const classes = useStyles({ theme: themes.councilRules });
     const muiTheme = useTheme();
 
@@ -89,7 +89,7 @@ function CouncilRules() {
                 <Divider />
                 <NavBar
                     theme={themes.councilRules}
-                    currentPage={'CouncilRules'}
+                    currentPage={"CouncilRules"}
                     helpText={null}
                 />
             </Drawer>

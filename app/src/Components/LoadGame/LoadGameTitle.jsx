@@ -1,19 +1,22 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
-import {SeeMore} from "../Reuseables/UserInput/SeeMore";
+import { SeeMore } from "../Reuseables/UserInput/SeeMore";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
-import { searchBackgroundColor, useStyles} from "../Reuseables/Modals/MuiGridTitle.jss";
+import {
+    searchBackgroundColor,
+    useStyles,
+} from "../Reuseables/Modals/MuiGridTitle.jss";
 import SearchIcon from "@material-ui/icons/Search";
-import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {icons} from "../styles/icons/top/icons.jss";
+import { SearchBox } from "../Reuseables/UserInput/SearchBox";
+import { icons } from "../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {MoreVert} from "@material-ui/icons";
+import { MoreVert } from "@material-ui/icons";
 
-export function LoadGameTitle({updateSearchText, theme}) {
-    const classes = useStyles({theme});
+export function LoadGameTitle({ updateSearchText, theme }) {
+    const classes = useStyles({ theme });
 
     return (
         <Box className={classes.title_area}>
@@ -57,8 +60,8 @@ export function LoadGameTitle({updateSearchText, theme}) {
                     icon={
                         <SearchIcon
                             className={clsx(classes.search_icon, {
-                                [classes.small_icon]: true,}
-                            )}
+                                [classes.small_icon]: true,
+                            })}
                         />
                     }
                 />

@@ -1,6 +1,6 @@
 export function toggleOffsetText(state) {
     return {
         ...state,
-        showOffsetText: ! this.state.showOffsetText,
-    }
+        showOffsetText: !this.state.showOffsetText,
+    };
 }

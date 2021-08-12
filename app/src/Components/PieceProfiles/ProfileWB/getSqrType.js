@@ -1,4 +1,4 @@
-import {binaryBoard} from "../../helpers/binaryBoard";
+import { binaryBoard } from "../../helpers/binaryBoard";
 
 export function getSqrType(rangeBoard, rf, sqrType, rangeType) {
     if (rangeBoard[rf]) {

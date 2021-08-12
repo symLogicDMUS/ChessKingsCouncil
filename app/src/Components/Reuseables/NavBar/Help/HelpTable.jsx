@@ -1,8 +1,8 @@
 import React from "react";
-import {Dialog} from "@material-ui/core";
-import {DialogTitle} from "@material-ui/core";
-import {DialogContent} from "@material-ui/core";
-import {Typography} from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
+import { DialogTitle } from "@material-ui/core";
+import { DialogContent } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import MuiAccordion from "../../Accordions/MuiAccordion";
@@ -77,7 +77,9 @@ export function HelpTable(props) {
                         <ListItem
                             button
                             className={classes.list_item}
-                            onClick={() => setHelpItem("create piece page options")}
+                            onClick={() =>
+                                setHelpItem("create piece page options")
+                            }
                         >
                             Options (Load, Save, Reset, Erase)
                         </ListItem>
@@ -99,7 +101,9 @@ export function HelpTable(props) {
                             button
                             className={classes.list_item}
                             onClick={() =>
-                                setHelpItem("subbing your pieces for regular ones")
+                                setHelpItem(
+                                    "subbing your pieces for regular ones"
+                                )
                             }
                         >
                             Subbing Your Pieces For Regular ones

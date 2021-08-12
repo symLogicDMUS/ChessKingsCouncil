@@ -1,6 +1,11 @@
 import React from "react";
 export const council_rules = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+    >
         <g id="g2640-2-3" transform="translate(-4.751 -4.615)">
             <path
                 id="path3205-8-5"

@@ -21,9 +21,7 @@ export function SpanLabel({ theme, showSpanText }) {
             height="100%"
         >
             {showSpanText && (
-                <Typography className={classes.sqr_text}>
-                    span
-                </Typography>
+                <Typography className={classes.sqr_text}>span</Typography>
             )}
         </Frame>
     );

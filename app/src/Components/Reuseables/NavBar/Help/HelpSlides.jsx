@@ -1,25 +1,27 @@
 import React from "react";
-import {HelpTitle} from "./HelpTitle";
-import {HelpSlide} from "./HelpSlide";
-import {RangeAnalysisExample} from "../../../GameRoot/Help/RangeAnalysisExample";
-import {GameTypesExplained} from "./Extra/GameTypesExplained";
-import {PlayerTypesExplained} from "./Extra/PlayerTypesExplained";
-import {NamingAPieceExplained} from "../../../CreatePiece/Help/NamingAPieceExplained";
-import {ImageUploadExplanation} from "../../../CreatePiece/Help/ImageUploadExplanation";
-import {OptionsToolExplanation} from "../../../CreatePiece/Help/OptionsToolExplanation";
-import {LocationToolExplanation} from "../../../CreatePiece/Help/LocationToolExplanation";
-import {OffsetsAndSpansExplanation} from "../../../CreatePiece/Help/OffsetsAndSpansExplanation";
-import {MakingYourPieceAnOptionForPawnsToPromoteTo} from "./Extra/MakingYourPieceAnOptionForPawnsToPromoteTo";
-import {LoadingAndDeletingPiecesHelp} from "../../../MyPieces/Help/LoadingAndDeletingPiecesHelp";
-import {SubbingYourPiecesForRegularOnes} from "./Extra/SubbingYourPiecesForRegularOnes";
-import {PieceProfilesHelp} from "../../../PieceProfiles/Help/PieceProfilesHelp";
-import {GameNameText} from "../../../NewGame/GameOptions/Help/GameNameText";
-import {PlayingGameHelp} from "../../../GameRoot/Help/PlayingGameHelp";
-import {useStyles} from "./HelpSlides.jss";
-import {GameImageGridExplained} from "../../../LoadGame/GameSnapshot/GameImageGridExplained";
-import {GameplayText} from "../../../GameRoot/Help/GameplayText";
+import { HelpTitle } from "./HelpTitle";
+import { HelpSlide } from "./HelpSlide";
+import { RangeAnalysisExample } from "../../../GameRoot/Help/RangeAnalysisExample";
+import { GameTypesExplained } from "./Extra/GameTypesExplained";
+import { PlayerTypesExplained } from "./Extra/PlayerTypesExplained";
+import { NamingAPieceExplained } from "../../../CreatePiece/Help/NamingAPieceExplained";
+import { ImageUploadExplanation } from "../../../CreatePiece/Help/ImageUploadExplanation";
+import { OptionsToolExplanation } from "../../../CreatePiece/Help/OptionsToolExplanation";
+import { LocationToolExplanation } from "../../../CreatePiece/Help/LocationToolExplanation";
+import { OffsetsAndSpansExplanation } from "../../../CreatePiece/Help/OffsetsAndSpansExplanation";
+import { MakingYourPieceAnOptionForPawnsToPromoteTo } from "./Extra/MakingYourPieceAnOptionForPawnsToPromoteTo";
+import { LoadingAndDeletingPiecesHelp } from "../../../MyPieces/Help/LoadingAndDeletingPiecesHelp";
+import { SubbingYourPiecesForRegularOnes } from "./Extra/SubbingYourPiecesForRegularOnes";
+import { PieceProfilesHelp } from "../../../PieceProfiles/Help/PieceProfilesHelp";
+import { GameNameText } from "../../../NewGame/GameOptions/Help/GameNameText";
+import { PlayingGameHelp } from "../../../GameRoot/Help/PlayingGameHelp";
+import { useStyles } from "./HelpSlides.jss";
+import { GameImageGridExplained } from "../../../LoadGame/GameSnapshot/GameImageGridExplained";
+import { GameplayText } from "../../../GameRoot/Help/GameplayText";
 
-const PuttingThePieceICreatedIntoAGame = React.lazy(() => import('./Extra/PuttingThePieceICreatedIntoAGame'));
+const PuttingThePieceICreatedIntoAGame = React.lazy(() =>
+    import("./Extra/PuttingThePieceICreatedIntoAGame")
+);
 
 export function HelpSlides({ helpItem, setHelpItem, theme }) {
     const classes = useStyles({ theme });
@@ -48,33 +50,25 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     }
                     theme={theme}
                 >
-                    {<GameNameText key='new-game-help' theme={theme}/>}
+                    {<GameNameText key="new-game-help" theme={theme} />}
                 </HelpSlide>
             ) : null}
             {helpItem === "text" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
-                    title={
-                        <HelpTitle theme={theme}>
-                            game types
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>game types</HelpTitle>}
                 >
-                    <GameTypesExplained theme={theme}/>
+                    <GameTypesExplained theme={theme} />
                 </HelpSlide>
             ) : null}
             {helpItem === "player types" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
-                    title={
-                        <HelpTitle theme={theme}>
-                            player types
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>player types</HelpTitle>}
                 >
-                    <PlayerTypesExplained theme={theme}/>
+                    <PlayerTypesExplained theme={theme} />
                 </HelpSlide>
             ) : null}
             {helpItem === "range display" ? (
@@ -100,7 +94,10 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                         </HelpTitle>
                     }
                 >
-                    <NamingAPieceExplained key='invalid-name-explanation' theme={theme}/>
+                    <NamingAPieceExplained
+                        key="invalid-name-explanation"
+                        theme={theme}
+                    />
                 </HelpSlide>
             ) : null}
             {helpItem === "uploading images for your piece" ? (
@@ -113,7 +110,10 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                         </HelpTitle>
                     }
                 >
-                    <ImageUploadExplanation key='invalid-upload-explanation' theme={theme}/>
+                    <ImageUploadExplanation
+                        key="invalid-upload-explanation"
+                        theme={theme}
+                    />
                 </HelpSlide>
             ) : null}
             {helpItem === "offsets and spans explained" ? (
@@ -126,10 +126,14 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                         </HelpTitle>
                     }
                 >
-                    <OffsetsAndSpansExplanation key='offsets-and-spans-explanation' theme={theme}/>
+                    <OffsetsAndSpansExplanation
+                        key="offsets-and-spans-explanation"
+                        theme={theme}
+                    />
                 </HelpSlide>
             ) : null}
-            {helpItem === "location of the piece on the board when creating it" ? (
+            {helpItem ===
+            "location of the piece on the board when creating it" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
@@ -147,52 +151,44 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                        >
-                            Create Piece Page Options (Load, Save, Reset, and Erase)
+                        <HelpTitle theme={theme}>
+                            Create Piece Page Options (Load, Save, Reset, and
+                            Erase)
                         </HelpTitle>
                     }
                 >
-                    <OptionsToolExplanation theme={theme}/>
+                    <OptionsToolExplanation theme={theme} />
                 </HelpSlide>
             ) : null}
             {helpItem === "loading and deleting pieces" ? (
                 <HelpSlide
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 3 }}
-                    title={
-                        <HelpTitle theme={theme}>
-                            Saved Pieces
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>Saved Pieces</HelpTitle>}
                     theme={theme}
                 >
-                    <LoadingAndDeletingPiecesHelp theme={theme}/>
+                    <LoadingAndDeletingPiecesHelp theme={theme} />
                 </HelpSlide>
             ) : null}
             {helpItem === "make your piece a pawn promotion option" ? (
-                    <HelpSlide
-                        onClose={() => setHelpItem(null)}
-                        initialState={{ pos: 0, numSlides: 3 }}
-                        title={
-                            <HelpTitle theme={theme}>
-                                Saved Pieces
-                            </HelpTitle>
-                        }
+                <HelpSlide
+                    onClose={() => setHelpItem(null)}
+                    initialState={{ pos: 0, numSlides: 3 }}
+                    title={<HelpTitle theme={theme}>Saved Pieces</HelpTitle>}
+                    theme={theme}
+                >
+                    <MakingYourPieceAnOptionForPawnsToPromoteTo
                         theme={theme}
-                    >
-                        <MakingYourPieceAnOptionForPawnsToPromoteTo theme={theme} onClose={() => setHelpItem(null)} />
-                    </HelpSlide>
+                        onClose={() => setHelpItem(null)}
+                    />
+                </HelpSlide>
             ) : null}
             {helpItem === "subbing your pieces for regular ones" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                        >
+                        <HelpTitle theme={theme}>
                             subbing your pieces for regular ones
                         </HelpTitle>
                     }
@@ -204,27 +200,17 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                 <HelpSlide
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 2 }}
-                    title={
-                        <HelpTitle theme={theme}>
-                            Playing a Game
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>Playing a Game</HelpTitle>}
                     theme={theme}
                 >
-                    <GameplayText theme={theme}/>
+                    <GameplayText theme={theme} />
                 </HelpSlide>
             ) : null}
             {helpItem === "piece profiles" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
-                    title={
-                        <HelpTitle
-                            theme={theme}
-                        >
-                            Piece Profiles
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>Piece Profiles</HelpTitle>}
                 >
                     <PieceProfilesHelp theme={theme} />
                 </HelpSlide>
@@ -233,13 +219,7 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
-                    title={
-                        <HelpTitle
-                            theme={theme}
-                        >
-                            Piece Profiles
-                        </HelpTitle>
-                    }
+                    title={<HelpTitle theme={theme}>Piece Profiles</HelpTitle>}
                 >
                     <GameImageGridExplained theme={theme} />
                 </HelpSlide>

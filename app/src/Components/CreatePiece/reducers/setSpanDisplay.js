@@ -1,5 +1,5 @@
-import {stepFuncDict} from "../../helpers/stepFuncs";
-import {outOfBounds as oob} from "../../helpers/oob";
+import { stepFuncDict } from "../../helpers/stepFuncs";
+import { outOfBounds as oob } from "../../helpers/oob";
 
 export const setDisplaySpan = (newState, angle) => {
     const stepFunc = stepFuncDict[angle];

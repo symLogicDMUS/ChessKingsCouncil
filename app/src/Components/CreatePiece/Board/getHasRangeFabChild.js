@@ -1,4 +1,1 @@
-export const getHasRangeFabChild = (pieceLoc, rf) => {
-
-
-};
+export const getHasRangeFabChild = (pieceLoc, rf) => {};

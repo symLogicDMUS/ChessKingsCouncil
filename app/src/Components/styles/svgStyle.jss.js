@@ -1,1 +1,1 @@
-export const svgStyle = {width: "inherit", height: "inherit"};
+export const svgStyle = { width: "inherit", height: "inherit" };

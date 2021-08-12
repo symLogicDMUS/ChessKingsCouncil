@@ -5,5 +5,5 @@ export const saveCallback = (state) => {
         newUpload: false,
         uploadPiece: false,
         unsavedChanges: false,
-    }
+    };
 };

@@ -4,7 +4,7 @@ export const useStyles = makeStyles(
     {
         tabPanel: (props) => ({
             zIndex: 0,
-            margin: 'auto',
+            margin: "auto",
         }),
     },
     { index: 1 }

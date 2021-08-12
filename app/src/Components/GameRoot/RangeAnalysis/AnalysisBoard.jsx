@@ -5,12 +5,12 @@ import { isSpecial } from "../../helpers/isSpecial";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { getPieceImg } from "../../styles/themes/specialThemeImgs/getPieceImg";
 import { getFranchisePieceImg } from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
-import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
-import {standardPieceNames} from "../../helpers/standardPieceNames";
+import { specialThemeList } from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
+import { standardPieceNames } from "../../helpers/standardPieceNames";
 import { useStyles } from "./AnalysisBoard.jss";
 
-const AnalysisSquare = React.lazy(() => import('./AnalysisSquare'));
-const AnalysisPiece = React.lazy(() => import('./AnalysisPiece'));
+const AnalysisSquare = React.lazy(() => import("./AnalysisSquare"));
+const AnalysisPiece = React.lazy(() => import("./AnalysisPiece"));
 
 function AnalysisBoard({
     theme,
@@ -106,7 +106,11 @@ function AnalysisBoard({
         return squares;
     };
 
-    return <div className={clsx(classes.board, {[classes.outline]: lg})}>{getBoard()}</div>;
+    return (
+        <div className={clsx(classes.board, { [classes.outline]: lg })}>
+            {getBoard()}
+        </div>
+    );
 }
 
 export default AnalysisBoard;

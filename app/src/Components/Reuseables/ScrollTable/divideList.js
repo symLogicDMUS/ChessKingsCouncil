@@ -19,6 +19,6 @@ export function divideList(listItems, numRows) {
         }
     } else {
         inView = listItems;
-    };
-    return {aboveView: aboveView, inView: inView, belowView: belowView}
+    }
+    return { aboveView: aboveView, inView: inView, belowView: belowView };
 }

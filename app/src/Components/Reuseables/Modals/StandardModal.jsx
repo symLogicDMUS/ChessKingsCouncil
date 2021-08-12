@@ -1,5 +1,5 @@
 import React from "react";
-import {Close} from "./Close";
+import { Close } from "./Close";
 import Box from "@material-ui/core/Box";
 import {
     Dialog,
@@ -9,7 +9,6 @@ import {
     DialogTitle,
 } from "@material-ui/core";
 import { useStyles } from "./StandardModal.jss";
-
 
 export function StandardModal({ text, title, theme, closeClick, children }) {
     const classes = useStyles({ theme: theme });
@@ -32,18 +31,13 @@ export function StandardModal({ text, title, theme, closeClick, children }) {
                     theme={theme}
                 />
             </Box>
-            <DialogTitle className={classes.title}>
-                {title}
-            </DialogTitle>
+            <DialogTitle className={classes.title}>{title}</DialogTitle>
             <DialogContent>
                 <DialogContentText className={classes.paragraph}>
                     {text}
                 </DialogContentText>
-                <DialogActions>
-                    {children}
-                </DialogActions>
+                <DialogActions>{children}</DialogActions>
             </DialogContent>
         </Dialog>
-
     );
 }

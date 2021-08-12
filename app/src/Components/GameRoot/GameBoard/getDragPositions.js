@@ -1,4 +1,4 @@
-import {snapToGrid} from "./snapToGrid";
+import { snapToGrid } from "./snapToGrid";
 
 /**
  * only applies to object being dragged
@@ -6,10 +6,10 @@ import {snapToGrid} from "./snapToGrid";
 export function getDragPositions(initialOffset, currentOffset) {
     if (!initialOffset || !currentOffset) {
         return {
-            display: 'none',
+            display: "none",
         };
     }
-    let {x, y} = currentOffset;
+    let { x, y } = currentOffset;
     const transform = `translate(${x}px, ${y}px)`;
     return {
         transform,

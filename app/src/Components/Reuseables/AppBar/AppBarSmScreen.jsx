@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import {useStyles as useMoreStyles} from "../Drawers/ResponsiveDrawer.jss";
+import { useStyles as useMoreStyles } from "../Drawers/ResponsiveDrawer.jss";
 import { useStyles } from "./AppBarSmScreen.jss";
 
 function AppBarSmScreen(props) {
@@ -18,17 +18,17 @@ function AppBarSmScreen(props) {
         ...other
     } = props;
 
-    const classes = useStyles({theme: theme});
-    const classes2 = useMoreStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({ theme: theme });
 
     return (
         <AppBar
             position="fixed"
             className={clsx(classes2.appBar, {
-                [classes.appBarCompressed1]: open && ! isIconColumn,
-                [classes.appBarRelaxed1]: ! open && ! isIconColumn,
+                [classes.appBarCompressed1]: open && !isIconColumn,
+                [classes.appBarRelaxed1]: !open && !isIconColumn,
                 [classes.appBarCompressed2]: open && isIconColumn,
-                [classes.appBarRelaxed2]: ! open && isIconColumn,
+                [classes.appBarRelaxed2]: !open && isIconColumn,
                 [className]: className,
             })}
             {...other}
@@ -46,6 +46,6 @@ function AppBarSmScreen(props) {
                 {children}
             </Toolbar>
         </AppBar>
-    )
+    );
 }
 export default AppBarSmScreen;

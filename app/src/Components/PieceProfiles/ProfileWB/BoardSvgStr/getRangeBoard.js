@@ -1,7 +1,7 @@
-import {getBinaryBoarAllFalse} from "../../../helpers/getBinaryBoardAllFalse";
-import {stepFuncDict2} from "../../../helpers/stepFuncs";
-import {outOfBounds} from "../../../helpers/oob";
-import {rfToXy, xyToRf} from "../../../helpers/crdCnvrt";
+import { getBinaryBoarAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
+import { stepFuncDict2 } from "../../../helpers/stepFuncs";
+import { outOfBounds } from "../../../helpers/oob";
+import { rfToXy, xyToRf } from "../../../helpers/crdCnvrt";
 
 export const getRangeBoard = (range, rangeType, location) => {
     let stepFunc, rf;

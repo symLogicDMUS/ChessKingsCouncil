@@ -1,6 +1,5 @@
-
 export const board = () => ({
-    display: 'grid',
+    display: "grid",
 });
 
 export const dnd_layer = (boardSize, boardPos, z) => ({
@@ -9,10 +8,10 @@ export const dnd_layer = (boardSize, boardPos, z) => ({
     height: boardSize,
     top: boardPos.top,
     left: boardPos.left,
-    position: 'fixed',
+    position: "fixed",
 });
 
 export const game_board = (boardSize, boardPos, z) => ({
     ...dnd_layer(boardSize, boardPos, z),
-    display: 'grid',
+    display: "grid",
 });

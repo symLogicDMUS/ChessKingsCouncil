@@ -6,14 +6,14 @@ import AskLoginButton from "../Home/Sign In/AskLoginButton";
 import { UserContext } from "../../Context/UserContext";
 import SaveAs from "./SaveResignTool/SaveAs";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {icons} from "../styles/icons/top/icons.jss";
-import {SeeMore} from "../Reuseables/UserInput/SeeMore";
-import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
-import {RangeAnalysisSwitch} from "./Title/RangeAnalysisSwitch";
+import { icons } from "../styles/icons/top/icons.jss";
+import { SeeMore } from "../Reuseables/UserInput/SeeMore";
+import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
+import { RangeAnalysisSwitch } from "./Title/RangeAnalysisSwitch";
 import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
 import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
-import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
-import {useStyles} from "./GameRootToolbar.jss";
+import { ToolBackdrop } from "../Reuseables/MiniVariantTool/ToolBackdrop";
+import { useStyles } from "./GameRootToolbar.jss";
 
 function GameRootToolbar({
     defs,
@@ -31,7 +31,7 @@ function GameRootToolbar({
 }) {
     const uid = useContext(UserContext);
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const [activeTool, setActiveTool] = useState(null);
 
@@ -45,17 +45,15 @@ function GameRootToolbar({
 
     return (
         <>
-            {(
-                activeTool === "Captured-Pieces"
-                || activeTool === "Resign"
-                || activeTool === "Game-Info"
-            ) && (
+            {(activeTool === "Captured-Pieces" ||
+                activeTool === "Resign" ||
+                activeTool === "Game-Info") && (
                 <ToolBackdrop onClick={() => toggleMiniVariantTool(null)} />
             )}
             <AnimatePresence>
                 {activeTool === "Captured-Pieces" && (
                     <CapturedPiecesModal
-                        key={'captured-pieces'}
+                        key={"captured-pieces"}
                         defs={defs}
                         idDict={idDict}
                         gameType={gameType}
@@ -66,7 +64,7 @@ function GameRootToolbar({
                 )}
                 {activeTool === "Resign" && (
                     <ResignModal
-                        key={'resign-modal'}
+                        key={"resign-modal"}
                         theme={theme}
                         resign={resign}
                         toggleMiniVariantTool={toggleMiniVariantTool}
@@ -74,7 +72,7 @@ function GameRootToolbar({
                 )}
                 {activeTool === "Game-Info" && (
                     <GameInfoModal
-                        key={'game-info-modal'}
+                        key={"game-info-modal"}
                         gameName={gameName}
                         gameType={gameType}
                         playerType={playerType}
@@ -131,12 +129,17 @@ function GameRootToolbar({
                     </SvgIcon>
                 }
                 listItem={true}
-                text='Range Analysis'
+                text="Range Analysis"
             >
                 <MuiSwitch
                     theme={theme}
-                    control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
-                    labelPlacement={'start'}
+                    control={
+                        <RangeAnalysisSwitch
+                            theme={theme}
+                            onChange={onChange}
+                        />
+                    }
+                    labelPlacement={"start"}
                 >
                     Range Analysis
                 </MuiSwitch>

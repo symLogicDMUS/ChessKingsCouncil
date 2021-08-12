@@ -1,9 +1,9 @@
-import {useStyles} from "../../Reuseables/NavBar/Help/HelpText.jss";
-import {Typography} from "@material-ui/core";
+import { useStyles } from "../../Reuseables/NavBar/Help/HelpText.jss";
+import { Typography } from "@material-ui/core";
 import React from "react";
 
 export function GameInfoText(props) {
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({ theme: props.theme });
     return (
         <Typography className={classes.text} paragraph>
             The game name, type, (Standard, Custom or Council), and player type,

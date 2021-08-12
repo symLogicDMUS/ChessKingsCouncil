@@ -2,8 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { CapturedPieceImages } from "./CapturedPieceImages";
-import { useStyles as useMoreStyles } from
-        "../../Reuseables/MiniVariantTool/ToolWindow.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./CapturedPiecesModal.jss";
 
 function CapturedPiecesModal({

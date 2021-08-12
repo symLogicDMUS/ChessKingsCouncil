@@ -1,15 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import {Portal} from "@material-ui/core";
+import { Portal } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import {StandardModal} from "../../Reuseables/Modals/StandardModal";
-import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
-import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
+import { StandardModal } from "../../Reuseables/Modals/StandardModal";
+import { getDoesPieceNameExist } from "../../../API/getDoesPieceNameExist";
+import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
-import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
 
-const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
+const Option = React.lazy(() => import("../../Reuseables/Clickables/Option"));
+const ToolButton = React.lazy(() =>
+    import("../../Reuseables/MiniVariantTool/ToolButton")
+);
 
 function Save(props) {
     const {
@@ -28,19 +30,20 @@ function Save(props) {
     const [message, setMessage] = useState(null);
     const [modal, setModal] = useState(null);
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     useEffect(() => {
         if (pieceName !== "" && !containsInvalidCharacters(pieceName)) {
-            getDoesPieceNameExist(pieceName).then(([result]) => setPieceNameExists(result))
+            getDoesPieceNameExist(pieceName).then(([result]) =>
+                setPieceNameExists(result)
+            );
         }
-    }, [pieceName])
+    }, [pieceName]);
 
-    const standardPieceNames = ['rook', 'king', 'queen', 'bishop', 'knight'];
+    const standardPieceNames = ["rook", "king", "queen", "bishop", "knight"];
 
     /**see bottom of file*/
     const getSaveStatus = () => {
-
         if (pieceName === "") {
             return "blank-name";
         }
@@ -50,7 +53,7 @@ function Save(props) {
         }
 
         if (containsInvalidCharacters(pieceName)) {
-            return "invalid-characters"
+            return "invalid-characters";
         }
 
         if (whiteImg === null || blackImg === null) {
@@ -63,40 +66,45 @@ function Save(props) {
         }
 
         return "ready";
-    }
+    };
 
     const makeSaveAttempt = () => {
-        const saveStatus = getSaveStatus()
-        if (saveStatus === 'ready') {
-            save()
+        const saveStatus = getSaveStatus();
+        if (saveStatus === "ready") {
+            save();
         } else {
             switch (saveStatus) {
-                case 'standard-name':
-                    setMessage('Cannot name: King, Pawn, Bishop, Knight, Rook, or Queen')
-                    setModal('accept')
+                case "standard-name":
+                    setMessage(
+                        "Cannot name: King, Pawn, Bishop, Knight, Rook, or Queen"
+                    );
+                    setModal("accept");
                     break;
-                case 'blank-name':
-                    setMessage('You cannot leave the name field blank')
-                    setModal('accept')
+                case "blank-name":
+                    setMessage("You cannot leave the name field blank");
+                    setModal("accept");
                     break;
-                case 'invalid-characters':
-                    setMessage('a piece name cannot contain these characters: . # $ [ ]')
-                    setModal('accept')
+                case "invalid-characters":
+                    setMessage(
+                        "a piece name cannot contain these characters: . # $ [ ]"
+                    );
+                    setModal("accept");
                     break;
-                case 'no-icon':
-                    setMessage('You need an icon for both white and black')
-                    setModal('accept')
+                case "no-icon":
+                    setMessage("You need an icon for both white and black");
+                    setModal("accept");
                     break;
-                case 'confirm-overwrite':
-                    setMessage(`A piece named ${pieceName} already exists. Do you want to replace it? `)
-                    setModal('confirm')
+                case "confirm-overwrite":
+                    setMessage(
+                        `A piece named ${pieceName} already exists. Do you want to replace it? `
+                    );
+                    setModal("confirm");
                     break;
                 default:
                     break;
             }
-
         }
-    }
+    };
 
     const closeModal = () => {
         setMessage(null);
@@ -105,7 +113,7 @@ function Save(props) {
 
     return (
         <>
-            {modal === 'confirm' ? (
+            {modal === "confirm" ? (
                 <Portal>
                     <StandardModal
                         title={message}
@@ -115,45 +123,45 @@ function Save(props) {
                     >
                         <Button
                             onClick={() => {
-                                save()
-                                closeModal()
+                                save();
+                                closeModal();
                             }}
                             className={clsx(classes.button, {
-                                [classes.yes_button]: true
+                                [classes.yes_button]: true,
                             })}
-                            variant={'contained'}
+                            variant={"contained"}
                         >
                             Yes
                         </Button>
                         <Button
                             onClick={() => {
-                                closeModal()
+                                closeModal();
                             }}
                             className={clsx(classes.button, {
-                                [classes.no_button]: true
+                                [classes.no_button]: true,
                             })}
-                            variant={'contained'}
+                            variant={"contained"}
                         >
                             No
                         </Button>
                     </StandardModal>
                 </Portal>
             ) : null}
-            {modal === 'accept' ? (
+            {modal === "accept" ? (
                 <Portal>
                     <StandardModal
                         title={message}
                         theme={theme}
                         closeClick={() => {
-                            closeModal()
+                            closeModal();
                         }}
                     >
                         <MuiButton
                             onClick={() => {
-                                closeModal()
+                                closeModal();
                             }}
                             className={classes.button}
-                            variant={'contained'}
+                            variant={"contained"}
                             theme={theme}
                         >
                             Ok
@@ -161,12 +169,12 @@ function Save(props) {
                     </StandardModal>
                 </Portal>
             ) : null}
-            {buttonType === 'option' ? (
+            {buttonType === "option" ? (
                 <Option
                     theme={theme}
                     iconType="save"
                     name={"Save"}
-                    key='save-option'
+                    key="save-option"
                     onClick={makeSaveAttempt}
                     className={className}
                     isGameOption={false}
@@ -183,7 +191,7 @@ function Save(props) {
                 />
             )}
         </>
-    )
+    );
 }
 export default Save;
 /**

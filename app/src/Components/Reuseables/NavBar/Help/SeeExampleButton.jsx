@@ -1,25 +1,25 @@
 import clsx from "clsx";
 import React from "react";
-import {useState} from "react";
-import {isWideImg} from "./isWideImg";
+import { useState } from "react";
+import { isWideImg } from "./isWideImg";
 import Box from "@material-ui/core/Box";
-import {Backdrop} from "@material-ui/core";
+import { Backdrop } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import MediaQuery from "react-responsive/src";
 import CloseIcon from "@material-ui/icons/Close";
-import LaunchIcon from '@material-ui/icons/Launch';
+import LaunchIcon from "@material-ui/icons/Launch";
 import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./SeeExampleButton.jss";
+import { useStyles } from "./SeeExampleButton.jss";
 
 export function SeeExampleButton(props) {
-    const {lgSrc, smSrc, isText, addedText, theme, children} = props;
+    const { lgSrc, smSrc, isText, addedText, theme, children } = props;
 
     const [img, setImg] = useState(false);
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const close = () => setImg(false);
 
-    const alt = 'a gif or image to help explain.';
+    const alt = "a gif or image to help explain.";
 
     return (
         <>
@@ -27,7 +27,7 @@ export function SeeExampleButton(props) {
                 <Button
                     onClick={close}
                     className={classes.close}
-                    startIcon={<CloseIcon fontSize={"large"}/>}
+                    startIcon={<CloseIcon fontSize={"large"} />}
                 >
                     Close Example
                 </Button>
@@ -56,7 +56,7 @@ export function SeeExampleButton(props) {
             </Backdrop>
             <Typography
                 className={clsx(classes.link, {
-                    [classes.hide]: !isText
+                    [classes.hide]: !isText,
                 })}
                 onClick={() => setImg(true)}
             >
@@ -67,7 +67,7 @@ export function SeeExampleButton(props) {
                 className={clsx(classes.button, {
                     [classes.hide]: isText,
                 })}
-                startIcon={<LaunchIcon/>}
+                startIcon={<LaunchIcon />}
                 onClick={() => setImg(true)}
             >
                 See Example {addedText}

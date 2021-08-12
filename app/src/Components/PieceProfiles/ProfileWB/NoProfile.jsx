@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import {Avatar, Chip, ClickAwayListener} from "@material-ui/core";
+import { Avatar, Chip, ClickAwayListener } from "@material-ui/core";
 import { useStyles } from "./NoProfile.jss";
 
 const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
@@ -13,7 +13,7 @@ const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
             >
                 <Chip
                     className={classes.window}
-                    avatar={<Avatar src={imgUrl}  />}
+                    avatar={<Avatar src={imgUrl} />}
                     label={`No profile for ${pieceName}`}
                     onClick={closeProfile}
                     onDelete={closeProfile}

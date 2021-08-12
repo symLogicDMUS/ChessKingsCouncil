@@ -12,19 +12,22 @@ const button = {
     textOverflow: "ellipsis",
     cursor: "pointer",
     top: "22.5%",
-    '&:hover': {
+    "&:hover": {
         color: "#515151",
         backgroundColor: "#b6b6b6",
     },
-}
+};
 
-export const useStyles = makeStyles({
-    load: {
-        ...button,
-        left: "86%",
+export const useStyles = makeStyles(
+    {
+        load: {
+            ...button,
+            left: "86%",
+        },
+        delete: {
+            ...button,
+            left: "93%",
+        },
     },
-    delete: {
-        ...button,
-        left: "93%",
-    },
-}, {index: 1});
+    { index: 1 }
+);

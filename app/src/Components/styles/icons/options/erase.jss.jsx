@@ -1,6 +1,11 @@
 import React from "react";
 export const erase = (stroke) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 3.068 6.35">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 3.068 6.35"
+    >
         <g id="layer1" transform="translate(-1.642 0)">
             <g id="g844" transform="translate(0.175 -0.002)">
                 <path

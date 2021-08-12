@@ -3,7 +3,9 @@ import { Portal } from "@material-ui/core";
 import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
 import { useStyles } from "./ChooseButton.jss";
 
-const ImgChoicesModal = React.lazy(() => import('./ImgChoicesModal/ImgChoicesModal'));
+const ImgChoicesModal = React.lazy(() =>
+    import("./ImgChoicesModal/ImgChoicesModal")
+);
 
 export function ChooseButton(props) {
     const {
@@ -39,8 +41,8 @@ export function ChooseButton(props) {
                 startIcon={startIcon}
                 className={classes.button}
                 onClick={() => {
-                    handleMobileMenuClose()
-                    setImgChoicesModal(true)
+                    handleMobileMenuClose();
+                    setImgChoicesModal(true);
                 }}
             >
                 {children}

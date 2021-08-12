@@ -1,19 +1,18 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
-import {withStyles} from "@material-ui/core/styles";
-import {themes} from "../../../styles/themes/themes.jss";
+import { withStyles } from "@material-ui/core/styles";
+import { themes } from "../../../styles/themes/themes.jss";
 
 export const ShowSpanText = withStyles({
-    switchBase: props => ({
+    switchBase: (props) => ({
         color: themes[props.theme].span,
-        '&$checked': {
+        "&$checked": {
             color: themes[props.theme].span,
         },
-        '&$checked + $track': {
+        "&$checked + $track": {
             backgroundColor: themes[props.theme].span,
         },
     }),
-    checked: props => ({}),
-    track: props => ({}),
+    checked: (props) => ({}),
+    track: (props) => ({}),
 })(Switch);
-

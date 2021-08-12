@@ -1,5 +1,5 @@
 import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
-import {rfToXy} from "../../helpers/crdCnvrt";
+import { rfToXy } from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 
 /**
@@ -12,14 +12,22 @@ import { ply } from "./ply";
  * @param kingDest
  * @param dispatch
  */
-export function castleMove(gameRoot, sqrSize, boardSize, pieces, kingStart, kingDest, dispatch) {
-    if (! gameRoot.specialMoves.isCastle([kingStart, kingDest])) {
+export function castleMove(
+    gameRoot,
+    sqrSize,
+    boardSize,
+    pieces,
+    kingStart,
+    kingDest,
+    dispatch
+) {
+    if (!gameRoot.specialMoves.isCastle([kingStart, kingDest])) {
         return;
     }
 
     const [rookStart, rookDest] = getRookStartAndDest(kingDest);
     let rookId = gameRoot.board[rookStart];
-    let src = pieces[rookId].src
+    let src = pieces[rookId].src;
     ply(gameRoot, rookStart, rookDest);
     gameRoot.specialMoves.removeCastle([rookStart, rookDest]);
     let [rookDestX, rookDestY] = rfToXy(rookDest);

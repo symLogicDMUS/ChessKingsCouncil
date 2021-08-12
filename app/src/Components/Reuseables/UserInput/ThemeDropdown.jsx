@@ -1,29 +1,27 @@
-import React, {useContext} from "react";
-import {Select} from "@material-ui/core";
+import React, { useContext } from "react";
+import { Select } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {themesMenuItemList}
-        from "../../styles/themes/themeMenuItemList.jss";
-import {ThemeContext} from "../../../Context/ThemeContext";
+import { themesMenuItemList } from "../../styles/themes/themeMenuItemList.jss";
+import { ThemeContext } from "../../../Context/ThemeContext";
 import { useStyles } from "./ThemeDropdown.jss";
 
-function ThemeDropdown({theme, pageName, defaultValue}) {
-    const {themes, themeDispatch} = useContext(ThemeContext);
-    const classes = useStyles({theme});
+function ThemeDropdown({ theme, pageName, defaultValue }) {
+    const { themes, themeDispatch } = useContext(ThemeContext);
+    const classes = useStyles({ theme });
 
     const updateTheme = (e) => {
         const theme = e.target.value;
-        if (pageName==='all') {
+        if (pageName === "all") {
             themeDispatch({
-                type: 'set-unified-theme',
+                type: "set-unified-theme",
                 theme: theme,
-            })
-        }
-        else {
+            });
+        } else {
             themeDispatch({
-                type: 'update-theme',
+                type: "update-theme",
                 pageName: pageName,
                 theme: theme,
-            })
+            });
         }
     };
 
@@ -32,7 +30,7 @@ function ThemeDropdown({theme, pageName, defaultValue}) {
             <Select
                 theme={theme}
                 fullWidth={true}
-                variant={'outlined'}
+                variant={"outlined"}
                 onChange={updateTheme}
                 className={classes.select_theme}
                 defaultValue={defaultValue}

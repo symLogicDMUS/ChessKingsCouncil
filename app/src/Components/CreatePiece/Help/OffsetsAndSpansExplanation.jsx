@@ -1,26 +1,26 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
-import {dragonSrcStrWhite} from "../../PieceProfiles/Help/dragonSrcStr";
-import {RangeExample} from "../../PieceProfiles/Help/RangeExample";
-import {SeeExampleButton} from "../../Reuseables/NavBar/Help/SeeExampleButton";
-import {BlackRangeMirrorImageExplanation} from "./BlackRangeMirrorImageExplanation";
-import {useStyles as useMoreStyles} from "../../Reuseables/NavBar/Help/HelpText.jss";
-import {useStyles} from "../../PieceProfiles/Help/ProfileHelpText.jss";
+import { Typography } from "@material-ui/core";
+import { dragonSrcStrWhite } from "../../PieceProfiles/Help/dragonSrcStr";
+import { RangeExample } from "../../PieceProfiles/Help/RangeExample";
+import { SeeExampleButton } from "../../Reuseables/NavBar/Help/SeeExampleButton";
+import { BlackRangeMirrorImageExplanation } from "./BlackRangeMirrorImageExplanation";
+import { useStyles as useMoreStyles } from "../../Reuseables/NavBar/Help/HelpText.jss";
+import { useStyles } from "../../PieceProfiles/Help/ProfileHelpText.jss";
 
 export function OffsetsAndSpansExplanation(props) {
     const classes = useStyles({ theme: props.theme });
     const classes2 = useMoreStyles({ theme: props.theme });
 
     const dragonOffsets = [
-        [-2,1],
-        [-1,2],
-        [1,2],
-        [2,1],
-        [2,-1],
-        [1,-2],
-        [-1,-2],
-        [-2,-1],
+        [-2, 1],
+        [-1, 2],
+        [1, 2],
+        [2, 1],
+        [2, -1],
+        [1, -2],
+        [-1, -2],
+        [-2, -1],
     ];
     const dragonSpans = [
         "step_1sqr90d",

@@ -1,10 +1,10 @@
-import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import { miniVariantIconsColumnWidth } from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export function getVariants(y) {
     return {
         initial: {
             scale: 0,
-            left: 'calc(50vw + 12px)',
+            left: "calc(50vw + 12px)",
             top: y,
         },
         animate: {
@@ -14,7 +14,7 @@ export function getVariants(y) {
         },
         exit: {
             scale: 0,
-            left: 'calc(50vw + 12px)',
+            left: "calc(50vw + 12px)",
             top: y,
         },
     };

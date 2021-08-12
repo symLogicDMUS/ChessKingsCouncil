@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Hidden from "@material-ui/core/Hidden";
 import "../../styles/Background/_backgrounds.scss";
@@ -11,7 +11,6 @@ import PermanentDrawerLeft from "./PermanentDrawerLeft";
 import PersistentDrawerLeft from "./PersistantDrawerLeft";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./ResponsiveDrawer.jss";
-
 
 /**
  * @on left of screen: navBar is in open/close drawer for screen width 960px down and in permanent drawer for 960px up
@@ -46,7 +45,7 @@ function ResponsiveDrawer(props) {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
-    }, [theme])
+    }, [theme]);
 
     return (
         <div

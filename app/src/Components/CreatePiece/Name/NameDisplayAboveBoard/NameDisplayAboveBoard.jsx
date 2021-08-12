@@ -1,14 +1,9 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {useStyles} from "./NameDisplayAboveBoard.jss";
+import { useStyles } from "./NameDisplayAboveBoard.jss";
 
-export function NameDisplayAboveBoard({name}) {
+export function NameDisplayAboveBoard({ name }) {
+    const classes = useStyles();
 
-    const classes = useStyles()
-
-    return (
-        <div className={classes.label}>
-            {name}
-        </div>
-    )
+    return <div className={classes.label}>{name}</div>;
 }

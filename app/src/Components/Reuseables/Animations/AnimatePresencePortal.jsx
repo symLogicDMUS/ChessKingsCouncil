@@ -1,10 +1,9 @@
 import React from "react";
-import {AnimatePresence} from "framer-motion";
-import {Backdrop, Portal} from "@material-ui/core";
-import {useStyles} from "./AnimatePresencePortal.jss";
+import { AnimatePresence } from "framer-motion";
+import { Backdrop, Portal } from "@material-ui/core";
+import { useStyles } from "./AnimatePresencePortal.jss";
 
-export function AnimatePresencePortal({children}) {
-
+export function AnimatePresencePortal({ children }) {
     const classes = useStyles();
 
     return (

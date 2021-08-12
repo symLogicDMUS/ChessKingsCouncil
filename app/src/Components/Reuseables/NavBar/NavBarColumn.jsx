@@ -1,10 +1,10 @@
 import React from "react";
-import {Tabs} from "@material-ui/core";
-import {Tab} from "@material-ui/core";
+import { Tabs } from "@material-ui/core";
+import { Tab } from "@material-ui/core";
 import NavBarButton from "./NavBarButton";
 import HelpButton from "./Help/HelpButton";
 import SettingsButton from "./SettingsButton";
-import {updateFirstVisit} from "../../CreatePiece/reducers/updateFirstVisit";
+import { updateFirstVisit } from "../../CreatePiece/reducers/updateFirstVisit";
 import { useStyles } from "./NavBarColumn.jss";
 
 /**
@@ -22,37 +22,36 @@ function NavBarColumn(props) {
         ...other
     } = props;
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     const indexes = {
-        "Home": 0,
-        "Help": 1,
-        "Settings": 2,
-        "NewGame": 3,
-        "LoadGame": 4,
-        "CreatePiece": 5,
-        "MyPieces": 6,
-        "ChessRules": 7,
-        "CouncilRules": 8,
-        "AuthorGithub": 9,
-    }
+        Home: 0,
+        Help: 1,
+        Settings: 2,
+        NewGame: 3,
+        LoadGame: 4,
+        CreatePiece: 5,
+        MyPieces: 6,
+        ChessRules: 7,
+        CouncilRules: 8,
+        AuthorGithub: 9,
+    };
 
     let loadGamePageAddedText = "";
     let newGamePageAddedText = "";
     const addedText = " (playing)";
 
     const getIndex = (currentPage) => {
-        if (currentPage==="Customize") {
+        if (currentPage === "Customize") {
             newGamePageAddedText = " (customize)";
             return indexes["NewGame"];
         }
 
-        if (currentPage==="GameRoot") {
-            if (parentPage==="/LoadGame") {
+        if (currentPage === "GameRoot") {
+            if (parentPage === "/LoadGame") {
                 loadGamePageAddedText = addedText;
                 return indexes["LoadGame"];
-            }
-            else {
+            } else {
                 newGamePageAddedText = addedText;
                 return indexes["NewGame"];
             }
@@ -90,7 +89,7 @@ function NavBarColumn(props) {
                         />
                     }
                 />
-                {! hideHelp && (
+                {!hideHelp && (
                     <Tab
                         id={"Help"}
                         onClick={(event) => {

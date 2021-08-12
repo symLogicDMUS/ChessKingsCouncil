@@ -1,8 +1,8 @@
-import {themes} from "../../styles/themes/themes.jss";
-import {rankfiles} from "../../helpers/rankfiles";
-import {binaryBoard} from "../../helpers/binaryBoard";
-import {getOffsetDisplays} from "../ProfileWB/BoardSvgStr/getOffsetDisplays";
-import {getSpanDisplays} from "../ProfileWB/BoardSvgStr/getSpanDisplays";
+import { themes } from "../../styles/themes/themes.jss";
+import { rankfiles } from "../../helpers/rankfiles";
+import { binaryBoard } from "../../helpers/binaryBoard";
+import { getOffsetDisplays } from "../ProfileWB/BoardSvgStr/getOffsetDisplays";
+import { getSpanDisplays } from "../ProfileWB/BoardSvgStr/getSpanDisplays";
 
 export function getExampleRangeBoardImgStr(theme, src, range, rangeType) {
     const fToTop = {
@@ -26,19 +26,17 @@ export function getExampleRangeBoardImgStr(theme, src, range, rangeType) {
         h: 420,
     };
     let rangeBoard;
-    if (rangeType==="offsets") {
-        rangeBoard = getOffsetDisplays(range, 'd4')
-    }
-    else {
-        rangeBoard = getSpanDisplays(range, 'd4')
+    if (rangeType === "offsets") {
+        rangeBoard = getOffsetDisplays(range, "d4");
+    } else {
+        rangeBoard = getSpanDisplays(range, "d4");
     }
     const light_sqr_fill = themes[theme].even_row;
     const dark_sqr_fill = themes[theme].odd_row;
     let range_fill;
-    if (rangeType==="offsets") {
+    if (rangeType === "offsets") {
         range_fill = themes[theme].offset;
-    }
-    else {
+    } else {
         range_fill = themes[theme].span;
     }
     let left, top;
@@ -46,8 +44,10 @@ export function getExampleRangeBoardImgStr(theme, src, range, rangeType) {
     for (const rf of rankfiles) {
         left = rToLeft[rf[0]];
         top = fToTop[rf[1]];
-        if (rf === 'd4') {
-            imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${binaryBoard[rf] ? light_sqr_fill : dark_sqr_fill}"/>`
+        if (rf === "d4") {
+            imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${
+                binaryBoard[rf] ? light_sqr_fill : dark_sqr_fill
+            }"/>`;
             imgStr += `<image id="Knight" xlink:href="${src}" width="60" height="60" transform="translate(${left} ${top})"/>`;
         } else if (rangeBoard[rf]) {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${range_fill}"/>`;

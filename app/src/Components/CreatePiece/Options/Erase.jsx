@@ -1,13 +1,15 @@
 import React from "react";
 
-const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
+const Option = React.lazy(() => import("../../Reuseables/Clickables/Option"));
+const ToolButton = React.lazy(() =>
+    import("../../Reuseables/MiniVariantTool/ToolButton")
+);
 
 function Erase(props) {
-    const {erase, theme, className, buttonType, ...other} = props;
+    const { erase, theme, className, buttonType, ...other } = props;
     return (
         <>
-            {buttonType==="option" ? (
+            {buttonType === "option" ? (
                 <Option
                     onClick={erase}
                     iconType="erase"
@@ -22,7 +24,7 @@ function Erase(props) {
                     theme={theme}
                     onClick={erase}
                     isActive={false}
-                    iconName='erase_alt'
+                    iconName="erase_alt"
                     text="Erase"
                     {...other}
                 />

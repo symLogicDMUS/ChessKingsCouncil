@@ -1,5 +1,5 @@
 import React from "react";
-import {DraggablePiece} from "./DraggablePiece";
+import { DraggablePiece } from "./DraggablePiece";
 
 /**
  *
@@ -10,5 +10,13 @@ import {DraggablePiece} from "./DraggablePiece";
  * @returns {JSX.Element}
  */
 export function renderPiece(item, key, sqrSize, hiddenPiece) {
-    return <DraggablePiece key={key} id={key} {...item} sqrSize={sqrSize} isHidden={hiddenPiece===key} />;
+    return (
+        <DraggablePiece
+            key={key}
+            id={key}
+            {...item}
+            sqrSize={sqrSize}
+            isHidden={hiddenPiece === key}
+        />
+    );
 }

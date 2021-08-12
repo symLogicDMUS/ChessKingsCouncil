@@ -7,26 +7,15 @@ import { SqrMouseIsOver } from "./SqrMouseIsOver";
 import { Portal } from "@material-ui/core";
 import { useStyles } from "./DragLayer.jss";
 
-const DragLayer = ({
-    gameRoot,
-    sqrSize,
-    boardSize,
-    boardPos,
-    theme,
-}) => {
-    const {
-        item,
-        itemType,
-        initialOffset,
-        currentOffset,
-        isDragging,
-    } = useDragLayer((monitor) => ({
-        item: monitor.getItem(),
-        itemType: monitor.getItemType(),
-        initialOffset: monitor.getInitialSourceClientOffset(),
-        currentOffset: monitor.getSourceClientOffset(),
-        isDragging: monitor.isDragging(),
-    }));
+const DragLayer = ({ gameRoot, sqrSize, boardSize, boardPos, theme }) => {
+    const { item, itemType, initialOffset, currentOffset, isDragging } =
+        useDragLayer((monitor) => ({
+            item: monitor.getItem(),
+            itemType: monitor.getItemType(),
+            initialOffset: monitor.getInitialSourceClientOffset(),
+            currentOffset: monitor.getSourceClientOffset(),
+            isDragging: monitor.isDragging(),
+        }));
 
     const classes = useStyles();
 

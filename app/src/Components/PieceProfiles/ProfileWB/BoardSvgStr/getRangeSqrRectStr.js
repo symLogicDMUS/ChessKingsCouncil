@@ -1,5 +1,5 @@
-import {themes} from "../../../styles/themes/themes.jss";
-import {fToTop, rToLeft} from "./profileWBCrdCnvrt";
+import { themes } from "../../../styles/themes/themes.jss";
+import { fToTop, rToLeft } from "./profileWBCrdCnvrt";
 
 export function getRangeSqrRectStr(rangeType, theme, rf) {
     const left = rToLeft[rf[0]];

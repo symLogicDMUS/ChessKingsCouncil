@@ -1,8 +1,8 @@
 import React from "react";
-import {copy} from "../helpers/copy";
-import {text} from "./CreatePiece.jss";
-import {Typography} from "@material-ui/core";
-import {AnimatePresence} from "framer-motion";
+import { copy } from "../helpers/copy";
+import { text } from "./CreatePiece.jss";
+import { Typography } from "@material-ui/core";
+import { AnimatePresence } from "framer-motion";
 import { messageStr } from "./helpers/messageStr";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { flipOffsets } from "./helpers/flipOffsets";
@@ -12,8 +12,8 @@ import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
-import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
+import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
+import { ToolBackdrop } from "../Reuseables/MiniVariantTool/ToolBackdrop";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
@@ -23,25 +23,29 @@ import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CreatePieceTitle from "./Title/CreatePieceTitle";
 import AskLoginButton from "../Home/Sign In/AskLoginButton";
-import {UserContext} from "../../Context/UserContext";
-import {ThemeContext} from "../../Context/ThemeContext";
+import { UserContext } from "../../Context/UserContext";
+import { ThemeContext } from "../../Context/ThemeContext";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
-import {styles} from "./CreatePiece.jss";
+import { styles } from "./CreatePiece.jss";
 
-const Load = React.lazy(() => import('./Options/Load'));
-const Save = React.lazy(() => import('./Options/Save'));
-const Reset = React.lazy(() => import('./Options/Reset'));
-const Erase = React.lazy(() => import('./Options/Erase'));
-const Name = React.lazy(() => import('./Name/Name'));
-const Icon = React.lazy(() => import('./Icon/Icon'));
-const Range = React.lazy(() => import('./Range/Range'));
-const Options = React.lazy(() => import('./Options/Options'));
-const Location = React.lazy(() => import('./Location/Location'));
-const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
-const CreatePieceBoard = React.lazy(() => import('./Board/CreatePieceBoard'));
-const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
-const Animations = React.lazy(() => import("../Reuseables/Animations/CreatePiecePageAnimations"));
+const Load = React.lazy(() => import("./Options/Load"));
+const Save = React.lazy(() => import("./Options/Save"));
+const Reset = React.lazy(() => import("./Options/Reset"));
+const Erase = React.lazy(() => import("./Options/Erase"));
+const Name = React.lazy(() => import("./Name/Name"));
+const Icon = React.lazy(() => import("./Icon/Icon"));
+const Range = React.lazy(() => import("./Range/Range"));
+const Options = React.lazy(() => import("./Options/Options"));
+const Location = React.lazy(() => import("./Location/Location"));
+const NavBar = React.lazy(() => import("../Reuseables/NavBar/NavBar"));
+const CreatePieceBoard = React.lazy(() => import("./Board/CreatePieceBoard"));
+const ResponsiveDrawer = React.lazy(() =>
+    import("../Reuseables/Drawers/ResponsiveDrawer")
+);
+const Animations = React.lazy(() =>
+    import("../Reuseables/Animations/CreatePiecePageAnimations")
+);
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -89,11 +93,11 @@ class CreatePiece extends React.Component {
     offsets = [];
     spanDisplays = getBinaryBoarAllFalse();
     offsetDisplays = getBinaryBoarAllFalse();
-    whiteAndBlackImgs = {white: null, black: null};
+    whiteAndBlackImgs = { white: null, black: null };
     imgFileObjs = { white: null, black: null };
     newPiece = {
-        W: {spans: null, offsets: null, img: null},
-        B: {spans: null, offsets: null, img: null},
+        W: { spans: null, offsets: null, img: null },
+        B: { spans: null, offsets: null, img: null },
     };
     name = "";
     location = "d4";
@@ -105,7 +109,7 @@ class CreatePiece extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.saveInstance !== prevState.saveInstance) {
-            this.setState({uploadPiece: true})
+            this.setState({ uploadPiece: true });
         }
     }
 
@@ -115,9 +119,9 @@ class CreatePiece extends React.Component {
 
     toggleMiniVariantTool = (toolName) => {
         if (this.state.activeTool === toolName) {
-            this.setState({ activeTool: null});
+            this.setState({ activeTool: null });
         } else {
-            this.setState({ activeTool: toolName});
+            this.setState({ activeTool: toolName });
         }
     };
 
@@ -144,8 +148,8 @@ class CreatePiece extends React.Component {
 
     save = () => {
         this.newPiece = {
-            W: {spans: null, offsets: null, img: null, imgFileObj: null},
-            B: {spans: null, offsets: null, img: null, imgFileObj: null},
+            W: { spans: null, offsets: null, img: null, imgFileObj: null },
+            B: { spans: null, offsets: null, img: null, imgFileObj: null },
         };
         const angles = [];
         for (const s of Object.keys(this.spans)) {
@@ -159,7 +163,7 @@ class CreatePiece extends React.Component {
         this.newPiece.B.img = this.whiteAndBlackImgs.black;
         this.newPiece.W.imgFileObj = this.imgFileObjs.white;
         this.newPiece.B.imgFileObj = this.imgFileObjs.black;
-        this.setState({saveInstance: this.state.saveInstance + 1});
+        this.setState({ saveInstance: this.state.saveInstance + 1 });
     };
 
     /**
@@ -174,12 +178,15 @@ class CreatePiece extends React.Component {
             this.offsets = copy(this.loadedOffsets);
             this.whiteAndBlackImgs = copy(this.loadedImgs);
         }
-        this.setState({
-            unsavedChanges: false,
-            loadInstance: this.state.loadInstance + 1,
-        }, () => {
-            this.setLoc("d4");
-        });
+        this.setState(
+            {
+                unsavedChanges: false,
+                loadInstance: this.state.loadInstance + 1,
+            },
+            () => {
+                this.setLoc("d4");
+            }
+        );
         this.triggerRender();
     };
 
@@ -192,8 +199,8 @@ class CreatePiece extends React.Component {
         this.name = "";
         this.whiteAndBlackImgs = {
             white: null,
-            black: null
-        }
+            black: null,
+        };
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
@@ -210,7 +217,7 @@ class CreatePiece extends React.Component {
     };
 
     /**used by Name tool*/
-    updateName = name => {
+    updateName = (name) => {
         this.name = name;
         this.setState({ unsavedChanges: true });
     };
@@ -218,19 +225,19 @@ class CreatePiece extends React.Component {
     /**used by Icon tool*/
     setPieceImg = (color, imgStr) => {
         this.whiteAndBlackImgs[color] = imgStr;
-        this.setState({unsavedChanges: true});
-        console.log(imgStr)
+        this.setState({ unsavedChanges: true });
+        console.log(imgStr);
     };
 
     /**used by UploadImgButton from Icon tool*/
     setImgFileObj = (color, fileObj) => {
         this.imgFileObjs[color] = fileObj;
-        this.setState({unsavedChanges: true });
-        console.log(fileObj)
+        this.setState({ unsavedChanges: true });
+        console.log(fileObj);
     };
 
     /**used by Range tool*/
-    toggleSpan = angle => {
+    toggleSpan = (angle) => {
         this.spans[angle] = !this.spans[angle];
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
@@ -245,7 +252,7 @@ class CreatePiece extends React.Component {
     };
 
     /**used by Location tool, called by this.setDisplaySpans()*/
-    setDisplaySpan = angle => {
+    setDisplaySpan = (angle) => {
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
         while (!oob(rf)) {
@@ -283,7 +290,7 @@ class CreatePiece extends React.Component {
     };
 
     /**called by this.toggleSpan() used when span is overriding an offset */
-    removeOffset = rf => {
+    removeOffset = (rf) => {
         this.offsetDisplays[rf] = false;
         let [x1, y1] = rfToXy(this.location);
         let [x2, y2] = rfToXy(rf);
@@ -327,7 +334,7 @@ class CreatePiece extends React.Component {
     };
 
     /**used by the Location tool*/
-    setLoc = rf => {
+    setLoc = (rf) => {
         this.location = rf;
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
@@ -340,7 +347,7 @@ class CreatePiece extends React.Component {
      * set white or black image to null if it was just deleted from database
      * @param deletedImgUrl (str)
      */
-    resetImg = deletedImgUrl => {
+    resetImg = (deletedImgUrl) => {
         if (this.whiteAndBlackImgs.white === deletedImgUrl) {
             this.whiteAndBlackImgs.white = null;
         }
@@ -352,15 +359,15 @@ class CreatePiece extends React.Component {
 
     updateImg = (color, url) => {
         this.whiteAndBlackImgs[color] = url;
-    }
+    };
 
     render() {
         return (
             <ThemeContext.Consumer>
-                {value =>
+                {(value) => (
                     <>
                         <HelpSlideshow
-                            initialState={{pos: 0, numSlides: 6}}
+                            initialState={{ pos: 0, numSlides: 6 }}
                             theme={value.themes.createPiece}
                             currentPage={"CreatePiece"}
                             title={"Create Piece"}
@@ -375,9 +382,7 @@ class CreatePiece extends React.Component {
                             updateImg={this.updateImg}
                             theme={value.themes.createPiece}
                             key={`${this.state.saveInstance}-piece-upload`}
-                            callback={() =>
-                                this.setState({justSaved: false})
-                            }
+                            callback={() => this.setState({ justSaved: false })}
                         />
                         <ResponsiveDrawer
                             appBarType="title"
@@ -408,7 +413,9 @@ class CreatePiece extends React.Component {
                                         setImgFileObj={this.setImgFileObj}
                                         resetImg={this.resetImg}
                                         setPieceImg={this.setPieceImg}
-                                        whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                        whiteAndBlackImgs={
+                                            this.whiteAndBlackImgs
+                                        }
                                         toggleMiniVariantTool={
                                             this.toggleMiniVariantTool
                                         }
@@ -455,7 +462,9 @@ class CreatePiece extends React.Component {
                                         name="Name"
                                         theme={value.themes.createPiece}
                                         iconName={"name_tool"}
-                                        onClick={() => this.toggleMiniVariantTool("Name")}
+                                        onClick={() =>
+                                            this.toggleMiniVariantTool("Name")
+                                        }
                                         isActive={
                                             this.state.activeTool === "Name"
                                         }
@@ -465,7 +474,9 @@ class CreatePiece extends React.Component {
                                         name="Icon"
                                         theme={value.themes.createPiece}
                                         iconName={"icon_tool"}
-                                        onClick={() => this.toggleMiniVariantTool("Icon")}
+                                        onClick={() =>
+                                            this.toggleMiniVariantTool("Icon")
+                                        }
                                         isActive={
                                             this.state.activeTool === "Icon"
                                         }
@@ -489,7 +500,9 @@ class CreatePiece extends React.Component {
                                         isActive={
                                             this.state.activeTool === "Location"
                                         }
-                                        onClick={() => this.setState({locSqrEntry: true})}
+                                        onClick={() =>
+                                            this.setState({ locSqrEntry: true })
+                                        }
                                     />
                                     <Load
                                         load={this.load}
@@ -502,9 +515,15 @@ class CreatePiece extends React.Component {
                                         <Save
                                             save={this.save}
                                             pieceName={this.name}
-                                            className={this.props.classes.smOption}
-                                            whiteImg={this.whiteAndBlackImgs.white}
-                                            blackImg={this.whiteAndBlackImgs.black}
+                                            className={
+                                                this.props.classes.smOption
+                                            }
+                                            whiteImg={
+                                                this.whiteAndBlackImgs.white
+                                            }
+                                            blackImg={
+                                                this.whiteAndBlackImgs.black
+                                            }
                                             justSaved={this.state.justSaved}
                                             theme={value.themes.createPiece}
                                             buttonType="tool"
@@ -539,24 +558,32 @@ class CreatePiece extends React.Component {
                                         <>
                                             <Typography
                                                 variant={"subtitle1"}
-                                                style={text(value.themes.createPiece)}
+                                                style={text(
+                                                    value.themes.createPiece
+                                                )}
                                             >
                                                 Create Piece Settings
                                             </Typography>
                                             <MuiSwitch
                                                 theme={value.themes.createPiece}
                                                 className={
-                                                    this.props.classes.show_offset
+                                                    this.props.classes
+                                                        .show_offset
                                                 }
-                                                isChecked={this.state.showOffsetText}
+                                                isChecked={
+                                                    this.state.showOffsetText
+                                                }
                                                 control={
                                                     <ShowOffsetText
-                                                        theme={value.themes.createPiece}
+                                                        theme={
+                                                            value.themes
+                                                                .createPiece
+                                                        }
                                                         onChange={() =>
                                                             this.setState({
-                                                                showOffsetText: !this
-                                                                    .state
-                                                                    .showOffsetText,
+                                                                showOffsetText:
+                                                                    !this.state
+                                                                        .showOffsetText,
                                                             })
                                                         }
                                                     />
@@ -566,15 +593,23 @@ class CreatePiece extends React.Component {
                                             </MuiSwitch>
                                             <MuiSwitch
                                                 theme={value.themes.createPiece}
-                                                className={this.props.classes.show_span}
-                                                isChecked={this.state.showSpanText}
+                                                className={
+                                                    this.props.classes.show_span
+                                                }
+                                                isChecked={
+                                                    this.state.showSpanText
+                                                }
                                                 control={
                                                     <ShowSpanText
-                                                        theme={value.themes.createPiece}
+                                                        theme={
+                                                            value.themes
+                                                                .createPiece
+                                                        }
                                                         onChange={() =>
                                                             this.setState({
-                                                                showSpanText: !this
-                                                                    .state.showSpanText,
+                                                                showSpanText:
+                                                                    !this.state
+                                                                        .showSpanText,
                                                             })
                                                         }
                                                     />
@@ -608,8 +643,11 @@ class CreatePiece extends React.Component {
                             {this.state.locSqrEntry && (
                                 <LocationSquaresEnter
                                     onAnimationComplete={() => {
-                                        this.setState({locSqrEntry: false});
-                                        this.toggleMiniVariantTool("Location", null);
+                                        this.setState({ locSqrEntry: false });
+                                        this.toggleMiniVariantTool(
+                                            "Location",
+                                            null
+                                        );
                                     }}
                                     isImg={this.whiteAndBlackImgs.white}
                                     pieceLoc={this.state.location}
@@ -620,9 +658,7 @@ class CreatePiece extends React.Component {
                                 this.state.activeTool === "Name") && (
                                 <ToolBackdrop
                                     onClick={() =>
-                                        this.toggleMiniVariantTool(
-                                            null,
-                                        )
+                                        this.toggleMiniVariantTool(null)
                                     }
                                 />
                             )}
@@ -642,13 +678,15 @@ class CreatePiece extends React.Component {
                                         theme={value.themes.createPiece}
                                         setImgFileObj={this.setImgFileObj}
                                         setNewPieceImg={this.setPieceImg}
-                                        whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                        whiteAndBlackImgs={
+                                            this.whiteAndBlackImgs
+                                        }
                                     />
                                 )}
                             </AnimatePresence>
                         </ResponsiveDrawer>
                     </>
-                }
+                )}
             </ThemeContext.Consumer>
         );
     }

@@ -1,15 +1,14 @@
-import React, {useEffect, useReducer} from "react";
-import { DndProvider } from 'react-dnd-multi-backend';
-import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
+import React, { useEffect, useReducer } from "react";
+import { DndProvider } from "react-dnd-multi-backend";
+import HTML5toTouch from "react-dnd-multi-backend/dist/esm/HTML5toTouch";
 import { GameDisplayBoard } from "./GameDisplayBoard";
 import { updateOnResize } from "./updateOnResize";
-import {useMediaQuery} from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
 import DropLayer from "./DropLayer";
 import DragLayer from "./DragLayer";
 import { reducer } from "./Board.red";
 
 const Board = ({ gameRoot, theme }) => {
-
     const [state, dispatch] = useReducer(reducer, {
         isPromo: false,
         aiDisplay: false,
@@ -29,9 +28,9 @@ const Board = ({ gameRoot, theme }) => {
 
     const lg = useMediaQuery("(min-width:960px)");
 
-    const sqrSize = lg ? state.sqrSizes.wide : state.sqrSizes.thin
-    const boardSize = lg ? state.boardSizes.wide : state.boardSizes.thin
-    const boardPos = lg ? state.boardPos.wide : state.boardPos.thin
+    const sqrSize = lg ? state.sqrSizes.wide : state.sqrSizes.thin;
+    const boardSize = lg ? state.boardSizes.wide : state.boardSizes.thin;
+    const boardPos = lg ? state.boardPos.wide : state.boardPos.thin;
 
     return (
         <DndProvider options={HTML5toTouch}>

@@ -1,7 +1,12 @@
 import React from "react";
 
 export const new_game = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+    >
         <g id="g3796-8" transform="translate(-15.073 -5.356)">
             <path
                 id="path4361"

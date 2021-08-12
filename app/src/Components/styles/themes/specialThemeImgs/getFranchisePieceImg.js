@@ -1,5 +1,5 @@
-import {getPieceName} from "../../../helpers/getPieceName";
-import {franchisePieceImgs} from "./franchisePieceImgs";
+import { getPieceName } from "../../../helpers/getPieceName";
+import { franchisePieceImgs } from "./franchisePieceImgs";
 
 /**
  *
@@ -11,5 +11,5 @@ import {franchisePieceImgs} from "./franchisePieceImgs";
 export function getFranchisePieceImg(specialTheme, id, idDict) {
     let name = getPieceName(id, idDict);
     let color = id[0];
-    return franchisePieceImgs[specialTheme][name][color]
+    return franchisePieceImgs[specialTheme][name][color];
 }

@@ -1,12 +1,12 @@
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {copy} from "../../helpers/copy";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { copy } from "../../helpers/copy";
 
 export const reset = (state) => {
     if (!state.loadedName) {
         return {
             ...state,
             name: "",
-            location: 'd4',
+            location: "d4",
             whiteAndBlackImgs: {
                 white: null,
                 black: null,
@@ -26,7 +26,7 @@ export const reset = (state) => {
             offsets: [],
             spanDisplays: getBinaryBoarAllFalse(),
             offsetDisplays: getBinaryBoarAllFalse(),
-        }
+        };
     } else {
         return {
             ...state,
@@ -38,7 +38,7 @@ export const reset = (state) => {
             spanDisplays: getBinaryBoarAllFalse(),
             offsetDisplays: getBinaryBoarAllFalse(),
             unsavedChanges: false,
-            location: 'd4',
-        }
+            location: "d4",
+        };
     }
 };

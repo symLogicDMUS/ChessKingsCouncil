@@ -1,30 +1,30 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import PageLink from "./PageLink";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import InfoIcon from "@material-ui/icons/Info";
 import "../../styles/Background/_backgrounds.scss";
-import {svgStyle} from "../../styles/svgStyle.jss";
-import {Slide, Typography} from "@material-ui/core";
+import { svgStyle } from "../../styles/svgStyle.jss";
+import { Slide, Typography } from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
 import SignInOutButton from "../Sign In/SignInOutButton";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
 import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
-import {ReactComponent as Title} from "./main menu text/title.svg";
-import {ReactComponent as NewGameText} from "./main menu text/New Game.svg";
-import {ReactComponent as LoadGameText} from "./main menu text/Load Game.svg";
-import {ReactComponent as CreatePieceText} from "./main menu text/Create Piece.svg";
-import {ReactComponent as ChessRulesText} from "./main menu text/Chess Rules.svg";
-import {ReactComponent as CouncilRulesText} from "./main menu text/Council Rules.svg";
-import {ReactComponent as SavedPiecesText} from "./main menu text/Saved Pieces.svg";
-import {ReactComponent as AuthorGitHubText} from "./main menu text/Author GitHub.svg";
+import { ReactComponent as Title } from "./main menu text/title.svg";
+import { ReactComponent as NewGameText } from "./main menu text/New Game.svg";
+import { ReactComponent as LoadGameText } from "./main menu text/Load Game.svg";
+import { ReactComponent as CreatePieceText } from "./main menu text/Create Piece.svg";
+import { ReactComponent as ChessRulesText } from "./main menu text/Chess Rules.svg";
+import { ReactComponent as CouncilRulesText } from "./main menu text/Council Rules.svg";
+import { ReactComponent as SavedPiecesText } from "./main menu text/Saved Pieces.svg";
+import { ReactComponent as AuthorGitHubText } from "./main menu text/Author GitHub.svg";
 import SvgBanner from "./SvgBanner";
 import {
     bannerFileNames,
     bannerStyle,
     signOutStyleOverride,
     svgBannerThemes,
-    useStyles
+    useStyles,
 } from "./MainMenuLg.jss";
 
 function MainMenuLg(props) {
@@ -81,7 +81,9 @@ function MainMenuLg(props) {
                     ) : (
                         <img
                             className={classes.banner}
-                            src={`/Images/Banner/${bannerFileNames[props.theme]}`}
+                            src={`/Images/Banner/${
+                                bannerFileNames[props.theme]
+                            }`}
                             alt=""
                         />
                     )}

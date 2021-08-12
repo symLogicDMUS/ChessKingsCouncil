@@ -6,11 +6,10 @@ import { resolvePlayerType } from "../../helpers/resolvePlayerType";
 import { getOppositeColorName } from "../../helpers/getOppositeColorName";
 import SignInOutButton from "../../Home/Sign In/SignInOutButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {marginLeft, useStyles} from "./StatusBar.jss";
+import { marginLeft, useStyles } from "./StatusBar.jss";
 
 function StatusBar({ turn, winner, condition, onChange, theme }) {
-
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const lg = useMediaQuery("(min-width:960px)");
 
@@ -37,16 +36,12 @@ function StatusBar({ turn, winner, condition, onChange, theme }) {
     return (
         <>
             <Box className={classes.status}>
-                <Typography
-                    variant="h6"
-                    noWrap={true}
-                    className={classes.text}
-                >
+                <Typography variant="h6" noWrap={true} className={classes.text}>
                     {getMessage()}
                 </Typography>
             </Box>
             <Box className={classes.statusBar}>
-                <SignInOutButton theme={theme} style={marginLeft}/>
+                <SignInOutButton theme={theme} style={marginLeft} />
             </Box>
         </>
     );

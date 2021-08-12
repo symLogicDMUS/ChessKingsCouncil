@@ -1,4 +1,4 @@
-import {rfToXy, xyToRf} from "../../../helpers/crdCnvrt";
+import { rfToXy, xyToRf } from "../../../helpers/crdCnvrt";
 
 /**
 '0d': right,

@@ -1,18 +1,16 @@
-import {getAngle} from "./getAngle";
-
+import { getAngle } from "./getAngle";
 
 export function getSpansDict(stepFuncs) {
-
     const spans = {
-        "90d" :false,
-        "45d" :false,
-        "0d"  :false,
-        "315d":false,
-        "270d":false,
-        "225d":false,
-        "180d":false,
-        "135d":false
-    }
+        "90d": false,
+        "45d": false,
+        "0d": false,
+        "315d": false,
+        "270d": false,
+        "225d": false,
+        "180d": false,
+        "135d": false,
+    };
 
     let angle = null;
     for (let stepFunc of stepFuncs) {
@@ -21,5 +19,4 @@ export function getSpansDict(stepFuncs) {
     }
 
     return spans;
-
 }

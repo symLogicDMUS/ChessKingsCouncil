@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Select from "@material-ui/core/Select";
 
 export function MuiSelect(props) {
-
-    const {updateParent, overrideItem, children, ...other} = props;
+    const { updateParent, overrideItem, children, ...other } = props;
 
     const [selected, setSelected] = useState("");
 

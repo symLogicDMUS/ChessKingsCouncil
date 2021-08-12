@@ -1,7 +1,7 @@
-import {themes} from "../../styles/themes/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 
 export const styles = {
-    root: props => ({
+    root: (props) => ({
         backgroundColor: themes[props.theme].menu_container,
         "& .MuiStepIcon-root": {
             color: themes[props.theme].text,
@@ -13,8 +13,7 @@ export const styles = {
             color: themes[props.theme].menu_container,
         },
     }),
-    circle: props => ({
-       backgroundColor: 'red',
+    circle: (props) => ({
+        backgroundColor: "red",
     }),
-
-}
+};

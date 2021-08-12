@@ -1,14 +1,9 @@
 import React from "react";
 import clsx from "clsx";
-import {MuiTextField as TextField} from
-        "../../Reuseables/UserInput/MuiTextField";
-import {useStyles} from "./Name.jss";
+import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextField";
+import { useStyles } from "./Name.jss";
 
-function Name({
-    updateName,
-    defaultValue,
-    theme,
-}) {
+function Name({ updateName, defaultValue, theme }) {
     const classes = useStyles({ theme: theme });
 
     const handleInput = (e) => {
@@ -28,7 +23,7 @@ function Name({
             onChange={handleInput}
             defaultValue={defaultValue}
             className={clsx(classes.name, {
-                [classes.special_case_fill]: theme==="NBA"
+                [classes.special_case_fill]: theme === "NBA",
             })}
         />
     );

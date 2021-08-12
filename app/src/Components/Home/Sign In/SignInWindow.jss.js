@@ -17,27 +17,27 @@ export const useStyles = makeStyles(
             flexDirection: "column",
             alignItems: "center",
         }),
-        background: props => ({
+        background: (props) => ({
             position: "fixed",
             top: 0,
             left: 0,
             width: "100vw",
             height: "100vh",
             zIndex: 999,
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
         }),
         content: (props) => ({
-            '@media screen and (max-width: 600px)': {
+            "@media screen and (max-width: 600px)": {
                 width: "90vw",
             },
-            '@media screen and (min-width: 600px)': {
+            "@media screen and (min-width: 600px)": {
                 width: "75vw",
             },
             margin: "auto",
         }),
-        title: props => ({
-            width: '100%',
-            height: 'auto',
+        title: (props) => ({
+            width: "100%",
+            height: "auto",
             marginBottom: "1rem",
         }),
         buttons: (props) => ({

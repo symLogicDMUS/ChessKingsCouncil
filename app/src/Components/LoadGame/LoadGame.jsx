@@ -1,39 +1,38 @@
-import React, {useContext, useEffect, useReducer} from "react";
-import {useHistory} from "react-router-dom";
-import {copy} from "../helpers/copy";
-import {getGames} from "../../API/getGames";
+import React, { useContext, useEffect, useReducer } from "react";
+import { useHistory } from "react-router-dom";
+import { copy } from "../helpers/copy";
+import { getGames } from "../../API/getGames";
 import "../styles/Background/_backgrounds.scss";
-import {deleteGame} from "../../API/deleteGame";
-import {filterSamples} from "../../API/filterSamples";
+import { deleteGame } from "../../API/deleteGame";
+import { filterSamples } from "../../API/filterSamples";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {Background} from "../styles/Background/Background";
-import {getSampleGames} from "../../API/sampleData/getSampleGames";
-import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
+import { Background } from "../styles/Background/Background";
+import { getSampleGames } from "../../API/sampleData/getSampleGames";
+import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
-import {TwoItemAppBarContent} from
-        "../Reuseables/AppBar/Content/TwoItemAppBarContent";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import {SearchBox} from "../Reuseables/UserInput/SearchBox";
+import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
+import { TwoItemAppBarContent } from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
+import { PageTitle } from "../Reuseables/AppBar/PageTitle";
+import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import SearchIcon from "@material-ui/icons/Search";
 import NavBar from "../Reuseables/NavBar/NavBar";
-import {LoadGameTitle} from "./LoadGameTitle";
-import {LoadGameHelp} from "./LoadGameHelp";
+import { LoadGameTitle } from "./LoadGameTitle";
+import { LoadGameHelp } from "./LoadGameHelp";
 import GameSnapshots from "./GameSnapshot/GameSnapshots";
-import {UserContext} from "../../Context/UserContext";
-import {ThemeContext} from "../../Context/ThemeContext";
-import {reducer} from "./LoadGame.red";
-import {useStyles} from "./LoadGame.jss";
+import { UserContext } from "../../Context/UserContext";
+import { ThemeContext } from "../../Context/ThemeContext";
+import { reducer } from "./LoadGame.red";
+import { useStyles } from "./LoadGame.jss";
 
-const MuiGrid = React.lazy(() => import('../Reuseables/Modals/MuiGrid'));
+const MuiGrid = React.lazy(() => import("../Reuseables/Modals/MuiGrid"));
 
 function LoadGame() {
     const history = useHistory();
     const uid = useContext(UserContext);
-    const {themes, themeDispatch} = useContext(ThemeContext);
+    const { themes, themeDispatch } = useContext(ThemeContext);
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
-    const classes = useStyles({theme: themes.loadGame});
+    const classes = useStyles({ theme: themes.loadGame });
 
     const [state, dispatch] = useReducer(reducer, {
         selectedGame: null,
@@ -51,36 +50,47 @@ function LoadGame() {
         let games;
         if (uid) {
             getGames().then(([dbGames]) => {
-                if (! dbGames) {
+                if (!dbGames) {
                     games = {};
                 } else {
                     games = dbGames;
                 }
-                dispatch({type: 'init-load', uid: uid, games, theme: themes.loadGame})
+                dispatch({
+                    type: "init-load",
+                    uid: uid,
+                    games,
+                    theme: themes.loadGame,
+                });
+            });
+        } else {
+            games = getSampleGames();
+            dispatch({
+                type: "init-load",
+                uid: null,
+                games: games,
+                theme: themes.loadGame,
             });
         }
-        else {
-            games = getSampleGames();
-            dispatch({type: 'init-load', uid: null, games: games, theme: themes.loadGame})
-        }
-    }, [uid])
+    }, [uid]);
 
     const updateSearchText = (searchText) => {
-        dispatch({type: "update-search-text", newText: searchText});
+        dispatch({ type: "update-search-text", newText: searchText });
     };
 
     const deleteGameEntry = () => {
-        const newState = copy(state)
-        const imgUrlStrs = filterSamples(newState.games[state.selectedGame].imgUrlStrs)
+        const newState = copy(state);
+        const imgUrlStrs = filterSamples(
+            newState.games[state.selectedGame].imgUrlStrs
+        );
         decrementImgRefCounts(imgUrlStrs).then((r) => {
             deleteGame(state.selectedGame).then(([r]) => {
-                dispatch({type: 'delete-game'})
+                dispatch({ type: "delete-game" });
             });
         });
     };
 
     const setChoice = (gameName) => {
-        dispatch({type: 'set-choice', gameName: gameName})
+        dispatch({ type: "set-choice", gameName: gameName });
     };
 
     if (state.useChoseGame) {
@@ -99,7 +109,7 @@ function LoadGame() {
                 title={"Load Game"}
                 theme={themes.loadGame}
                 currentPage={"LoadGame"}
-                initialState={{pos: 0, numSlides: 2}}
+                initialState={{ pos: 0, numSlides: 2 }}
             >
                 {LoadGameHelp(themes.loadGame)}
             </HelpSlideshow>
@@ -122,9 +132,14 @@ function LoadGame() {
                 appBarContent={
                     <TwoItemAppBarContent
                         theme={themes.loadGame}
-                        seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
+                        seeMoreIcon={
+                            <SearchIcon className={classes.see_more_icon} />
+                        }
                     >
-                        <PageTitle theme={themes.loadGame} className={classes.title}>
+                        <PageTitle
+                            theme={themes.loadGame}
+                            className={classes.title}
+                        >
                             Load Game
                         </PageTitle>
                         <SearchBox
@@ -134,7 +149,7 @@ function LoadGame() {
                         />
                     </TwoItemAppBarContent>
                 }
-                appBarType='2item'
+                appBarType="2item"
                 seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
             >
                 <div className={classes.load_game}>
@@ -145,11 +160,18 @@ function LoadGame() {
                         searchText={state.searchText}
                         selectedItem={state.selectedGame}
                         defaultChecked={state.showNames}
-                        onOkClick={() => dispatch({type: 'load-game'})}
-                        toggleShowNames={() => dispatch({type: 'toggle-show-names'})}
+                        onOkClick={() => dispatch({ type: "load-game" })}
+                        toggleShowNames={() =>
+                            dispatch({ type: "toggle-show-names" })
+                        }
                         confirmDeleteMessage={`Are you sure you want to delete game ${state.selectedGame}?`}
                         title={
-                            isWide ? <LoadGameTitle theme={themes.loadGame} updateSearchText={updateSearchText} /> : null
+                            isWide ? (
+                                <LoadGameTitle
+                                    theme={themes.loadGame}
+                                    updateSearchText={updateSearchText}
+                                />
+                            ) : null
                         }
                         topFlexbox={null}
                         onClose={null}

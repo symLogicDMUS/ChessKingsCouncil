@@ -1,6 +1,6 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 import clsx from "clsx";
-import {Avatar, Typography} from "@material-ui/core";
+import { Avatar, Typography } from "@material-ui/core";
 import { useStyles } from "./CreatePiecePiece.jss";
 
 const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
@@ -11,7 +11,11 @@ const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
     return (
         <>
             {imgUrl ? (
-                <img src={imgUrl} className={classes.img} alt={'avatar of piece being created'} />
+                <img
+                    src={imgUrl}
+                    className={classes.img}
+                    alt={"avatar of piece being created"}
+                />
             ) : (
                 <Avatar
                     variant="square"
@@ -20,7 +24,9 @@ const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
                     })}
                     src={imgUrl}
                 >
-                    <Typography className={classes.rf_text} variant='button'>{rf}</Typography>
+                    <Typography className={classes.rf_text} variant="button">
+                        {rf}
+                    </Typography>
                 </Avatar>
             )}
         </>

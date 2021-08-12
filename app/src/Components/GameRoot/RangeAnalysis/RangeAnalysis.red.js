@@ -1,6 +1,6 @@
 import React from "react";
-import {rankfiles} from "../../helpers/rankfiles";
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
+import { rankfiles } from "../../helpers/rankfiles";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
 export function reducer(state, action) {
     switch (action.type) {
@@ -13,17 +13,16 @@ export function reducer(state, action) {
                     rangeBoard: getBinaryBoarAllFalse(),
                     selectedSqr: null,
                 };
-            }
-            else {
+            } else {
                 const rangeBoard = getBinaryBoarAllFalse();
-                const id = action.board[action.rf]
+                const id = action.board[action.rf];
                 rankfiles.forEach((rf) => {
                     rangeBoard[rf] = action.allRanges[id].includes(rf);
                 });
                 return {
                     rangeBoard: rangeBoard,
                     selectedSqr: action.rf,
-                }
+                };
             }
         default:
             throw new Error();

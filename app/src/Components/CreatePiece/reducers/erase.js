@@ -1,4 +1,4 @@
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
 export const erase = (state) => {
     return {
@@ -23,5 +23,5 @@ export const erase = (state) => {
         offsets: [],
         spanDisplays: getBinaryBoarAllFalse(),
         offsetDisplays: getBinaryBoarAllFalse(),
-    }
+    };
 };

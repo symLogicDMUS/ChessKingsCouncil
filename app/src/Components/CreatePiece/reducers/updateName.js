@@ -3,5 +3,5 @@ export const updateName = (state, name) => {
         ...state,
         name: name,
         unsavedChanges: true,
-    }
+    };
 };

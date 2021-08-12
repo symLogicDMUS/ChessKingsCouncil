@@ -1,7 +1,12 @@
 import React from "react";
 
 export const reset = (stroke) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 6.401 6.397">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 6.401 6.397"
+    >
         <g id="layer1" transform="translate(-0.284 -6.404)">
             <path
                 id="path2542"

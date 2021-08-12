@@ -1,6 +1,6 @@
-import {stepFuncDict} from "../../helpers/stepFuncs";
-import {outOfBounds as oob} from "../../helpers/oob";
-import {removeOffset} from "./removeOffset";
+import { stepFuncDict } from "../../helpers/stepFuncs";
+import { outOfBounds as oob } from "../../helpers/oob";
+import { removeOffset } from "./removeOffset";
 
 export const toggleSpan = (newState, angle) => {
     newState.spans[angle] = !newState.spans[angle];

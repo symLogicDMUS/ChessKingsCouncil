@@ -1,4 +1,4 @@
-import {copy} from "../../helpers/copy";
+import { copy } from "../../helpers/copy";
 
 export const resetImg = (state, deletedImgStr) => {
     const whiteAndBlackImgs = copy(state.whiteAndBlackImgs);
@@ -11,5 +11,5 @@ export const resetImg = (state, deletedImgStr) => {
     return {
         ...state,
         whiteAndBlackImgs: whiteAndBlackImgs,
-    }
+    };
 };

@@ -1,4 +1,10 @@
-export const offsetExample1 = (light_sqr_fill, dark_sqr_fill, offset_color, width, height) => (
+export const offsetExample1 = (
+    light_sqr_fill,
+    dark_sqr_fill,
+    offset_color,
+    width,
+    height
+) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={width}
@@ -12,224 +18,224 @@ export const offsetExample1 = (light_sqr_fill, dark_sqr_fill, offset_color, widt
                     width="92"
                     height="93"
                     transform="translate(465 251)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="d8"
                     width="92"
                     height="93"
                     transform="translate(650 251)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="f8"
                     width="92"
                     height="93"
                     transform="translate(835 251)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="h8"
                     width="92"
                     height="93"
                     transform="translate(1020 251)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="c7"
                     width="93"
                     height="92"
                     transform="translate(557 344)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="e7"
                     width="93"
                     height="92"
                     transform="translate(742 344)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="g7"
                     width="93"
                     height="92"
                     transform="translate(927 344)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="a7"
                     width="93"
                     height="92"
                     transform="translate(372 344)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="b6"
                     width="92"
                     height="93"
                     transform="translate(465 436)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="d6"
                     width="92"
                     height="93"
                     transform="translate(650 436)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="f6"
                     width="92"
                     height="93"
                     transform="translate(835 436)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="h6"
                     width="92"
                     height="93"
                     transform="translate(1020 436)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="c5"
                     width="93"
                     height="92"
                     transform="translate(557 529)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="e5"
                     width="93"
                     height="92"
                     transform="translate(742 529)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="g5"
                     width="93"
                     height="92"
                     transform="translate(927 529)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="a5"
                     width="93"
                     height="92"
                     transform="translate(372 529)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="b4"
                     width="92"
                     height="93"
                     transform="translate(465 621)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="d4"
                     width="92"
                     height="93"
                     transform="translate(650 621)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="f4"
                     width="92"
                     height="93"
                     transform="translate(835 621)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="h4"
                     width="92"
                     height="93"
                     transform="translate(1020 621)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="c3"
                     width="93"
                     height="92"
                     transform="translate(557 714)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="e3"
                     width="93"
                     height="92"
                     transform="translate(742 714)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="g3"
                     width="93"
                     height="92"
                     transform="translate(927 714)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="a3"
                     width="93"
                     height="92"
                     transform="translate(372 714)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="b2"
                     width="92"
                     height="93"
                     transform="translate(465 806)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="d2"
                     width="92"
                     height="93"
                     transform="translate(650 806)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="f2"
                     width="92"
                     height="93"
                     transform="translate(835 806)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="h2"
                     width="92"
                     height="93"
                     transform="translate(1020 806)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="c1"
                     width="93"
                     height="92"
                     transform="translate(557 899)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="e1"
                     width="93"
                     height="92"
                     transform="translate(742 899)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="g1"
                     width="93"
                     height="92"
                     transform="translate(927 899)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="a1"
                     width="93"
                     height="92"
                     transform="translate(372 899)"
-                   fill={light_sqr_fill}
+                    fill={light_sqr_fill}
                 />
                 <rect
                     id="a6"

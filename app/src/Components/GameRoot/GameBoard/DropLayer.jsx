@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useDrop } from "react-dnd";
 import AIMove from "./AIMove";
-import {move} from "../Move/move";
+import { move } from "../Move/move";
 import { isLegal } from "../Move/isLegal";
-import {ItemTypes} from "./ItemTypes";
-import {getCoords} from "./getCoords";
-import {renderPiece} from "./renderPiece.js";
-import {getAiMove} from "../../../API/apiHelpers/getAiMove";
-import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
-import {rfToXy, xyToPx} from "./DndCrdCnvrt";
-import {OVER} from "../../helpers/gStatusTypes";
-import {useStyles} from "./DropLayer.jss";
+import { ItemTypes } from "./ItemTypes";
+import { getCoords } from "./getCoords";
+import { renderPiece } from "./renderPiece.js";
+import { getAiMove } from "../../../API/apiHelpers/getAiMove";
+import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
+import { rfToXy, xyToPx } from "./DndCrdCnvrt";
+import { OVER } from "../../helpers/gStatusTypes";
+import { useStyles } from "./DropLayer.jss";
 
-const Promo = React.lazy(() => import('../Promo/Promo'));
+const Promo = React.lazy(() => import("../Promo/Promo"));
 
 /**
  * Sits on top of game boards. updated on drop.
@@ -66,19 +66,16 @@ const DropLayer = ({
     useEffect(() => {
         if (gameRoot.aiColor === gameRoot.turn) {
             if (
-                ! noRanges(gameRoot.ranges) &&
+                !noRanges(gameRoot.ranges) &&
                 gameRoot.gameStatus.status !== OVER
             ) {
-                [
-                    gameRoot.aiCapture,
-                    gameRoot.aiStart,
-                    gameRoot.aiDest,
-                ] = getAiMove(
-                    gameRoot.board,
-                    gameRoot.ranges,
-                    gameRoot.aiColor,
-                    gameRoot.specialMoves
-                );
+                [gameRoot.aiCapture, gameRoot.aiStart, gameRoot.aiDest] =
+                    getAiMove(
+                        gameRoot.board,
+                        gameRoot.ranges,
+                        gameRoot.aiColor,
+                        gameRoot.specialMoves
+                    );
                 dispatch({
                     type: "ai-begin",
                     board: gameRoot.board,
@@ -87,7 +84,6 @@ const DropLayer = ({
             }
         }
     }, [gameRoot.turn]);
-
 
     useEffect(() => {
         dispatch({

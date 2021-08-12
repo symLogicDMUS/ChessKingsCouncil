@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
-import {Backdrop} from "@material-ui/core";
-import {Close} from "../../Reuseables/Modals/Close";
+import React, { useState } from "react";
+import { Backdrop } from "@material-ui/core";
+import { Close } from "../../Reuseables/Modals/Close";
 import PieceProfiles from "../../PieceProfiles/PieceProfiles";
-import {ProfilesTitle} from "../../PieceProfiles/ProfilesTitle";
-import {useStyles} from "./ProfilesModal.jss";
+import { ProfilesTitle } from "../../PieceProfiles/ProfilesTitle";
+import { useStyles } from "./ProfilesModal.jss";
 
-function ProfilesModal({load, erase, close, theme}) {
-    const classes = useStyles({theme: theme});
+function ProfilesModal({ load, erase, close, theme }) {
+    const classes = useStyles({ theme: theme });
 
     const [searchText, setSearchText] = useState("");
     const updateSearchText = (text) => {
-        setSearchText(text)
+        setSearchText(text);
     };
 
     return (
@@ -35,7 +35,11 @@ function ProfilesModal({load, erase, close, theme}) {
                 >
                     Saved Pieces
                 </ProfilesTitle>
-                <Close onClick={close} className={classes.close} theme={theme} />
+                <Close
+                    onClick={close}
+                    className={classes.close}
+                    theme={theme}
+                />
             </PieceProfiles>
         </>
     );

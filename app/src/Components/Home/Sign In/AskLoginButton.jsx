@@ -54,8 +54,8 @@ function AskLoginButton({
                         Do you want to sign in?
                     </DialogTitle>
                     <DialogContent className={classes.text}>
-                        You can save work without signing in but it will
-                        only be available until you leave the site.
+                        You can save work without signing in but it will only be
+                        available until you leave the site.
                     </DialogContent>
                     <DialogActions className={classes.dialog_actions}>
                         <Button

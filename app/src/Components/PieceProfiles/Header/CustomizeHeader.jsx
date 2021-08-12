@@ -1,15 +1,15 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import clsx from "clsx";
-import {PieceName} from "./PieceName";
+import { PieceName } from "./PieceName";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {SubDropdown} from "../../NewGame/Customize/SubDropdown";
-import {SubButtonGroup} from "../../NewGame/Customize/SubButtonGroup";
-import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
-import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
+import { SubDropdown } from "../../NewGame/Customize/SubDropdown";
+import { SubButtonGroup } from "../../NewGame/Customize/SubButtonGroup";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
+import { useStyles as useMoreStyles } from "../Header/ProfileHeader.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
-import {useStyles} from "./CustomizeHeader.jss";
+import { SeeMore } from "../../Reuseables/UserInput/SeeMore";
+import { useStyles } from "./CustomizeHeader.jss";
 
 function CustomizeHeader({
     subs,
@@ -48,9 +48,7 @@ function CustomizeHeader({
                 })}
             >
                 <MediaQuery maxWidth={960}>
-                    <PieceName theme={theme}>
-                        {customPieceName}
-                    </PieceName>
+                    <PieceName theme={theme}>{customPieceName}</PieceName>
                     <Box
                         className={clsx(classes.options_box, {
                             [classes.header_box_sm_screen]: true,
@@ -60,7 +58,7 @@ function CustomizeHeader({
                         })}
                     >
                         {sm ? (
-                            <SeeMore theme={theme} edge={ xs ? 'end' : null}>
+                            <SeeMore theme={theme} edge={xs ? "end" : null}>
                                 <MuiCheckbox
                                     checkmarkState={isCheckmark}
                                     className={classes.promo_checkbox}
@@ -96,9 +94,7 @@ function CustomizeHeader({
                             [classes.header_box_lg_screen]: true,
                         })}
                     >
-                        <PieceName theme={theme}>
-                            {customPieceName}
-                        </PieceName>
+                        <PieceName theme={theme}>{customPieceName}</PieceName>
                     </Box>
                     <Box
                         className={clsx(classes.options_box, {
@@ -109,7 +105,7 @@ function CustomizeHeader({
                             checkmarkState={isCheckmark}
                             className={classes.promo_checkbox}
                             onClick={() => togglePromo(customPieceName)}
-                            variant='subtitle1'
+                            variant="subtitle1"
                             theme={theme}
                         >
                             Promotion
@@ -131,8 +127,12 @@ function CustomizeHeader({
                             standardPieceThatSubbingFor={
                                 standardPieceThatSubbingFor
                             }
-                            onQueenClick={() => toggleSub(customPieceName, "Queen")}
-                            onRookClick={() => toggleSub(customPieceName, "Rook")}
+                            onQueenClick={() =>
+                                toggleSub(customPieceName, "Queen")
+                            }
+                            onRookClick={() =>
+                                toggleSub(customPieceName, "Rook")
+                            }
                             onKnightClick={() =>
                                 toggleSub(customPieceName, "Knight")
                             }
@@ -141,7 +141,10 @@ function CustomizeHeader({
                             }
                             onNoSymbolClick={() => {
                                 if (standardPieceThatSubbingFor) {
-                                    toggleSub(null, standardPieceThatSubbingFor);
+                                    toggleSub(
+                                        null,
+                                        standardPieceThatSubbingFor
+                                    );
                                 }
                             }}
                         />

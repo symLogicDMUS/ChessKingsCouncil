@@ -1,5 +1,5 @@
-import {darken, makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes/themes.jss";
+import { darken, makeStyles } from "@material-ui/core/styles";
+import { themes } from "../../styles/themes/themes.jss";
 
 const topAreaHeight = 40;
 
@@ -24,12 +24,12 @@ export const svgBannerThemes = [
 
 /* for themes not svgBannerThemes */
 export const bannerFileNames = {
-    'blue': "main menu banner-blue.png",
-    'NBA': 'main menu banner-NBA.png',
-    'mechwarrior_a_team': 'main menu banner-mechwarrior_a_team.png',
-    'mechwarrior_b_team': 'main menu banner-mechwarrior_b_team.png',
-    'star_wars': 'a long time ago.svg',
-}
+    blue: "main menu banner-blue.png",
+    NBA: "main menu banner-NBA.png",
+    mechwarrior_a_team: "main menu banner-mechwarrior_a_team.png",
+    mechwarrior_b_team: "main menu banner-mechwarrior_b_team.png",
+    star_wars: "a long time ago.svg",
+};
 
 export const bannerStyle = (theme) => ({
     width: "100%",

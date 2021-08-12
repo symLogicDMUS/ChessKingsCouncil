@@ -11,4 +11,4 @@ export const NBA = {
     "lebron-white.png": "/Images/Pieces/NBA/lebron-white.png",
     "nba-logo-black.svg": "/Images/Pieces/NBA/nba-logo-black.svg",
     "nba-logo-white.svg": "/Images/Pieces/NBA/nba-logo-white.svg",
-}
+};

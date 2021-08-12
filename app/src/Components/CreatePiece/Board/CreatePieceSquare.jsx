@@ -1,30 +1,30 @@
-import React, {memo, useState} from "react";
+import React, { memo, useState } from "react";
 import clsx from "clsx";
 import Button from "@material-ui/core/Button";
-import {getOffset} from "../../helpers/getOffset";
-import {binaryBoard} from "../../helpers/binaryBoard";
-import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
-import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
-import {useStyles as useMoreStyles} from "../../Reuseables/Board/Square.jss";
-import {pieceLocHover, useStyles} from "./CreatePieceSquare.jss";
+import { getOffset } from "../../helpers/getOffset";
+import { binaryBoard } from "../../helpers/binaryBoard";
+import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
+import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
+import { useStyles as useMoreStyles } from "../../Reuseables/Board/Square.jss";
+import { pieceLocHover, useStyles } from "./CreatePieceSquare.jss";
 
 const CreatePieceSquare = memo(
     ({
-         rf,
-         theme,
-         pieceLoc,
-         toggleOffset,
-         isSpan,
-         isOffset,
-         showSpanText,
-         showOffsetText,
-         hasToolChild,
-         hasFabChild,
-         children,
-     }) => {
+        rf,
+        theme,
+        pieceLoc,
+        toggleOffset,
+        isSpan,
+        isOffset,
+        showSpanText,
+        showOffsetText,
+        hasToolChild,
+        hasFabChild,
+        children,
+    }) => {
         const [hover, setHover] = useState(false);
         const classes = useStyles({ theme: theme, rf: rf });
-        const classes2 = useMoreStyles({rf: rf, theme: theme});
+        const classes2 = useMoreStyles({ rf: rf, theme: theme });
 
         const handleClick = () => {
             if (!hasToolChild && !isSpan) {
@@ -46,9 +46,13 @@ const CreatePieceSquare = memo(
                 disableRipple={hasToolChild}
             >
                 {isSpan && !hasToolChild ? (
-                    <SpanLabel theme={theme} hasFabChild={hasFabChild} showSpanText={showSpanText} />
+                    <SpanLabel
+                        theme={theme}
+                        hasFabChild={hasFabChild}
+                        showSpanText={showSpanText}
+                    />
                 ) : null}
-                {isOffset &&  !hasToolChild ? (
+                {isOffset && !hasToolChild ? (
                     <OffsetLabel
                         offset={getOffset(rf, pieceLoc)}
                         showOffsetText={showOffsetText}

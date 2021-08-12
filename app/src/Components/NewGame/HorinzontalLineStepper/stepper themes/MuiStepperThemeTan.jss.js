@@ -1,20 +1,20 @@
-import {createMuiTheme} from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core";
 
 export const muiStepperThemeTan = createMuiTheme({
     overrides: {
         MuiStepper: {
             root: {
-                backgroundColor: 'rgba(0, 0, 0, 0)',
+                backgroundColor: "rgba(0, 0, 0, 0)",
             },
         },
         MuiStepIcon: {
             root: {
-                color: '#d7bb99',
-                '&$completed': {
-                    color: '#FFC0CB',
+                color: "#d7bb99",
+                "&$completed": {
+                    color: "#FFC0CB",
                 },
-                '&$active': {
-                    color: '#90caf9',
+                "&$active": {
+                    color: "#90caf9",
                 },
             },
             active: {},
@@ -22,10 +22,10 @@ export const muiStepperThemeTan = createMuiTheme({
         },
     },
     palette: {
-        type: 'dark',
+        type: "dark",
         primary: {
-            main: '#d7bb99',
-            contrastText: '#111111',
-        }
+            main: "#d7bb99",
+            contrastText: "#111111",
+        },
     },
-})
+});

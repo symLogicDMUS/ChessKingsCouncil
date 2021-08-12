@@ -25,7 +25,7 @@ function ScrollTable({
     disableArrows,
     children,
 }) {
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const [state, dispatch] = useReducer(reducer, {
         dataLists: divideList(children, numRows),

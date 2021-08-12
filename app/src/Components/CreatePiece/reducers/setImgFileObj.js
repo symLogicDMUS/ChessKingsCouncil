@@ -6,5 +6,5 @@ export const setImgFileObj = (state, color, fileObj) => {
             [color]: fileObj,
         },
         unsavedChanges: true,
-    }
+    };
 };

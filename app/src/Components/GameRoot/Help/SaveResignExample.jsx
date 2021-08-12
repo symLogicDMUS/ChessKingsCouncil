@@ -1,14 +1,14 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import {IconButton, SvgIcon} from "@material-ui/core";
+import { IconButton, SvgIcon } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {icons} from "../../styles/icons/top/icons.jss";
-import {themes} from "../../styles/themes/themes.jss";
+import { icons } from "../../styles/icons/top/icons.jss";
+import { themes } from "../../styles/themes/themes.jss";
 import { useStyles } from "../SaveResignTool/SaveResignTool.jss";
 
-export function SaveResignExample({theme}) {
-    const classes = useStyles({theme});
+export function SaveResignExample({ theme }) {
+    const classes = useStyles({ theme });
     return (
         <>
             <Box className={classes.save_resign_tool}>
@@ -49,5 +49,5 @@ export function SaveResignExample({theme}) {
                 </Button>
             </Box>
         </>
-    )
+    );
 }

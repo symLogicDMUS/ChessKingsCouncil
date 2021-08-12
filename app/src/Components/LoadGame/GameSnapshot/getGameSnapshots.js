@@ -1,5 +1,5 @@
 import React from "react";
-import {GameSnapshot} from "./GameSnapshot";
+import { GameSnapshot } from "./GameSnapshot";
 
 export function getGameSnapshots(
     boardObjs,
@@ -7,7 +7,7 @@ export function getGameSnapshots(
     gameChoice,
     searchText,
     showNames,
-    theme,
+    theme
 ) {
     let gameNames;
     if (searchText && searchText !== "") {

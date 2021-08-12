@@ -1,16 +1,16 @@
 import React from "react";
 import clsx from "clsx";
-import {motion} from "framer-motion";
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import {StyledTableRow} from "./StyledTableRow";
-import {StyledTableCell} from "./StyledTableCell";
-import TableHead from '@material-ui/core/TableHead';
-import TableBody from '@material-ui/core/TableBody';
-import TableContainer from '@material-ui/core/TableContainer';
-import {resolvePlayerType} from "../../helpers/resolvePlayerType";
-import {useStyles as useMoreStyles} from "../GameRootToolbar.jss";
-import {textAlign, useStyles} from "./GameInfoModal.jss";
+import { motion } from "framer-motion";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import { StyledTableRow } from "./StyledTableRow";
+import { StyledTableCell } from "./StyledTableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import TableContainer from "@material-ui/core/TableContainer";
+import { resolvePlayerType } from "../../helpers/resolvePlayerType";
+import { useStyles as useMoreStyles } from "../GameRootToolbar.jss";
+import { textAlign, useStyles } from "./GameInfoModal.jss";
 
 function GameInfoModal({ theme, gameName, gameType, playerType }) {
     const classes = useStyles({ theme: theme });
@@ -37,14 +37,11 @@ function GameInfoModal({ theme, gameName, gameType, playerType }) {
         },
     };
 
-
     return (
         <motion.div
-            className={
-                clsx(classes2.window, {
-                    [classes.window]: true,
-                })
-            }
+            className={clsx(classes2.window, {
+                [classes.window]: true,
+            })}
             variants={variants}
             initial={"initial"}
             animate={"animate"}
@@ -56,21 +53,32 @@ function GameInfoModal({ theme, gameName, gameType, playerType }) {
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>
                         <StyledTableRow theme={theme}>
-                            <StyledTableCell theme={theme} align={textAlign}>Game Name</StyledTableCell>
-                            <StyledTableCell theme={theme} align={textAlign}>Game Type</StyledTableCell>
-                            <StyledTableCell theme={theme} align={textAlign}>Player Type</StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                Game Name
+                            </StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                Game Type
+                            </StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                Player Type
+                            </StyledTableCell>
                         </StyledTableRow>
                     </TableHead>
                     <TableBody>
                         <StyledTableRow theme={theme}>
-                            <StyledTableCell theme={theme} align={textAlign}>{gameName}</StyledTableCell>
-                            <StyledTableCell theme={theme} align={textAlign}>{gameType}</StyledTableCell>
-                            <StyledTableCell theme={theme} align={textAlign}>{resolvePlayerType(playerType)}</StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                {gameName}
+                            </StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                {gameType}
+                            </StyledTableCell>
+                            <StyledTableCell theme={theme} align={textAlign}>
+                                {resolvePlayerType(playerType)}
+                            </StyledTableCell>
                         </StyledTableRow>
                     </TableBody>
                 </Table>
             </TableContainer>
-
         </motion.div>
     );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import {ImgChoice} from "../../CreatePiece/Icon/ImgChoicesModal/ImgChoice";
+import { ImgChoice } from "../../CreatePiece/Icon/ImgChoicesModal/ImgChoice";
 
 export const getImgComponents = (
     imgDict,
@@ -10,10 +10,11 @@ export const getImgComponents = (
     theme
 ) => {
     let names;
-    if (searchText && searchText !== '') {
-        names = Object.keys(imgDict).filter(name => name.toLowerCase().startsWith(searchText))
-    }
-    else {
+    if (searchText && searchText !== "") {
+        names = Object.keys(imgDict).filter((name) =>
+            name.toLowerCase().startsWith(searchText)
+        );
+    } else {
         names = Object.keys(imgDict);
     }
     const imgComponents = [];

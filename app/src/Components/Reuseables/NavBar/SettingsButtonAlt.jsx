@@ -1,13 +1,13 @@
-import React, {useState} from "react";
-import {Portal, Typography} from "@material-ui/core";
-import {SettingsModal} from "./SettingsModal";
+import React, { useState } from "react";
+import { Portal, Typography } from "@material-ui/core";
+import { SettingsModal } from "./SettingsModal";
 import Box from "@material-ui/core/Box";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { useStyles } from "./NavBarButtonAlt.jss";
 
-export function SettingsButtonAlt({theme, updateTheme, children}) {
+export function SettingsButtonAlt({ theme, updateTheme, children }) {
     const [settingsModal, setSettingsModal] = useState(false);
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     return (
         <>
@@ -20,9 +20,14 @@ export function SettingsButtonAlt({theme, updateTheme, children}) {
                     />
                 </Portal>
             ) : null}
-            <Box className={classes.nav_bar_button} onClick={() => setSettingsModal(true)}>
+            <Box
+                className={classes.nav_bar_button}
+                onClick={() => setSettingsModal(true)}
+            >
                 <SettingsIcon className={classes.icon} />
-                <Typography className={classes.text} variant='button'>{children}</Typography>
+                <Typography className={classes.text} variant="button">
+                    {children}
+                </Typography>
             </Box>
         </>
     );

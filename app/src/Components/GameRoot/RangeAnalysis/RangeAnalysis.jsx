@@ -1,12 +1,11 @@
 import React, { useReducer } from "react";
 import MediaQuery from "react-responsive/src";
 import { Typography } from "@material-ui/core";
-import { getBinaryBoarAllFalse } from
-        "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./RangeAnalysis.red";
 import { useStyles } from "./RangeAnalysis.jss";
 
-const AnalysisBoard = React.lazy(() => import('./AnalysisBoard'));
+const AnalysisBoard = React.lazy(() => import("./AnalysisBoard"));
 
 function RangeAnalysis({
     theme,
@@ -18,7 +17,6 @@ function RangeAnalysis({
     toggleSecondaryDrawer,
     showProfileOnClick,
 }) {
-
     const [state, dispatch] = useReducer(reducer, {
         rangeBoard: getBinaryBoarAllFalse(),
         selectedSqr: null,

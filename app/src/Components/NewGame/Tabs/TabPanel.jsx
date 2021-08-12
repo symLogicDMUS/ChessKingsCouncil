@@ -1,5 +1,5 @@
 import React from "react";
-import {Slide} from "@material-ui/core";
+import { Slide } from "@material-ui/core";
 import { useStyles } from "./TabPanel.jss";
 
 function TabPanel(props) {
@@ -16,9 +16,9 @@ function TabPanel(props) {
             className={classes.tabPanel}
             {...other}
         >
-                <Slide in={value === index} direction={slideDirection}>
-                    <div>{children}</div>
-                </Slide>
+            <Slide in={value === index} direction={slideDirection}>
+                <div>{children}</div>
+            </Slide>
         </div>
     );
 }

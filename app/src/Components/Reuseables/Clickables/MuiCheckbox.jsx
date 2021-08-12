@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import { FormControlLabel } from "@material-ui/core";
 import { useStyles } from "./MuiCheckbox.jss";
 
-
 export function MuiCheckbox(props) {
     const {
         onClick,

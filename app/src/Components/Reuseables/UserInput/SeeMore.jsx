@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { MuiMenu } from "./MuiMenu";
-import {originTransform, originTransform2} from
-        "../AppBar/Content/ThreeItemAppBarContent.jss";
+import {
+    originTransform,
+    originTransform2,
+} from "../AppBar/Content/ThreeItemAppBarContent.jss";
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { useStyles } from "./SeeMore.jss";
 
 export function SeeMore(props) {
-    const { theme, icon, className, style, edge, listItem, text, children, ...other } = props;
+    const {
+        theme,
+        icon,
+        className,
+        style,
+        edge,
+        listItem,
+        text,
+        children,
+        ...other
+    } = props;
 
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -37,13 +49,15 @@ export function SeeMore(props) {
                 {children}
             </MuiMenu>
             {listItem ? (
-                <ListItem button onClick={handleMobileMenuOpen} className={className}>
+                <ListItem
+                    button
+                    onClick={handleMobileMenuOpen}
+                    className={className}
+                >
                     <ListItemIcon onClick={handleMobileMenuOpen}>
                         {icon ? icon : <MoreIcon className={classes.icon} />}
                     </ListItemIcon>
-                    <ListItemText className={classes.icon}>
-                        {text}
-                    </ListItemText>
+                    <ListItemText className={classes.icon}>{text}</ListItemText>
                 </ListItem>
             ) : (
                 <div
@@ -52,7 +66,7 @@ export function SeeMore(props) {
                     })}
                     {...other}
                 >
-                    <IconButton onClick={handleMobileMenuOpen} edge={edge} >
+                    <IconButton onClick={handleMobileMenuOpen} edge={edge}>
                         {icon ? icon : <MoreIcon className={classes.icon} />}
                     </IconButton>
                 </div>

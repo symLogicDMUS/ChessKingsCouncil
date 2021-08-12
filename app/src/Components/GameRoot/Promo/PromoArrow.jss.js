@@ -1,10 +1,13 @@
-import {makeStyles} from "@material-ui/core/styles"
-import {themes} from "../../styles/themes/themes.jss";
-import {promoChoicesSize} from "./Promo.jss";
+import { makeStyles } from "@material-ui/core/styles";
+import { themes } from "../../styles/themes/themes.jss";
+import { promoChoicesSize } from "./Promo.jss";
 
-export const useStyles = makeStyles((theme) => ({
-    button: props => ({
-        color: themes[props.theme].text,
-        background: themes[props.theme].button_fill,
+export const useStyles = makeStyles(
+    (theme) => ({
+        button: (props) => ({
+            color: themes[props.theme].text,
+            background: themes[props.theme].button_fill,
+        }),
     }),
-}), {index: 1});
+    { index: 1 }
+);

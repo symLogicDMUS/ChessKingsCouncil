@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive/src";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 
-const LocationButton = React.lazy(() => import('./LocationButton'));
+const LocationButton = React.lazy(() => import("./LocationButton"));
 
 function Location({ selectedLoc, setLoc, theme }) {
     const classes = useMoreStyles({ theme: theme });

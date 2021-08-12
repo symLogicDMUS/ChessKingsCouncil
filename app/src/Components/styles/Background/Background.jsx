@@ -1,26 +1,25 @@
 import React from "react";
 import clsx from "clsx";
-import {Portal} from "@material-ui/core";
-import {BoardPatternRow} from "./BoardPatternRow";
-import {useStyles} from "./Background.jss";
+import { Portal } from "@material-ui/core";
+import { BoardPatternRow } from "./BoardPatternRow";
+import { useStyles } from "./Background.jss";
 
 export function Background(props) {
-    const classes = useStyles()
+    const classes = useStyles();
     return (
         <Portal>
             <div className={classes.background}>
                 <div
-                    className={
-                        clsx(null, {
-                            [classes.navbar]: props.navBar,
-                            [classes.appBar]: props.appBar,
-                            [classes.lgScreenBar]: props.lgScreenBar,
-                            [classes.appWithTabs]: props.appWithTabs,
-                        })}
+                    className={clsx(null, {
+                        [classes.navbar]: props.navBar,
+                        [classes.appBar]: props.appBar,
+                        [classes.lgScreenBar]: props.lgScreenBar,
+                        [classes.appWithTabs]: props.appWithTabs,
+                    })}
                 />
-                <BoardPatternRow row2={false} theme={props.theme}/>
-                <BoardPatternRow row2={true} theme={props.theme}/>
+                <BoardPatternRow row2={false} theme={props.theme} />
+                <BoardPatternRow row2={true} theme={props.theme} />
             </div>
         </Portal>
-    )
+    );
 }

@@ -1,4 +1,4 @@
-import {rfToXy} from "../../helpers/crdCnvrt";
+import { rfToXy } from "../../helpers/crdCnvrt";
 
 export const removeOffset = (newState, rf) => {
     newState.offsetDisplays[rf] = false;

@@ -1,5 +1,5 @@
-import {specialPieceImg} from "../../API/sampleData/specialThemeImgs/specialPieceImg/prod";
-import {standardPieceDefs} from "../NewGame/standardPieceDefs";
+import { specialPieceImg } from "../../API/sampleData/specialThemeImgs/specialPieceImg/prod";
+import { standardPieceDefs } from "../NewGame/standardPieceDefs";
 
 /**
  *
@@ -10,12 +10,12 @@ import {standardPieceDefs} from "../NewGame/standardPieceDefs";
 export function setStandardImgs(piecesObj, idDict) {
     let color, pieceName;
     for (const pieceId of Object.keys(piecesObj)) {
-        color = pieceId[0]
+        color = pieceId[0];
         pieceName = idDict[pieceId[1].toLowerCase()];
         if (Object.keys(specialPieceImg).includes(pieceName)) {
             piecesObj[pieceId].src = specialPieceImg[pieceName][color];
         } else {
-            piecesObj[pieceId].src = standardPieceDefs[pieceName][color].img
+            piecesObj[pieceId].src = standardPieceDefs[pieceName][color].img;
         }
     }
     return piecesObj;

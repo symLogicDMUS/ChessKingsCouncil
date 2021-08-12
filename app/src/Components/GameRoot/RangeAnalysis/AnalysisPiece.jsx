@@ -3,9 +3,15 @@ import { Portal } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import { useStyles } from "./AnalysisPiece.jss";
 
-const ProfileWBModal = React.lazy(() => import('../../PieceProfiles/ProfileWB/ProfileWBModal'));
-const ProfileWBDrawer = React.lazy(() => import('../../PieceProfiles/ProfileWB/Drawer/ProfileWBDrawer'));
-const NoProfile = React.lazy(() => import("../../PieceProfiles/ProfileWB/NoProfile"));
+const ProfileWBModal = React.lazy(() =>
+    import("../../PieceProfiles/ProfileWB/ProfileWBModal")
+);
+const ProfileWBDrawer = React.lazy(() =>
+    import("../../PieceProfiles/ProfileWB/Drawer/ProfileWBDrawer")
+);
+const NoProfile = React.lazy(() =>
+    import("../../PieceProfiles/ProfileWB/NoProfile")
+);
 
 const AnalysisPiece = memo(
     ({

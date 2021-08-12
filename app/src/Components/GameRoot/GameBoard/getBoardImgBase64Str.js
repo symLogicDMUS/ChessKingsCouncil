@@ -1,6 +1,6 @@
 import React from "react";
-import {board_svg_str} from "../../styles/icons/board_svg_str";
-import {rankfiles} from "../../helpers/rankfiles";
+import { board_svg_str } from "../../styles/icons/board_svg_str";
+import { rankfiles } from "../../helpers/rankfiles";
 
 export function getBoardImgBase64Str(pieces, board) {
     const fToTop = {
@@ -31,7 +31,9 @@ export function getBoardImgBase64Str(pieces, board) {
             left = rToLeft[rf[0]];
             top = fToTop[rf[1]];
             src = pieces[pieceId].src;
-            imgTags.push(`<image id="${pieceId}" xlink:href="${src}" width="56" height="56" transform="translate(${left} ${top})"/>`)
+            imgTags.push(
+                `<image id="${pieceId}" xlink:href="${src}" width="56" height="56" transform="translate(${left} ${top})"/>`
+            );
         }
     }
     return `data:image/svg+xml;base64,${btoa(board_svg_str(imgTags))}`;

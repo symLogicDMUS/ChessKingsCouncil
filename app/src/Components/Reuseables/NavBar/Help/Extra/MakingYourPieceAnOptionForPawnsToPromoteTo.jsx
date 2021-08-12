@@ -19,7 +19,8 @@ export function MakingYourPieceAnOptionForPawnsToPromoteTo(props) {
                     smSrc={"Images/Help/wide/promo checkboxes.png"}
                 >
                     On larger screens the checkboxes are in plain sight
-                </SeeExampleButton>{", "}
+                </SeeExampleButton>
+                {", "}
                 but on
                 <SeeExampleButton
                     isText={true}

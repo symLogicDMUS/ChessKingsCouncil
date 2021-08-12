@@ -1,21 +1,26 @@
 import React from "react";
-import {useState} from "react";
-import {useContext} from "react";
-import {MuiButton} from "./MuiButton";
-import {Portal} from "@material-ui/core";
-import {AskSignInToDelete} from "./AskSignInToDelete";
-import {ConfirmDeleteModal} from "./ConfirmDeleteModal";
+import { useState } from "react";
+import { useContext } from "react";
+import { MuiButton } from "./MuiButton";
+import { Portal } from "@material-ui/core";
+import { AskSignInToDelete } from "./AskSignInToDelete";
+import { ConfirmDeleteModal } from "./ConfirmDeleteModal";
 import SignInWindow from "../../Home/Sign In/SignInWindow";
-import {useStyles as useMoreStyles} from
-        "../../Home/Sign In/AskLoginButton.jss";
-import {useStyles as useEvenMoreStyles} from
-        "../../Home/Sign In/FirebaseGuestLoginButton.jss";
-import {UserContext} from "../../../Context/UserContext";
-import {useStyles} from "../Modals/StandardModal.jss";
-
+import { useStyles as useMoreStyles } from "../../Home/Sign In/AskLoginButton.jss";
+import { useStyles as useEvenMoreStyles } from "../../Home/Sign In/FirebaseGuestLoginButton.jss";
+import { UserContext } from "../../../Context/UserContext";
+import { useStyles } from "../Modals/StandardModal.jss";
 
 export function MuiDeleteButton(props) {
-    const {onAcceptDelete, modalTitle, modalText, size, className, theme, ...other} = props;
+    const {
+        onAcceptDelete,
+        modalTitle,
+        modalText,
+        size,
+        className,
+        theme,
+        ...other
+    } = props;
 
     const uid = useContext(UserContext);
 
@@ -24,15 +29,14 @@ export function MuiDeleteButton(props) {
     const [signIn, setSignIn] = useState(false);
 
     const classes = useStyles({ theme: theme });
-    const classes2 = useMoreStyles({theme: theme});
+    const classes2 = useMoreStyles({ theme: theme });
     const classes3 = useEvenMoreStyles();
 
     const onClick = () => {
-        if (! uid) {
-            setAskLoginModal(true)
-        }
-        else {
-            setModal(true)
+        if (!uid) {
+            setAskLoginModal(true);
+        } else {
+            setModal(true);
         }
     };
 
@@ -46,9 +50,7 @@ export function MuiDeleteButton(props) {
                         text={modalText}
                         theme={theme}
                         size={size}
-                        closeClick={() =>
-                            setModal(false)
-                        }
+                        closeClick={() => setModal(false)}
                         onClick={() => {
                             onAcceptDelete();
                             setModal(false);
@@ -59,12 +61,12 @@ export function MuiDeleteButton(props) {
             {signIn ? (
                 <SignInWindow
                     close={() => {
-                        setAskLoginModal(false)
-                        setSignIn(false)
+                        setAskLoginModal(false);
+                        setSignIn(false);
                     }}
                     goBack={() => {
-                        setAskLoginModal(true)
-                        setSignIn(false)
+                        setAskLoginModal(true);
+                        setSignIn(false);
                     }}
                 />
             ) : null}
@@ -74,12 +76,10 @@ export function MuiDeleteButton(props) {
                         classes2={classes2}
                         classes3={classes3}
                         onClick={() => {
-                            setSignIn(true)
-                            setAskLoginModal(false)
+                            setSignIn(true);
+                            setAskLoginModal(false);
                         }}
-                        onBackdropClick={() =>
-                            setAskLoginModal(false)
-                        }
+                        onBackdropClick={() => setAskLoginModal(false)}
                     />
                 </Portal>
             ) : null}

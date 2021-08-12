@@ -1,70 +1,70 @@
-import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes/themes.jss";
+import { makeStyles } from "@material-ui/core/styles";
+import { themes } from "../../styles/themes/themes.jss";
 
 export const drawerWidth = 200;
 
 export const useStyles = makeStyles((theme) => ({
-    root: props => ({
-        display: 'flex',
+    root: (props) => ({
+        display: "flex",
     }),
-    appBar: props => ({
-        transition: theme.transitions.create(['margin', 'width'], {
+    appBar: (props) => ({
+        transition: theme.transitions.create(["margin", "width"], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
         backgroundColor: themes[props.theme].fill,
         zIndex: 10,
     }),
-    appBarShift: props => ({
+    appBarShift: (props) => ({
         marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['margin', 'width'], {
+        transition: theme.transitions.create(["margin", "width"], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
     }),
-    menuButton: props => ({
+    menuButton: (props) => ({
         marginRight: theme.spacing(2),
         color: themes[props.theme].text,
     }),
-    hide: props => ({
-        display: 'none',
+    hide: (props) => ({
+        display: "none",
     }),
-    drawer: props => ({
+    drawer: (props) => ({
         width: drawerWidth,
         flexShrink: 0,
     }),
-    drawerPaper: props => ({
+    drawerPaper: (props) => ({
         zIndex: 12,
         width: drawerWidth,
         backgroundColor: themes[props.theme].fill,
     }),
-    drawerHeader: props => ({
-        display: 'flex',
-        alignItems: 'center',
+    drawerHeader: (props) => ({
+        display: "flex",
+        alignItems: "center",
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
-        justifyContent: 'flex-end',
+        justifyContent: "flex-end",
     }),
-    content: props => ({
+    content: (props) => ({
         flexGrow: 1,
-        transition: theme.transitions.create('margin', {
+        transition: theme.transitions.create("margin", {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
     }),
-    contentShift: props => ({
-        transition: theme.transitions.create('margin', {
+    contentShift: (props) => ({
+        transition: theme.transitions.create("margin", {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
     }),
-    text: props => ({
+    text: (props) => ({
         color: themes[props.theme].text,
     }),
-    title: props => ({
+    title: (props) => ({
         flexGrow: 1,
     }),
 }));

@@ -1,6 +1,6 @@
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
-export const resetOffsetAndRange = state => ({
+export const resetOffsetAndRange = (state) => ({
     ...state,
     spans: {
         "90d": false,

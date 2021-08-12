@@ -1,12 +1,12 @@
-import {themes} from "../../styles/themes/themes.jss";
-import {fade, lighten} from '@material-ui/core/styles';
+import { themes } from "../../styles/themes/themes.jss";
+import { fade, lighten } from "@material-ui/core/styles";
 
 export const styles = {
-    paper: props => ({
+    paper: (props) => ({
         border: `0.08rem solid ${lighten(themes[props.theme].odd_row, 0.08)}`,
         backgroundColor: themes[props.theme].odd_row,
-        paddingLeft: '0.75rem',
-        paddingRight: '0.75rem',
+        paddingLeft: "0.75rem",
+        paddingRight: "0.75rem",
         "& .MuiList-root": {
             paddingTop: 0,
         },
@@ -15,6 +15,6 @@ export const styles = {
         },
         "& .MuiListItem-gutters": {
             paddingLeft: 0,
-        }
+        },
     }),
-}
+};

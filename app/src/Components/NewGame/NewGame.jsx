@@ -1,29 +1,32 @@
-import React, {useContext, useReducer, useState} from "react";
-import {useHistory} from "react-router-dom";
+import React, { useContext, useReducer, useState } from "react";
+import { useHistory } from "react-router-dom";
 import TabPanel from "./Tabs/TabPanel";
 import PlayAs from "./GameOptions/PlayAs";
 import GameName from "./GameOptions/GameName";
 import PickType from "./GameOptions/PickType";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import "../styles/Background/_backgrounds.scss";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
+import { PageTitle } from "../Reuseables/AppBar/PageTitle";
+import { GameOptionsHelp } from "./GameOptions/Help/GameOptionsHelp";
+import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
 import HorizontalLinearStepper from "./HorinzontalLineStepper/HorizontalLineStepper";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {ThemeContext} from "../../Context/ThemeContext";
-import {reducer} from "./NewGame.red";
+import { ThemeContext } from "../../Context/ThemeContext";
+import { reducer } from "./NewGame.red";
 import { useStyles } from "./NewGame.jss";
 
 function NewGame() {
     const history = useHistory();
 
-    const {themes, themeDispatch} = useContext(ThemeContext);
+    const { themes, themeDispatch } = useContext(ThemeContext);
 
     const isWide = useMediaQuery("(min-width:960px)");
 
-    const [state, dispatch] = useReducer(reducer, {activeStep: 0, slideDirection: 'right'});
+    const [state, dispatch] = useReducer(reducer, {
+        activeStep: 0,
+        slideDirection: "right",
+    });
 
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
@@ -83,9 +86,7 @@ function NewGame() {
                     />
                 }
                 appBarContent={
-                    <PageTitle theme={themes.newGame}>
-                        New Game
-                    </PageTitle>
+                    <PageTitle theme={themes.newGame}>New Game</PageTitle>
                 }
                 tools={null}
                 toolButtons={null}
@@ -96,8 +97,8 @@ function NewGame() {
                     gameType={gameType}
                     playerType={playerType}
                     activeStep={state.activeStep}
-                    handleBack={() => dispatch({type: 'back'})}
-                    handleNext={() => dispatch({type: 'next'})}
+                    handleBack={() => dispatch({ type: "back" })}
+                    handleNext={() => dispatch({ type: "next" })}
                     theme={themes.newGame}
                     finish={finish}
                 />
@@ -109,7 +110,7 @@ function NewGame() {
                         slideDirection={state.slideDirection}
                     >
                         <GameName
-                            key='GameName'
+                            key="GameName"
                             gameName={gameName}
                             theme={themes.newGame}
                             setGameName={setGameName}

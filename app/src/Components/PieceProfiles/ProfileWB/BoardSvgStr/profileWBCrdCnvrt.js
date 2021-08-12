@@ -25,4 +25,3 @@ export const rToLeft = {
 Object.preventExtensions(rToLeft);
 Object.seal(rToLeft);
 Object.freeze(rToLeft);
-
