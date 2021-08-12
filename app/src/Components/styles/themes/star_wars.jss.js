@@ -1,4 +1,4 @@
-import { fade } from "@material-ui/core/styles";
+import {fade} from "@material-ui/core/styles";
 
 export const star_wars = {
     outline: "#f6b601",
@@ -31,7 +31,7 @@ export const star_wars = {
     dark_in_range: fade("#28ded3", 0.2),
     sqr_hover: "rgba(255, 255, 255, 0.2)",
     sqr_text: "#ffccbc",
-    sqr_hover_alt: "#fff",
+    sqr_hover_alt: "#f6b601",
     page_link: "#f6b601",
     page_link_hover: "#28ded3",
     drawer_outline: "#373737",

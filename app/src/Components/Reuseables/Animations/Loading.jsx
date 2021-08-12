@@ -1,20 +1,21 @@
-import React from "react";
-import "../../styles/Background/_backgrounds.scss";
-import Box from "@material-ui/core/Box";
+import React, {useEffect} from "react";
 import { AnimatePresence } from "framer-motion";
+import "../../styles/Background/_backgrounds.scss";
 import { loading_path } from "./loading_path";
 import { useStyles } from "./Loading.jss";
 
 function Loading() {
+    useEffect(() => {
+        document.body.className = 'blue-background';
+    }, [])
+
     const classes = useStyles();
 
     return (
         <div className={classes.body}>
-            <Box className={classes.content}>
-                <AnimatePresence>
-                    {loading_path(classes.animation)}
-                </AnimatePresence>
-            </Box>
+            <AnimatePresence>
+                {loading_path(classes.animation)}
+            </AnimatePresence>
         </div>
     );
 }

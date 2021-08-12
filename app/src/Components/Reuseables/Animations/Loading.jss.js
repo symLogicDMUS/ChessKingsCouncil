@@ -16,16 +16,8 @@ export const transition = { repeat: Infinity, duration: 1 };
 export const useStyles = makeStyles(
     (theme) => ({
         body: (props) => ({
+            width: '100vw',
             height: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-        }),
-        content: (props) => ({
-            width: "100%",
-            flexGrow: 100,
-            paddingTop: "7.5vw",
-            paddingBottom: "7.7vw",
             display: "flex",
             flexDirection: "column",
         }),
