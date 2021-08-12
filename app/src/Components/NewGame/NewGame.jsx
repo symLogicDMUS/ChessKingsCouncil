@@ -1,20 +1,19 @@
-import React, {useContext, useState} from "react";
-import { useHistory } from "react-router-dom";
+import React, {useContext, useReducer, useState} from "react";
+import {useHistory} from "react-router-dom";
 import TabPanel from "./Tabs/TabPanel";
 import PlayAs from "./GameOptions/PlayAs";
 import GameName from "./GameOptions/GameName";
 import PickType from "./GameOptions/PickType";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import "../styles/Background/_backgrounds.scss";
-import SwipeableViews from "react-swipeable-views";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import { GameOptionsHelp } from "./GameOptions/Help/GameOptionsHelp";
-import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
+import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import HorizontalLinearStepper from "./HorinzontalLineStepper/HorizontalLineStepper";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {ThemeContext} from "../../Context/ThemeContext";
-import { views } from "./NewGame.jss";
+import {reducer} from "./NewGame.red";
 
 function NewGame() {
     const history = useHistory();
@@ -23,18 +22,11 @@ function NewGame() {
 
     const isWide = useMediaQuery("(min-width:960px)");
 
+    const [state, dispatch] = useReducer(reducer, {activeStep: 0, slideDirection: 'right'});
+
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
-    const [activeStep, setActiveStep] = useState(0);
-
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
@@ -100,50 +92,51 @@ function NewGame() {
                     gameName={gameName}
                     gameType={gameType}
                     playerType={playerType}
-                    activeStep={activeStep}
-                    handleBack={handleBack}
-                    handleNext={handleNext}
+                    activeStep={state.activeStep}
+                    handleBack={() => dispatch({type: 'back'})}
+                    handleNext={() => dispatch({type: 'next'})}
                     theme={themes.newGame}
                     finish={finish}
                 />
-                <SwipeableViews style={views} index={activeStep}>
-                    <TabPanel
-                        index={0}
-                        value={activeStep}
+                <TabPanel
+                    index={0}
+                    value={state.activeStep}
+                    theme={themes.newGame}
+                    slideDirection={state.slideDirection}
+                >
+                    <GameName
+                        key='GameName'
+                        gameName={gameName}
                         theme={themes.newGame}
-                    >
-                        <GameName
-                            key='GameName'
-                            gameName={gameName}
-                            theme={themes.newGame}
-                            setGameName={setGameName}
-                        />
-                    </TabPanel>
-                    <TabPanel
-                        index={1}
-                        value={activeStep}
+                        setGameName={setGameName}
+                    />
+                </TabPanel>
+                <TabPanel
+                    index={1}
+                    value={state.activeStep}
+                    theme={themes.newGame}
+                    slideDirection={state.slideDirection}
+                >
+                    <PickType
+                        key="PickType"
+                        gameType={gameType}
                         theme={themes.newGame}
-                    >
-                        <PickType
-                            key="PickType"
-                            gameType={gameType}
-                            theme={themes.newGame}
-                            setGameType={setGameType}
-                        />
-                    </TabPanel>
-                    <TabPanel
-                        index={2}
-                        value={activeStep}
+                        setGameType={setGameType}
+                    />
+                </TabPanel>
+                <TabPanel
+                    index={2}
+                    value={state.activeStep}
+                    theme={themes.newGame}
+                    slideDirection={state.slideDirection}
+                >
+                    <PlayAs
+                        key="PlayAs"
                         theme={themes.newGame}
-                    >
-                        <PlayAs
-                            key="PlayAs"
-                            theme={themes.newGame}
-                            playerType={playerType}
-                            setPlayerType={setPlayerType}
-                        />
-                    </TabPanel>
-                </SwipeableViews>
+                        playerType={playerType}
+                        setPlayerType={setPlayerType}
+                    />
+                </TabPanel>
             </ResponsiveDrawer>
         </>
     );

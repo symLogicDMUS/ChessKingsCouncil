@@ -33,6 +33,15 @@ const svgBannerThemes = [
     "classic_dark",
 ];
 
+/* for themes not svgBannerThemes */
+const bannerFileNames = {
+    'blue': "main menu banner-blue.png",
+    'NBA': 'main menu banner-NBA.png',
+    'mechwarrior_a_team': 'main menu banner-mechwarrior_a_team.png',
+    'mechwarrior_b_team': 'main menu banner-mechwarrior_b_team.png',
+    'star_wars': 'star wars banner.svg',
+}
+
 const bannerStyle = (theme) => ({
     width: "100%",
     height: "100%",
@@ -93,7 +102,7 @@ function MainMenuLg(props) {
                     ) : (
                         <img
                             className={classes.banner}
-                            src={`/Images/Banner/main menu banner-${props.theme}.png`}
+                            src={`/Images/Banner/${bannerFileNames[props.theme]}`}
                             alt=""
                         />
                     )}

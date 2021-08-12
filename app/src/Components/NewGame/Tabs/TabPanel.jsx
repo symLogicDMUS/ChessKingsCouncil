@@ -1,9 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./TabPanel.jss";
+import {Container, Slide} from "@material-ui/core";
 
 function TabPanel(props) {
-    const { children, value, index, theme, ...other } = props;
+    const { children, value, index, theme, slideDirection, ...other } = props;
 
     const classes = useStyles({ theme });
 
@@ -15,9 +16,9 @@ function TabPanel(props) {
             aria-labelledby={`full-width-tab-${index}`}
             {...other}
         >
-            {value === index && (
-                <Box className={classes.content}>{children}</Box>
-            )}
+                <Slide in={value === index} direction={slideDirection}>
+                    <Container className={classes.content}>{children}</Container>
+                </Slide>
         </div>
     );
 }
