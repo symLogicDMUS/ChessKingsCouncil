@@ -19,10 +19,11 @@ const widthQueries = {
 export const useStyles = makeStyles(
     {
         root: (props) => ({
-            margin: "auto",
             ...widthQueries,
+            "& .MuiInput-label": {
+                fontWeight: 700,
+            },
         }),
-
         game_name: (props) => ({
             ...widthQueries,
             ...mui_input(props.theme),

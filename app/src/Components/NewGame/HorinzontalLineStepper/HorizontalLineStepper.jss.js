@@ -4,14 +4,6 @@ import { appBarHeight } from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 import { fade } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-    action_buttons: (props) => ({
-        zIndex: 1,
-        position: "fixed",
-        bottom: 45,
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-    }),
     stepper: (props) => ({
         zIndex: 1,
         position: "fixed",
@@ -19,22 +11,26 @@ export const useStyles = makeStyles((theme) => ({
         width: "100vw",
         backgroundColor: "#fff00",
     }),
-    button: (props) => ({
-        marginRight: theme.spacing(3),
-        color: themes[props.theme].outline_alt,
-        borderColor: themes[props.theme].outline_alt,
-        "&:hover": {
-            backgroundColor: fade(themes[props.theme].outline_alt, 0.3),
-            color: themes[props.theme].text,
-        },
-    }),
-    instructions: {
+    actions: (props) => ({
         zIndex: 1,
         position: "fixed",
-        bottom: 90,
+        bottom: '1rem',
         width: "100vw",
-        textAlign: "center",
-        marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1),
-    },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    }),
+    instructions: (props) => ({
+        zIndex: 1,
+        fontWeight: 700,
+        marginBottom: theme.spacing(2),
+        color: themes[props.theme].title,
+        backdropFilter: 'blur(1px)',
+        padding: '0px 0.5rem',
+        borderRadius: 4,
+    }),
+    hidden: {
+        display: 'none',
+    }
 }));
