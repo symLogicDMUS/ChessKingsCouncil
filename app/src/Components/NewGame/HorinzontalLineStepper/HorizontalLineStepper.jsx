@@ -1,16 +1,17 @@
-import React, { useEffect, useMemo } from "react";
-import { getSteps } from "./getSteps";
+import React, {useMemo} from "react";
+import {getSteps} from "./getSteps";
+import {MuiStepper} from "./MuiStepper";
 import Step from "@material-ui/core/Step";
 import Button from "@material-ui/core/Button";
-import { getStepContent } from "./getStepContent";
-import { invalids } from "../../helpers/invalids";
+import {invalids} from "../../helpers/invalids";
 import StepLabel from "@material-ui/core/StepLabel";
-import { charNotInStr } from "../../helpers/charNotInStr";
-import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
-import { MuiThemeProvider, Stepper, Typography } from "@material-ui/core";
-import { getStepperTheme } from "./stepper themes/getMuiStepperTheme";
+import {charNotInStr} from "../../helpers/charNotInStr";
+import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import {MuiThemeProvider, Typography} from "@material-ui/core";
+import {getStepperTheme} from "./stepper themes/getMuiStepperTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useStyles } from "./HorizontalLineStepper.jss";
+import {getIsNextDisabled} from "./getIsNextDisabled";
+import {useStyles} from "./HorizontalLineStepper.jss";
 
 export default function HorizontalLinearStepper({
     activeStep,
@@ -26,20 +27,7 @@ export default function HorizontalLinearStepper({
     const sm = useMediaQuery("(max-width: 600px)");
     const classes = useStyles({ theme });
 
-    const getIsNextDisabled = () => {
-        switch (activeStep) {
-            case 0:
-                return !gameName;
-            case 1:
-                return !gameType;
-            case 2:
-                return !playerType && playerType !== "None";
-            default:
-                console.log("ERROR in HorizontalLineStepper.jsx: Unknown step");
-                return false;
-        }
-    };
-    const isNextDisabled = getIsNextDisabled();
+    const isNextDisabled = getIsNextDisabled(activeStep, gameName, gameType, playerType);
 
     const predicate = (c) => charNotInStr(c, gameName);
     const isPlayDisabled = !(
@@ -51,30 +39,23 @@ export default function HorizontalLinearStepper({
 
     const stepperTheme = useMemo(() => getStepperTheme(theme), [theme]);
 
-    const instructions = (
-        <Typography className={classes.instructions}>
-            {getStepContent(activeStep)}
-        </Typography>
-    );
-
     return (
         <>
             <MuiThemeProvider theme={stepperTheme}>
-                <Stepper
+                <MuiStepper
+                    strings={steps}
                     activeStep={activeStep}
                     alternativeLabel={sm}
-                    className={classes.stepper}
-                >
-                    {steps.map((label, index) => {
+                    callbackfn={(label, index) => {
                         const stepProps = {};
                         const labelProps = {};
                         return (
-                            <Step key={label} {...stepProps}>
+                            <Step id={index} key={label} {...stepProps}>
                                 <StepLabel {...labelProps}>{label}</StepLabel>
                             </Step>
                         );
-                    })}
-                </Stepper>
+                    }}
+                />
             </MuiThemeProvider>
             <div className={classes.action_buttons}>
                 <Button

@@ -12,13 +12,6 @@ export const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
     }),
-    stepper: (props) => ({
-        zIndex: 1,
-        position: "fixed",
-        top: appBarHeight,
-        width: "100vw",
-        backgroundColor: "#fff00",
-    }),
     button: (props) => ({
         marginRight: theme.spacing(3),
         color: themes[props.theme].outline_alt,
@@ -37,4 +30,5 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(1),
     },
+
 }));
