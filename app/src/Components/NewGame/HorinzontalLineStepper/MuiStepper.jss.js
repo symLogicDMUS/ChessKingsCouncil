@@ -1,15 +1,19 @@
-import { makeStyles } from "@material-ui/core/styles";
-import {appBarHeight} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
+import { themes } from "../../styles/themes/themes.jss";
 
-export const useStyles = makeStyles({
-    stepper: (props) => ({
-        zIndex: 1,
-        position: "fixed",
-        top: appBarHeight,
-        width: "100vw",
-        backgroundColor: "#fff00",
+export const styles = {
+    root: (props) => ({
+        backgroundColor: themes[props.theme].menu_container,
+        "& .MuiStepIcon-root": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiStepLabel-label": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiStepIcon-text": {
+            color: themes[props.theme].menu_container,
+        },
     }),
-    hidden: {
-        display: 'none',
-    },
-}, {index: 1});
+    circle: (props) => ({
+        backgroundColor: "red",
+    }),
+};
