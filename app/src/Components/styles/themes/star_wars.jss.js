@@ -1,4 +1,4 @@
-import {fade} from "@material-ui/core/styles";
+import { fade } from "@material-ui/core/styles";
 
 export const star_wars = {
     outline: "#f6b601",

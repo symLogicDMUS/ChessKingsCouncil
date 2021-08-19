@@ -27,4 +27,5 @@ export const useStyles = makeStyles(
             marginLeft: "0.5rem",
         }),
     }),
-    { index: 1 });
+    { index: 1 }
+);

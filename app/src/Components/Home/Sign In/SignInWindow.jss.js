@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const fontColor = {
     color: "#000",
@@ -72,13 +72,18 @@ export const useStyles = makeStyles(
             left: "7.5vw",
             textAlign: "center",
             "& .MuiButton-root": {
-                color: "#000",
+                color: "#253b73",
                 marginLeft: "0.5rem",
             },
             "& .MuiTypography-root": {
-                color: "#000",
+                color: "#253b73",
             },
         }),
+        fill: props => ({
+            backgroundColor: '#fff',
+            borderRadius: '0.5rem',
+            padding: '0.5rem',
+        }),
     }),
-    { index: 1 }
+    {index: 1}
 );

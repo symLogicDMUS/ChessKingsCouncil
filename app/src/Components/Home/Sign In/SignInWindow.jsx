@@ -1,27 +1,27 @@
+import React, {
+    useState,
+    useEffect
+} from "react";
+import clsx from "clsx";
 import "firebase/auth";
 import * as firebase from "firebase";
-import { uiConfig } from "../uiconfig";
+import {uiConfig} from "../uiconfig";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import { Portal, Typography } from "@material-ui/core";
-import { ReactComponent as Title } from "./Chess Kings Council.svg";
-import { HelpModal } from "../../Reuseables/NavBar/Help/HelpModal";
-import ContactSupportIcon from "@material-ui/icons/ContactSupport";
+import {Portal, Typography} from "@material-ui/core";
+import {ReactComponent as Title} from "./Chess Kings Council.svg";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { KeyboardBackspace } from "@material-ui/icons";
+import {KeyboardBackspace} from "@material-ui/icons";
 import "../../styles/Background/_backgrounds.scss";
-import React, { useState, useEffect } from "react";
-import { useStyles } from "./SignInWindow.jss";
-import Box from "@material-ui/core/Box";
+import {useStyles} from "./SignInWindow.jss";
 
-function SignInWindow({ goBack }) {
+function SignInWindow({goBack}) {
     const [helpReminder, setHelpReminder] = useState(false);
-    const [helpModal, setHelpModal] = useState(false);
 
-    const classes = useStyles({ theme: "tan" });
+    const classes = useStyles({theme: "tan"});
 
     const sm = useMediaQuery("(max-width:960px)");
-    const screenCase = sm ? "thin" : "wide";
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -30,6 +30,16 @@ function SignInWindow({ goBack }) {
             }
         });
     }, []);
+
+    const backButton =
+        <Button
+            variant="text"
+            onClick={goBack}
+            className={classes.close}
+            startIcon={<KeyboardBackspace/>}
+        >
+            Go Back
+        </Button>
 
     return (
         <Portal>
@@ -40,46 +50,27 @@ function SignInWindow({ goBack }) {
             />
             <div className={classes.login_page}>
                 <div className={classes.content}>
-                    <Title className={classes.title} fill="#253b73" />
+                    <Title className={classes.title} fill="#253b73"/>
                     {helpReminder ? (
-                        <Typography
-                            className={classes.help_reminder}
-                            variant="h5"
-                            paragraph
-                        >
-                            If you ever need help, see the help button in the
-                            nav bar bar or side drawer.
-                            <Button
-                                onClick={() => setHelpModal(true)}
-                                startIcon={<ContactSupportIcon />}
-                                size={"large"}
-                            >
-                                Help
-                            </Button>
-                        </Typography>
-                    ) : (
                         <Box className={classes.buttons}>
-                            <StyledFirebaseAuth
-                                uiConfig={uiConfig}
-                                firebaseAuth={firebase.auth()}
-                            />
-                            <Button
-                                variant="text"
-                                onClick={goBack}
-                                className={classes.close}
-                                startIcon={<KeyboardBackspace />}
+                            <Typography
+                                className={classes.help_reminder}
+                                variant="h5"
+                                paragraph
                             >
-                                Go Back
-                            </Button>
+                                If you ever need help, see the help button in the nav bar bar or side drawer.
+                            </Typography>
+                            {backButton}
                         </Box>
-                    )}
-                    {helpModal && (
-                        <HelpModal
-                            theme="blue"
-                            screenCase={screenCase}
-                            onClose={() => setHelpModal(false)}
-                        />
-                    )}
+                        ) : (
+                            <Box className={classes.buttons}>
+                                <StyledFirebaseAuth
+                                    uiConfig={uiConfig}
+                                    firebaseAuth={firebase.auth()}
+                                />
+                                {backButton}
+                            </Box>
+                        )}
                 </div>
             </div>
         </Portal>

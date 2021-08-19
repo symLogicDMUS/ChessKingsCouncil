@@ -16,7 +16,7 @@ export const transition = { repeat: Infinity, duration: 1 };
 export const useStyles = makeStyles(
     (theme) => ({
         body: (props) => ({
-            width: '100vw',
+            width: "100vw",
             height: "100vh",
             display: "flex",
             flexDirection: "column",

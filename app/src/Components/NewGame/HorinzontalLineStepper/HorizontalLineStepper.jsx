@@ -51,7 +51,9 @@ export default function HorizontalLinearStepper({
                 <Stepper
                     activeStep={activeStep}
                     alternativeLabel={sm}
-                    className={clsx(classes.stepper, {[classes.hidden]: smHeight})}
+                    className={clsx(classes.stepper, {
+                        [classes.hidden]: smHeight,
+                    })}
                 >
                     {steps.map((label, index) => {
                         const stepProps = {};
@@ -65,7 +67,11 @@ export default function HorizontalLinearStepper({
                 </Stepper>
             </MuiThemeProvider>
             <div className={classes.actions}>
-                <Typography className={clsx(classes.instructions, {[classes.hidden]: ! smHeight})}>
+                <Typography
+                    className={clsx(classes.instructions, {
+                        [classes.hidden]: !smHeight,
+                    })}
+                >
                     {getStepContent(activeStep)}
                 </Typography>
                 <StepperButtons

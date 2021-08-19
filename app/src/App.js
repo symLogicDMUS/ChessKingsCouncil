@@ -1,6 +1,7 @@
 import React from "react";
-import {useMemo} from "react";
 import {Suspense} from "react";
+import {useMemo} from "react";
+import {useState} from "react";
 import {useEffect} from "react";
 import {useReducer} from "react";
 import {getThemes} from "./API/getThemes";
@@ -12,6 +13,7 @@ import {appDefaultState} from "./appDefaultState";
 import {ThemeContext} from "./Context/ThemeContext";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import Loading from "./Components/Reuseables/Animations/Loading";
+import SignInWindow from "./Components/Home/Sign In/SignInWindow";
 import {BrowserRouter as Router} from "react-router-dom";
 import {Route, Switch} from "react-router-dom";
 import * as firebase from "firebase/app";
@@ -68,6 +70,25 @@ function App() {
         help: state.help,
         helpDispatch: dispatch
     }), [state.help, dispatch]);
+
+
+    /**
+     * very hackish but quick bug-fix to a pressing issue. For some dumb reason, without rendering the
+     * SignInWindow component at least once, the fontWeight of Material-UI's components aren't rendered
+     * correctly.
+     */
+    const [counter, setCounter] = useState(1);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCounter(counter => counter - 1);
+        }, 10);
+        return () => clearInterval(interval);
+    }, []);
+    if (counter > 0) {
+        return <div style={{display: 'none'}}>
+            <SignInWindow />
+        </div>
+    }
 
     return (
         <Router>

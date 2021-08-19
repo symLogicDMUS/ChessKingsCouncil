@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     actions: (props) => ({
         zIndex: 1,
         position: "fixed",
-        bottom: '1rem',
+        bottom: "1rem",
         width: "100vw",
         display: "flex",
         flexDirection: "column",
@@ -26,11 +26,11 @@ export const useStyles = makeStyles((theme) => ({
         fontWeight: 700,
         marginBottom: theme.spacing(2),
         color: themes[props.theme].title,
-        backdropFilter: 'blur(1px)',
-        padding: '0px 0.5rem',
+        backdropFilter: "blur(1px)",
+        padding: "0px 0.5rem",
         borderRadius: 4,
     }),
     hidden: {
-        display: 'none',
-    }
+        display: "none",
+    },
 }));
