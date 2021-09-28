@@ -33,16 +33,13 @@ export const useStyles = makeStyles(
                 width: "6.15em",
                 height: "2em",
                 minWidth: "unset",
-                // border: `0.05em solid ${themes[props.theme].outline}`,
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
                 fontSize: "2.75vw",
                 width: "6.8em",
                 height: "1.95em",
-                // border: `0.05em solid ${themes[props.theme].outline}`,
             },
             "@media screen and (min-width: 960px)": {
-                // border: `0.05em solid ${themes[props.theme].outline}`,
                 fontSize: "1vw",
                 width: "6.5em",
                 height: "2.1em",
@@ -77,7 +74,7 @@ export const useStyles = makeStyles(
                 width: "1vw",
                 height: "1vw",
             },
-            color: themes[props.theme].text,
+            color: themes[props.theme].button_text,
         }),
         delete_icon: (props) => ({
             transform: "translate(0.25em, 0)",

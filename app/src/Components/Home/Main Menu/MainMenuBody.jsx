@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import { appTitle } from "./appTitle";
 import Box from "@material-ui/core/Box";
 import "../../styles/Background/_backgrounds.scss";
-import { BoardPatternRow } from "../../styles/Background/BoardPatternRow";
 import { SiteDescription } from "./SiteDescription";
 import { useStyles, initial } from "./MainMenuBody.jss";
 

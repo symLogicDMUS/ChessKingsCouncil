@@ -47,7 +47,7 @@ export const useStyles = makeStyles(
             border: "black",
         }),
         save_theme_button: (props) => ({
-            color: themes[props.theme].modal_actions,
+            color: themes[props.theme].button_text,
             backgroundColor: themes[props.theme].button_fill,
             marginTop: "1rem",
             marginBottom: "1rem",

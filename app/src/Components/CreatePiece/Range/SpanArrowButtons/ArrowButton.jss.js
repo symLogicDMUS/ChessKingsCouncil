@@ -1,5 +1,6 @@
 import { themes } from "../../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {lighten} from "@material-ui/core/styles";
 
 const arrowSizeSm = "100%";
 
@@ -28,15 +29,15 @@ export const useStyles = makeStyles(
             },
         }),
         arrow_button_normal: (props) => ({
-            backgroundColor: themes[props.theme].button_fill,
+            backgroundColor: themes[props.theme].fill,
             "&:hover": {
-                backgroundColor: themes[props.theme].text_alt,
+                backgroundColor: lighten(themes[props.theme].fill, 0.1),
             },
         }),
         arrow_button_selected: (props) => ({
             backgroundColor: themes[props.theme].span,
             "&:hover": {
-                backgroundColor: themes[props.theme].span,
+                backgroundColor: lighten(themes[props.theme].span, 0.1),
             },
         }),
         arrow_button_adjust: (props) => ({
@@ -81,7 +82,7 @@ export const useStyles = makeStyles(
             height: "2.15vw",
         }),
         vector_active_lg: (props) => ({
-            color: themes[props.theme].sqr_text,
+            color: themes[props.theme].text,
         }),
         vector_inactive_lg: (props) => ({
             color: themes[props.theme].text,

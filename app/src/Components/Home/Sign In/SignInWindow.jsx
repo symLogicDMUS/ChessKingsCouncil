@@ -43,14 +43,10 @@ function SignInWindow({goBack}) {
 
     return (
         <Portal>
-            <img
-                src={"/Images/wood background.jpg"}
-                className={classes.background}
-                alt=""
-            />
+            <div className={classes.background} />
             <div className={classes.login_page}>
                 <div className={classes.content}>
-                    <Title className={classes.title} fill="#253b73"/>
+                    <Title className={classes.title} fill="#fff"/>
                     {helpReminder ? (
                         <Box className={classes.buttons}>
                             <Typography

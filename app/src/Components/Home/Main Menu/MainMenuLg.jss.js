@@ -1,34 +1,24 @@
-import { darken, makeStyles } from "@material-ui/core/styles";
+import {darken, lighten, makeStyles} from "@material-ui/core/styles";
 import { themes } from "../../styles/themes/themes.jss";
+import {navBarButtonHeight} from "../../Reuseables/NavBar/NavBarButton.jss";
 
-const topAreaHeight = 40;
-
-export const textColor = "#fff";
-
-export const buttonStyle = { maxWidth: 130 };
-
-export const signOutStyleOverride = (theme) => ({
-    color: themes[theme].text,
-    marginRight: "0.5rem",
-});
-
-export const svgBannerThemes = [
-    "dark",
-    "tan",
-    "red_blue",
-    "dark_alt",
-    "red_blue_alt",
-    "tan_dark",
-    "classic_dark",
-];
+export const topAreaHeight = 100;
 
 /* for themes not svgBannerThemes */
-export const bannerFileNames = {
-    blue: "main menu banner-blue.png",
-    NBA: "main menu banner-NBA.png",
-    mechwarrior_a_team: "main menu banner-mechwarrior_a_team.png",
-    mechwarrior_b_team: "main menu banner-mechwarrior_b_team.png",
+export const homepageBackgroundImages = {
+    light: "move king.jpg",
+    dark: "chess white pieces.jpg",
+    tan: "king knock over king.jpg",
+    tan_dark: "king knock over king.jpg",
+    blue: "move king.jpg",
+    NBA: "swish.jpg",
+    mechwarrior_a_team: "red desert 2.png",
+    mechwarrior_b_team: "red desert 2.png",
     star_wars: "a long time ago.svg",
+    red_blue: "chess white pieces.jpg",
+    dark_alt: "chess white pieces.jpg",
+    red_blue_alt: "chess white pieces.jpg",
+    classic_dark: "chess white pieces.jpg",
 };
 
 export const bannerStyle = (theme) => ({
@@ -39,35 +29,45 @@ export const bannerStyle = (theme) => ({
 
 export const useStyles = makeStyles(
     {
-        root: (props) => ({
-            "--space": `calc(100vh - ${topAreaHeight}px)`,
-            "--bannerHeight": "calc(var(--space) * 0.4)",
-            "--menuHeight": "calc(var(--space) * 0.6)",
-        }),
         banner: (props) => ({
-            zIndex: 1,
+            zIndex: -1,
             width: "100vw",
-            height: "var(--bannerHeight)",
-            verticalAlign: "middle",
+            position: 'fixed',
+            top: 0,
         }),
         main_menu_container: (props) => ({
-            zIndex: 1,
-            width: "100vw",
-            height: "var(--menuHeight)",
+            position: 'fixed',
+            top: 0,
             display: "flex",
             flexDirection: "column",
+            width: "100vw",
+            height: topAreaHeight,
             backgroundColor: themes[props.theme].menu_container,
+            zIndex: 1200,
+            boxShadow:
+                "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
+
         }),
         main_menu: (props) => ({
             margin: "auto",
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
         }),
         title: (props) => ({
-            width: "67.5vw",
-            height: "auto",
             fill: themes[props.theme].title,
+            height: topAreaHeight*0.65,
+            margin: 'auto',
+        }),
+        navBar: (props) => ({
+            "& .MuiListItemText-primary": {
+                color: themes[props.theme].title,
+            },
+            "& .MuiSvgIcon-root": {
+                color: themes[props.theme].title,
+            },
+            "& .MuiTypography-root": {
+                color: themes[props.theme].title,
+            },
         }),
         page_links: (props) => ({
             display: "flex",
@@ -86,6 +86,8 @@ export const useStyles = makeStyles(
         }),
         app_bar: (props) => ({
             zIndex: 2,
+            position: 'fixed',
+            top: 0,
             height: topAreaHeight,
             width: "100vw",
             display: "flex",

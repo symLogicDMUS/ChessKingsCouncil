@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
 import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
 import { useStyles } from "./ChooseButton.jss";
+import Button from "@material-ui/core/Button";
 
 const ImgChoicesModal = React.lazy(() =>
     import("./ImgChoicesModal/ImgChoicesModal")
@@ -36,7 +37,7 @@ export function ChooseButton(props) {
                     />
                 </Portal>
             ) : null}
-            <MuiButton
+            <Button
                 theme={theme}
                 startIcon={startIcon}
                 className={classes.button}
@@ -46,7 +47,7 @@ export function ChooseButton(props) {
                 }}
             >
                 {children}
-            </MuiButton>
+            </Button>
         </>
     );
 }

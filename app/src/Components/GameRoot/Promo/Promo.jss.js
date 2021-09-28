@@ -48,7 +48,7 @@ export const useStyles = makeStyles(
             flexDirection: "row",
         }),
         icon: (props) => ({
-            color: themes[props.theme].text,
+            color: "#fff",
         }),
         icon2: (props) => ({
             marginLeft: "0.5rem",
@@ -61,10 +61,10 @@ export const useStyles = makeStyles(
         }),
         text: (props) => ({
             fontSize: "1.25rem",
-            color: themes[props.theme].text,
+            color: "#fff",
         }),
         piece_name: (props) => ({
-            color: themes[props.theme].text,
+            color: "#fff",
             fontSize: "2.5rem",
         }),
         piece_img: (props) => ({
@@ -72,7 +72,7 @@ export const useStyles = makeStyles(
             width: "2.5rem",
         }),
         nav_button: (props) => ({
-            color: themes[props.theme].text,
+            color: '#fff',
             backgroundColor: "unset",
             position: "absolute",
             padding: 0,

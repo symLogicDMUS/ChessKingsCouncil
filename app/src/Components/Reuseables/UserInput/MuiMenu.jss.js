@@ -8,6 +8,6 @@ export const styles = {
         paddingTop: "0.25rem",
         paddingBottom: "0.25rem",
         border: `0.08rem solid ${lighten(themes[props.theme].odd_row, 0.08)}`,
-        backgroundColor: themes[props.theme].button_fill,
+        backgroundColor: themes[props.theme].fill2,
     }),
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../helpers/stepFuncs";
 import { useMediaQuery } from "@material-ui/core";
 import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
@@ -25,6 +25,10 @@ function CreatePieceBoard(props) {
         activeTool,
         ...other
     } = props;
+
+    useEffect(() => {
+        document.body.className = `${theme}-background`;
+    }, [theme]);
 
     const isWide = useMediaQuery("(min-width: 960px)");
     const screenCase = isWide ? "wide" : "thin";

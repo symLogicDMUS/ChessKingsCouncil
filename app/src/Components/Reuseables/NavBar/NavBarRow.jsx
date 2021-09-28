@@ -22,6 +22,7 @@ function NavBarRow(props) {
         screenCase,
         isUnsavedChanges,
         additionalSettings,
+        ...other
     } = props;
 
     const classes = useStyles({ theme });
@@ -47,6 +48,7 @@ function NavBarRow(props) {
                     [classes.full_width]: fullWidth,
                     [classes.condensed]: !fullWidth,
                 })}
+                {...other}
             >
                 <Slide in={show} direction={"right"}>
                     <Tabs

@@ -24,7 +24,7 @@ export const useStyles = makeStyles(
             width: "100vw",
             height: "100vh",
             zIndex: 999,
-            backgroundColor: "#fff",
+            backgroundColor: "#212121",
         }),
         content: (props) => ({
             "@media screen and (max-width: 600px)": {
@@ -48,7 +48,7 @@ export const useStyles = makeStyles(
         }),
         close: (props) => ({
             fontSize: "1.2rem",
-            color: "#253b73",
+            color: "#fff",
             borderRadius: 0,
             "&:hover": {
                 color: "#fff",

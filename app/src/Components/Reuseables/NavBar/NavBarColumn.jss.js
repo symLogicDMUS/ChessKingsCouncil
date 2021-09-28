@@ -7,7 +7,7 @@ export const useStyles = makeStyles(
         root: (props) => ({
             "& .MuiTabScrollButton-root": {
                 color: "#f50057",
-                backgroundColor: lighten(themes[props.theme].fill, 0.08),
+                // backgroundColor: lighten(themes[props.theme].fill, 0.08),
                 opacity: 1,
             },
             "& .MuiTab-wrapper": {

@@ -22,7 +22,7 @@ export const useStyles = makeStyles(
                 width: itemSizeLg,
                 height: itemSizeLg,
             },
-            border: `0.05rem solid ${themes[props.theme].outline}`,
+            // border: `0.05rem solid ${themes[props.theme].outline}`,
         }),
         example1: (props) => ({
             marginBottom: "0.5rem",

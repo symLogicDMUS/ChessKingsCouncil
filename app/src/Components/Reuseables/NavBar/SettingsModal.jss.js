@@ -117,7 +117,7 @@ export const useStyles = makeStyles(
             },
         }),
         save_theme_button: (props) => ({
-            color: themes[props.theme].modal_actions,
+            color: themes[props.theme].button_text,
             backgroundColor: themes[props.theme].button_fill,
             "&:hover": {
                 backgroundColor: lighten(themes[props.theme].button_fill, 0.08),
@@ -131,7 +131,7 @@ export const useStyles = makeStyles(
             },
         }),
         reset_theme_button: (props) => ({
-            color: themes[props.theme].text,
+            color: themes[props.theme].button_text,
             backgroundColor: themes[props.theme].button_fill,
             "&:hover": {
                 backgroundColor: lighten(themes[props.theme].button_fill, 0.08),

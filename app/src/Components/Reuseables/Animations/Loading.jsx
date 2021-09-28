@@ -5,10 +5,6 @@ import { loading_path } from "./loading_path";
 import { useStyles } from "./Loading.jss";
 
 function Loading() {
-    useEffect(() => {
-        document.body.className = "blue-background";
-    }, []);
-
     const classes = useStyles();
 
     return (

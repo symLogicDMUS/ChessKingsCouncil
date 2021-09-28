@@ -26,6 +26,7 @@ const Board = ({ gameRoot, theme }) => {
         };
     });
 
+
     const lg = useMediaQuery("(min-width:960px)");
 
     const sqrSize = lg ? state.sqrSizes.wide : state.sqrSizes.thin;

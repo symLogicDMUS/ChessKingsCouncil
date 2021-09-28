@@ -36,10 +36,7 @@ export const useStyles = makeStyles(
                 width: "100%",
             },
         }),
-        row_direction: (props) => ({
-            // flexGrow: 10,
-            // minWidth: 'unset',
-        }),
+        row_direction: (props) => ({}),
         hidden: (props) => ({
             display: "none",
         }),

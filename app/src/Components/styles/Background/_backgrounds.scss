@@ -46,6 +46,53 @@ $length: 0.35rem;
     }
 }
 
+@mixin light {
+    /* width */
+    ::-webkit-scrollbar {
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+    }
+
+    /* button */
+    ::-webkit-scrollbar-button {
+        background: #d3d7e3;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #d6d6d6;
+        border-radius: 25%;
+        opacity: 0.5%;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #1565c0;
+        opacity: 0.5%;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #e9ebf1;
+    }
+
+    /* Corner */
+    ::-webkit-scrollbar-corner {
+        background: #e9ebf1;
+    }
+
+    /* Resizer */
+    ::-webkit-resizer {
+        background: #d3d7e3;
+    }
+}
+
 @mixin tan {
     /* width */
     ::-webkit-scrollbar {
@@ -178,14 +225,23 @@ $length: 0.35rem;
     }
 }
 
+.dark-background {
+    background-color: #2b2b2b;
+    @include dark;
+}
+
+.light-background {
+    background-color: #f4f5f8;
+    @include light;
+}
+
+
 .blue-background {
-    //background-color: #283e76;
+    background-color: red;
     background-size: cover;
-    background: #283e76 url("wood background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
     @include blue;
 }
 
@@ -197,11 +253,6 @@ $length: 0.35rem;
 .tan_dark-background {
     background-color: #111111;
     @include tan;
-}
-
-.dark-background {
-    background-color: #2b2b2b;
-    @include dark;
 }
 
 .classic_dark-background {

@@ -11,6 +11,7 @@ import {
     frame,
     useStyles,
 } from "./LocationButton.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
     const classes = useStyles({ theme: theme, rf: rf });
@@ -19,8 +20,10 @@ const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
     const [animate, setAnimate] = useState(false);
 
     let addedStyle = {};
+    let textAdjust = {}
     if (rf === selected) {
         addedStyle = currentSqr(theme);
+        textAdjust = {color: themes[theme].button_text}
     }
 
     return (
@@ -48,6 +51,7 @@ const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
                         [classes.button_selected]: selected,
                     })}
                     variant="outlined"
+                    style={textAdjust}
                 >
                     {children}
                 </Button>

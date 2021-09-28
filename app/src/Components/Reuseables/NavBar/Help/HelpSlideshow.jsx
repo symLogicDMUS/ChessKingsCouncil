@@ -21,6 +21,8 @@ import { HelpContext } from "../../../../Context/HelpContext";
 import { UserContext } from "../../../../Context/UserContext";
 import { reducer } from "./HelpSlideshow.red";
 import { useStyles } from "./HelpSlideshow.jss";
+import Button from "@material-ui/core/Button";
+import {themes} from "../../../styles/themes/themes.jss";
 
 export function HelpSlideshow(props) {
     const { currentPage, initialState, title, theme, children, ...other } =
@@ -60,6 +62,10 @@ export function HelpSlideshow(props) {
         helpDispatch({ type: "disable-help" });
     };
 
+    let isFirstSlide = false, isLastSlide = false;
+    if (state.pos === 0) isFirstSlide = true;
+    if (state.pos === state.numSlides - 1) isLastSlide= true;
+
     return (
         <Dialog
             className={classes.dialog}
@@ -73,7 +79,7 @@ export function HelpSlideshow(props) {
                 {children[state.pos]}
             </DialogContent>
             <DialogActions className={classes.color}>
-                {state.pos === 0 || state.pos === state.numSlides - 1 ? (
+                {isFirstSlide || isLastSlide ? (
                     <>
                         <MediaQuery maxWidth={367}>
                             <SeeMore theme={theme}>
@@ -108,38 +114,59 @@ export function HelpSlideshow(props) {
                         </MediaQuery>
                     </>
                 ) : null}
-                {state.pos !== 0 ? (
-                    <MuiButton
+                {! isFirstSlide ? (
+                    <Button
                         theme={theme}
-                        variant={"contained"}
+                        variant={isLastSlide ? "text" : "contained"}
+                        style={{
+                            color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text,
+                            background: isLastSlide ? "unset" : themes[theme].button_fill,
+                        }}
                         startIcon={
-                            <NavigateBeforeIcon className={classes.text} />
+                            <NavigateBeforeIcon
+                                style={{color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text}}
+                            />
                         }
                         onClick={() => dispatch({ type: "decrement" })}
                     >
                         Previous
-                    </MuiButton>
+                    </Button>
                 ) : null}
-                {state.pos !== state.numSlides - 1 ? (
-                    <MuiButton
+                {! isLastSlide ? (
+                    <Button
                         theme={theme}
-                        variant={"contained"}
-                        endIcon={<NavigateNextIcon className={classes.text} />}
+                        variant={isLastSlide ? "text" : "contained"}
+                        style={{
+                            color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text,
+                            background: isLastSlide ? "unset" : themes[theme].button_fill,
+                        }}
+                        endIcon={
+                            <NavigateNextIcon
+                                style={{color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text}}
+                            />
+                        }
                         onClick={() => dispatch({ type: "increment" })}
                     >
                         Next
-                    </MuiButton>
+                    </Button>
                 ) : null}
-                <MuiButton
+                <Button
                     theme={theme}
-                    variant={"contained"}
+                    variant={isLastSlide ? "contained" : "text"}
+
+                    style={{
+                        color: isLastSlide ? themes[theme].button_text : themes[theme].button_fill,
+                        background: isLastSlide ? themes[theme].button_fill : "unset",
+                    }}
                     startIcon={
-                        <CheckCircleOutlineIcon className={classes.text} />
+                        <CheckCircleOutlineIcon
+                            style={{color: isLastSlide ? themes[theme].button_text : themes[theme].button_fill}}
+                        />
                     }
                     onClick={onClose}
                 >
                     Done
-                </MuiButton>
+                </Button>
             </DialogActions>
         </Dialog>
     );

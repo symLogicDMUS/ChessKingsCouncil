@@ -25,6 +25,7 @@ import CreatePieceTitle from "./Title/CreatePieceTitle";
 import AskLoginButton from "../Home/Sign In/AskLoginButton";
 import { UserContext } from "../../Context/UserContext";
 import { ThemeContext } from "../../Context/ThemeContext";
+import "../styles/Background/_backgrounds.scss";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
 import { styles } from "./CreatePiece.jss";

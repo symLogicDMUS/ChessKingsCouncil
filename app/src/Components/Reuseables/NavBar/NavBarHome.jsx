@@ -1,17 +1,11 @@
 import React from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
 import { Adjuster } from "../AppBar/Adjuster";
-import { Typography } from "@material-ui/core";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import { icons } from "../../styles/icons/top/icons.jss";
 import { NavBarButtonAlt } from "./NavBarButtonAlt";
-import { useStyles as useMoreStyles } from "./NavBarButtonAlt.jss";
 import { useStyles } from "./NavBarHome.jss";
 
-export function NavBarHome({ toggleAboutPage, theme, className }) {
+export function NavBarHome({ theme, className }) {
     const classes = useStyles({ theme });
-    const classes2 = useMoreStyles({ theme });
 
     return (
         <div
@@ -20,12 +14,7 @@ export function NavBarHome({ toggleAboutPage, theme, className }) {
             })}
         >
             <Adjuster height={48} width="100%" />
-            <Box className={classes2.nav_bar_button} onClick={toggleAboutPage}>
-                <SvgIcon className={classes2.icon}>{icons.home}</SvgIcon>
-                <Typography className={classes2.text} variant="button">
-                    Home
-                </Typography>
-            </Box>
+
             <NavBarButtonAlt
                 path="/NewGame"
                 isLocalLink={true}

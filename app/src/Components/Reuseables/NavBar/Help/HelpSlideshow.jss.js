@@ -20,7 +20,7 @@ export const useStyles = makeStyles(
             },
         }),
         text: (props) => ({
-            color: themes[props.theme].text,
+            color: themes[props.theme].button_text,
         }),
         close: (props) => ({
             padding: 0,

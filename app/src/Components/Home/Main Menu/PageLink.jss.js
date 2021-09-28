@@ -10,9 +10,7 @@ export const useStyles = makeStyles(
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            marginLeft: "1rem",
-            marginRight: "1rem",
-            marginTop: "2rem",
+            margin: '1rem',
         }),
         page_name: (props) => ({
             width: "100%",

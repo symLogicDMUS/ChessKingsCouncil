@@ -40,7 +40,7 @@ function AIMove({
                             className={classes.piece}
                             style={{ left: piece.left, top: piece.top }}
                             animate={{ ...getDestPos() }}
-                            transition={{ duration: 1 }}
+                            transition={{ duration: 0.8 }}
                             onAnimationComplete={() => {
                                 setIsAnimating(false);
                                 parentDispatch({ type: "ai-finish" });

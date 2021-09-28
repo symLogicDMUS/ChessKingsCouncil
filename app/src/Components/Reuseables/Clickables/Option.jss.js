@@ -16,10 +16,10 @@ export const useStyles = makeStyles(
                 color: themes[props.theme].text,
             },
             "& .MuiTypography-root": {
-                fontSize: "0.9rem",
+                fontSize: "1rem",
                 marginTop: "0.2rem",
                 fontFamily: "Roboto-Light, Roboto",
-                color: themes[props.theme].button_text,
+                color: themes[props.theme].text,
             },
         }),
         create_piece_option: (props) => ({
@@ -36,12 +36,12 @@ export const useStyles = makeStyles(
                 width: "2.15vw",
                 height: "2.15vw",
                 marginTop: "0.25rem",
-                color: themes[props.theme].button_text,
+                color: themes[props.theme].text,
             },
             "& .MuiTypography-root": {
                 fontSize: "1vw",
                 fontFamily: "Roboto-Light, Roboto",
-                color: themes[props.theme].button_text,
+                color: themes[props.theme].text,
             },
         }),
         label: (props) => ({
@@ -49,6 +49,9 @@ export const useStyles = makeStyles(
             flexDirection: "column",
             border: "black",
         }),
+        text: (props) => ({
+            color: themes[props.theme].text,
+        })
     },
     { index: 1 }
 );

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import MediaQuery from "react-responsive/src";
 import "../styles/Background/_backgrounds.scss";
-import MainMenuSm from "../Reuseables/Drawers/MainMenuSm";
 import MainMenuLg from "./Main Menu/MainMenuLg";
+import MainMenuSm from "../Reuseables/Drawers/MainMenuSm";
 import { ThemeContext } from "../../Context/ThemeContext";
 
 function Home() {

@@ -1,13 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { themes } from "../../styles/themes/themes.jss";
-import { appBarHeight } from "../Drawers/ResponsiveDrawer.jss";
+import {topAreaHeight} from "../../Home/Main Menu/MainMenuLg.jss";
 
 export const useStyles = makeStyles(
     {
         navBarAlt: (props) => ({
-            marginTop: appBarHeight,
-            backgroundColor: themes[props.theme].fill,
-            borderTop: `0.065rem solid ${themes[props.theme].odd_row}`,
+            display: 'flex',
+            width: '100vw',
+            position: 'fixed',
+            top: topAreaHeight,
+            left: 0,
         }),
     },
     { index: 1 }

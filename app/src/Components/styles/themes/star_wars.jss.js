@@ -40,7 +40,7 @@ export const star_wars = {
     location_sqr: "#28ded3",
     title: "#f6b601",
     text_link: "#28ded3",
-    menu_container: "#00000000",
+    menu_container: "#000000",
     site_description_backdrop: "#000",
     site_description_text: "#f6b601",
     variant_fill_r0: 157,

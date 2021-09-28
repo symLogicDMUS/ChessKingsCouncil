@@ -11,7 +11,7 @@ function NavBar(props) {
     return (
         <>
             {lgDirection === "row" && screenCase === "wide" ? (
-                <NavBarRow screenCase={screenCase} {...other} />
+                <NavBarRow screenCase={screenCase} {...other} currentPage="/" />
             ) : (
                 <NavBarColumn screenCase={screenCase} {...other} />
             )}

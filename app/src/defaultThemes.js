@@ -1,10 +1,10 @@
 export const defaultThemes = {
-    newGame: 'blue',
-    loadGame: 'blue',
+    newGame: 'light',
+    loadGame: 'light',
     createPiece: 'dark',
     customize: 'dark',
-    gameRoot: 'blue',
-    myPieces: 'blue',
+    gameRoot: 'dark',
+    myPieces: 'light',
     councilRules: 'tan',
-    home: 'blue',
+    home: 'light',
 };
