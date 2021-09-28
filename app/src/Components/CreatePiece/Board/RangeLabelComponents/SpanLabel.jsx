@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import { spanFrame, useStyles } from "./SquareText.jss";
 import { themes } from "../../../styles/themes/themes.jss";
 
-export function SpanLabel({ theme, showSpanText }) {
+export function SpanLabel({ theme, showSpanText, children }) {
     const classes = useStyles({ theme: theme });
     return (
         <Frame
@@ -23,7 +23,7 @@ export function SpanLabel({ theme, showSpanText }) {
                     className={classes.sqr_text}
                     style={{ fontSize: "3vw" }}
                 >
-                    S
+                    {children}
                 </Typography>
             )}
         </Frame>

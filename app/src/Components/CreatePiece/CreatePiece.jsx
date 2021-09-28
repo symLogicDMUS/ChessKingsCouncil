@@ -658,6 +658,7 @@ class CreatePiece extends React.Component {
                                 offsetDisplays={this.offsetDisplays}
                                 showSpanText={this.state.showSpanText}
                                 showOffsetText={this.state.showOffsetText}
+                                arrowChunkBoard={this.arrowChunksBoard}
                                 imgUrl={this.whiteAndBlackImgs.white}
                                 activeTool={this.state.activeTool}
                                 theme={value.themes.createPiece}

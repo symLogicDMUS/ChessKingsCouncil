@@ -22,6 +22,7 @@ function CreatePieceBoard(props) {
         toggleSpan,
         showSpanText,
         showOffsetText,
+        arrowChunkBoard,
         activeTool,
         ...other
     } = props;
@@ -47,6 +48,7 @@ function CreatePieceBoard(props) {
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                arrowChunkBoard={arrowChunkBoard}
                 hasToolChild={false}
             >
                 {null}
@@ -66,6 +68,7 @@ function CreatePieceBoard(props) {
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                arrowChunkBoard={arrowChunkBoard}
                 hasFabChild={false}
                 hasToolChild={false}
             >
@@ -86,6 +89,7 @@ function CreatePieceBoard(props) {
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                arrowChunkBoard={arrowChunkBoard}
                 hasFabChild={false}
                 hasToolChild={true}
             >
@@ -116,6 +120,7 @@ function CreatePieceBoard(props) {
                 toggleOffset={toggleOffset}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                arrowChunkBoard={arrowChunkBoard}
                 hasFabChild={false}
                 hasToolChild={true}
             >

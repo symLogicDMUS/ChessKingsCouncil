@@ -20,6 +20,7 @@ const CreatePieceSquare = memo(
         showOffsetText,
         hasToolChild,
         hasFabChild,
+        arrowChunkBoard,
         children,
     }) => {
         const [hover, setHover] = useState(false);
@@ -50,7 +51,10 @@ const CreatePieceSquare = memo(
                         theme={theme}
                         hasFabChild={hasFabChild}
                         showSpanText={showSpanText}
-                    />
+                        // arrowChunk={arrowChunkBoard[rf]}
+                    >
+                        {arrowChunkBoard[rf]}
+                    </SpanLabel>
                 ) : null}
                 {isOffset && !hasToolChild ? (
                     <OffsetLabel
