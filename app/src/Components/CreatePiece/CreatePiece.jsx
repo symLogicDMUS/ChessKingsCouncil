@@ -29,6 +29,8 @@ import "../styles/Background/_backgrounds.scss";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
 import { styles } from "./CreatePiece.jss";
+import {getRfBoardAllNull} from "../helpers/getRfBoardAllNull";
+import {getNewArrowChunksBoard} from "./helpers/getNewArrowChunksBoard";
 
 const Load = React.lazy(() => import("./Options/Load"));
 const Save = React.lazy(() => import("./Options/Save"));
@@ -94,6 +96,7 @@ class CreatePiece extends React.Component {
     offsets = [];
     spanDisplays = getBinaryBoardAllFalse();
     offsetDisplays = getBinaryBoardAllFalse();
+    arrowChunksBoard = getRfBoardAllNull();
     whiteAndBlackImgs = { white: null, black: null };
     imgFileObjs = { white: null, black: null };
     newPiece = {
@@ -237,6 +240,22 @@ class CreatePiece extends React.Component {
         console.log(fileObj);
     };
 
+    /**
+     *  used by Location tool, called by this.setLoc()
+     *  updates the child SVGs of squares that are part of a span when location changes.
+     * */
+    setArrowChunksBoard = () => {
+        for (let angle of Object.keys(this.spans)) {
+            this.arrowChunksBoard =
+                getNewArrowChunksBoard(this.arrowChunksBoard, this.spanDisplays, this.location, angle);
+        }
+    }
+
+    /**used by the Reset Option button, called by this.reset()*/
+    resetArrowChunksBoard = () => {
+        this.arrowChunksBoard = getRfBoardAllNull();
+    }
+
     /**used by Range tool*/
     toggleSpan = (angle) => {
         this.spans[angle] = !this.spans[angle];
@@ -339,7 +358,9 @@ class CreatePiece extends React.Component {
         this.location = rf;
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
+        this.resetArrowChunksBoard();
         this.setSpanDisplays();
+        this.setArrowChunksBoard();
         this.setOffsetDisplays();
         this.triggerRender();
     };

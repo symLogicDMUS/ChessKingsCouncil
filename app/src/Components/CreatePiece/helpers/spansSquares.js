@@ -1,4 +1,4 @@
-const spansSquares = {
+export const spansSquares = {
     'd4': {
         "90d": ["d5", "d6", "d7", "d8"],
         "45d": ["e5", "f6", "g7", "h8"],
@@ -21,7 +21,7 @@ const spansSquares = {
     },
     'd5': {
         "90d": ["d6", "d7", "d8"],
-        "45d": ["e6", "f7", "g8" ],
+        "45d": ["e6", "f7", "g8"],
         "0d": ["e5", "f5", "g5", "h5"],
         "315d": ["e4", "f3", "g2", "h1"],
         "270d": ["d4", "d3", "d2", "d1"],
