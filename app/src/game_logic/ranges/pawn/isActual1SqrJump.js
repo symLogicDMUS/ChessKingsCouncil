@@ -1,11 +1,12 @@
-import {getSqrCase} from "../../sqrCase/getSqrCase";
-import {EMPTY} from "../../sqrCase/sqrCases";
-import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
-
+import { getSqrCase } from "../../sqrCase/getSqrCase";
+import { EMPTY } from "../../sqrCase/sqrCases";
+import { sampleBoardDicts } from "../../testObjects/sampleBoardDicts";
 
 export function isActual1SqrJump(board, potentialJump, color) {
     /*if potentialJump is empty sqr return true, else return false**/
-    return getSqrCase(board, potentialJump[0], potentialJump[1], color) === EMPTY;
+    return (
+        getSqrCase(board, potentialJump[0], potentialJump[1], color) === EMPTY
+    );
 }
 
 // module.exports = isActual1SqrJump;

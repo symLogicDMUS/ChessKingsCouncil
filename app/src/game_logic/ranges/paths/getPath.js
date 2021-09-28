@@ -1,48 +1,37 @@
-import {getSqrCase} from "../../sqrCase/getSqrCase";
-import {OOB, EMPTY, FRIEND, ENEMY} from "../../sqrCase/sqrCases";
-
+import { getSqrCase } from "../../sqrCase/getSqrCase";
+import { OOB, EMPTY, FRIEND, ENEMY } from "../../sqrCase/sqrCases";
 
 export function travelPath(board, x, y, color, sqrList, stepTaker) {
-    /*travel the path adding squares to the list, then return the path. 
+    /*travel the path adding squares to the list, then return the path.
      * paths extend up to and including enemies, and up to and not including friends.
-    **/
+     **/
     let sqrCase = getSqrCase(board, x, y, color);
-    
+
     if (sqrCase === OOB) {
         return sqrList;
-    }
-
-    else if (sqrCase === EMPTY) {
+    } else if (sqrCase === EMPTY) {
         sqrList.push([x, y]);
         [x, y] = stepTaker(x, y);
         sqrList = travelPath(board, x, y, color, sqrList, stepTaker);
-    }
-
-    else if (sqrCase === ENEMY) {
+    } else if (sqrCase === ENEMY) {
         sqrList.push([x, y]);
         return sqrList;
-    }
-
-    else if (sqrCase === FRIEND) {
+    } else if (sqrCase === FRIEND) {
         return sqrList;
-    }
-
-    else {
-        console.log('error: square type ! recognized');
+    } else {
+        console.log("error: square type ! recognized");
     }
 
     return sqrList;
 }
 
-
 export function getPath(sqr, board, color, takeStep) {
     /* **/
-    var [x, y] = takeStep(...sqr)
-    return travelPath(board, x, y, color, [], takeStep)
+    var [x, y] = takeStep(...sqr);
+    return travelPath(board, x, y, color, [], takeStep);
 }
 
 // module.exports = getPath;
-
 
 /** for node.js
 if (require.main === module) {

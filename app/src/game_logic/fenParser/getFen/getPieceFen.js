@@ -1,16 +1,12 @@
-
-
 export function getPieceFen(id_) {
     /*getFen TASK 2.1, take the game id of a piece &&  convert it a fen id**/
-    if (id_[0] === 'B') {
-        return id_[1].toLowerCase()
-    }
-    else if (id_[0] === 'W') {
-        return id_[1]
-    }
-    else {
-        console.log('error occured  with game id || piece')
-        return -1
+    if (id_[0] === "B") {
+        return id_[1].toLowerCase();
+    } else if (id_[0] === "W") {
+        return id_[1];
+    } else {
+        console.log("error occured  with game id || piece");
+        return -1;
     }
 }
 
@@ -37,4 +33,3 @@ if (require.main === module) {
 
 }
 */
-

@@ -1,5 +1,5 @@
 import React from "react";
-import {light} from "./light";
+import { light } from "./light";
 import { NBA } from "./NBA.jss";
 import { tan } from "./tan.jss";
 import { dark } from "./dark.jss";

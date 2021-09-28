@@ -1,4 +1,14 @@
-export const emptySqrHash = [null, '#', '##', '###', '####', '#####', '######', '#######', '########'];
+export const emptySqrHash = [
+    null,
+    "#",
+    "##",
+    "###",
+    "####",
+    "#####",
+    "######",
+    "#######",
+    "########",
+];
 Object.preventExtensions(emptySqrHash);
 Object.seal(emptySqrHash);
 Object.freeze(emptySqrHash);

@@ -1,11 +1,11 @@
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { setOffsetDisplays } from "./setOffsetDisplays";
 import { setSpanDisplays } from "./setSpanDisplays";
 
 export const setLoc = (newState, rf) => {
     newState.location = rf;
-    newState.spansDispays = getBinaryBoarAllFalse();
-    newState.offsetDisplays = getBinaryBoarAllFalse();
+    newState.spansDispays = getBinaryBoardAllFalse();
+    newState.offsetDisplays = getBinaryBoardAllFalse();
     setSpanDisplays(newState);
     setOffsetDisplays(newState);
 };

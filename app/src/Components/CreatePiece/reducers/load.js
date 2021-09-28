@@ -1,5 +1,5 @@
 import { getSpansDict } from "../helpers/getSpansDict";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
 export const load = (state, name, offsets, spans, whiteImg, blackImg) => {
     return {
@@ -19,8 +19,8 @@ export const load = (state, name, offsets, spans, whiteImg, blackImg) => {
             black: blackImg,
         },
         location: "d4",
-        spanDisplays: getBinaryBoarAllFalse(),
-        offsetDisplays: getBinaryBoarAllFalse(),
+        spanDisplays: getBinaryBoardAllFalse(),
+        offsetDisplays: getBinaryBoardAllFalse(),
         loadInstance: state.loadInstance + 1,
         unsavedChanges: false,
     };

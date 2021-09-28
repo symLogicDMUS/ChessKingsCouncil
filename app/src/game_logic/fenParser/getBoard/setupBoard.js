@@ -1,16 +1,16 @@
-import {xyToRf} from "../../coordType/crdCnvrt";
-import {printBoard} from "../../printers/printBoard";
+import { xyToRf } from "../../coordType/crdCnvrt";
+import { printBoard } from "../../printers/printBoard";
 
 export function setupBoard(board, posList) {
     /*fenParser task 7, for each new key, get the next the.includes(id) list**/
-    let i = 0
-    for (let y = 1; y < 9 ; y++) {
-        for (let x = 1; x < 9 ; x++) {
-            board[xyToRf(x, y)] = posList[i]
-            i += 1
+    let i = 0;
+    for (let y = 1; y < 9; y++) {
+        for (let x = 1; x < 9; x++) {
+            board[xyToRf(x, y)] = posList[i];
+            i += 1;
         }
     }
-    return board
+    return board;
 }
 
 // module.exports = setupBoard;

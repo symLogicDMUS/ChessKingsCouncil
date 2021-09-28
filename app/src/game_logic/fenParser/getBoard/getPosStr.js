@@ -1,14 +1,12 @@
-
 export function getPosStr(fen) {
     /*fenParser task 0, return the position part of the fen string**/
-    let res = fen.match(`([a-zA-Z0-8]+/){7}([a-zA-Z0-8]+)`)
-    if (res  !== null) {
-        let posStr = res[0]
-        return posStr
-    }
-    else {
-        console.log('error: position string ! found')
-        return -1
+    let res = fen.match(`([a-zA-Z0-8]+/){7}([a-zA-Z0-8]+)`);
+    if (res !== null) {
+        let posStr = res[0];
+        return posStr;
+    } else {
+        console.log("error: position string ! found");
+        return -1;
     }
 }
 

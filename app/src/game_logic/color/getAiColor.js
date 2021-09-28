@@ -1,13 +1,13 @@
 export function getAiColor(playerType) {
     /* **/
     if (playerType === "test") {
-        return undefined
+        return undefined;
     }
     if (playerType === "W") {
-        return "B"
+        return "B";
     }
     if (playerType === "B") {
-        return "W"
+        return "W";
     }
 }
 

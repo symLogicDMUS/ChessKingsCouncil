@@ -17,7 +17,7 @@ export const light = {
     button_hover_fill: lighten("#253b73", 0.9),
     button_hover_text: "#ffffff",
     location_button_selected: "#006dfb",
-    modal_fill: '#fff',
+    modal_fill: "#fff",
     modal_actions: "#006dfb",
     img_border: "#ffffff",
     even_row: lighten("#253b73", 0.9),

@@ -1,18 +1,21 @@
-import {initEmptyRanges} from "./initEmptyRanges";
-
+import { initEmptyRanges } from "./initEmptyRanges";
 
 export function initDDEmptyLists(dataDict) {
     /* **/
     for (const gameName of Object.keys(dataDict)) {
-        dataDict[gameName]['defs'] = initEmptyRanges(dataDict[gameName]['defs'])
-        if (! Object.keys(dataDict[gameName]).includes('promos')) {
-            dataDict[gameName]['promos'] = []
+        dataDict[gameName]["defs"] = initEmptyRanges(
+            dataDict[gameName]["defs"]
+        );
+        if (!Object.keys(dataDict[gameName]).includes("promos")) {
+            dataDict[gameName]["promos"] = [];
         }
-        if (! Object.keys(dataDict[gameName]['json']).includes('pawn_histories')) {
-            dataDict[gameName]['json']['pawn_histories'] = {}
+        if (
+            !Object.keys(dataDict[gameName]["json"]).includes("pawn_histories")
+        ) {
+            dataDict[gameName]["json"]["pawn_histories"] = {};
         }
     }
-    return dataDict
+    return dataDict;
 }
 
 // module.exports = initDDEmptyLists;
@@ -25,4 +28,3 @@ if (require.main === module) {
 
 }
 */
-

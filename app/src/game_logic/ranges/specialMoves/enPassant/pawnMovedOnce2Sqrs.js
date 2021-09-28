@@ -1,6 +1,5 @@
-import {pawn2SqrFirstMoves} from "./pawn2SqrFirstMoves";
-import {strfind} from "../../../helpers/strfind";
-
+import { pawn2SqrFirstMoves } from "./pawn2SqrFirstMoves";
+import { strfind } from "../../../helpers/strfind";
 
 export function pawnMovedOnce2Sqrs(pawnHistories, id) {
     return strfind(pawn2SqrFirstMoves, pawnHistories[id]);

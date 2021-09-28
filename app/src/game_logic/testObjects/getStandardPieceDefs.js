@@ -1,9 +1,8 @@
-import {pieceDefs} from "./standardPieceDefs.js";
-
+import { pieceDefs } from "./standardPieceDefs.js";
 
 export function getStandardPieceDefs() {
     /* **/
-    return pieceDefs
+    return pieceDefs;
 }
 
 // module.exports = getStandardPieceDefs;

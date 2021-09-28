@@ -1,14 +1,14 @@
-import {offsetStrsToList} from "./offsetStrsToList";
-
+import { offsetStrsToList } from "./offsetStrsToList";
 
 export function ddOffsetStrsToList(dataDict) {
     /* **/
     for (const gameName of Object.keys(dataDict)) {
-        dataDict[gameName]['defs'] = offsetStrsToList(dataDict[gameName]['defs'])
+        dataDict[gameName]["defs"] = offsetStrsToList(
+            dataDict[gameName]["defs"]
+        );
     }
-    return dataDict
+    return dataDict;
 }
-
 
 /** for node.js
 if (require.main === module) {

@@ -1,6 +1,6 @@
-import {OOB, EMPTY, FRIEND, ENEMY} from "./sqrCases";
-import {outOfBounds} from "./oob";
-import {xyToRf} from "../coordType/crdCnvrt";
+import { OOB, EMPTY, FRIEND, ENEMY } from "./sqrCases";
+import { outOfBounds } from "./oob";
+import { xyToRf } from "../coordType/crdCnvrt";
 
 export function getSqrCase(board, x, y, color) {
     /*get the case of square at location x, y on the board. see sqrTypes.py**/

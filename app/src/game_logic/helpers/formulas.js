@@ -1,4 +1,3 @@
-
 export function dist(sqr1, sqr2) {
     /* calculate the distance between sqr1 &&  sqr2 &&  return **/
     return Math.sqrt((sqr2[0] - sqr1[0]) ** 2 + (sqr2[1] - sqr1[1]) ** 2);

@@ -1,13 +1,19 @@
-import {getPieceType} from "../../pieceType/getPieceType";
-import {pawn} from "../pawn/top/pawn";
-import {king} from "../king/top/king";
-import {getRange} from "../getRange";
-import {getColor} from "../../color/getColor";
-import {rfToXy} from "../../coordType/crdCnvrt"
-import {SpecialMoves} from "../specialMoves/SpecialMoves";
+import { getPieceType } from "../../pieceType/getPieceType";
+import { pawn } from "../pawn/top/pawn";
+import { king } from "../king/top/king";
+import { getRange } from "../getRange";
+import { getColor } from "../../color/getColor";
+import { rfToXy } from "../../coordType/crdCnvrt";
+import { SpecialMoves } from "../specialMoves/SpecialMoves";
 
-
-export function getRanges(board, color, ranges, jsonRecords, pieceDefs, idDict) {
+export function getRanges(
+    board,
+    color,
+    ranges,
+    jsonRecords,
+    pieceDefs,
+    idDict
+) {
     /**get the range of every piece on board of specific color, including special moves
      these ranges are initial ranges. They don't take into consideration if the move endangers the king || not. This is
      resolved the.includes(later) program &&  the initial ranges are then filtered
@@ -20,34 +26,43 @@ export function getRanges(board, color, ranges, jsonRecords, pieceDefs, idDict) 
     let specialMoves = new SpecialMoves(null);
 
     for (const [rf, id] of Object.entries(board)) {
-
-        if (id === '#') {
-            continue
+        if (id === "#") {
+            continue;
         }
 
         if (getColor(id) !== color) {
-            continue
+            continue;
         }
 
-        pieceType = getPieceType(id)
+        pieceType = getPieceType(id);
 
-        if (pieceType === 'P') {
-            [pieceRange, specialMoves] = pawn(board, rfToXy(rf), color, jsonRecords, specialMoves)
-            ranges[id].push(...pieceRange)
-        }
-
-        else if (pieceType === 'K') {
-            [pieceRange, specialMoves] = king(board, rfToXy(rf), color, jsonRecords, specialMoves, pieceDefs, idDict)
-            ranges[id].push(...pieceRange)
-        }
-
-        else {
-            pieceRange = getRange(board, rfToXy(rf), color, pieceDefs, idDict)
-            ranges[id].push(...pieceRange)
+        if (pieceType === "P") {
+            [pieceRange, specialMoves] = pawn(
+                board,
+                rfToXy(rf),
+                color,
+                jsonRecords,
+                specialMoves
+            );
+            ranges[id].push(...pieceRange);
+        } else if (pieceType === "K") {
+            [pieceRange, specialMoves] = king(
+                board,
+                rfToXy(rf),
+                color,
+                jsonRecords,
+                specialMoves,
+                pieceDefs,
+                idDict
+            );
+            ranges[id].push(...pieceRange);
+        } else {
+            pieceRange = getRange(board, rfToXy(rf), color, pieceDefs, idDict);
+            ranges[id].push(...pieceRange);
         }
     }
 
-    return [ranges, specialMoves]
+    return [ranges, specialMoves];
 }
 
 // module.exports = getRanges;

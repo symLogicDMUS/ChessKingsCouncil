@@ -1,40 +1,45 @@
-import {isEnpBlackAttR} from "./isEnpBlackAttR";
-import {isEnpWhiteAttR} from "./isEnpWhiteAttR";
-import {pawnMovedOnce2Sqrs} from "./pawnMovedOnce2Sqrs" 
-import {getPieceType} from "../../../pieceType/getPieceType";
-import {getSqrCase} from "../../../sqrCase/getSqrCase";
-import {ENEMY} from "../../../sqrCase/sqrCases";
-import {xyToRf, } from "../../../coordType/crdCnvrt";
+import { isEnpBlackAttR } from "./isEnpBlackAttR";
+import { isEnpWhiteAttR } from "./isEnpWhiteAttR";
+import { pawnMovedOnce2Sqrs } from "./pawnMovedOnce2Sqrs";
+import { getPieceType } from "../../../pieceType/getPieceType";
+import { getSqrCase } from "../../../sqrCase/getSqrCase";
+import { ENEMY } from "../../../sqrCase/sqrCases";
+import { xyToRf } from "../../../coordType/crdCnvrt";
 
-
-export function canEnpassant(attacking, attacked, board, color, pawnHistories, ncnpm, lastPawnMove) {
+export function canEnpassant(
+    attacking,
+    attacked,
+    board,
+    color,
+    pawnHistories,
+    ncnpm,
+    lastPawnMove
+) {
     /**return true if an en-passant can be performed given sqr1 &&  sqr2 alignment, else false
        ncnpm: Number Consecutive Non Pawn Moves
     */
-    if (color === 'W' &&  ! isEnpWhiteAttR(attacking)) {
-        return false
+    if (color === "W" && !isEnpWhiteAttR(attacking)) {
+        return false;
     }
-    if (color === 'B' &&  ! isEnpBlackAttR(attacking)) {
-        return false
+    if (color === "B" && !isEnpBlackAttR(attacking)) {
+        return false;
     }
     if (getSqrCase(board, attacked[0], attacked[1], color) !== ENEMY) {
-        return false
+        return false;
     }
-    if (getPieceType(board[xyToRf(...attacked)]) !== 'P') {
-        return false
+    if (getPieceType(board[xyToRf(...attacked)]) !== "P") {
+        return false;
     }
     if (ncnpm !== 0) {
-        return false
+        return false;
     }
-    if (! pawnMovedOnce2Sqrs(pawnHistories, board[xyToRf(...attacked)])) {
-        return false
+    if (!pawnMovedOnce2Sqrs(pawnHistories, board[xyToRf(...attacked)])) {
+        return false;
     }
     return xyToRf(...attacked) === lastPawnMove;
-
 }
 
 // module.exports = canEnpassant;
-
 
 /** for node.js
 if (require.main === module) {

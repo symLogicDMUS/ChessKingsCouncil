@@ -1,10 +1,9 @@
-import {OVER, IN_PROGRESS} from "./gStatusTypes";
-import {getPieceTypeInstances} from "../../pieceType/getPieceTypeInstances";
-import {getNextColor as getEnemyColor} from "../../color/getNextColor";
-import {numKings} from "../../council_logic/numKings";
-import {numPawns} from "../../council_logic/numPawns";
-import {onlyKings} from "../../council_logic/onlyKings";
-
+import { OVER, IN_PROGRESS } from "./gStatusTypes";
+import { getPieceTypeInstances } from "../../pieceType/getPieceTypeInstances";
+import { getNextColor as getEnemyColor } from "../../color/getNextColor";
+import { numKings } from "../../council_logic/numKings";
+import { numPawns } from "../../council_logic/numPawns";
+import { onlyKings } from "../../council_logic/onlyKings";
 
 export class GameStatus {
     /**
@@ -12,7 +11,7 @@ export class GameStatus {
      * the status of the game: OVER or IN_PROGRESS
      * the winner of the game: 'W', 'B', or '-' (neither)
      * the condition of the king of pla: 'check', 'checkmate', 'stalemate', or 'safe'
-     * 
+     *
      */
     constructor(status) {
         this.status = status.status;
@@ -31,41 +30,36 @@ export class GameStatus {
          :param enemyColor: str, color of king
         */
 
-        if (this.condition === 'resigned') {
+        if (this.condition === "resigned") {
             return;
         }
 
         if (this.noRanges(ranges)) {
             if (npck > 0) {
-                this.condition = 'checkmate'
-                this.status = OVER
-                this.winner =  enemyColor
-            }
-            else {
-                this.condition = 'stalemate';
+                this.condition = "checkmate";
                 this.status = OVER;
-                this.winner = '-';
+                this.winner = enemyColor;
+            } else {
+                this.condition = "stalemate";
+                this.status = OVER;
+                this.winner = "-";
             }
-            return
+            return;
         }
 
         const pieceTypeInstances = getPieceTypeInstances(board);
-        if (pieceTypeInstances.toString() === ['K', 'K'].toString()) {
-            this.condition = 'stalemate';
+        if (pieceTypeInstances.toString() === ["K", "K"].toString()) {
+            this.condition = "stalemate";
             this.status = OVER;
-            this.winner = '-';
-        }
-
-        else if (npck > 0) {
-            this.condition = 'check';
+            this.winner = "-";
+        } else if (npck > 0) {
+            this.condition = "check";
             this.status = IN_PROGRESS;
-            this.winner = '-';
-        }
-        
-        else {
-            this.condition = '';
+            this.winner = "-";
+        } else {
+            this.condition = "";
             this.status = IN_PROGRESS;
-            this.winner = '-';
+            this.winner = "-";
         }
     }
 
@@ -83,59 +77,54 @@ export class GameStatus {
         const color = getEnemyColor(enemyColor);
 
         if (numKings(board, color) === 0 && numPawns(board, color) === 0) {
-            this.condition = 'checkmate'
-            this.status = OVER
-            this.winner =  enemyColor
-            return
+            this.condition = "checkmate";
+            this.status = OVER;
+            this.winner = enemyColor;
+            return;
         }
 
         if (this.noRanges(ranges)) {
             if (threatAreaLength > 0) {
-                this.condition = 'checkmate'
-                this.status = OVER
-                this.winner =  enemyColor
-            }
-            else {
-                this.condition = 'stalemate';
+                this.condition = "checkmate";
                 this.status = OVER;
-                this.winner = '-';
+                this.winner = enemyColor;
+            } else {
+                this.condition = "stalemate";
+                this.status = OVER;
+                this.winner = "-";
             }
-            return
+            return;
         }
 
         const pieceTypeInstances = getPieceTypeInstances(board);
         if (onlyKings(pieceTypeInstances)) {
-            this.condition = 'stalemate';
+            this.condition = "stalemate";
             this.status = OVER;
-            this.winner = '-';
-        }
-
-        else if (threatAreaLength > 0) {
-            this.condition = 'check';
+            this.winner = "-";
+        } else if (threatAreaLength > 0) {
+            this.condition = "check";
             this.status = IN_PROGRESS;
-            this.winner = '-';
-        }
-
-        else {
-            this.condition = '';
+            this.winner = "-";
+        } else {
+            this.condition = "";
             this.status = IN_PROGRESS;
-            this.winner = '-';
+            this.winner = "-";
         }
     }
 
     updateByObj(status) {
         /**update the game status directly by passing a status object */
-        this.status = status['status']
-        this.condition = status['condition']
-        this.winner = status['winner']
+        this.status = status["status"];
+        this.condition = status["condition"];
+        this.winner = status["winner"];
     }
 
     getStatus() {
         return {
-            'condition': this.condition,
-            'status':this.status,
-            'winner':this.winner,
-        }
+            condition: this.condition,
+            status: this.status,
+            winner: this.winner,
+        };
     }
 
     hasResigned() {
@@ -144,9 +133,8 @@ export class GameStatus {
 
     noRanges(ranges) {
         for (const range of Object.values(ranges)) {
-            if (range.length > 0)
-                return false
+            if (range.length > 0) return false;
         }
-        return true
+        return true;
     }
 }

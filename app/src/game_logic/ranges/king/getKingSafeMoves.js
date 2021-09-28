@@ -1,9 +1,17 @@
-import {sqrUnderAttack} from "../../threatArea/top/sqrUnderAttack";
+import { sqrUnderAttack } from "../../threatArea/top/sqrUnderAttack";
 
-
-export function getKingSafeMoves(board, moveList, color, rangefunctions, idDict) {
+export function getKingSafeMoves(
+    board,
+    moveList,
+    color,
+    rangefunctions,
+    idDict
+) {
     /*get the squares that king can move from the moves list, that do ! put check.includes(it)**/
-    return moveList.filter(sqr => sqrUnderAttack(board, sqr, color, rangefunctions, idDict) === false)
+    return moveList.filter(
+        (sqr) =>
+            sqrUnderAttack(board, sqr, color, rangefunctions, idDict) === false
+    );
 }
 
 // module.exports = getKingSafeMoves;

@@ -1,8 +1,6 @@
-
-
 export function joinToRow(row) {
     /*getFen TASK 3.1, join the squares from a row on the board**/
-    return row.join("")
+    return row.join("");
 }
 
 // module.exports = joinToRow;
@@ -29,4 +27,3 @@ if (require.main === module) {
     console.log(joinToRow(['R', '#', '#', '#', 'K', '#', '#', 'R']))
 }
 */
-

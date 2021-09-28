@@ -21,7 +21,6 @@ export const useStyles = makeStyles(
             left: 0,
         }),
         name: (props) => ({
-
             background: themes[props.theme].fill,
 
             "@media screen and (min-width: 960px)": {

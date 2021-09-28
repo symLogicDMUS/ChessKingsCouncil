@@ -1,17 +1,16 @@
-import {getSqrCase} from "../sqrCase/getSqrCase";
-import {ENEMY} from "../sqrCase/sqrCases";
-import {dist} from "../helpers/formulas";
-import {xyToRf, rfToXy} from "../coordType/crdCnvrt";
-import {mapListRfToXy} from "../coordType/mapListRfToXy"
-
+import { getSqrCase } from "../sqrCase/getSqrCase";
+import { ENEMY } from "../sqrCase/sqrCases";
+import { dist } from "../helpers/formulas";
+import { xyToRf, rfToXy } from "../coordType/crdCnvrt";
+import { mapListRfToXy } from "../coordType/mapListRfToXy";
 
 export function getKingThreats(board, sqr, color) {
     /*for a square ! containg the king, get list of kings threatening that square**/
-    var kingThreats = Object.keys(board).filter(sqr2 => {
+    var kingThreats = Object.keys(board).filter((sqr2) => {
+        sqr2 = rfToXy(sqr2);
 
-        sqr2 = rfToXy(sqr2)
-
-        if ((dist(sqr, sqr2) === 1 || dist(sqr, sqr2) === Math.sqrt(2)) &&
+        if (
+            (dist(sqr, sqr2) === 1 || dist(sqr, sqr2) === Math.sqrt(2)) &&
             getSqrCase(board, sqr2[0], sqr2[1], color) === ENEMY &&
             board[xyToRf(...sqr2)][1] === "K"
         ) {
@@ -19,7 +18,6 @@ export function getKingThreats(board, sqr, color) {
         } else {
             return false;
         }
-
     });
 
     return mapListRfToXy(kingThreats);

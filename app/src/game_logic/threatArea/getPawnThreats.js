@@ -1,15 +1,17 @@
-import {getPotentialPawnThreats} from "./getPotentialPawnThreats";
-import {getActualPawnThreats} from "./getActualPawnThreats";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-import {mapListRfToXy} from "../coordType/mapListRfToXy";
-
-
+import { getPotentialPawnThreats } from "./getPotentialPawnThreats";
+import { getActualPawnThreats } from "./getActualPawnThreats";
+import { sampleBoardDicts } from "../testObjects/sampleBoardDicts";
+import { mapListRfToXy } from "../coordType/mapListRfToXy";
 
 export function getPawnThreats(board, sqr, color) {
     /*return list of squares containing a pawn putting the check.includes(king)**/
-    var potentialPawnThreats = getPotentialPawnThreats(board, sqr, color)
-    var actualPawnThreats = getActualPawnThreats(board, mapListRfToXy(potentialPawnThreats), color)
-    return actualPawnThreats
+    var potentialPawnThreats = getPotentialPawnThreats(board, sqr, color);
+    var actualPawnThreats = getActualPawnThreats(
+        board,
+        mapListRfToXy(potentialPawnThreats),
+        color
+    );
+    return actualPawnThreats;
 }
 
 // module.exports = getPawnThreats;

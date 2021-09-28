@@ -1,5 +1,3 @@
-
-
 export function isEmptyObject(dict) {
     return Object.keys(dict).length === 0 && dict.constructor === Object;
 }

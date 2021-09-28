@@ -1,17 +1,15 @@
-
 export function isPin(pathData) {
     /**return true if the path contains a pinned piece, otherwise false 
         see class PathData
     */
     if (pathData.statuses.length < 2) {
-        return false
+        return false;
     }
-    if (pathData.statuses[0] !== 'f') {
-        return false
+    if (pathData.statuses[0] !== "f") {
+        return false;
     }
-    if (pathData.statuses[1] !== 'e') {
-        return false
+    if (pathData.statuses[1] !== "e") {
+        return false;
     }
     return pathData.pieceMatchesPath[1];
-
 }

@@ -1,22 +1,20 @@
-import {emptySqrHash} from "./emptySqrHash";
-import {isdigit} from "../../helpers/isdigit";
-
+import { emptySqrHash } from "./emptySqrHash";
+import { isdigit } from "../../helpers/isdigit";
 
 export function numToSharps(posStr) {
     /**fenParser task 2, converts every digit encountered to that many consecutive '#' chars
         posStr: the position part of the fen string
         returns list of sqrs
     */
-    let newPosStr = ''
+    let newPosStr = "";
     for (var sqr of posStr) {
         if (isdigit(sqr)) {
-             newPosStr += emptySqrHash[parseInt(sqr, 10)]
-        }
-        else {
-            newPosStr += sqr
+            newPosStr += emptySqrHash[parseInt(sqr, 10)];
+        } else {
+            newPosStr += sqr;
         }
     }
-    return newPosStr
+    return newPosStr;
 }
 
 // module.exports = numToSharps;

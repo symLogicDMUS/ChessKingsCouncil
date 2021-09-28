@@ -1,9 +1,8 @@
-import {getIdBoard} from "../getIdBoard";
-import {getPieceFens} from "../getPieceFens";
-import {joinToRows} from "../joinToRows";
-import {joinToFen} from "../joinToFen";
-import {getDigits} from "../getDigits";
-
+import { getIdBoard } from "../getIdBoard";
+import { getPieceFens } from "../getPieceFens";
+import { joinToRows } from "../joinToRows";
+import { joinToFen } from "../joinToFen";
+import { getDigits } from "../getDigits";
 
 export function getFen(board) {
     /*convert a board dict to a fen position string &&  return**/
@@ -16,7 +15,6 @@ export function getFen(board) {
 }
 
 // module.exports = getFen;
-
 
 /** for node.js
 if (require.main === module) {

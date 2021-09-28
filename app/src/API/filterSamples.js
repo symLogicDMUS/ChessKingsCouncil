@@ -1,3 +1,3 @@
 export function filterSamples(imgStrs) {
-    return imgStrs.filter(str => str.startsWith("https://"));
+    return imgStrs.filter((str) => str.startsWith("https://"));
 }

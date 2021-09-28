@@ -1,6 +1,6 @@
-import {difference} from "../Components/helpers/setOps";
-import {decrementImgRefCounts} from "./decrementImgRefCounts";
-import {incrementImgRefCounts} from "./incrementImgRefCounts";
+import { difference } from "../Components/helpers/setOps";
+import { decrementImgRefCounts } from "./decrementImgRefCounts";
+import { incrementImgRefCounts } from "./incrementImgRefCounts";
 
 /**
  * method called when a game or piece profile is saved with the name of a game or piece profile that already exists
@@ -10,18 +10,12 @@ import {incrementImgRefCounts} from "./incrementImgRefCounts";
  */
 export async function updateCountsOnOverwrite(oldImgUrls, newImgUrls) {
     const urlsToDecrement = Array.from(
-        difference(
-            new Set(oldImgUrls),
-            new Set(newImgUrls),
-        )
-    )
+        difference(new Set(oldImgUrls), new Set(newImgUrls))
+    );
     const urlsToIncrement = Array.from(
-        difference(
-            new Set(newImgUrls),
-            new Set(oldImgUrls),
-        )
-    )
-    return await decrementImgRefCounts(urlsToDecrement).then(async r => {
-        return await incrementImgRefCounts(urlsToIncrement)
-    })
+        difference(new Set(newImgUrls), new Set(oldImgUrls))
+    );
+    return await decrementImgRefCounts(urlsToDecrement).then(async (r) => {
+        return await incrementImgRefCounts(urlsToIncrement);
+    });
 }

@@ -14,7 +14,7 @@ import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
 import { ToolBackdrop } from "../Reuseables/MiniVariantTool/ToolBackdrop";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
@@ -92,8 +92,8 @@ class CreatePiece extends React.Component {
         "135d": false,
     };
     offsets = [];
-    spanDisplays = getBinaryBoarAllFalse();
-    offsetDisplays = getBinaryBoarAllFalse();
+    spanDisplays = getBinaryBoardAllFalse();
+    offsetDisplays = getBinaryBoardAllFalse();
     whiteAndBlackImgs = { white: null, black: null };
     imgFileObjs = { white: null, black: null };
     newPiece = {
@@ -276,7 +276,7 @@ class CreatePiece extends React.Component {
 
     /**used by the Reset Option button, called by this.reset()*/
     resetSpanDisplays = () => {
-        this.spanDisplays = getBinaryBoarAllFalse();
+        this.spanDisplays = getBinaryBoardAllFalse();
     };
 
     /**used by Range tool*/
@@ -314,7 +314,7 @@ class CreatePiece extends React.Component {
 
     /**used by the Reset Option button, called by this.reset()*/
     resetOffsetDisplays = () => {
-        this.offsetDisplays = getBinaryBoarAllFalse();
+        this.offsetDisplays = getBinaryBoardAllFalse();
     };
 
     /**used by the Reset Option button. called by this.eraseRange() and this.clear().*/
@@ -330,8 +330,8 @@ class CreatePiece extends React.Component {
             "135d": false,
         };
         this.offsets = [];
-        this.spanDisplays = getBinaryBoarAllFalse();
-        this.offsetDisplays = getBinaryBoarAllFalse();
+        this.spanDisplays = getBinaryBoardAllFalse();
+        this.offsetDisplays = getBinaryBoardAllFalse();
     };
 
     /**used by the Location tool*/

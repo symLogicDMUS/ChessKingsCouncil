@@ -3,13 +3,16 @@ import { themes } from "../../../styles/themes/themes.jss";
 import { sqrSize } from "../CreatePieceBoard.jss";
 
 export const spanFrame = (theme) => ({
-    backgroundColor: themes[theme].span,
+    background: "none",
+    color: themes[theme].span,
     display: "flex",
     flexDirection: "column",
+    fontSize: "3.5vw",
 });
 
 export const offsetFrame = (theme) => ({
-    backgroundColor: themes[theme].offset,
+    background: "none",
+    color: themes[theme].offset,
     display: "flex",
     flexDirection: "column",
 });
@@ -21,13 +24,18 @@ export const useStyles = makeStyles(
                 fontSize: "2.25vw",
             },
             "@media screen and (min-width: 960px)": {
-                fontSize: "1.2vw",
+                fontSize: "1.5vw",
             },
             margin: "auto",
-            textTransform: "none",
-            letterSpacing: "0.0075em",
-            fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-            color: themes[props.theme].sqr_text,
+            // textTransform: "none",
+            // letterSpacing: "0.0075em",
+            // lineHeight: 0.5,
+            // fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+            width: "100%",
+            // backgroundColor: 'none',
+            // background: 'none',
+            // display: 'flex',
+            // flexDirection: 'column',
         }),
     },
     { index: 1 }

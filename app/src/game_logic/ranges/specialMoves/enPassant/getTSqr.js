@@ -1,5 +1,4 @@
-import {enPassants} from "./enPassants";
-
+import { enPassants } from "./enPassants";
 
 export function getTSqr(color, alignKey) {
     /*use alignment key to get square that pawn moves to capture by en-passant**/

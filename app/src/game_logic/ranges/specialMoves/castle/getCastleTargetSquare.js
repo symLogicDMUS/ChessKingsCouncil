@@ -1,9 +1,9 @@
-import {castleTargetSquares} from "./castleTargetSquares";
-import {rfToXy} from "../../../coordType/crdCnvrt"
+import { castleTargetSquares } from "./castleTargetSquares";
+import { rfToXy } from "../../../coordType/crdCnvrt";
 
 export function getCastleTargetSquare(color, side) {
     /*get the target square of the castle for the given color king &&  on given side of king**/
-    return rfToXy(castleTargetSquares[color][side])
+    return rfToXy(castleTargetSquares[color][side]);
 }
 
 // module.exports = getCastleTargetSquare;

@@ -1,12 +1,12 @@
-import {Fen} from "../../game_logic/fenParser/Fen";
-import {getTurnData} from "../../game_logic/callHierarchyTop/getTurnData";
-import {getTurnDataCouncil} from "../../game_logic/callHierarchyTop/getTurnDataCouncil";
-import {getFenDict} from "../../game_logic/fenParser/getFenDict";
-import {getBoard} from "../../game_logic/fenParser/getBoard/top/getBoard";
-import {getFenData} from "../../game_logic/fenParser/GameStatus/getFenData";
-import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
-import {getNextColor as getEnemyColor} from "../../game_logic/color/getNextColor";
+import { Fen } from "../../game_logic/fenParser/Fen";
+import { getTurnData } from "../../game_logic/callHierarchyTop/getTurnData";
+import { getTurnDataCouncil } from "../../game_logic/callHierarchyTop/getTurnDataCouncil";
+import { getFenDict } from "../../game_logic/fenParser/getFenDict";
+import { getBoard } from "../../game_logic/fenParser/getBoard/top/getBoard";
+import { getFenData } from "../../game_logic/fenParser/GameStatus/getFenData";
+import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
+import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
+import { getNextColor as getEnemyColor } from "../../game_logic/color/getNextColor";
 
 /**
  * called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db
@@ -23,17 +23,37 @@ export function parseData(data) {
     const board = getBoard(fen);
     const jsonRecords = new JsonRecords(initPawnIds(records, board));
     const [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen);
-    const fenObj = new Fen(getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum));
+    const fenObj = new Fen(
+        getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum)
+    );
     const color = fenObj.turn.toUpperCase();
     const enemyColor = getEnemyColor(color);
 
     let turnData, enemyTurnData;
     if (data.type === "council") {
-        turnData = getTurnDataCouncil(board, color, jsonRecords, pieceDefs, idDict);
-        enemyTurnData = getTurnDataCouncil(board, enemyColor, jsonRecords, pieceDefs, idDict);
+        turnData = getTurnDataCouncil(
+            board,
+            color,
+            jsonRecords,
+            pieceDefs,
+            idDict
+        );
+        enemyTurnData = getTurnDataCouncil(
+            board,
+            enemyColor,
+            jsonRecords,
+            pieceDefs,
+            idDict
+        );
     } else {
         turnData = getTurnData(board, color, jsonRecords, pieceDefs, idDict);
-        enemyTurnData = getTurnData(board, enemyColor, jsonRecords, pieceDefs, idDict);
+        enemyTurnData = getTurnData(
+            board,
+            enemyColor,
+            jsonRecords,
+            pieceDefs,
+            idDict
+        );
     }
 
     return {

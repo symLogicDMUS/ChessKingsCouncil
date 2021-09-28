@@ -1,9 +1,8 @@
-import {getStandardPieceDefs} from "gameLogic/testObjects/getStandardPieceDefs";
-
+import { getStandardPieceDefs } from "gameLogic/testObjects/getStandardPieceDefs";
 
 export function getRangeInstance(rangefunctions, pieceName, color, rangeType) {
     /*get range of rangeType of the piece named pieceName of enemy color**/
-    return rangeDefs[pieceName][color][rangeType]
+    return rangeDefs[pieceName][color][rangeType];
 }
 
 // module.exports = getRangeInstance;

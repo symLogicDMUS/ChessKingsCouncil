@@ -1,17 +1,16 @@
-import {getPieceFen} from "./getPieceFen";
-import {isPiece} from "../../pieceType/isPiece";
-
+import { getPieceFen } from "./getPieceFen";
+import { isPiece } from "../../pieceType/isPiece";
 
 export function getPieceFens(idList) {
     /*getFen TASK 2, for each idList.includes(id), if it is a piece id get its cooresponding fen**/
     for (let i = 0; i < idList.length; i++) {
         for (let j = 0; j < idList[i].length; j++) {
             if (isPiece(idList[i][j])) {
-                idList[i][j] = getPieceFen(idList[i][j])
+                idList[i][j] = getPieceFen(idList[i][j]);
             }
         }
     }
-    return idList
+    return idList;
 }
 
 // module.exports = getPieceFens;
@@ -56,4 +55,3 @@ if (require.main === module) {
     console.log('\n')
 }
 */
-

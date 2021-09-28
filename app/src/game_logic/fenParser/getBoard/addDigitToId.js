@@ -1,20 +1,17 @@
-
-
 export function addDigitToId(posList) {
     /*fenParser task 5, add a digit to each the.includes(id) posList. the digit is what number occurence of that id**/
-    let idCounters = {}
+    let idCounters = {};
     for (let i = 0; i < posList.length; i++) {
-        if (posList[i] !== '#') {
+        if (posList[i] !== "#") {
             if (Object.keys(idCounters).includes(posList[i])) {
-                idCounters[posList[i]] += 1
-            }
-            else {
-                idCounters[posList[i]] = 1
+                idCounters[posList[i]] += 1;
+            } else {
+                idCounters[posList[i]] = 1;
             }
             posList[i] = posList[i] + idCounters[posList[i]].toString();
         }
     }
-    return posList
+    return posList;
 }
 
 // module.exports = addDigitToId;
@@ -61,5 +58,3 @@ if (require.main === module) {
 
 }
 */
-    
-

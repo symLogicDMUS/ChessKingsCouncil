@@ -1,6 +1,5 @@
-import {enPassantWhiteAttackRank} from "./enPassantWhiteAttackRank";
-import {xyToRf, rfToXy} from "../../../coordType/crdCnvrt"
-
+import { enPassantWhiteAttackRank } from "./enPassantWhiteAttackRank";
+import { xyToRf, rfToXy } from "../../../coordType/crdCnvrt";
 
 export function isEnpWhiteAttR(sqr) {
     /*return true if sqr the.includes(is) en-passant hover-off attack rank, else false**/

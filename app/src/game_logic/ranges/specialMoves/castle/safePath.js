@@ -1,16 +1,16 @@
-import {sqrUnderAttack} from "../../../threatArea/top/sqrUnderAttack";
+import { sqrUnderAttack } from "../../../threatArea/top/sqrUnderAttack";
 import { rfToXy } from "../../../coordType/crdCnvrt";
 
 export function safePath(board, path, color, pieceDefs, idDict) {
     /* return true if every square on path is ! under attack, else return false**/
-    
+
     for (const rf of path) {
         if (sqrUnderAttack(board, rfToXy(rf), color, pieceDefs, idDict)) {
-            return false
+            return false;
         }
     }
-    
-    return true
+
+    return true;
 }
 
 // module.exports = safePath;

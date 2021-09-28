@@ -4,17 +4,15 @@ export function getPieceColors(pieceList) {
      */
     const colors = [];
     for (const piece of pieceList) {
-        if (piece[0] === 'W') {
-            colors.push('W')
-        }
-        else if (piece[0] === 'B') {
-            colors.push('B')
-        }
-        else {
-            console.log('error: ! a piece id')
+        if (piece[0] === "W") {
+            colors.push("W");
+        } else if (piece[0] === "B") {
+            colors.push("B");
+        } else {
+            console.log("error: ! a piece id");
         }
     }
-    return colors
+    return colors;
 }
 
 // module.exports = getPieceColors;

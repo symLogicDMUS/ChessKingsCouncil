@@ -1,12 +1,11 @@
-import {joinToRow} from "./joinToRow";
-
+import { joinToRow } from "./joinToRow";
 
 export function joinToRows(rows) {
     /*getFen TASK 3, join each row to be a str**/
     for (let i = 0; i < rows.length; i++) {
-        rows[i] = joinToRow(rows[i])
+        rows[i] = joinToRow(rows[i]);
     }
-    return rows
+    return rows;
 }
 
 // module.exports = joinToRows;
@@ -49,4 +48,3 @@ if (require.main === module) {
 
 }
 */
-

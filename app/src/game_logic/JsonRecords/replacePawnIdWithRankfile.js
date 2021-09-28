@@ -1,5 +1,4 @@
-import {getPieceLoc} from "../helpers/getPieceLoc";
-
+import { getPieceLoc } from "../helpers/getPieceLoc";
 
 export function replacePawnIdWithRankfile(board, pawnRanges) {
     /**replace the key of the pawn ranges from id of pawn to rf of its location */
@@ -7,7 +6,7 @@ export function replacePawnIdWithRankfile(board, pawnRanges) {
     const pawnRangesRfKey = {};
     for (const id of Object.keys(pawnRanges)) {
         rf = getPieceLoc(board, id);
-        pawnRangesRfKey[rf] = pawnRanges[id]
+        pawnRangesRfKey[rf] = pawnRanges[id];
     }
     return pawnRangesRfKey;
 }

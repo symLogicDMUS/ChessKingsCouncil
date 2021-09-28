@@ -1,12 +1,12 @@
-import { getBinaryBoarAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
 import { stepFuncDict2 } from "../../../helpers/stepFuncs";
 import { outOfBounds } from "../../../helpers/oob";
 import { rfToXy, xyToRf } from "../../../helpers/crdCnvrt";
 
 export const getRangeBoard = (range, rangeType, location) => {
     let stepFunc, rf;
-    let spans = getBinaryBoarAllFalse();
-    let offsets = getBinaryBoarAllFalse();
+    let spans = getBinaryBoardAllFalse();
+    let offsets = getBinaryBoardAllFalse();
     switch (rangeType) {
         case "span":
             for (const funcName of range) {

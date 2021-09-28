@@ -1,13 +1,11 @@
-
-
 export function getIndexFirstPiece(ids) {
     /*take a list of assignIds &&  return the index of the first piece id**/
     for (let i = 0; i < ids.length; i++) {
-        if (ids[i] !== '#') {
-            return i
+        if (ids[i] !== "#") {
+            return i;
         }
     }
-    return 'no pieces'
+    return "no pieces";
 }
 
 // module.exports = getIndexFirstPiece;
@@ -21,4 +19,3 @@ if (require.main === module) {
 
 }
 */
-

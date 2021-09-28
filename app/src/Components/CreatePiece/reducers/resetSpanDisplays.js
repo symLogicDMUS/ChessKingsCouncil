@@ -1,8 +1,8 @@
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
 export const resetSpanDisplays = (state) => {
     return {
         ...state,
-        spanDisplays: getBinaryBoarAllFalse(),
+        spanDisplays: getBinaryBoardAllFalse(),
     };
 };

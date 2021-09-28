@@ -1,8 +1,6 @@
-
-
 export function joinToFen(rows) {
     /*getFen TASK 4, final getting.includes(step) the fen string. join each row-string together to get fen**/
-    return rows.join("/")
+    return rows.join("/");
 }
 
 // module.exports = joinToFen;

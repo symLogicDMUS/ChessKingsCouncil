@@ -1,5 +1,3 @@
-
-
 export function isalpha(str) {
     return str.match(/^([a-zA-Z]+)$/g) !== null;
 }

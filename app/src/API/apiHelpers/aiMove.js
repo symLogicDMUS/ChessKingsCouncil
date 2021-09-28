@@ -1,9 +1,8 @@
-import {getMoveSimplest} from "./getMoveSimplest";
-import {filterEmptyRanges} from "./filterEmpyRanges";
-import {aiMakeMove} from "../../game_logic/ai/aiMakeMove";
-import {shuffle} from "../../Components/helpers/shuffleArray"
-import {copy} from "../../Components/helpers/copy";
-
+import { getMoveSimplest } from "./getMoveSimplest";
+import { filterEmptyRanges } from "./filterEmpyRanges";
+import { aiMakeMove } from "../../game_logic/ai/aiMakeMove";
+import { shuffle } from "../../Components/helpers/shuffleArray";
+import { copy } from "../../Components/helpers/copy";
 
 export function aiMove(board, ranges, color, specialMoves) {
     /* **/
@@ -13,8 +12,14 @@ export function aiMove(board, ranges, color, specialMoves) {
     const ids = shuffle(Object.keys(aiRanges));
     const pieceId = ids[0];
     const [start, dest] = getMoveSimplest(responseBoard, pieceId, aiRanges);
-    [responseBoard, captured] = aiMakeMove(responseBoard, start, dest, color, specialMoves)
-    return [captured, start, dest]
+    [responseBoard, captured] = aiMakeMove(
+        responseBoard,
+        start,
+        dest,
+        color,
+        specialMoves
+    );
+    return [captured, start, dest];
 }
 
 // module.exports = ai;

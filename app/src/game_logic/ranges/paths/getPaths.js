@@ -1,7 +1,5 @@
-import {stepFuncDict} from "../../helpers/stepFuncs";
-import {getPath} from "./getPath";
-
-
+import { stepFuncDict } from "../../helpers/stepFuncs";
+import { getPath } from "./getPath";
 
 export function getPaths(funcNames, board, sqr, color) {
     /* **/

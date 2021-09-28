@@ -1,15 +1,24 @@
-import {getPieceType} from "../../../pieceType/getPieceType";
-import {getColor} from "../../../color/getColor";
-
+import { getPieceType } from "../../../pieceType/getPieceType";
+import { getColor } from "../../../color/getColor";
 
 export function isPromoRows(start, dest, id) {
     /**return true if start &&  dest are potential alignment of a pawn promotion &&  id is a pawn, else false
         isPromo is ! concerned doing any filtering that is the job of the range
     */
-    if (getPieceType(id) === 'P' &&  getColor(id) === 'W' &&  start[1] === 7 &&  dest[1] === 8) {
-        return true
-    }
-    else return getPieceType(id) === 'P' && getColor(id) === 'B' && start[1] === 2 && dest[1] === 1;
+    if (
+        getPieceType(id) === "P" &&
+        getColor(id) === "W" &&
+        start[1] === 7 &&
+        dest[1] === 8
+    ) {
+        return true;
+    } else
+        return (
+            getPieceType(id) === "P" &&
+            getColor(id) === "B" &&
+            start[1] === 2 &&
+            dest[1] === 1
+        );
 }
 
 // module.exports = isPromoRows;

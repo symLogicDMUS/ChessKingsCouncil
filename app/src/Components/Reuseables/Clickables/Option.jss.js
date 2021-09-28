@@ -51,7 +51,7 @@ export const useStyles = makeStyles(
         }),
         text: (props) => ({
             color: themes[props.theme].text,
-        })
+        }),
     },
     { index: 1 }
 );

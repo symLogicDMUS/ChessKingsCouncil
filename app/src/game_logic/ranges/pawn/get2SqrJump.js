@@ -1,20 +1,19 @@
-import {step_1sqr90d, step_1sqr270d} from "../../helpers/stepFuncs";
+import { step_1sqr90d, step_1sqr270d } from "../../helpers/stepFuncs";
 
 export function get2SqrJump(sqr, color) {
     /*at this point it has been determined that there is a 2 square jump available so now get it**/
     let x, y;
-    switch(color) {
-        case 'W':
+    switch (color) {
+        case "W":
             [x, y] = step_1sqr90d(...sqr);
             [x, y] = step_1sqr90d(x, y);
             break;
-        case 'B':
+        case "B":
             [x, y] = step_1sqr270d(...sqr);
             [x, y] = step_1sqr270d(x, y);
             break;
         default:
-            console.log('error: invalid color')
-            [x, y] = [-1, -1]
+            console.log("error: invalid color")[(x, y)] = [-1, -1];
             break;
     }
 

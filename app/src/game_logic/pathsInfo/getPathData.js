@@ -1,11 +1,9 @@
-import {getCoordPath} from "./getCoordPath";
-import {getPath} from "./getPath";
-import {getPiecesOnPath} from "./getPiecesOnPath";
-import {getStatuses} from "./getStatuses";
-import {getPieceMatchesPath} from "./getPieceMatchesPath";
-import {stepFuncDict} from "../helpers/stepFuncs"
-
-
+import { getCoordPath } from "./getCoordPath";
+import { getPath } from "./getPath";
+import { getPiecesOnPath } from "./getPiecesOnPath";
+import { getStatuses } from "./getStatuses";
+import { getPieceMatchesPath } from "./getPieceMatchesPath";
+import { stepFuncDict } from "../helpers/stepFuncs";
 
 export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
     /*get all info about a path on board determined by step function stemming from sqr**/
@@ -20,7 +18,14 @@ export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
     for (const pieceId of pieceIds) {
         id = pieceId[1].toLowerCase();
         pieceName = idDict[id];
-        pieceMatchesPath.push(getPieceMatchesPath("step_1sqr" + pathDir, pieceDefs, pieceName, color));
+        pieceMatchesPath.push(
+            getPieceMatchesPath(
+                "step_1sqr" + pathDir,
+                pieceDefs,
+                pieceName,
+                color
+            )
+        );
     }
     return [coordPath, path, pieceIds, statuses, pieceMatchesPath];
 }

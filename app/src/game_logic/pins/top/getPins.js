@@ -1,8 +1,7 @@
-import {isPin} from "../isPin";
-import {getPin} from "../getPin";
-import {getPieceType} from "../../pieceType/getPieceType";
-import {getResetPieceDicts} from "../../getters/getResetPieceDicts";
-
+import { isPin } from "../isPin";
+import { getPin } from "../getPin";
+import { getPieceType } from "../../pieceType/getPieceType";
+import { getResetPieceDicts } from "../../getters/getResetPieceDicts";
 
 export function getPins(pdDict, pins) {
     /**get dict, let key = pieceId, let value = coordList
@@ -13,8 +12,8 @@ export function getPins(pdDict, pins) {
     for (const pathData of Object.values(pdDict)) {
         if (isPin(pathData)) {
             [pieceId, coordPath] = getPin(pathData);
-            if (getPieceType(pieceId) === 'K') {
-                continue
+            if (getPieceType(pieceId) === "K") {
+                continue;
             }
             pins[pieceId] = coordPath;
         }

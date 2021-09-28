@@ -32,7 +32,7 @@ export const useStyles = makeStyles(
             "&:hover": {
                 backgroundColor: themes[props.theme].location_button_selected,
             },
-            color: themes[props.theme].button_text
+            color: themes[props.theme].button_text,
         }),
         text: (props) => ({
             "@media screen and (max-width: 960px)": {

@@ -1,15 +1,13 @@
-import {allXy} from "../helpers/allxy";
-
+import { allXy } from "../helpers/allxy";
 
 export function restriction(coordList) {
     /**get a restriction set from the coordList (threatArea || pins)
     if coordList was empty, then no restriction was found so return set of all_Xy else convert coordList to
     a set &&  return
     */
-    if (coordList.length===0) {
+    if (coordList.length === 0) {
         return allXy;
-    }
-    else {
+    } else {
         return new Set(coordList);
     }
 }

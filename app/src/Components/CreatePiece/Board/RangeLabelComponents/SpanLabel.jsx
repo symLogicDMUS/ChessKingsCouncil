@@ -1,8 +1,7 @@
 import React from "react";
 import { Frame } from "framer";
+import { Typography } from "@material-ui/core";
 import { spanFrame, useStyles } from "./SquareText.jss";
-import { fade, Typography } from "@material-ui/core";
-import clsx from "clsx";
 import { themes } from "../../../styles/themes/themes.jss";
 
 export function SpanLabel({ theme, showSpanText }) {
@@ -10,7 +9,6 @@ export function SpanLabel({ theme, showSpanText }) {
     return (
         <Frame
             animate={{
-                backgroundColor: [themes[theme].sqr_text, themes[theme].span],
                 scale: [1.25, 1],
                 borderRadius: [25, 0],
                 opacity: [0, 1],
@@ -21,7 +19,12 @@ export function SpanLabel({ theme, showSpanText }) {
             height="100%"
         >
             {showSpanText && (
-                <Typography className={classes.sqr_text}>span</Typography>
+                <Typography
+                    className={classes.sqr_text}
+                    style={{ fontSize: "3vw" }}
+                >
+                    S
+                </Typography>
             )}
         </Frame>
     );

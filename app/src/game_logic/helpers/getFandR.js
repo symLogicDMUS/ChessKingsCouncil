@@ -1,14 +1,12 @@
-
-
 export function getFandR(pieceLocs, statuses) {
-    let friends = []
-    let enemies = []
+    let friends = [];
+    let enemies = [];
     for (let i = 0; i < pieceLocs.length; i++) {
-        switch(statuses[i]) {
-            case 'f':
+        switch (statuses[i]) {
+            case "f":
                 friends.push(pieceLocs[i]);
                 break;
-            case 'e':
+            case "e":
                 enemies.push(pieceLocs[i]);
                 break;
             default:
@@ -16,7 +14,7 @@ export function getFandR(pieceLocs, statuses) {
                 break;
         }
     }
-    return [friends, enemies]
+    return [friends, enemies];
 }
 
 // module.exports = getFandR;

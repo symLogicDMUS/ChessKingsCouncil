@@ -1,5 +1,5 @@
-import {isPiece} from "../pieceType/isPiece";
-import {getColor} from "../color/getColor";
+import { isPiece } from "../pieceType/isPiece";
+import { getColor } from "../color/getColor";
 
 export function getResetPieceDicts(board, color) {
     /*create &&  return dicts for the initial ranges, pins, mt-restrictions &&  final ranges, of pieces on board**/
@@ -8,17 +8,17 @@ export function getResetPieceDicts(board, color) {
     const finalRanges = {};
 
     for (const id of Object.values(board)) {
-        if (! isPiece(id)) {
-            continue
+        if (!isPiece(id)) {
+            continue;
         }
         if (getColor(id) !== color) {
-            continue
+            continue;
         }
-        initRanges[id] = []
-        finalRanges[id] = []
+        initRanges[id] = [];
+        finalRanges[id] = [];
     }
-    
-    return [initRanges, finalRanges]
+
+    return [initRanges, finalRanges];
 }
 
 // module.exports = getResetPieceDicts;

@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import MediaQuery from "react-responsive/src";
 import { Typography } from "@material-ui/core";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./RangeAnalysis.red";
 import { useStyles } from "./RangeAnalysis.jss";
 
@@ -18,7 +18,7 @@ function RangeAnalysis({
     showProfileOnClick,
 }) {
     const [state, dispatch] = useReducer(reducer, {
-        rangeBoard: getBinaryBoarAllFalse(),
+        rangeBoard: getBinaryBoardAllFalse(),
         selectedSqr: null,
     });
 

@@ -1,11 +1,9 @@
-
 export function isPiece(id) {
     /*return true if id matches piece id pattern, otherwise return false **/
     if (id.match(`(W|B)[A-Z][1-9]`) !== null) {
-        return true
-    }
-    else {
-        return false
+        return true;
+    } else {
+        return false;
     }
 }
 

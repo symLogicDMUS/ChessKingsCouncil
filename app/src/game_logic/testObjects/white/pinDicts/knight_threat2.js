@@ -12,7 +12,7 @@ export var pins = {
     WP4: [],
     WP5: [],
     WN3: [],
-    WN4: []
-}
+    WN4: [],
+};
 
 // module.exports = pins;

@@ -1,23 +1,23 @@
-
-
 export function parseStatusStr(statusStr) {
     /*break the status part of the fen string into its components &&  return**/
-    let turn = statusStr.match(/(w|b)/g)[0]
-    statusStr = statusStr.replace(turn, '')
+    let turn = statusStr.match(/(w|b)/g)[0];
+    statusStr = statusStr.replace(turn, "");
 
-    let castleAvail = statusStr.match(/(KQkq|KQk|KQq|KQ|Qkq|Qk|Qq|Q|Kkq|Kk|Kq|K|kq|k|q|-)/g)[0]
-    statusStr = statusStr.replace(castleAvail, '', 1)
+    let castleAvail = statusStr.match(
+        /(KQkq|KQk|KQq|KQ|Qkq|Qk|Qq|Q|Kkq|Kk|Kq|K|kq|k|q|-)/g
+    )[0];
+    statusStr = statusStr.replace(castleAvail, "", 1);
 
-    let enPassantAvail = statusStr.match(/(([a-h][1-8])|-)/g)[0]
-    statusStr = statusStr.replace(enPassantAvail, '')
+    let enPassantAvail = statusStr.match(/(([a-h][1-8])|-)/g)[0];
+    statusStr = statusStr.replace(enPassantAvail, "");
 
-    let hmNum = statusStr.match(/\d+/g)[0]
-    statusStr = statusStr.replace(hmNum, '')
+    let hmNum = statusStr.match(/\d+/g)[0];
+    statusStr = statusStr.replace(hmNum, "");
 
-    let fmNum = statusStr.match(/\d+/)[0]
-    statusStr = statusStr.replace(fmNum, '')
+    let fmNum = statusStr.match(/\d+/)[0];
+    statusStr = statusStr.replace(fmNum, "");
 
-    return [turn, castleAvail, enPassantAvail, hmNum, fmNum]
+    return [turn, castleAvail, enPassantAvail, hmNum, fmNum];
 }
 
 // module.exports = parseStatusStr;

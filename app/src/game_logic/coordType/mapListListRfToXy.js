@@ -1,10 +1,9 @@
-import {mapListRfToXy} from "./mapListRfToXy";
-
+import { mapListRfToXy } from "./mapListRfToXy";
 
 export function mapListListRfToXy(nestedList) {
-    var newNestedList = []
+    var newNestedList = [];
     for (var list of nestedList) {
-        newNestedList.push(mapListRfToXy(list))
+        newNestedList.push(mapListRfToXy(list));
     }
     return newNestedList;
 }

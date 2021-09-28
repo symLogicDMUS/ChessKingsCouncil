@@ -30,12 +30,8 @@ function Option(props) {
             onClick={onClick}
             {...other}
         >
-            <SvgIcon>
-                {icons[iconType](themes[theme].text)}
-            </SvgIcon>
-            <Typography noWrap>
-                {name}
-            </Typography>
+            <SvgIcon>{icons[iconType](themes[theme].text)}</SvgIcon>
+            <Typography noWrap>{name}</Typography>
         </IconButton>
     );
 }

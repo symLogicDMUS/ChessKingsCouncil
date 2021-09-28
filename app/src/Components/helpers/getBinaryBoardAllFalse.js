@@ -1,7 +1,7 @@
 /**
  * squares that become an offset or part of a span are flipped to true
  */
-export function getBinaryBoarAllFalse() {
+export function getBinaryBoardAllFalse() {
     return {
         a1: false,
         a2: false,

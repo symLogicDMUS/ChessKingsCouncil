@@ -1,18 +1,18 @@
-import {getHypoBoard} from "./getHypoBoard";
-import {printBoard} from "../printers/printBoard";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-import {xyToRf} from "../coordType/crdCnvrt"
+import { getHypoBoard } from "./getHypoBoard";
+import { printBoard } from "../printers/printBoard";
+import { sampleBoardDicts } from "../testObjects/sampleBoardDicts";
+import { xyToRf } from "../coordType/crdCnvrt";
 
 export function getHypoBoards(board, kingLoc, initRange, color) {
     /**
     get one dict of boards, where each board the king has moved to a its.includes(square) initial range. The key is the location
     the king moved to for that board.
     */
-    var boards = {}
+    var boards = {};
     for (var dest of initRange) {
-        boards[xyToRf(...dest)] = getHypoBoard(board, kingLoc, dest)
+        boards[xyToRf(...dest)] = getHypoBoard(board, kingLoc, dest);
     }
-    return boards
+    return boards;
 }
 
 // module.exports = getHypoBoards;

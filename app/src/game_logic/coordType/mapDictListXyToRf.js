@@ -1,11 +1,10 @@
-import {mapListXyToRf} from "./mapListXyToRf";
-
+import { mapListXyToRf } from "./mapListXyToRf";
 
 export function mapDictListXyToRf(dict) {
     /**rfDict not rf yet, but will make it be. */
-    var rfDict = JSON.parse(JSON.stringify(dict))
+    var rfDict = JSON.parse(JSON.stringify(dict));
     for (var k of Object.keys(rfDict)) {
-        rfDict[k] = mapListXyToRf(rfDict[k])
+        rfDict[k] = mapListXyToRf(rfDict[k]);
     }
     return rfDict;
 }

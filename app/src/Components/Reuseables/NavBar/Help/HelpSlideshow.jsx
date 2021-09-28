@@ -22,7 +22,7 @@ import { UserContext } from "../../../../Context/UserContext";
 import { reducer } from "./HelpSlideshow.red";
 import { useStyles } from "./HelpSlideshow.jss";
 import Button from "@material-ui/core/Button";
-import {themes} from "../../../styles/themes/themes.jss";
+import { themes } from "../../../styles/themes/themes.jss";
 
 export function HelpSlideshow(props) {
     const { currentPage, initialState, title, theme, children, ...other } =
@@ -62,9 +62,10 @@ export function HelpSlideshow(props) {
         helpDispatch({ type: "disable-help" });
     };
 
-    let isFirstSlide = false, isLastSlide = false;
+    let isFirstSlide = false,
+        isLastSlide = false;
     if (state.pos === 0) isFirstSlide = true;
-    if (state.pos === state.numSlides - 1) isLastSlide= true;
+    if (state.pos === state.numSlides - 1) isLastSlide = true;
 
     return (
         <Dialog
@@ -114,17 +115,25 @@ export function HelpSlideshow(props) {
                         </MediaQuery>
                     </>
                 ) : null}
-                {! isFirstSlide ? (
+                {!isFirstSlide ? (
                     <Button
                         theme={theme}
                         variant={isLastSlide ? "text" : "contained"}
                         style={{
-                            color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text,
-                            background: isLastSlide ? "unset" : themes[theme].button_fill,
+                            color: isLastSlide
+                                ? themes[theme].button_fill
+                                : themes[theme].button_text,
+                            background: isLastSlide
+                                ? "unset"
+                                : themes[theme].button_fill,
                         }}
                         startIcon={
                             <NavigateBeforeIcon
-                                style={{color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text}}
+                                style={{
+                                    color: isLastSlide
+                                        ? themes[theme].button_fill
+                                        : themes[theme].button_text,
+                                }}
                             />
                         }
                         onClick={() => dispatch({ type: "decrement" })}
@@ -132,17 +141,25 @@ export function HelpSlideshow(props) {
                         Previous
                     </Button>
                 ) : null}
-                {! isLastSlide ? (
+                {!isLastSlide ? (
                     <Button
                         theme={theme}
                         variant={isLastSlide ? "text" : "contained"}
                         style={{
-                            color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text,
-                            background: isLastSlide ? "unset" : themes[theme].button_fill,
+                            color: isLastSlide
+                                ? themes[theme].button_fill
+                                : themes[theme].button_text,
+                            background: isLastSlide
+                                ? "unset"
+                                : themes[theme].button_fill,
                         }}
                         endIcon={
                             <NavigateNextIcon
-                                style={{color: isLastSlide ? themes[theme].button_fill : themes[theme].button_text}}
+                                style={{
+                                    color: isLastSlide
+                                        ? themes[theme].button_fill
+                                        : themes[theme].button_text,
+                                }}
                             />
                         }
                         onClick={() => dispatch({ type: "increment" })}
@@ -153,14 +170,21 @@ export function HelpSlideshow(props) {
                 <Button
                     theme={theme}
                     variant={isLastSlide ? "contained" : "text"}
-
                     style={{
-                        color: isLastSlide ? themes[theme].button_text : themes[theme].button_fill,
-                        background: isLastSlide ? themes[theme].button_fill : "unset",
+                        color: isLastSlide
+                            ? themes[theme].button_text
+                            : themes[theme].button_fill,
+                        background: isLastSlide
+                            ? themes[theme].button_fill
+                            : "unset",
                     }}
                     startIcon={
                         <CheckCircleOutlineIcon
-                            style={{color: isLastSlide ? themes[theme].button_text : themes[theme].button_fill}}
+                            style={{
+                                color: isLastSlide
+                                    ? themes[theme].button_text
+                                    : themes[theme].button_fill,
+                            }}
                         />
                     }
                     onClick={onClose}

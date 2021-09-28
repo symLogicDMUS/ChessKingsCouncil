@@ -1,11 +1,7 @@
-
-
 export function getEmptySqrsOnPath(coordPath, pieceLocs) {
-
-    var emptySqrs = []
+    var emptySqrs = [];
     for (rf of coordPath) {
-        if (! pieceLocs.includes(rf))
-            emptySqrs.push(rf)
+        if (!pieceLocs.includes(rf)) emptySqrs.push(rf);
     }
     return emptySqrs;
 }

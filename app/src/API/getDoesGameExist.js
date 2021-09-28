@@ -5,13 +5,16 @@ import "firebase/auth";
 async function getDoesGameExistInDb(gameName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child(`games/${uid}/${gameName}`).once('value').then(
-        function (snapshot) {
-            return snapshot.exists()
-        }
-    )
+    return await firebase
+        .database()
+        .ref()
+        .child(`games/${uid}/${gameName}`)
+        .once("value")
+        .then(function (snapshot) {
+            return snapshot.exists();
+        });
 }
 
 export function getDoesGameExist(gameName) {
-    return Promise.all([getDoesGameExistInDb(gameName)])
+    return Promise.all([getDoesGameExistInDb(gameName)]);
 }

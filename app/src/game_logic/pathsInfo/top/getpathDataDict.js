@@ -1,27 +1,32 @@
-import {PathData} from "../PathData";
-import {getPathData} from "../getPathData";
-import {angles} from "../../helpers/stepFuncs";
-
+import { PathData } from "../PathData";
+import { getPathData } from "../getPathData";
+import { angles } from "../../helpers/stepFuncs";
 
 /** */
 export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {
     /*get data about every path stemming from sqr, &&  dict.includes(record)**/
-    
-    var pdDict = {}
+
+    var pdDict = {};
     for (var pathDir of angles) {
-                
         // initialize class for given direction
-        pdDict[pathDir] = new PathData(pathDir)
-        
+        pdDict[pathDir] = new PathData(pathDir);
+
         // get path data for given direction
-        var pathData = getPathData(board, sqr, color, pieceDefs, idDict, pathDir) //changed let to var
-        
+        var pathData = getPathData(
+            board,
+            sqr,
+            color,
+            pieceDefs,
+            idDict,
+            pathDir
+        ); //changed let to var
+
         //initialize class attributes to path data results
-        pdDict[pathDir].coordPath = pathData[0]
-        pdDict[pathDir].path = pathData[1]
-        pdDict[pathDir].pieces = pathData[2]
-        pdDict[pathDir].statuses = pathData[3]
-        pdDict[pathDir].pieceMatchesPath = pathData[4]
+        pdDict[pathDir].coordPath = pathData[0];
+        pdDict[pathDir].path = pathData[1];
+        pdDict[pathDir].pieces = pathData[2];
+        pdDict[pathDir].statuses = pathData[3];
+        pdDict[pathDir].pieceMatchesPath = pathData[4];
     }
 
     return pdDict;

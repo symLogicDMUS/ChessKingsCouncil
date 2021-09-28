@@ -1,5 +1,4 @@
-import {idDict} from "../testObjects/standardIdDict";
-
+import { idDict } from "../testObjects/standardIdDict";
 
 export function getStandardIdDict() {
     /* **/

@@ -1,4 +1,4 @@
-const xMapR = [null, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const xMapR = [null, "a", "b", "c", "d", "e", "f", "g", "h"];
 Object.preventExtensions(xMapR);
 Object.seal(xMapR);
 Object.freeze(xMapR);

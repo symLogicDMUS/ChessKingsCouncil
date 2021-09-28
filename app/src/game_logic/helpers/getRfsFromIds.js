@@ -1,10 +1,9 @@
-import {getRfFromId} from "./getRfFromId";
-
+import { getRfFromId } from "./getRfFromId";
 
 export function getRfsFromIds(board, ids) {
-    let rfs = []
+    let rfs = [];
     for (const id of ids) {
-        rfs.push(getRfFromId(board, id))
+        rfs.push(getRfFromId(board, id));
     }
     return rfs;
 }

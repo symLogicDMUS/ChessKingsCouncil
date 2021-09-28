@@ -1,14 +1,13 @@
-import {getEnPassantAlignmentKey} from "../../specialMoves/enPassant/getEnPassantAlignmentKey";
-import {getPotential1SqrJump} from "../getPotential1SqrJump"
-import {canEnpassant} from "../../specialMoves/enPassant/canEnPassant";
-import {getPotentialCaptures} from "../getPotentialCaptures";
-import {isActual1SqrJump} from "../isActual1SqrJump";
-import {getActualCaptures} from "../getActualCaptures";
-import {valid2SqrJump} from "../valid2SqrJump";
-import {get2SqrJump} from "../get2SqrJump";
-import {getTSqr} from "../../specialMoves/enPassant/getTSqr";
-import {step_1sqr0d, step_1sqr180d} from "../../../helpers/stepFuncs";
-
+import { getEnPassantAlignmentKey } from "../../specialMoves/enPassant/getEnPassantAlignmentKey";
+import { getPotential1SqrJump } from "../getPotential1SqrJump";
+import { canEnpassant } from "../../specialMoves/enPassant/canEnPassant";
+import { getPotentialCaptures } from "../getPotentialCaptures";
+import { isActual1SqrJump } from "../isActual1SqrJump";
+import { getActualCaptures } from "../getActualCaptures";
+import { valid2SqrJump } from "../valid2SqrJump";
+import { get2SqrJump } from "../get2SqrJump";
+import { getTSqr } from "../../specialMoves/enPassant/getTSqr";
+import { step_1sqr0d, step_1sqr180d } from "../../../helpers/stepFuncs";
 
 export function pawn(board, sqr, color, jsonRecords, specialMoves) {
     /*get the range of pawn at location sqr and of the given color**/
@@ -41,9 +40,7 @@ export function pawn(board, sqr, color, jsonRecords, specialMoves) {
         tSqr = getTSqr(color, alignKey);
         range.push(tSqr);
         specialMoves.addEnPassant([sqr, tSqr]);
-    } 
-    
-    else if (
+    } else if (
         canEnpassant(
             sqr,
             step_1sqr0d(...sqr),
@@ -61,9 +58,9 @@ export function pawn(board, sqr, color, jsonRecords, specialMoves) {
     }
 
     potentialCaptures = getPotentialCaptures(sqr, color);
-    range.push(...getActualCaptures(board,potentialCaptures, color));
+    range.push(...getActualCaptures(board, potentialCaptures, color));
 
-    specialMoves.setPromos(board, sqr, range)
+    specialMoves.setPromos(board, sqr, range);
 
     return [range, specialMoves];
 }

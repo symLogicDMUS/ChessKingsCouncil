@@ -1,28 +1,28 @@
 export var defs1 = {
-    "Bishop": {
-        "B": {
-            "img": "BB.svg",
-            "spans": [
+    Bishop: {
+        B: {
+            img: "BB.svg",
+            spans: [
                 "step_1sqr225d",
                 "step_1sqr315d",
                 "step_1sqr45d",
-                "step_1sqr135d"
-            ]
+                "step_1sqr135d",
+            ],
         },
-        "W": {
-            "img": "WB.svg",
-            "spans": [
+        W: {
+            img: "WB.svg",
+            spans: [
                 "step_1sqr45d",
                 "step_1sqr135d",
                 "step_1sqr225d",
-                "step_1sqr315d"
-            ]
-        }
+                "step_1sqr315d",
+            ],
+        },
     },
-    "Duke": {
-        "B": {
-            "img": "black_duke.svg",
-            "offsets": [
+    Duke: {
+        B: {
+            img: "black_duke.svg",
+            offsets: [
                 "-1,-2",
                 "-1,2",
                 "-2,-1",
@@ -30,18 +30,18 @@ export var defs1 = {
                 "1,2",
                 "2,1",
                 "2,-1",
-                "1,-2"
+                "1,-2",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr225d",
                 "step_1sqr135d",
                 "step_1sqr45d",
-                "step_1sqr315d"
-            ]
+                "step_1sqr315d",
+            ],
         },
-        "W": {
-            "img": "white_duke.svg",
-            "offsets": [
+        W: {
+            img: "white_duke.svg",
+            offsets: [
                 "1,2",
                 "1,-2",
                 "2,1",
@@ -49,20 +49,20 @@ export var defs1 = {
                 "-1,-2",
                 "-2,-1",
                 "-2,1",
-                "-1,2"
+                "-1,2",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr45d",
                 "step_1sqr315d",
                 "step_1sqr225d",
-                "step_1sqr135d"
-            ]
-        }
+                "step_1sqr135d",
+            ],
+        },
     },
-    "EvilMorty": {
-        "B": {
-            "img": "evil_morty_red.svg",
-            "offsets": [
+    EvilMorty: {
+        B: {
+            img: "evil_morty_red.svg",
+            offsets: [
                 "2,-1",
                 "1,-2",
                 "-1,-2",
@@ -70,9 +70,9 @@ export var defs1 = {
                 "-2,1",
                 "-1,2",
                 "1,2",
-                "2,1"
+                "2,1",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr270d",
                 "step_1sqr225d",
                 "step_1sqr180d",
@@ -80,12 +80,12 @@ export var defs1 = {
                 "step_1sqr90d",
                 "step_1sqr45d",
                 "step_1sqr0d",
-                "step_1sqr315d"
-            ]
+                "step_1sqr315d",
+            ],
         },
-        "W": {
-            "img": "evil_morty_white.svg",
-            "offsets": [
+        W: {
+            img: "evil_morty_white.svg",
+            offsets: [
                 "-2,1",
                 "-1,2",
                 "1,2",
@@ -93,9 +93,9 @@ export var defs1 = {
                 "2,-1",
                 "1,-2",
                 "-1,-2",
-                "-2,-1"
+                "-2,-1",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr90d",
                 "step_1sqr45d",
                 "step_1sqr0d",
@@ -103,46 +103,26 @@ export var defs1 = {
                 "step_1sqr270d",
                 "step_1sqr225d",
                 "step_1sqr180d",
-                "step_1sqr135d"
-            ]
-        }
-    },
-    "Firelord": {
-        "B": {
-            "img": "black_firehat.svg",
-            "offsets": [
-                "1,-1",
-                "0,-2",
-                "0,-3",
-                "-1,-1",
-                "-3,1",
-                "3,1"
+                "step_1sqr135d",
             ],
-            "spans": [
-                "step_1sqr45d",
-                "step_1sqr135d"
-            ]
         },
-        "W": {
-            "img": "white_firehat.svg",
-            "offsets": [
-                "-1,1",
-                "0,2",
-                "0,3",
-                "1,1",
-                "3,-1",
-                "-3,-1"
-            ],
-            "spans": [
-                "step_1sqr225d",
-                "step_1sqr315d"
-            ]
-        }
     },
-    "Jester": {
-        "B": {
-            "img": "black_jester.svg",
-            "offsets": [
+    Firelord: {
+        B: {
+            img: "black_firehat.svg",
+            offsets: ["1,-1", "0,-2", "0,-3", "-1,-1", "-3,1", "3,1"],
+            spans: ["step_1sqr45d", "step_1sqr135d"],
+        },
+        W: {
+            img: "white_firehat.svg",
+            offsets: ["-1,1", "0,2", "0,3", "1,1", "3,-1", "-3,-1"],
+            spans: ["step_1sqr225d", "step_1sqr315d"],
+        },
+    },
+    Jester: {
+        B: {
+            img: "black_jester.svg",
+            offsets: [
                 "-1,-2",
                 "-2,-2",
                 "-2,-1",
@@ -154,18 +134,18 @@ export var defs1 = {
                 "2,-1",
                 "2,-2",
                 "1,-2",
-                "-1,2"
+                "-1,2",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr270d",
                 "step_1sqr180d",
                 "step_1sqr90d",
-                "step_1sqr0d"
-            ]
+                "step_1sqr0d",
+            ],
         },
-        "W": {
-            "img": "white_jester.svg",
-            "offsets": [
+        W: {
+            img: "white_jester.svg",
+            offsets: [
                 "1,2",
                 "2,2",
                 "2,1",
@@ -177,20 +157,20 @@ export var defs1 = {
                 "-2,1",
                 "-2,2",
                 "-1,2",
-                "1,-2"
+                "1,-2",
             ],
-            "spans": [
+            spans: [
                 "step_1sqr90d",
                 "step_1sqr0d",
                 "step_1sqr270d",
-                "step_1sqr180d"
-            ]
-        }
+                "step_1sqr180d",
+            ],
+        },
     },
-    "Knight": {
-        "B": {
-            "img": "BN.svg",
-            "offsets": [
+    Knight: {
+        B: {
+            img: "BN.svg",
+            offsets: [
                 "-1,-2",
                 "-1,2",
                 "1,-2",
@@ -198,12 +178,12 @@ export var defs1 = {
                 "-2,-1",
                 "-2,1",
                 "2,-1",
-                "2,1"
-            ]
+                "2,1",
+            ],
         },
-        "W": {
-            "img": "WN.svg",
-            "offsets": [
+        W: {
+            img: "WN.svg",
+            offsets: [
                 "1,2",
                 "1,-2",
                 "-1,2",
@@ -211,14 +191,14 @@ export var defs1 = {
                 "2,1",
                 "2,-1",
                 "-2,1",
-                "-2,-1"
-            ]
-        }
+                "-2,-1",
+            ],
+        },
     },
-    "Octocat": {
-        "B": {
-            "img": "Octocat-black.svg",
-            "offsets": [
+    Octocat: {
+        B: {
+            img: "Octocat-black.svg",
+            offsets: [
                 "0,-1",
                 "0,-2",
                 "0,-3",
@@ -250,12 +230,12 @@ export var defs1 = {
                 "4,-2",
                 "4,2",
                 "0,4",
-                "4,0"
-            ]
+                "4,0",
+            ],
         },
-        "W": {
-            "img": "Octocat-hover-off.svg",
-            "offsets": [
+        W: {
+            img: "Octocat-hover-off.svg",
+            offsets: [
                 "0,1",
                 "0,2",
                 "0,3",
@@ -287,14 +267,14 @@ export var defs1 = {
                 "-4,2",
                 "-4,-2",
                 "0,-4",
-                "-4,0"
-            ]
-        }
+                "-4,0",
+            ],
+        },
     },
-    "Queen": {
-        "B": {
-            "img": "BQ.svg",
-            "spans": [
+    Queen: {
+        B: {
+            img: "BQ.svg",
+            spans: [
                 "step_1sqr180d",
                 "step_1sqr225d",
                 "step_1sqr270d",
@@ -302,12 +282,12 @@ export var defs1 = {
                 "step_1sqr0d",
                 "step_1sqr90d",
                 "step_1sqr45d",
-                "step_1sqr135d"
-            ]
+                "step_1sqr135d",
+            ],
         },
-        "W": {
-            "img": "WQ.svg",
-            "spans": [
+        W: {
+            img: "WQ.svg",
+            spans: [
                 "step_1sqr0d",
                 "step_1sqr45d",
                 "step_1sqr90d",
@@ -315,34 +295,34 @@ export var defs1 = {
                 "step_1sqr180d",
                 "step_1sqr225d",
                 "step_1sqr270d",
-                "step_1sqr315d"
-            ]
-        }
+                "step_1sqr315d",
+            ],
+        },
     },
-    "Rook": {
-        "B": {
-            "img": "BR.svg",
-            "spans": [
+    Rook: {
+        B: {
+            img: "BR.svg",
+            spans: [
                 "step_1sqr180d",
                 "step_1sqr270d",
                 "step_1sqr0d",
-                "step_1sqr90d"
-            ]
+                "step_1sqr90d",
+            ],
         },
-        "W": {
-            "img": "WR.svg",
-            "spans": [
+        W: {
+            img: "WR.svg",
+            spans: [
                 "step_1sqr0d",
                 "step_1sqr90d",
                 "step_1sqr180d",
-                "step_1sqr270d"
-            ]
-        }
+                "step_1sqr270d",
+            ],
+        },
     },
-    "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels": {
-        "B": {
-            "img": "black-gem.svg",
-            "offsets": [
+    ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels: {
+        B: {
+            img: "black-gem.svg",
+            offsets: [
                 "3,-4",
                 "2,-4",
                 "1,-4",
@@ -424,12 +404,12 @@ export var defs1 = {
                 "4,-2",
                 "4,-3",
                 "4,-4",
-                "4,4"
-            ]
+                "4,4",
+            ],
         },
-        "W": {
-            "img": "hover-off-gem.svg",
-            "offsets": [
+        W: {
+            img: "hover-off-gem.svg",
+            offsets: [
                 "-3,4",
                 "-2,4",
                 "-1,4",
@@ -511,14 +491,14 @@ export var defs1 = {
                 "-4,2",
                 "-4,3",
                 "-4,4",
-                "-4,-4"
-            ]
-        }
+                "-4,-4",
+            ],
+        },
     },
-    "Tux": {
-        "B": {
-            "img": "Tux_red.svg",
-            "offsets": [
+    Tux: {
+        B: {
+            img: "Tux_red.svg",
+            offsets: [
                 "0,-2",
                 "0,-1",
                 "-1,-1",
@@ -530,12 +510,12 @@ export var defs1 = {
                 "0,2",
                 "0,1",
                 "-1,1",
-                "-2,0"
-            ]
+                "-2,0",
+            ],
         },
-        "W": {
-            "img": "Tux_white.svg",
-            "offsets": [
+        W: {
+            img: "Tux_white.svg",
+            offsets: [
                 "0,2",
                 "0,1",
                 "1,1",
@@ -547,14 +527,14 @@ export var defs1 = {
                 "0,-2",
                 "0,-1",
                 "1,-1",
-                "2,0"
-            ]
-        }
+                "2,0",
+            ],
+        },
     },
-    "X_Wing": {
-        "B": {
-            "img": "x-wing-black.svg",
-            "offsets": [
+    X_Wing: {
+        B: {
+            img: "x-wing-black.svg",
+            offsets: [
                 "1,1",
                 "2,2",
                 "3,3",
@@ -566,12 +546,12 @@ export var defs1 = {
                 "3,-3",
                 "-1,1",
                 "-2,2",
-                "-3,3"
-            ]
+                "-3,3",
+            ],
         },
-        "W": {
-            "img": "x-wing-hover-off.svg",
-            "offsets": [
+        W: {
+            img: "x-wing-hover-off.svg",
+            offsets: [
                 "-1,-1",
                 "-2,-2",
                 "-3,-3",
@@ -583,9 +563,9 @@ export var defs1 = {
                 "-3,3",
                 "1,-1",
                 "2,-2",
-                "3,-3"
-            ]
-        }
-    }
-}
+                "3,-3",
+            ],
+        },
+    },
+};
 // module.exports = defs1;

@@ -1,8 +1,7 @@
-
-
 export function getFullFen(posStr, fenObj) {
     /*join the position string with the status attributes updated throughout the game, to get the full fen string**/
-    const fen = posStr +
+    const fen =
+        posStr +
         " " +
         fenObj.turn +
         " " +

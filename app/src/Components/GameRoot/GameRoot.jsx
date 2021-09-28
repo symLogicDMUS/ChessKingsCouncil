@@ -11,7 +11,7 @@ import { doNothing } from "../helpers/doNothing";
 import { flipKeysValues } from "../helpers/flipKeysValues";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { replacePawnIdWithCurrentLoc } from "../helpers/replacePawnIdWithCurrentLoc";
 import { kingStartingRf, rookStartingRf } from "../helpers/castleRankfiles";
 import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
@@ -267,11 +267,11 @@ class GameRoot extends React.Component {
      */
     getRangeBoard = (pieceId) => {
         if (pieceId[0] !== this.turn) {
-            return getBinaryBoarAllFalse();
+            return getBinaryBoardAllFalse();
         }
         let range = this.ranges[pieceId];
         let inRange = rankfiles.filter((rf) => range.includes(rf));
-        let rangeBoard = getBinaryBoarAllFalse();
+        let rangeBoard = getBinaryBoardAllFalse();
         for (let rf of Object.keys(rangeBoard)) {
             rangeBoard[rf] = inRange.includes(rf);
         }

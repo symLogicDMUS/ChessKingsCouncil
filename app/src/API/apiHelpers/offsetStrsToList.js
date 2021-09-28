@@ -1,14 +1,15 @@
-
-import {convertOffsetStrsToPairs} from "./convertOffsetStrsToPairs";
+import { convertOffsetStrsToPairs } from "./convertOffsetStrsToPairs";
 
 export function offsetStrsToList(pieceDefs) {
     /* **/
     for (const pieceName of Object.keys(pieceDefs)) {
-        for (const color of ['W', 'B']) {
-            pieceDefs[pieceName][color]['offsets'] = convertOffsetStrsToPairs(pieceDefs[pieceName][color]['offsets'])
+        for (const color of ["W", "B"]) {
+            pieceDefs[pieceName][color]["offsets"] = convertOffsetStrsToPairs(
+                pieceDefs[pieceName][color]["offsets"]
+            );
         }
     }
-    return pieceDefs
+    return pieceDefs;
 }
 
 // module.exports = offsetStrsToList;

@@ -1,4 +1,11 @@
-export function getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum) {
+export function getFenDict(
+    fen,
+    turn,
+    castleAvail,
+    enPassantAvail,
+    hmNum,
+    fmNum
+) {
     return {
         fen: fen,
         turn: turn,

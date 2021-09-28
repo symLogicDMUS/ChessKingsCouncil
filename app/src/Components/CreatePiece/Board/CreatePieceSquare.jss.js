@@ -1,6 +1,9 @@
 import { lighten, makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes/themes.jss";
 import { rfToGridLoc } from "../../helpers/crdCnvrt";
+import { binaryBoard } from "../../helpers/binaryBoard";
+
+const opacityValue = "00";
 
 export const pieceLocHover = (theme) => ({
     backgroundColor: lighten(themes[theme].dark_in_range, 0.08),
@@ -37,6 +40,11 @@ export const useStyles = makeStyles(
             borderRadius: 0,
             padding: 0,
             backdropFilter: props.theme === "blue" ? "blur(2px)" : "unset",
+        }),
+        range: (props) => ({
+            backgroundColor: binaryBoard[props.rf]
+                ? themes[props.theme].light_normal + opacityValue
+                : themes[props.theme].dark_normal + opacityValue,
         }),
     },
     { index: 1 }

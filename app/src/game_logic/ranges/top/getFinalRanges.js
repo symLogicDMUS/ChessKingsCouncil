@@ -1,9 +1,15 @@
-import {restriction} from "../../restriction/restriction";
-import {getPieceType} from "../../pieceType/getPieceType";
-import {intersection} from "../../helpers/setOps"
+import { restriction } from "../../restriction/restriction";
+import { getPieceType } from "../../pieceType/getPieceType";
+import { intersection } from "../../helpers/setOps";
 
 // initRanges, pins, threatArea, finalRanges, mtRestrict
-export function getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestriction) {
+export function getFinalRanges(
+    initRanges,
+    pins,
+    threatArea,
+    finalRanges,
+    mtRestriction
+) {
     /**the final range is the intersection of the initial range, pin, threat area, &&  multi-threat restriction
      :param initRanges:
      :param pins:
@@ -15,26 +21,22 @@ export function getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRest
     let a, b, c, d, e, f, g;
 
     for (const id of Object.keys(finalRanges)) {
-        
-        if (getPieceType(id) === 'K') {
-            finalRanges[id] = initRanges[id]
-        }
+        if (getPieceType(id) === "K") {
+            finalRanges[id] = initRanges[id];
+        } else {
+            a = new Set(initRanges[id]);
+            b = restriction(pins[id]);
+            c = restriction(threatArea);
+            d = restriction(mtRestriction[id]);
 
-        else {
-
-            a = new Set(initRanges[id])
-            b = restriction(pins[id])
-            c = restriction(threatArea)
-            d = restriction(mtRestriction[id])
-
-            e = intersection(a, b)
-            f = intersection(e, c)
-            g = intersection(f, d)
+            e = intersection(a, b);
+            f = intersection(e, c);
+            g = intersection(f, d);
 
             finalRanges[id] = Array.from(g);
         }
-        
-        finalRanges[id] = Array.from(finalRanges[id])
+
+        finalRanges[id] = Array.from(finalRanges[id]);
     }
 
     return finalRanges;

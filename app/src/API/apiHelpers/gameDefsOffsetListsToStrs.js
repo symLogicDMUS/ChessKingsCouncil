@@ -1,5 +1,4 @@
-import {convertOffsetPairsToStrs} from "./convertOffsetPairsToStrs";
-
+import { convertOffsetPairsToStrs } from "./convertOffsetPairsToStrs";
 
 export function gameDefsOffsetListsToStrs(pieceDefs) {
     /**
@@ -8,9 +7,11 @@ export function gameDefsOffsetListsToStrs(pieceDefs) {
      */
     const pieceDefsForDb = JSON.parse(JSON.stringify(pieceDefs));
     for (const name of Object.keys(pieceDefsForDb)) {
-        for (const color of ['W', 'B']) {
-            pieceDefsForDb[name][color]['offsets'] = convertOffsetPairsToStrs(pieceDefs[name][color]['offsets'])
+        for (const color of ["W", "B"]) {
+            pieceDefsForDb[name][color]["offsets"] = convertOffsetPairsToStrs(
+                pieceDefs[name][color]["offsets"]
+            );
         }
     }
-    return pieceDefsForDb
+    return pieceDefsForDb;
 }

@@ -1,7 +1,6 @@
-import {getPieceType} from "../pieceType/getPieceType";
-import {getColor} from "../color/getColor";
-import {rfToXy} from "../coordType/crdCnvrt";
-
+import { getPieceType } from "../pieceType/getPieceType";
+import { getColor } from "../color/getColor";
+import { rfToXy } from "../coordType/crdCnvrt";
 
 export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
     /**
@@ -11,39 +10,32 @@ export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
     const multithreatRestriction = {};
 
     if (numPiecesCheckingKing > 1) {
-
         for (const [rf, id] of Object.entries(board)) {
-
-            if (id === '#') {
-                continue
+            if (id === "#") {
+                continue;
             }
             if (getColor(id) !== color) {
-                continue
+                continue;
             }
-            if (getPieceType(id) === 'K') {
-                continue
+            if (getPieceType(id) === "K") {
+                continue;
             }
 
-            multithreatRestriction[id] = [rfToXy(rf)]
+            multithreatRestriction[id] = [rfToXy(rf)];
         }
-
-    }
-
-    else {
+    } else {
         for (const [rf, id] of Object.entries(board)) {
-
-            if (id === '#') {
-                continue
+            if (id === "#") {
+                continue;
             }
             if (getColor(id) !== color) {
-                continue
+                continue;
             }
-            if (getPieceType(id) === 'K') {
-                continue
+            if (getPieceType(id) === "K") {
+                continue;
             }
 
-            multithreatRestriction[id] = []
-
+            multithreatRestriction[id] = [];
         }
     }
 
@@ -51,7 +43,6 @@ export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
 }
 
 // module.exports = getMultithreatRestriction;
-
 
 /** for node.js
 if (require.main === module) {

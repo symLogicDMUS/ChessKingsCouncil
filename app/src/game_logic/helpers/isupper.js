@@ -1,5 +1,3 @@
-
-
 export function isupper(str) {
     return str.toUpperCase() === str;
 }

@@ -1,16 +1,14 @@
-
 export function getRangeDict(board) {
     /*initialize dict with let key = piece id &&  let value = range of piece**/
-    let ranges = {}
+    let ranges = {};
     for (const id of Object.values(board)) {
-        if (id === '#') {
-            continue
-        }
-        else {
-            ranges[id] = []
+        if (id === "#") {
+            continue;
+        } else {
+            ranges[id] = [];
         }
     }
-    return ranges
+    return ranges;
 }
 
 // module.exports = getRangeDict;

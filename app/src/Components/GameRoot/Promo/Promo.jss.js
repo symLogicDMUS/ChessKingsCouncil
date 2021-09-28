@@ -72,7 +72,7 @@ export const useStyles = makeStyles(
             width: "2.5rem",
         }),
         nav_button: (props) => ({
-            color: '#fff',
+            color: "#fff",
             backgroundColor: "unset",
             position: "absolute",
             padding: 0,

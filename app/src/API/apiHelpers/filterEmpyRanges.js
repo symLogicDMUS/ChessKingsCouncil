@@ -1,14 +1,12 @@
-
-
 export function filterEmptyRanges(ranges) {
     /* **/
     const aiRanges = {};
     for (const pieceId of Object.keys(ranges)) {
         if (ranges[pieceId].length > 0) {
-            aiRanges[pieceId] = ranges[pieceId]
+            aiRanges[pieceId] = ranges[pieceId];
         }
     }
-    return aiRanges
+    return aiRanges;
 }
 
 // module.exports = filterEmptyRanges;

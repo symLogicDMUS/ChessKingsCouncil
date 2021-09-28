@@ -1,15 +1,14 @@
-import {getIndexAttackingPiece} from "./getIndexAttackingPiece";
-import {getSubPath} from "../pathsInfo/getSubPath";
+import { getIndexAttackingPiece } from "./getIndexAttackingPiece";
+import { getSubPath } from "../pathsInfo/getSubPath";
 
 export function getPin(pathData) {
     /*return the id of the piece that is pinned, &&  the coordinate path it is pinned to**/
     const i = getIndexAttackingPiece(pathData.pieces, pathData.path);
     const pinPath = getSubPath(pathData.coordPath, i);
-    return [pathData.pieces[0], pinPath]
+    return [pathData.pieces[0], pinPath];
 }
 
 // module.exports = getPin;
-
 
 /** for node.js
 if (require.main === module) {

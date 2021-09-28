@@ -1,3 +1,3 @@
 export function notFbStorageImg(imgStr) {
-    return ! imgStr.startsWith("https://");
+    return !imgStr.startsWith("https://");
 }

@@ -1,9 +1,8 @@
 import { mapListXyToRf } from "../../coordType/mapListXyToRf";
 import { mapListListXyToRf } from "../../coordType/mapListListXyToRf";
-import {strfind} from "../../helpers/strfind";
+import { strfind } from "../../helpers/strfind";
 import { isPromoRows } from "./pawnPromotion/isPromoRows";
 import { xyToRf } from "../../coordType/crdCnvrt";
-
 
 export class SpecialMoves {
     /*records the moves of current turn that are en-passant, castle, || pawn promotion**/
@@ -11,14 +10,13 @@ export class SpecialMoves {
     constructor(moves) {
         /* **/
         if (moves) {
-            this.enPassant = moves['en_passant']
-            this.castles = moves['castles']
-            this.promos = moves['promos']
-        }
-        else {
-            this.enPassant = []
-            this.castles = []
-            this.promos = []
+            this.enPassant = moves["en_passant"];
+            this.castles = moves["castles"];
+            this.promos = moves["promos"];
+        } else {
+            this.enPassant = [];
+            this.castles = [];
+            this.promos = [];
         }
 
         //will be the location of a pawn that reached the back row and is about to be poromoted
@@ -27,86 +25,87 @@ export class SpecialMoves {
     }
 
     update(moves) {
-        this.enPassant = moves['en_passant']
-        this.castles = moves['castles']
-        this.promos = moves['promos']
+        this.enPassant = moves["en_passant"];
+        this.castles = moves["castles"];
+        this.promos = moves["promos"];
     }
 
     convertToRf() {
-        this.enPassant = mapListListXyToRf(this.enPassant)
-        this.castles = mapListListXyToRf(this.castles)
-        this.promos = mapListListXyToRf(this.promos)
+        this.enPassant = mapListListXyToRf(this.enPassant);
+        this.castles = mapListListXyToRf(this.castles);
+        this.promos = mapListListXyToRf(this.promos);
     }
 
     isCastle(move) {
         /*returns true if move is a currently available castle, otherwise false**/
         if (strfind(this.castles, move)) {
-            return true
-        }
-        else {
-            return false
+            return true;
+        } else {
+            return false;
         }
     }
 
     isPromo(move) {
         /*returns true if move is a currently available pawn promotion, otherwise false**/
         if (strfind(this.promos, move)) {
-            return true
-        }
-        else {
-            return false
+            return true;
+        } else {
+            return false;
         }
     }
 
     isEnPassant(move) {
         /*returns true if move is a currently available en-passant capture, otherwise false**/
         if (strfind(this.enPassant, move)) {
-            return true
-        }
-        else {
-            return false
+            return true;
+        } else {
+            return false;
         }
     }
 
     addCastle(move) {
         /*add move to currently available castles**/
-        this.castles.push(move)
+        this.castles.push(move);
     }
-    
+
     addPromo(move) {
         /*add move to list of currently avaliable pawn promotions**/
-        this.promos.push(move)
+        this.promos.push(move);
     }
 
     addEnPassant(move) {
         /*add move to list of currently avaliable en-passants**/
-        this.enPassant.push(move)
+        this.enPassant.push(move);
     }
 
     getMoves() {
         /*return castle, enPassant, &&  pawn promotion lists, as a dict**/
-        return {'castles': this.castles, 'en_passant': this.enPassant, 'promos': this.promos}
+        return {
+            castles: this.castles,
+            en_passant: this.enPassant,
+            promos: this.promos,
+        };
     }
 
     getCastles() {
         /*return the list of castle moves**/
-        return this.castles
+        return this.castles;
     }
 
     getEnPassant() {
         /*return the en-passant moves**/
-        return this.enPassant
+        return this.enPassant;
     }
 
     getPromos() {
         /*return the pawn promotions**/
-        return this.promos
+        return this.promos;
     }
 
     setPromos(board, pawnLoc, pawnRange) {
         for (var dest of pawnRange) {
-            if ( isPromoRows(pawnLoc, dest, board[xyToRf(...pawnLoc)]) ) {
-                this.promos.push([pawnLoc, dest])
+            if (isPromoRows(pawnLoc, dest, board[xyToRf(...pawnLoc)])) {
+                this.promos.push([pawnLoc, dest]);
             }
         }
     }
@@ -114,42 +113,50 @@ export class SpecialMoves {
     removeCastle(move) {
         let index = -1;
         for (let i = 0; i < this.castles.length; i++) {
-            if (this.castles[i][0] === move[0] && this.castles[i][1] === move[1]) {
+            if (
+                this.castles[i][0] === move[0] &&
+                this.castles[i][1] === move[1]
+            ) {
                 index = i;
                 break;
             }
         }
         if (index > -1) {
-            this.castles.splice(index, 1)
+            this.castles.splice(index, 1);
         }
     }
 
     removePromo(move) {
         let index = -1;
         for (let i = 0; i < this.promos.length; i++) {
-            if (this.promos[i][0] === move[0] && this.promos[i][1] === move[1]) {
+            if (
+                this.promos[i][0] === move[0] &&
+                this.promos[i][1] === move[1]
+            ) {
                 index = i;
                 break;
             }
         }
         if (index > -1) {
-            this.promos.splice(index, 1)
+            this.promos.splice(index, 1);
         }
     }
 
     removeEnpassant(move) {
         let index = -1;
         for (let i = 0; i < this.enPassant.length; i++) {
-            if (this.enPassant[i][0] === move[0] && this.enPassant[i][1] === move[1]) {
+            if (
+                this.enPassant[i][0] === move[0] &&
+                this.enPassant[i][1] === move[1]
+            ) {
                 index = i;
                 break;
             }
         }
         if (index > -1) {
-            this.enPassant.splice(index, 1)
+            this.enPassant.splice(index, 1);
         }
     }
-    
 }
 
 // module.exports = SpecialMoves;

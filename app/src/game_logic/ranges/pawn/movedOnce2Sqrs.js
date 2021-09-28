@@ -1,19 +1,23 @@
-
-
 export function movedOnce_2Sqrs(pawnHist, color) {
     /**
     takes a pawn history as input &&  returns true if  history indicates a single 
     move 2 square jump
     */
-    if (color === 'W') {
-        return pawnHist.length === 2 && pawnHist[1][1] === pawnHist[0][1] + 2 && pawnHist[0][0] === pawnHist[1][0];
-    }
-    else if (color === 'B') {
-        return pawnHist.length === 2 && pawnHist[1][1] === pawnHist[0][1] - 2 && pawnHist[0][0] === pawnHist[1][0];
-    }
-    else {
-        console.log('error: incorrect color\n')
-        return -1
+    if (color === "W") {
+        return (
+            pawnHist.length === 2 &&
+            pawnHist[1][1] === pawnHist[0][1] + 2 &&
+            pawnHist[0][0] === pawnHist[1][0]
+        );
+    } else if (color === "B") {
+        return (
+            pawnHist.length === 2 &&
+            pawnHist[1][1] === pawnHist[0][1] - 2 &&
+            pawnHist[0][0] === pawnHist[1][0]
+        );
+    } else {
+        console.log("error: incorrect color\n");
+        return -1;
     }
 }
 
@@ -55,5 +59,4 @@ if (require.main === module) {
 
 }
 */
-    console.log('\n')
-
+console.log("\n");

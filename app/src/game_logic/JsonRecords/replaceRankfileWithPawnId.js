@@ -1,10 +1,9 @@
-
 export function replaceRankfileWithPawnId(board, pawnHist) {
     let id;
     const newPawnHist = {};
     for (const rf of Object.keys(pawnHist)) {
-        id = board[rf]
-        newPawnHist[id] = pawnHist[rf]
+        id = board[rf];
+        newPawnHist[id] = pawnHist[rf];
     }
     return newPawnHist;
 }

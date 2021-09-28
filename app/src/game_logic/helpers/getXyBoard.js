@@ -1,13 +1,11 @@
-
-
 export function getXyBoard() {
-    let [board, col] = [[], []]
+    let [board, col] = [[], []];
     for (let y = 1; y < 9; y++) {
-        col = []
+        col = [];
         for (let x = 1; x < 9; x++) {
-            col.push([x, y])
+            col.push([x, y]);
         }
-        board.push(col)
+        board.push(col);
     }
     return board;
 }

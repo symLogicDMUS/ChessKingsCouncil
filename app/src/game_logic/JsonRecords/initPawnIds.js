@@ -1,25 +1,24 @@
-import {getPieceType} from "../pieceType/getPieceType";
-
+import { getPieceType } from "../pieceType/getPieceType";
 
 export function initPawnIds(records, board) {
     /*exchange the tf that pawn started the game with, with the id for that pawn**/
     const pawnHistories = {};
     let rf, id;
 
-    if (! Object.keys(records).includes('pawn_histories')) {
-        records['pawn_histories'] = {}
+    if (!Object.keys(records).includes("pawn_histories")) {
+        records["pawn_histories"] = {};
     }
-    
-    for (const hist of Object.values(records['pawn_histories'])) {
-        rf = hist[hist.length - 1]
-        id = board[rf]
-        pawnHistories[id] = hist
-        if (getPieceType(id) !== 'P') {
+
+    for (const hist of Object.values(records["pawn_histories"])) {
+        rf = hist[hist.length - 1];
+        id = board[rf];
+        pawnHistories[id] = hist;
+        if (getPieceType(id) !== "P") {
             throw new Error();
         }
     }
-    records['pawn_histories'] = pawnHistories
-    return records
+    records["pawn_histories"] = pawnHistories;
+    return records;
 }
 
 // module.exports = initPawnIds;
@@ -72,5 +71,3 @@ if (require.main === module) {
 
 }
 */
-    
-

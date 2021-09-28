@@ -1,9 +1,8 @@
-import {rookLocations} from "./rookLocations";
-
+import { rookLocations } from "./rookLocations";
 
 export function getRookLocations(kingLoc) {
     /*using kingLoc to get starting rook locations**/
-    return rookLocations[kingLoc]
+    return rookLocations[kingLoc];
 }
 
 // module.exports = getRookLocations;
@@ -17,4 +16,3 @@ if (require.main === module) {
 
 }
 */
-

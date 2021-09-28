@@ -1,6 +1,5 @@
-import {outOfBounds} from "../sqrCase/oob";
-import {xyToRf} from "../coordType/crdCnvrt"
-
+import { outOfBounds } from "../sqrCase/oob";
+import { xyToRf } from "../coordType/crdCnvrt";
 
 export function getPath(board, x, y, takeStep) {
     /**

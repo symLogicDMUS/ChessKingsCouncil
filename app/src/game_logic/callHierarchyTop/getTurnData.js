@@ -1,14 +1,13 @@
-import {getRanges} from "../ranges/top/getRanges";
-import {getPathdataDict} from "../pathsInfo/top/getpathDataDict";
-import {getResetPieceDicts} from "../getters/getResetPieceDicts";
-import {getKingLoc} from "../threatArea/getKingLoc";
-import {getThreatArea} from "../threatArea/top/getThreatArea";
-import {getNumPiecesCheckingKing} from "../restriction/getNumPiecesCheckingKing";
-import {getMultithreatRestriction} from "../restriction/getMultithreatRestriction";
-import {getFinalRanges} from "../ranges/top/getFinalRanges";
-import {getPins} from "../pins/top/getPins";
-import {convertToRf} from "../coordType/convertToRf"
-
+import { getRanges } from "../ranges/top/getRanges";
+import { getPathdataDict } from "../pathsInfo/top/getpathDataDict";
+import { getResetPieceDicts } from "../getters/getResetPieceDicts";
+import { getKingLoc } from "../threatArea/getKingLoc";
+import { getThreatArea } from "../threatArea/top/getThreatArea";
+import { getNumPiecesCheckingKing } from "../restriction/getNumPiecesCheckingKing";
+import { getMultithreatRestriction } from "../restriction/getMultithreatRestriction";
+import { getFinalRanges } from "../ranges/top/getFinalRanges";
+import { getPins } from "../pins/top/getPins";
+import { convertToRf } from "../coordType/convertToRf";
 
 export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
     /**data for player who's turn it is now, at current the.includes(point) game
@@ -21,21 +20,48 @@ export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
     ............
     */
     let initRanges, pins, mtRestricts, finalRanges, specialMoves;
-    [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(board, color);
-    [initRanges, specialMoves] = getRanges(board, color, initRanges, jsonRecords, pieceDefs, idDict);
+    [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(
+        board,
+        color
+    );
+    [initRanges, specialMoves] = getRanges(
+        board,
+        color,
+        initRanges,
+        jsonRecords,
+        pieceDefs,
+        idDict
+    );
     const kLoc = getKingLoc(board, color);
     let threatArea = getThreatArea(board, kLoc, color, pieceDefs, idDict);
     const pdDict = getPathdataDict(board, kLoc, color, pieceDefs, idDict);
     pins = getPins(pdDict, pins);
-    const npck = getNumPiecesCheckingKing(board, kLoc, color, pdDict, pieceDefs, idDict);
+    const npck = getNumPiecesCheckingKing(
+        board,
+        kLoc,
+        color,
+        pdDict,
+        pieceDefs,
+        idDict
+    );
     mtRestricts = getMultithreatRestriction(board, npck, color);
-    [initRanges, pins, threatArea, mtRestricts] = convertToRf(initRanges, pins, threatArea, mtRestricts)
-    finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); // finalRanges in rf format
-    specialMoves.convertToRf()
+    [initRanges, pins, threatArea, mtRestricts] = convertToRf(
+        initRanges,
+        pins,
+        threatArea,
+        mtRestricts
+    );
+    finalRanges = getFinalRanges(
+        initRanges,
+        pins,
+        threatArea,
+        finalRanges,
+        mtRestricts
+    ); // finalRanges in rf format
+    specialMoves.convertToRf();
     return {
         ranges: finalRanges,
         specialMoves: specialMoves.getMoves(),
         npck: npck,
     };
-
 }

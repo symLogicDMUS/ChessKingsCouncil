@@ -1,4 +1,4 @@
-import { getBinaryBoarAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../../helpers/getBinaryBoardAllFalse";
 
 export function reducer(state, action) {
     switch (action.type) {
@@ -8,7 +8,7 @@ export function reducer(state, action) {
                 rangeBoard: action.getRangeBoard(action.pieceId),
             };
         case "display-off":
-            return { isDragging: false, rangeBoard: getBinaryBoarAllFalse() };
+            return { isDragging: false, rangeBoard: getBinaryBoardAllFalse() };
         case "set-over":
             return {
                 isDragging: state.isDragging,

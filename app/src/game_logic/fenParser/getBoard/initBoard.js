@@ -1,13 +1,12 @@
-import {xyToRf} from "../../coordType/crdCnvrt";
-
+import { xyToRf } from "../../coordType/crdCnvrt";
 
 export function initBoard() {
     /**fenParser task 6, get an empty board before we know where the pieces are*/
-    let board = {}
+    let board = {};
     for (let y = 1; y < 9; y++) {
         for (let x = 1; x < 9; x++) {
-            board[xyToRf(x, y)] = '#';
-        }        
+            board[xyToRf(x, y)] = "#";
+        }
     }
     return board;
 }

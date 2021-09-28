@@ -1,8 +1,6 @@
-
-
 export function posStrToList(posStr) {
     /*fenParser task 3, convert the pos string to a list &&  return**/
-    return posStr.split("")
+    return posStr.split("");
 }
 
 // module.exports = posStrToList;

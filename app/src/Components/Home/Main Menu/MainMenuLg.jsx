@@ -1,12 +1,16 @@
-import {Box} from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import "../../styles/Background/_backgrounds.scss";
 import React, { useEffect, useState, useMemo } from "react";
 import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
-import {createTheme, ThemeProvider} from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 import { ReactComponent as Title } from "./main menu text/title.svg";
-import {homepageBackgroundImages, topAreaHeight, useStyles,} from "./MainMenuLg.jss";
+import {
+    homepageBackgroundImages,
+    topAreaHeight,
+    useStyles,
+} from "./MainMenuLg.jss";
 import NavBar from "../../Reuseables/NavBar/NavBar";
-import {themes} from "../../styles/themes/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 
 function MainMenuLg(props) {
     useEffect(() => {
@@ -17,15 +21,17 @@ function MainMenuLg(props) {
 
     const classes = useStyles({ theme: props.theme });
 
-    const muiTheme = useMemo(() =>
-        createTheme({
-            palette:{
-                primary: {
-                    main: themes[props.theme].fill
-                }
-            }
-        })
-    , [props.theme]);
+    const muiTheme = useMemo(
+        () =>
+            createTheme({
+                palette: {
+                    primary: {
+                        main: themes[props.theme].fill,
+                    },
+                },
+            }),
+        [props.theme]
+    );
 
     return (
         <>
@@ -47,7 +53,7 @@ function MainMenuLg(props) {
                         redirectMessage={null}
                         additionalSettings={null}
                         theme={props.theme}
-                        style={{position: "fixed", top: topAreaHeight}}
+                        style={{ position: "fixed", top: topAreaHeight }}
                         className={classes.navBar}
                     />
                     <img

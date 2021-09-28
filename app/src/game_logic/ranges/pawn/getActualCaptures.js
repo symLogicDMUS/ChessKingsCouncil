@@ -1,10 +1,11 @@
-import {getSqrCase} from "../../sqrCase/getSqrCase";
-import {ENEMY} from "../../sqrCase/sqrCases";
-
+import { getSqrCase } from "../../sqrCase/getSqrCase";
+import { ENEMY } from "../../sqrCase/sqrCases";
 
 export function getActualCaptures(board, potentialPawnCaptures, color) {
     /*filter the list of potential pawn captures to get actual ones**/
-    return potentialPawnCaptures.filter(sqr => getSqrCase(board, ...sqr, color) === ENEMY)
+    return potentialPawnCaptures.filter(
+        (sqr) => getSqrCase(board, ...sqr, color) === ENEMY
+    );
 }
 
 // module.exports = getActualCaptures;

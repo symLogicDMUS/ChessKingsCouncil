@@ -1,12 +1,9 @@
-
-
-
 export function getTravStr(posStr) {
     /* fenParser task 1, change the posStr into a string to traverse, &&  return**/
-    posStr = posStr.split('/')
-    posStr.reverse()
-    posStr = posStr.join("")
-    return posStr
+    posStr = posStr.split("/");
+    posStr.reverse();
+    posStr = posStr.join("");
+    return posStr;
 }
 
 // module.exports = getTravStr;

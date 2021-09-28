@@ -1,7 +1,7 @@
-import {getUnicodePiece} from "./getUnicodePiece";
-import {checkerboard} from "./checkerBoard";
-import {isPiece} from "../pieceType/isPiece";
-import {xyToRf} from "../coordType/crdCnvrt";
+import { getUnicodePiece } from "./getUnicodePiece";
+import { checkerboard } from "./checkerBoard";
+import { isPiece } from "../pieceType/isPiece";
+import { xyToRf } from "../coordType/crdCnvrt";
 
 export function printBoard(board, heading, ...highlights) {
     /*print increasing.includes(boardDict) order of x, decreasing order of y (how 2d board normally displayed)
@@ -11,37 +11,31 @@ export function printBoard(board, heading, ...highlights) {
      highlights[2] will be printed as blueJss
      highlights[3] will be printed as yellow
     **/
-    if (heading)
-        console.log(heading.red)
+    if (heading) console.log(heading.red);
     var char, row;
     for (var y = 8; y > 0; y--) {
         row = y.toString();
-        for (let x = 1; x < 9 ; x++) {
+        for (let x = 1; x < 9; x++) {
             if (isPiece(board[xyToRf(x, y)])) {
-                char = getUnicodePiece(board[xyToRf(x, y)])
-            }
-            else {
-                char = checkerboard[xyToRf(x, y)]
+                char = getUnicodePiece(board[xyToRf(x, y)]);
+            } else {
+                char = checkerboard[xyToRf(x, y)];
             }
             if (highlights[0] && highlights[0].includes(xyToRf(x, y))) {
                 row = row + " " + char.red;
-            }
-            else if (highlights[1] && highlights[1].includes(xyToRf(x, y))) {
+            } else if (highlights[1] && highlights[1].includes(xyToRf(x, y))) {
                 row = row + " " + char.green;
-            }
-            else if (highlights[2] && highlights[2].includes(xyToRf(x, y))) {
+            } else if (highlights[2] && highlights[2].includes(xyToRf(x, y))) {
                 row = row + " " + char.blue;
-            }
-            else if (highlights[3] && highlights[3].includes(xyToRf(x, y))) {
+            } else if (highlights[3] && highlights[3].includes(xyToRf(x, y))) {
                 row = row + " " + char.yellow;
-            }
-            else {
+            } else {
                 row = row + " " + char;
             }
         }
-        console.log(row)
+        console.log(row);
     }
-    console.log("  a b c d e f g h")
+    console.log("  a b c d e f g h");
 }
 
 // module.exports = printBoard;

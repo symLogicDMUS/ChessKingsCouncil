@@ -1,6 +1,5 @@
-import {initEmptySpans} from "./initEmptySpans";
-import {initEmptyOffsets} from "./initEmptyOffsets";
-
+import { initEmptySpans } from "./initEmptySpans";
+import { initEmptyOffsets } from "./initEmptyOffsets";
 
 export function initEmptyRanges(defs) {
     /* **/

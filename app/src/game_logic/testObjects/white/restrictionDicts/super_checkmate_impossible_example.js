@@ -1,2 +1,2 @@
-export var multiThreatRestriction = {}
+export var multiThreatRestriction = {};
 // module.exports = multiThreatRestriction;

@@ -1,3 +1,3 @@
-export var initPieceDict = { WK1: [] }
+export var initPieceDict = { WK1: [] };
 
 // module.exports = initPieceDict;

@@ -1,12 +1,12 @@
-import {mapListRfToXy} from "./mapListRfToXy";
-import {mapListXyToRf} from "./mapListXyToRf";
+import { mapListRfToXy } from "./mapListRfToXy";
+import { mapListXyToRf } from "./mapListXyToRf";
 
 export function mapDictListRfToXy(dict) {
-  var xyDict = JSON.parse(JSON.stringify(dict))
-  for (var k of Object.keys(xyDict)) {
-    xyDict[k] = mapListRfToXy(xyDict[k]);
-  }
-  return xyDict;
+    var xyDict = JSON.parse(JSON.stringify(dict));
+    for (var k of Object.keys(xyDict)) {
+        xyDict[k] = mapListRfToXy(xyDict[k]);
+    }
+    return xyDict;
 }
 
 // module.exports = mapDictListRfToXy;

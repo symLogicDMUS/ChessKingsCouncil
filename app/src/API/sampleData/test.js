@@ -27,10 +27,10 @@ const sample = [
     "/Images/Pieces/Mechwarrior/A-Team/timberwolf-white.svg",
     "/Images/Pieces/Mechwarrior/A-Team/warhammer-black.svg",
     "/Images/Pieces/Mechwarrior/A-Team/warhammer-white.svg",
-]
+];
 
-const uuid = require('uuid');
+const uuid = require("uuid");
 
 if (require.main === module) {
-    console.log(uuid.v4())
+    console.log(uuid.v4());
 }

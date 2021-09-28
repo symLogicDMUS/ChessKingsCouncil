@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../../helpers/stepFuncs";
 import { useMediaQuery } from "@material-ui/core";
 import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";

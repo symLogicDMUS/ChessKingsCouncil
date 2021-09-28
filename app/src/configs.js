@@ -7,7 +7,7 @@ export const configs = {
         storageBucket: "custom-chess.appspot.com",
         messagingSenderId: "993983012037",
         appId: "1:993983012037:web:8ddadd164787c38051e4ac",
-        measurementId: "G-67GNLGHH93"
+        measurementId: "G-67GNLGHH93",
     },
     dev1: {
         apiKey: "AIzaSyC2ZbFPXGD002KKMyuffqgRx16f0rJh-as",
@@ -17,7 +17,7 @@ export const configs = {
         storageBucket: "custom-chess-dev1.appspot.com",
         messagingSenderId: "881000263291",
         appId: "1:881000263291:web:48deb2f86b968115c57cde",
-        measurementId: "G-VH2JFQMXWH"
+        measurementId: "G-VH2JFQMXWH",
     },
     dev2: {
         apiKey: "AIzaSyA4e6hngr0BEkd99Ggo-LJeGUCIl6PhXII",
@@ -27,7 +27,7 @@ export const configs = {
         storageBucket: "custom-chess-dev2.appspot.com",
         messagingSenderId: "973512374315",
         appId: "1:973512374315:web:b08d425175b502a8ae926e",
-        measurementId: "G-JFDSLX36NJ"
+        measurementId: "G-JFDSLX36NJ",
     },
     dev3: {
         apiKey: "AIzaSyBsj-x2NePFo4RczH8q43FBzxKiBK2e-5A",
@@ -36,7 +36,7 @@ export const configs = {
         storageBucket: "custom-chess-dev3.appspot.com",
         messagingSenderId: "83443826043",
         appId: "1:83443826043:web:038722d4c9d40b143791de",
-        measurementId: "G-83ZVBDVYWG"
+        measurementId: "G-83ZVBDVYWG",
     },
     dev4: {
         apiKey: "AIzaSyCDVZWQ6cLVLO_JlqlqDFpifJL9nlwtA8Q",
@@ -45,6 +45,6 @@ export const configs = {
         storageBucket: "custom-chess-dev4.appspot.com",
         messagingSenderId: "297422215748",
         appId: "1:297422215748:web:89d1736fba28834d16ba11",
-        measurementId: "G-Z9N2PBETDS"
+        measurementId: "G-Z9N2PBETDS",
     },
-}
+};

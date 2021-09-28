@@ -1,7 +1,6 @@
-
 export function getSubPath(path, i) {
     /*get up to &&  including the index i in path**/
-    return path.slice(0, i + 1)
+    return path.slice(0, i + 1);
 }
 
 // module.exports = getSubPath;

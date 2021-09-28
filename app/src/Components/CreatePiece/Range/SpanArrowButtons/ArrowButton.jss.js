@@ -1,6 +1,6 @@
 import { themes } from "../../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {lighten} from "@material-ui/core/styles";
+import { lighten } from "@material-ui/core/styles";
 
 const arrowSizeSm = "100%";
 

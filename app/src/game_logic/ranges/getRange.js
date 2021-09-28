@@ -1,7 +1,6 @@
-import {getPaths} from "./paths/getPaths";
-import {getJumps} from "./jumps/getJumps";
-import {xyToRf} from "../coordType/crdCnvrt";
-
+import { getPaths } from "./paths/getPaths";
+import { getJumps } from "./jumps/getJumps";
+import { xyToRf } from "../coordType/crdCnvrt";
 
 export function getRange(board, sqr, color, pieceDefs, idDict) {
     /* **/
@@ -9,11 +8,11 @@ export function getRange(board, sqr, color, pieceDefs, idDict) {
     const fenId = id[1].toLowerCase();
     const name = idDict[fenId];
     const def = pieceDefs[name];
-    const offsets = def[color]['offsets'];
-    const stepFuncNames = def[color]['spans'];
+    const offsets = def[color]["offsets"];
+    const stepFuncNames = def[color]["spans"];
     const paths = getPaths(stepFuncNames, board, sqr, color);
     const jumps = getJumps(offsets, board, sqr, color);
-    paths.push(...jumps)
+    paths.push(...jumps);
     return paths;
 }
 

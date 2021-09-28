@@ -1,6 +1,6 @@
-import {darken, lighten, makeStyles} from "@material-ui/core/styles";
+import { darken, lighten, makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes/themes.jss";
-import {navBarButtonHeight} from "../../Reuseables/NavBar/NavBarButton.jss";
+import { navBarButtonHeight } from "../../Reuseables/NavBar/NavBarButton.jss";
 
 export const topAreaHeight = 100;
 
@@ -32,11 +32,11 @@ export const useStyles = makeStyles(
         banner: (props) => ({
             zIndex: -1,
             width: "100vw",
-            position: 'fixed',
+            position: "fixed",
             top: 0,
         }),
         main_menu_container: (props) => ({
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             display: "flex",
             flexDirection: "column",
@@ -46,7 +46,6 @@ export const useStyles = makeStyles(
             zIndex: 1200,
             boxShadow:
                 "0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12)",
-
         }),
         main_menu: (props) => ({
             margin: "auto",
@@ -55,8 +54,8 @@ export const useStyles = makeStyles(
         }),
         title: (props) => ({
             fill: themes[props.theme].title,
-            height: topAreaHeight*0.65,
-            margin: 'auto',
+            height: topAreaHeight * 0.65,
+            margin: "auto",
         }),
         navBar: (props) => ({
             "& .MuiListItemText-primary": {
@@ -86,7 +85,7 @@ export const useStyles = makeStyles(
         }),
         app_bar: (props) => ({
             zIndex: 2,
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             height: topAreaHeight,
             width: "100vw",

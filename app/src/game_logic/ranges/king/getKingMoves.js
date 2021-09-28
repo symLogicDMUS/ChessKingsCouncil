@@ -1,17 +1,24 @@
-import {getSqrCase} from "../../sqrCase/getSqrCase";
-import {sqrUnderAttack} from "../../threatArea/top/sqrUnderAttack";
-import {dist} from "../../helpers/formulas";
-import {printBoard} from "../../printers/printBoard";
+import { getSqrCase } from "../../sqrCase/getSqrCase";
+import { sqrUnderAttack } from "../../threatArea/top/sqrUnderAttack";
+import { dist } from "../../helpers/formulas";
+import { printBoard } from "../../printers/printBoard";
 import { FRIEND } from "../../sqrCase/sqrCases";
-
 
 export function getKingMoves(board, sqr, color, rangefunctions, idDict) {
     /*get every 1 king distance away that is ! out of bounds || a friendly piece**/
-    let kingMoves = Object.keys(board).filter(sqr2 => dist(sqr, sqr2) === sqrt(2) || dist(sqr, sqr2) === 1)
-    kingMoves = kingMoves.filter(sqr => getSqrCase(board, ...sqr, color) !== OOB)
-    kingMoves = kingMoves.filter(sqr => getSqrCase(board, ...sqr, color) !== FRIEND)
-    kingMoves = kingMoves.filter(sqr => ! sqrUnderAttack(board, sqr, color, rangefunctions, idDict))
-    return kingMoves
+    let kingMoves = Object.keys(board).filter(
+        (sqr2) => dist(sqr, sqr2) === sqrt(2) || dist(sqr, sqr2) === 1
+    );
+    kingMoves = kingMoves.filter(
+        (sqr) => getSqrCase(board, ...sqr, color) !== OOB
+    );
+    kingMoves = kingMoves.filter(
+        (sqr) => getSqrCase(board, ...sqr, color) !== FRIEND
+    );
+    kingMoves = kingMoves.filter(
+        (sqr) => !sqrUnderAttack(board, sqr, color, rangefunctions, idDict)
+    );
+    return kingMoves;
 }
 
 // module.exports = getKingSafeMoves;
@@ -27,4 +34,4 @@ if (require.main === module) {
 
 }
 */
-    printBoard(_board, heading='test 2, black', highlights=kingMoves)
+printBoard(_board, (heading = "test 2, black"), (highlights = kingMoves));

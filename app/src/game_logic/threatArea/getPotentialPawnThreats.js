@@ -1,28 +1,22 @@
-import {rfToXy} from "../coordType/crdCnvrt";
-import {dist} from "../helpers/formulas";
-
-
+import { rfToXy } from "../coordType/crdCnvrt";
+import { dist } from "../helpers/formulas";
 
 export function getPotentialPawnThreats(board, sqr, color) {
     /* return list of locations that might be pawn attacking king **/
 
-    if (color === 'W') {
-        return Object.keys(board).filter(sqr2 => {
-            sqr2 = rfToXy(sqr2)
-            return sqr2[1] > sqr[1] &&  dist(sqr, sqr2) === Math.sqrt(2)
-        })
-    }
-
-    else if (color === 'B') {
-        return Object.keys(board).filter(sqr2 => {
-            sqr2 = rfToXy(sqr2)
-            return sqr2[1] < sqr[1] &&  dist(sqr, sqr2) === Math.sqrt(2)
-        })
-    }
-
-    else {
-        console.log('error: color ! recognized\n')
-        return -1
+    if (color === "W") {
+        return Object.keys(board).filter((sqr2) => {
+            sqr2 = rfToXy(sqr2);
+            return sqr2[1] > sqr[1] && dist(sqr, sqr2) === Math.sqrt(2);
+        });
+    } else if (color === "B") {
+        return Object.keys(board).filter((sqr2) => {
+            sqr2 = rfToXy(sqr2);
+            return sqr2[1] < sqr[1] && dist(sqr, sqr2) === Math.sqrt(2);
+        });
+    } else {
+        console.log("error: color ! recognized\n");
+        return -1;
     }
 }
 

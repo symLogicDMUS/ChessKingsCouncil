@@ -1,4 +1,4 @@
-import {defaultThemes} from "./defaultThemes";
+import { defaultThemes } from "./defaultThemes";
 
 export const appDefaultState = {
     uid: null,

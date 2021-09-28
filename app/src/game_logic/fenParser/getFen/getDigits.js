@@ -1,9 +1,16 @@
-
-
 export function getDigits(fen) {
     /*getFen TASK 5, replace consecutive '#' (empty squares) with the digit for how many**/
-    let consects = [/########/g, /#######/g, /######/g, /#####/g, /####/g, /###/g, /##/g, /#/g]
-    let consectLens = [8, 7, 6, 5, 4, 3, 2, 1]
+    let consects = [
+        /########/g,
+        /#######/g,
+        /######/g,
+        /#####/g,
+        /####/g,
+        /###/g,
+        /##/g,
+        /#/g,
+    ];
+    let consectLens = [8, 7, 6, 5, 4, 3, 2, 1];
     for (let i = 0; i < consects.length; i++) {
         fen = fen.replace(consects[i], consectLens[i].toString());
     }

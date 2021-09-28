@@ -1,4 +1,4 @@
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { copy } from "../../helpers/copy";
 
 export const reset = (state) => {
@@ -24,8 +24,8 @@ export const reset = (state) => {
                 "135d": false,
             },
             offsets: [],
-            spanDisplays: getBinaryBoarAllFalse(),
-            offsetDisplays: getBinaryBoarAllFalse(),
+            spanDisplays: getBinaryBoardAllFalse(),
+            offsetDisplays: getBinaryBoardAllFalse(),
         };
     } else {
         return {
@@ -35,8 +35,8 @@ export const reset = (state) => {
             offsets: copy(state.loadedOffsets),
             whiteAndBlackImgs: copy(state.loadedImgs),
             loadInstance: state.loadInstance + 1,
-            spanDisplays: getBinaryBoarAllFalse(),
-            offsetDisplays: getBinaryBoarAllFalse(),
+            spanDisplays: getBinaryBoardAllFalse(),
+            offsetDisplays: getBinaryBoardAllFalse(),
             unsavedChanges: false,
             location: "d4",
         };

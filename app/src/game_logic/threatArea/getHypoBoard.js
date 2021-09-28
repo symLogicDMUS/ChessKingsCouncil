@@ -1,4 +1,4 @@
-import {ply} from "../helpers/ply";
+import { ply } from "../helpers/ply";
 
 export function getHypoBoard(board, start, dest) {
     /**get a temporary board where a move from start to dest has taken place. used to evaluate the would-be for that

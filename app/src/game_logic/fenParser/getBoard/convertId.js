@@ -1,26 +1,23 @@
-import {isalpha} from "../../helpers/isalpha";
-import {isupper} from "../../helpers/isupper";
-
+import { isalpha } from "../../helpers/isalpha";
+import { isupper } from "../../helpers/isupper";
 
 export function convertId(fenId) {
     /* fenParser task 4, convert fen id to a game id**/
     if (isupper(fenId)) {
-        return 'W' + fenId
-    }
-    else {
-        return 'B' + fenId.toUpperCase()
+        return "W" + fenId;
+    } else {
+        return "B" + fenId.toUpperCase();
     }
 }
-
 
 export function convertIds(posList) {
     /*convert each the.includes(fenId) posList to a game id**/
     for (let i = 0; i < posList.length; i++) {
         if (posList[i].length === 1 && isalpha(posList[i])) {
-            posList[i] = convertId(posList[i])
+            posList[i] = convertId(posList[i]);
         }
     }
-    return posList
+    return posList;
 }
 
 // module.exports = convertIds;

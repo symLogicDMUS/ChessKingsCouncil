@@ -1,4 +1,4 @@
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoardAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 
 export const resetOffsetAndRange = (state) => ({
     ...state,
@@ -13,6 +13,6 @@ export const resetOffsetAndRange = (state) => ({
         "135d": false,
     },
     offsets: [],
-    spanDisplays: getBinaryBoarAllFalse(),
-    offsetDisplays: getBinaryBoarAllFalse(),
+    spanDisplays: getBinaryBoardAllFalse(),
+    offsetDisplays: getBinaryBoardAllFalse(),
 });

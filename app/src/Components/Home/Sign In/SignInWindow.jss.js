@@ -1,4 +1,4 @@
-import {makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const fontColor = {
     color: "#000",
@@ -79,11 +79,11 @@ export const useStyles = makeStyles(
                 color: "#253b73",
             },
         }),
-        fill: props => ({
-            backgroundColor: '#fff',
-            borderRadius: '0.5rem',
-            padding: '0.5rem',
+        fill: (props) => ({
+            backgroundColor: "#fff",
+            borderRadius: "0.5rem",
+            padding: "0.5rem",
         }),
     }),
-    {index: 1}
+    { index: 1 }
 );

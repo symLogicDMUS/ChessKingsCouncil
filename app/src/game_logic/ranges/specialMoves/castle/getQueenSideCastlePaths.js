@@ -1,9 +1,8 @@
-import {queenSideCastlePaths} from "./queenSideCastlePaths";
-
+import { queenSideCastlePaths } from "./queenSideCastlePaths";
 
 export function getQueenSideCastlePaths(color) {
     /*use the target square of the castle move to get the squares on castle path**/
-    return queenSideCastlePaths[color]
+    return queenSideCastlePaths[color];
 }
 
 // module.exports = getQueenSideCastlePaths;
