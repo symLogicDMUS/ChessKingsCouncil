@@ -21,7 +21,6 @@ export function SpanLabel({ theme, showSpanText, children }) {
             {showSpanText && (
                 <Typography
                     className={classes.sqr_text}
-                    style={{ fontSize: "3vw" }}
                 >
                     {children}
                 </Typography>

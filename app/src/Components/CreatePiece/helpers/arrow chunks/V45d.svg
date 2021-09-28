@@ -1,17 +1,15 @@
 <svg
-   width="24"
-   height="24"
-   viewBox="0 0 6.3499999 6.3500002"
+   height="24px"
+   viewBox="0 0 24 24"
+   width="24px"
+   fill="#000000"
 >
-  <g
-     id="layer1">
-    <rect
-       style="fill:#000000;fill-rule:evenodd;stroke-width:0.00992442"
-       id="rect31"
-       width="6.3684573"
-       height="0.89733547"
-       x="-3.1842289"
-       y="-4.9387956"
-       transform="rotate(135)" />
-  </g>
+  <path
+     d="M0 0h24v24H0V0z"
+     fill="none"
+     id="path2" />
+  <path
+     d="m 19.071021,4.9288694 -5.6568,1e-7 2.1213,2.1213201 L 4.9290215,17.65679 6.3432216,19.071004 16.949722,8.4644025 19.071021,10.585723 Z"
+     id="path4"
+     style="stroke-width:0.999995" />
 </svg>

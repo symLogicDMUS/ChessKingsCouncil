@@ -1,12 +1,12 @@
 import React from "react";
-import {ReactComponent as V90d} from "./arrow chunks/V90d.svg";
-import {ReactComponent as V45d} from "./arrow chunks/V45d.svg";
-import {ReactComponent as V0d} from "./arrow chunks/V0d.svg";
-import {ReactComponent as V315d} from "./arrow chunks/V315d.svg";
-import {ReactComponent as V270d} from "./arrow chunks/V270d.svg";
-import {ReactComponent as V225d} from "./arrow chunks/V225d.svg";
-import {ReactComponent as V180d} from "./arrow chunks/V180d.svg";
-import {ReactComponent as V135d} from "./arrow chunks/V135d.svg";
+import {V45d} from "./arrow chunks/V45d";
+import {V0d} from "./arrow chunks/V0d.jsx";
+import {V90d} from "./arrow chunks/V90d.jsx";
+import {V315d} from "./arrow chunks/V315d.jsx";
+import {V270d} from "./arrow chunks/V270d.jsx";
+import {V225d} from "./arrow chunks/V225d.jsx";
+import {V180d} from "./arrow chunks/V180d.jsx";
+import {V135d} from "./arrow chunks/V135d.jsx";
 
 export const vectors = {
     'd4': {

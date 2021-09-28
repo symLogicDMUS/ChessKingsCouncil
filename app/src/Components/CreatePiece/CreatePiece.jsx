@@ -14,6 +14,7 @@ import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
 import { ToolBackdrop } from "../Reuseables/MiniVariantTool/ToolBackdrop";
+import { getNewArrowChunksBoard } from "./helpers/getNewArrowChunksBoard";
 import { getBinaryBoardAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
@@ -21,16 +22,15 @@ import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
 import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CreatePieceTitle from "./Title/CreatePieceTitle";
+import {getRfBoardAllNull} from "../helpers/getRfBoardAllNull";
 import AskLoginButton from "../Home/Sign In/AskLoginButton";
+import CreatePieceTitle from "./Title/CreatePieceTitle";
 import { UserContext } from "../../Context/UserContext";
 import { ThemeContext } from "../../Context/ThemeContext";
 import "../styles/Background/_backgrounds.scss";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
 import { styles } from "./CreatePiece.jss";
-import {getRfBoardAllNull} from "../helpers/getRfBoardAllNull";
-import {getNewArrowChunksBoard} from "./helpers/getNewArrowChunksBoard";
 
 const Load = React.lazy(() => import("./Options/Load"));
 const Save = React.lazy(() => import("./Options/Save"));
@@ -268,6 +268,7 @@ class CreatePiece extends React.Component {
             }
             rf = stepFunc(rf);
         }
+        this.setArrowChunksBoard();
         this.setState({ unsavedChanges: true });
     };
 
@@ -291,6 +292,7 @@ class CreatePiece extends React.Component {
                 this.setDisplaySpan(angle);
             }
         });
+        this.setArrowChunksBoard();
     };
 
     /**used by the Reset Option button, called by this.reset()*/
@@ -351,6 +353,7 @@ class CreatePiece extends React.Component {
         this.offsets = [];
         this.spanDisplays = getBinaryBoardAllFalse();
         this.offsetDisplays = getBinaryBoardAllFalse();
+        this.arrowChunksBoard = getRfBoardAllNull();
     };
 
     /**used by the Location tool*/

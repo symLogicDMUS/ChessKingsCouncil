@@ -20,22 +20,25 @@ export const offsetFrame = (theme) => ({
 export const useStyles = makeStyles(
     {
         sqr_text: (props) => ({
-            "@media screen and (max-width: 960px)": {
-                fontSize: "2.25vw",
+            margin: "auto",
+            "@media screen and (max-width: 360px)": {
+                width: "10vw",
+                height: "10vw",
+            },
+            "@media screen and (min-width: 360px) and (max-width: 960px)": {
+                width: "10.5vw",
+                height: "10.5vw",
             },
             "@media screen and (min-width: 960px)": {
-                fontSize: "1.5vw",
+                width: "5.3125vw",
+                height: "5.3125vw",
             },
-            margin: "auto",
-            // textTransform: "none",
-            // letterSpacing: "0.0075em",
-            // lineHeight: 0.5,
-            // fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-            width: "100%",
-            // backgroundColor: 'none',
-            // background: 'none',
-            // display: 'flex',
-            // flexDirection: 'column',
+            maxWidth: "11vh",
+            maxHeight: "11vh",
+            minWidth: "unset",
+            minHeight: "unset",
+            display: 'flex',
+            flexDirection: 'column',
         }),
     },
     { index: 1 }
