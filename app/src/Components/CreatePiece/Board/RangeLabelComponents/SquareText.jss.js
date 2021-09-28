@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../../styles/themes/themes.jss";
-import { sqrSize } from "../CreatePieceBoard.jss";
 
 export const spanFrame = (theme) => ({
     background: "none",
@@ -21,6 +20,13 @@ export const useStyles = makeStyles(
     {
         sqr_text: (props) => ({
             margin: "auto",
+            display: 'flex',
+            "@media (max-width:600px)": {
+                flexDirection: 'column',
+            },
+            "@media (min-width: 600px)": {
+                flexDirection: 'row',
+            },
             "@media screen and (max-width: 360px)": {
                 width: "10vw",
                 height: "10vw",
@@ -37,8 +43,6 @@ export const useStyles = makeStyles(
             maxHeight: "11vh",
             minWidth: "unset",
             minHeight: "unset",
-            display: 'flex',
-            flexDirection: 'column',
         }),
     },
     { index: 1 }

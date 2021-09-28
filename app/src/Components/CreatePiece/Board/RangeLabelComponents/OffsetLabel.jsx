@@ -1,11 +1,11 @@
 import React from "react";
 import { Frame } from "framer";
-import { Avatar, Paper, Typography } from "@material-ui/core";
-import { offsetFrame, useStyles } from "./SquareText.jss";
 import Box from "@material-ui/core/Box";
+import OffsetInt from "./OffsetInt";
+import { offsetFrame, useStyles as useMoreStyles } from "./SquareText.jss";
 
 export function OffsetLabel({ offset, showOffsetText, theme }) {
-    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({ theme: theme });
 
     let xSign = null;
     let ySign = null;
@@ -23,13 +23,14 @@ export function OffsetLabel({ offset, showOffsetText, theme }) {
     return (
         <Frame width="100%" height="100%" style={offsetFrame(theme)}>
             {showOffsetText && (
-                <Typography className={classes.sqr_text} variant={"button"}>
-                    {xSign}
-                    {Math.abs(offset[0])}
-                    {"    "}
-                    {ySign}
-                    {Math.abs(offset[1])}
-                </Typography>
+                <Box className={classes2.sqr_text}>
+                    <OffsetInt>
+                        {xSign}{Math.abs(offset[0])}
+                    </OffsetInt>
+                    <OffsetInt>
+                        {ySign}{Math.abs(offset[1])}
+                    </OffsetInt>
+                </Box>
             )}
         </Frame>
     );
