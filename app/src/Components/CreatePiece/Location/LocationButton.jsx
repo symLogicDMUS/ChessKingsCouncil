@@ -34,7 +34,7 @@ const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
                     height="100%"
                     onClick={onClick}
                     onTap={() => setAnimate(true)}
-                    style={{ ...frame(theme), ...addedStyle }}
+                    style={{ ...frame(theme), ...addedStyle, ...textAdjust }}
                     animate={animate ? clickAnimation(theme) : {}}
                     onAnimationComplete={() => setAnimate(false)}
                 >

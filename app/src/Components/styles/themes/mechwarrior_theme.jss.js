@@ -22,7 +22,7 @@ export const mechwarrior_theme = {
     odd_row: "#474747",
     span: "#ff8400",
     span_alt: "#ff4a00",
-    offset: "#ff0000",
+    offset: "#fff",
     arrow_active: "#ff8a80",
     arrow_inactive: "#b71c1c",
     light_normal: "rgba(255, 255, 255, 0.1)",

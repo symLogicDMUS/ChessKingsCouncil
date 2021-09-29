@@ -2,7 +2,7 @@ import { Box } from "@material-ui/core";
 import "../../styles/Background/_backgrounds.scss";
 import React, { useEffect, useState, useMemo } from "react";
 import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import { ReactComponent as Title } from "./main menu text/title.svg";
 import {
     homepageBackgroundImages,
@@ -23,7 +23,7 @@ function MainMenuLg(props) {
 
     const muiTheme = useMemo(
         () =>
-            createTheme({
+            createMuiTheme({
                 palette: {
                     primary: {
                         main: themes[props.theme].fill,

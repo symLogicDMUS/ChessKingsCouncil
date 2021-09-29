@@ -1,4 +1,4 @@
-import { fade } from "@material-ui/core/styles";
+import {darken, fade} from "@material-ui/core/styles";
 
 export const star_wars = {
     outline: "#f6b601",
@@ -20,9 +20,9 @@ export const star_wars = {
     img_border: "#f6b601",
     even_row: "#1b1b1b",
     odd_row: "#252525",
-    span: "#c60116",
-    offset: "#990606",
-    span_alt: "#c60116",
+    span: "#28ded3",
+    offset: darken("#28ded3", 0.2),
+    span_alt: "#28ded3",
     arrow_active: "#ff645a",
     arrow_inactive: "#b71c1c",
     light_normal: fade("#fff", 0.125),
