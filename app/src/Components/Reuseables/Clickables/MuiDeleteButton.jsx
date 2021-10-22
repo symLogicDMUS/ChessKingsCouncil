@@ -19,6 +19,7 @@ export function MuiDeleteButton(props) {
         size,
         className,
         theme,
+        children,
         ...other
     } = props;
 

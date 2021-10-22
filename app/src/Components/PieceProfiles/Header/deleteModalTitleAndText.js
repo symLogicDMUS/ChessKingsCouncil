@@ -3,6 +3,6 @@ export const getModalTitle = (pieceName) =>
 
 export const getModalText = (
     pieceName
-) => `Game in progress will not be affected but the record of the piece for new games 
+) => `Games in progress will not be affected but the record of the piece for new games 
                                           will be destroyed. This action can not be undone. Are you sure you want to 
                                           delete piece ${pieceName}?`;

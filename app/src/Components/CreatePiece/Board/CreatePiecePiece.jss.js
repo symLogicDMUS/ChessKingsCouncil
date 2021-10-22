@@ -31,7 +31,7 @@ export const useStyles = makeStyles(
             "@media screen and (min-width: 960px)": {
                 fontSize: "1.75vw",
             },
-            color: lighten(themes[props.theme].sqr_hover_alt, 0.2),
+            color: themes[props.theme].text,
         }),
         piece_loc_highlight: (props) => ({
             color: themes[props.theme].sqr_hover,

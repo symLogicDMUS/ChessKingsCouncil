@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import ForwardIcon from "@material-ui/icons/Forward";
 import { ArrowLeft, ArrowRight } from "@material-ui/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Backdrop, IconButton, Portal } from "@material-ui/core";
+import {Backdrop, Button, IconButton, Portal} from "@material-ui/core";
 import { standardPieceNames } from "../../helpers/standardPieceNames";
 import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
 import { specialThemeList } from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
@@ -180,25 +180,6 @@ function Promo(props) {
                 </IconButton>
                 <Box className={classes.content}>
                     <Box
-                        onClick={() => setProfileModal(true)}
-                        className={clsx(classes.promote_button, {
-                            [classes.button1]: true,
-                        })}
-                    >
-                        <Typography variant="h6" className={classes.piece_name}>
-                            {currentPieceName}
-                        </Typography>
-                        <IconButton
-                            onClick={() => setProfileModal(true)}
-                            className={clsx(classes.icon, {
-                                [classes.icon2]: true,
-                            })}
-                            edge={"end"}
-                        >
-                            <ListAltIcon />
-                        </IconButton>
-                    </Box>
-                    <Box
                         onClick={promote}
                         className={clsx(classes.promote_button, {
                             [classes.button2]: true,
@@ -224,6 +205,22 @@ function Promo(props) {
                         <Typography variant="button" className={classes.text}>
                             Promote
                         </Typography>
+                    </Box>
+                    <Box
+                        onClick={() => setProfileModal(true)}
+                        className={clsx(classes.promote_button, {
+                            [classes.button1]: true,
+                        })}
+                    >
+                        <Button
+                            size={"large"}
+                            className={classes.icon}
+                            style={{opacity: 0.6}}
+                            startIcon={<ListAltIcon size={"small"} />}
+                            onClick={() => setProfileModal(true)}
+                        >
+                            Data
+                        </Button>
                     </Box>
                 </Box>
             </Backdrop>

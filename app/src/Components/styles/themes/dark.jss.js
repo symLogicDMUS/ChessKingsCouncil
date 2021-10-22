@@ -26,7 +26,7 @@ export const dark = {
     // span: "#ffc4ff",
     // offset:  "#ce93d8",
     // span_alt: "#ffc4ff",
-    arrow_active: "#ff9e80",
+    arrow_active: "#fff",
     arrow_inactive: "#dc0000",
     location_button_selected: "#90caf9",
     light_normal: fade("#fff", 0.115),

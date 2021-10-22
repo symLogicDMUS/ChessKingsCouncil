@@ -6,6 +6,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { themes } from "../../styles/themes/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SubButtonGroup.jss";
+import {darken} from "@material-ui/core/styles";
 
 export function SubButtonGroup({
     theme,
@@ -22,6 +23,8 @@ export function SubButtonGroup({
     standardPieceThatSubbingFor,
 }) {
     const classes = useStyles({ theme: theme });
+
+    const outlineColor = darken(themes[theme].text, 0.5)
 
     return (
         <div className={classes.root}>
@@ -44,7 +47,7 @@ export function SubButtonGroup({
                         [classes.unselected]: queen !== customPieceName,
                     })}
                 >
-                    {icons.queen_outline(themes[theme].outline)}
+                    {icons.queen_outline(outlineColor)}
                 </SvgIcon>
             </IconButton>
             <IconButton onClick={onRookClick} className={classes.sub_button}>
@@ -54,7 +57,7 @@ export function SubButtonGroup({
                         [classes.unselected]: rook !== customPieceName,
                     })}
                 >
-                    {icons.rook_outline(themes[theme].outline)}
+                    {icons.rook_outline(outlineColor)}
                 </SvgIcon>
             </IconButton>
             <IconButton onClick={onKnightClick} className={classes.sub_button}>
@@ -64,7 +67,7 @@ export function SubButtonGroup({
                         [classes.unselected]: knight !== customPieceName,
                     })}
                 >
-                    {icons.knight_outline(themes[theme].outline)}
+                    {icons.knight_outline(outlineColor)}
                 </SvgIcon>
             </IconButton>
             <IconButton onClick={onBishopClick} className={classes.sub_button}>
@@ -74,7 +77,7 @@ export function SubButtonGroup({
                         [classes.unselected]: bishop !== customPieceName,
                     })}
                 >
-                    {icons.bishop_outline(themes[theme].outline)}
+                    {icons.bishop_outline(outlineColor)}
                 </SvgIcon>
             </IconButton>
         </div>

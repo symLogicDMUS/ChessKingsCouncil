@@ -24,7 +24,7 @@ export const useStyles = makeStyles(
                 fontSize: "3.5vw",
             },
             margin: "auto",
-            color: lighten(themes[props.theme].location_sqr, 0.5),
+            color: themes[props.theme].text
         }),
     },
     { index: 1 }

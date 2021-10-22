@@ -29,7 +29,7 @@ export const useStyles = makeStyles(
             background: themes[props.theme].fill,
         }),
         arrow_icon: (props) => ({
-            color: themes[props.theme].button_text,
+            color: themes[props.theme].text,
         }),
         /*child of list items*/
         text: (props) => ({

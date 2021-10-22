@@ -8,6 +8,7 @@ import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { MuiTextField } from "../../Reuseables/UserInput/MuiTextField";
 import { useStyles } from "./SaveAs.jss";
+import clsx from "clsx";
 
 function SaveAs({ changeName, save, close, theme }) {
     const classes = useStyles({ theme: theme });
@@ -44,15 +45,15 @@ function SaveAs({ changeName, save, close, theme }) {
             <DialogActions className={classes.dialog_actions}>
                 <Button
                     onClick={save}
-                    className={classes.button}
-                    startIcon={<CheckCircleOutlineIcon />}
+                    className={clsx(classes.button, {[classes.primary]: true})}
+                    variant={"contained"}
                 >
-                    Ok
+                    Save
                 </Button>
                 <Button
                     onClick={close}
-                    className={classes.button}
-                    startIcon={<HighlightOffIcon />}
+                    className={clsx(classes.button, {[classes.secondary]: true})}
+                    variant={"text"}
                 >
                     Cancel
                 </Button>

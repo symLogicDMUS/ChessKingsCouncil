@@ -19,20 +19,20 @@ export function ConfirmDeleteModal(props) {
                 variant={"text"}
                 size={size}
                 className={clsx(classes.button, {
-                    [classes.yes_button]: true,
+                    [classes.primary]: true,
                 })}
             >
-                Yes
+                Delete
             </Button>
             <Button
-                onClick={closeClick}
-                variant={"text"}
                 size={size}
+                variant={"text"}
+                onClick={closeClick}
                 className={clsx(classes.button, {
-                    [classes.no_button]: true,
+                    [classes.secondary]: true,
                 })}
             >
-                No
+                Cancel
             </Button>
         </StandardModal>
     );

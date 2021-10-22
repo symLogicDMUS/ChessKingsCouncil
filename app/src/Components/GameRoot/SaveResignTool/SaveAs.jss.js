@@ -63,6 +63,13 @@ export const useStyles = makeStyles(
             },
             color: themes[props.theme].text,
         }),
+        primary: (props) => ({
+            color: themes[props.theme].button_text,
+            backgroundColor: themes[props.theme].button_fill
+        }),
+        secondary: (props) => ({
+            color: themes[props.theme].button_fill,
+        }),
     },
     { index: 1 }
 );

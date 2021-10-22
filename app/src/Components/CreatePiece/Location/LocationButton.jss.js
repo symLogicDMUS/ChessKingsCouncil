@@ -42,7 +42,7 @@ export const useStyles = makeStyles(
                 fontSize: "3.5vw",
             },
             margin: "auto",
-            color: lighten(themes[props.theme].sqr_hover_alt, 0.6),
+            color: themes[props.theme].button_text,
         }),
     },
     { index: 1 }

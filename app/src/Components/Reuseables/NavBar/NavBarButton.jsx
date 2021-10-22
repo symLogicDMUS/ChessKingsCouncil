@@ -58,7 +58,7 @@ function NavBarButton(props) {
                         <MuiButton
                             onClick={() => goToPage()}
                             className={clsx(classes2.button, {
-                                [classes2.yes_button]: true,
+                                [classes2.primary]: true,
                             })}
                             variant={"contained"}
                             theme={theme}
@@ -68,7 +68,7 @@ function NavBarButton(props) {
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
                             className={clsx(classes2.button, {
-                                [classes2.no_button]: true,
+                                [classes2.secondary]: true,
                             })}
                             variant={"contained"}
                             theme={theme}

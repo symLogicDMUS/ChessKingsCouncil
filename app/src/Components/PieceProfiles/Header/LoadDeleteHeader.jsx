@@ -4,14 +4,14 @@ import { PieceName } from "./PieceName";
 import { useHistory } from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
 import { deleteDef } from "../../../API/deleteDef";
+import { filterSamples } from "../../../API/filterSamples";
 import DeleteForever from "@material-ui/icons/DeleteForever";
+import { getModalText, getModalTitle } from "./deleteModalTitleAndText";
 import { decrementImgRefCounts } from "../../../API/decrementImgRefCounts";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import { useStyles as useMoreStyles } from "../../PieceProfiles/Header/ProfileHeader.jss";
-import { filterSamples } from "../../../API/filterSamples";
 import { marginRight, useStyles } from "./LoadDeleteHeader.jss";
-import { getModalText, getModalTitle } from "./deleteModalTitleAndText";
 
 function LoadDeleteHeader(props) {
     const {
@@ -94,9 +94,10 @@ function LoadDeleteHeader(props) {
                     Load
                 </Button>
                 <DeleteButton
-                    onAcceptDelete={() => deletePiece(pieceName)}
-                    modalTitle={getModalTitle(pieceName)}
+                    theme={theme}
                     modalText={getModalText(pieceName)}
+                    modalTitle={getModalTitle(pieceName)}
+                    onAcceptDelete={() => deletePiece(pieceName)}
                     startIcon={
                         <DeleteForever
                             className={clsx(classes.icon, {
@@ -108,7 +109,6 @@ function LoadDeleteHeader(props) {
                     className={clsx(classes.button, {
                         [classes.delete_button]: true,
                     })}
-                    theme={theme}
                 />
             </div>
         </>

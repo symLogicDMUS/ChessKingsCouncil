@@ -29,8 +29,8 @@ export function SubbingYourPiecesForRegularOnes({ theme }) {
                 On smaller screens the icons are in a dropdown.
             </SeeExampleButton>
             <SeeExampleButton
-                smSrc={"/Images/Help/thin/subbing piece.gif"}
-                lgSrc={"/Images/Help/thin/subbing piece.gif"}
+                smSrc={"/Images/help/thin/subbing piece.gif"}
+                lgSrc={"/Images/help/thin/subbing piece.gif"}
                 theme={theme}
             />
         </Typography>

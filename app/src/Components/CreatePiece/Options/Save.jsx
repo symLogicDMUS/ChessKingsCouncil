@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Portal } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
 import { StandardModal } from "../../Reuseables/Modals/StandardModal";
 import { getDoesPieceNameExist } from "../../../API/getDoesPieceNameExist";
 import { containsInvalidCharacters } from "../../helpers/containsInvalidCharacters";
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
-import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
 
 const Option = React.lazy(() => import("../../Reuseables/Clickables/Option"));
 const ToolButton = React.lazy(() =>
@@ -98,7 +98,7 @@ function Save(props) {
                     setMessage(
                         `A piece named ${pieceName} already exists. Do you want to replace it? `
                     );
-                    setModal("confirm");
+                    setModal("replace");
                     break;
                 default:
                     break;
@@ -113,7 +113,7 @@ function Save(props) {
 
     return (
         <>
-            {modal === "confirm" ? (
+            {modal === "replace" ? (
                 <Portal>
                     <StandardModal
                         title={message}
@@ -127,22 +127,22 @@ function Save(props) {
                                 closeModal();
                             }}
                             className={clsx(classes.button, {
-                                [classes.yes_button]: true,
+                                [classes.secondary]: true,
                             })}
-                            variant={"contained"}
+                            variant={"text"}
                         >
-                            Yes
+                            Replace
                         </Button>
                         <Button
                             onClick={() => {
                                 closeModal();
                             }}
                             className={clsx(classes.button, {
-                                [classes.no_button]: true,
+                                [classes.primary]: true,
                             })}
                             variant={"contained"}
                         >
-                            No
+                            Cancel
                         </Button>
                     </StandardModal>
                 </Portal>

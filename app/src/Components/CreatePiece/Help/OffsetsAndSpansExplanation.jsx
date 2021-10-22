@@ -65,8 +65,8 @@ export function OffsetsAndSpansExplanation(props) {
                         same square again to remove the offset.
                         <SeeExampleButton
                             theme={props.theme}
-                            smSrc={"/Images/Help/thin/offsets.gif"}
-                            lgSrc={"/Images/Help/wide/offsets.gif"}
+                            smSrc={"/Images/help/thin/offsets.gif"}
+                            lgSrc={"/Images/help/wide/offsets.gif"}
                         />
                     </Typography>
                     <Typography className={classes2.text} paragraph>
@@ -92,15 +92,15 @@ export function OffsetsAndSpansExplanation(props) {
                         click it again to remove it.
                         <SeeExampleButton
                             theme={props.theme}
-                            smSrc={"/Images/Help/wide/arrow buttons.gif"}
-                            lgSrc={"/Images/Help/wide/arrow buttons.gif"}
+                            smSrc={"/Images/help/wide/arrow buttons.gif"}
+                            lgSrc={"/Images/help/wide/arrow buttons.gif"}
                         />
                         On smaller screens, the arrow buttons will appear on the
                         squares themselves by clicking the{" "}
                         <SeeExampleButton
                             theme={props.theme}
-                            lgSrc={"/Images/Help/thin/spans icon.png"}
-                            smSrc={"/Images/Help/thin/spans icon.png"}
+                            lgSrc={"/Images/help/thin/spans icon.png"}
+                            smSrc={"/Images/help/thin/spans icon.png"}
                             isText={true}
                         >
                             spans button in the right hand side icon column.

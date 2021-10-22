@@ -60,7 +60,7 @@ export const useStyles = makeStyles(
             height: arrowSizeSm,
         }),
         vector_active_sm: (props) => ({
-            color: themes[props.theme].button_text,
+            color: themes[props.theme].text,
         }),
 
         vector_inactive_sm: (props) => ({
@@ -82,7 +82,7 @@ export const useStyles = makeStyles(
             height: "2.15vw",
         }),
         vector_active_lg: (props) => ({
-            color: themes[props.theme].button_text,
+            color: themes[props.theme].arrow_inactive,
         }),
         vector_inactive_lg: (props) => ({
             color: themes[props.theme].text,

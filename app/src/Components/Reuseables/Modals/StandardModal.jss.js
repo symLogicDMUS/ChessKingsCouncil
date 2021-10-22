@@ -47,14 +47,15 @@ export const useStyles = makeStyles(
             height: "1rem",
         }),
         button: (props) => ({
-            color: themes[props.theme].modal_actions,
-            backgroundColor: themes[props.theme].button_fill,
             width: "6.5rem",
         }),
-        yes_button: (props) => ({
+        primary: (props) => ({
+            color: themes[props.theme].button_text,
+            backgroundColor: themes[props.theme].button_fill,
             marginRight: 12,
         }),
-        no_button: (props) => ({
+        secondary: (props) => ({
+            color: themes[props.theme].modal_actions,
             marginLeft: 12,
         }),
     },

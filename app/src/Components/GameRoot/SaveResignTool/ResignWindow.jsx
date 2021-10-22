@@ -1,9 +1,8 @@
 import React from "react";
 import clsx from "clsx";
-import { Portal } from "@material-ui/core";
+import {Button, Portal} from "@material-ui/core";
 import { StandardModal } from "../../Reuseables/Modals/StandardModal";
-import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
-import { useStyles } from "./SaveResignTool.jss";
+import { useStyles } from "./ResignModal.jss";
 
 function ResignWindow({ onYesClick, onNoClick, theme }) {
     const classes = useStyles({ theme });
@@ -15,26 +14,26 @@ function ResignWindow({ onYesClick, onNoClick, theme }) {
                 theme={theme}
                 closeClick={onNoClick}
             >
-                <MuiButton
+                <Button
                     theme={theme}
-                    variant={"outline"}
+                    variant={"text"}
                     className={clsx(classes.button, {
-                        [classes.yes_button]: true,
+                        [classes.secondary]: true,
                     })}
                     onClick={onYesClick}
                 >
-                    Yes
-                </MuiButton>
-                <MuiButton
+                    Resign
+                </Button>
+                <Button
                     theme={theme}
-                    variant={"outline"}
+                    variant={"contained"}
                     className={clsx(classes.button, {
-                        [classes.no_button]: true,
+                        [classes.primary]: true,
                     })}
                     onClick={onNoClick}
                 >
-                    No
-                </MuiButton>
+                    Cancel
+                </Button>
             </StandardModal>
         </Portal>
     );

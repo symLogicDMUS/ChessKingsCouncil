@@ -55,22 +55,22 @@ function ResignModal({ resign, toggleMiniVariantTool, className, theme }) {
             </span>
             <span className={classes.buttons}>
                 <Button
-                    variant={"contained"}
+                    variant={"text"}
                     className={clsx(classes.button, {
-                        [classes.yes_button]: true,
+                        [classes.secondary]: true,
                     })}
                     onClick={yesClick}
                 >
-                    Yes
+                    Resign
                 </Button>
                 <Button
                     variant={"contained"}
                     className={clsx(classes.button, {
-                        [classes.no_button]: true,
+                        [classes.primary]: true,
                     })}
                     onClick={noClick}
                 >
-                    No
+                    Cancel
                 </Button>
             </span>
         </motion.div>

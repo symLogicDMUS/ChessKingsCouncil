@@ -19,7 +19,7 @@ export const useStyles = makeStyles(
             },
         }),
         promote_button: (props) => ({
-            padding: "0.5vw",
+            // padding: "0.5vw",
             cursor: "pointer",
             display: "flex",
             flexDirection: "row",
@@ -53,11 +53,6 @@ export const useStyles = makeStyles(
         icon2: (props) => ({
             marginLeft: "0.5rem",
             padding: 0,
-            "& .MuiSvgIcon-root": {
-                width: "2.25rem",
-                height: "2.25rem",
-                transform: "translate(0, 0.15rem)",
-            },
         }),
         text: (props) => ({
             fontSize: "1.25rem",
@@ -65,7 +60,6 @@ export const useStyles = makeStyles(
         }),
         piece_name: (props) => ({
             color: "#fff",
-            fontSize: "2.5rem",
         }),
         piece_img: (props) => ({
             height: "2.5rem",

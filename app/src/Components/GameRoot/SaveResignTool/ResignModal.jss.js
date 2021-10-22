@@ -23,15 +23,14 @@ export const useStyles = makeStyles(
             alignContent: "center",
             justifyContent: "center",
         }),
-        button: (props) => ({
-            color: themes[props.theme].text,
-            backgroundColor: themes[props.theme].fill2,
-        }),
-        yes_button: (props) => ({
-            marginRight: "0.6rem",
-        }),
-        no_button: (props) => ({
+        button: (props) => ({}),
+        primary: (props) => ({
             marginLeft: "0.6rem",
+            backgroundColor: themes[props.theme].button_fill,
+        }),
+        secondary: (props) => ({
+            marginRight: "0.6rem",
+            color: themes[props.theme].button_fill,
         }),
     },
     { index: 1 }
