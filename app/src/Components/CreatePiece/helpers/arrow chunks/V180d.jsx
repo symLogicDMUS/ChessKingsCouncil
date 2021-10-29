@@ -1,11 +1,11 @@
 import { useStyles } from "./ArrowChunk.jss";
-import {useContext} from "react";
-import {ThemeContext} from "../../../../Context/ThemeContext";
+import { useContext } from "react";
+import { ThemeContext } from "../../../../Context/ThemeContext";
 
 export function V180d() {
-    const {themes, themesDispatch} = useContext(ThemeContext);
+    const { themes, themesDispatch } = useContext(ThemeContext);
 
-    const classes = useStyles({theme: themes.createPiece});
+    const classes = useStyles({ theme: themes.createPiece });
 
     return (
         <svg
@@ -14,15 +14,11 @@ export function V180d() {
             width="24px"
             className={classes.arrowChunk}
         >
-            <path
-                d="M0 0h24v24H0V0z"
-                fill="none"
-                id="path2" />
+            <path d="M0 0h24v24H0V0z" fill="none" id="path2" />
             <path
                 d="m 2.5000529,11.792851 3.9999619,3.999962 1.38e-5,-2.999986 14.9999274,-7.1e-5 10e-6,-1.99999 -14.9999283,7.1e-5 1.51e-5,-2.9999856 z"
                 id="path4"
             />
         </svg>
-
-    )
+    );
 }

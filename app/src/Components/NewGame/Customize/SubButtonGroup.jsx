@@ -6,7 +6,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { themes } from "../../styles/themes/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SubButtonGroup.jss";
-import {darken} from "@material-ui/core/styles";
+import { darken } from "@material-ui/core/styles";
 
 export function SubButtonGroup({
     theme,
@@ -24,7 +24,7 @@ export function SubButtonGroup({
 }) {
     const classes = useStyles({ theme: theme });
 
-    const outlineColor = darken(themes[theme].text, 0.5)
+    const outlineColor = darken(themes[theme].text, 0.5);
 
     return (
         <div className={classes.root}>

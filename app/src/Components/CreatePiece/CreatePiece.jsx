@@ -22,7 +22,7 @@ import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
 import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {getRfBoardAllNull} from "../helpers/getRfBoardAllNull";
+import { getRfBoardAllNull } from "../helpers/getRfBoardAllNull";
 import AskLoginButton from "../Home/Sign In/AskLoginButton";
 import CreatePieceTitle from "./Title/CreatePieceTitle";
 import { UserContext } from "../../Context/UserContext";
@@ -246,15 +246,19 @@ class CreatePiece extends React.Component {
      * */
     setArrowChunksBoard = () => {
         for (let angle of Object.keys(this.spans)) {
-            this.arrowChunksBoard =
-                getNewArrowChunksBoard(this.arrowChunksBoard, this.spanDisplays, this.location, angle);
+            this.arrowChunksBoard = getNewArrowChunksBoard(
+                this.arrowChunksBoard,
+                this.spanDisplays,
+                this.location,
+                angle
+            );
         }
-    }
+    };
 
     /**used by the Reset Option button, called by this.reset()*/
     resetArrowChunksBoard = () => {
         this.arrowChunksBoard = getRfBoardAllNull();
-    }
+    };
 
     /**used by Range tool*/
     toggleSpan = (angle) => {

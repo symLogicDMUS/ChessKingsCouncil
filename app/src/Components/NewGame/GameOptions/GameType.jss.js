@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles(
     {
         game_type: (props) => ({
-            width: "27.5%",
+            width: "35%",
             cursor: "pointer",
         }),
     },

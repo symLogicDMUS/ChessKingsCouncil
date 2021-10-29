@@ -123,11 +123,6 @@ function App() {
                                     path="/MyPieces"
                                     component={MyPieces}
                                 />
-                                <Route
-                                    exact
-                                    path="/CouncilRules"
-                                    component={CouncilRules}
-                                />
                                 <Route component={NotFound} />
                             </Switch>
                         </HelpContext.Provider>

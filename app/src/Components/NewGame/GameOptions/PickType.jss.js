@@ -41,9 +41,13 @@ export const useStyles = makeStyles(
             fill: mech(props.theme)
                 ? themes[props.theme].text_alt3
                 : themes[props.theme].page_link,
+            stroke: mech(props.theme)
+                ? themes[props.theme].text_alt3
+                : themes[props.theme].page_link,
         }),
         selected: (props) => ({
             fill: themes[props.theme].page_link_hover,
+            stroke: themes[props.theme].page_link_hover,
         }),
     },
     { index: 1 }

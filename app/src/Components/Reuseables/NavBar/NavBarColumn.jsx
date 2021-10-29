@@ -224,25 +224,6 @@ function NavBarColumn(props) {
                     }
                 />
                 <Tab
-                    id={"CouncilRules"}
-                    onClick={(event) => {
-                        event.preventDefault();
-                    }}
-                    label={
-                        <NavBarButton
-                            key="/CouncilRules"
-                            path="/CouncilRules"
-                            pageName="Council Rules"
-                            pageIcon="council-rules"
-                            isLocalLink={true}
-                            theme={theme}
-                            screenCase={screenCase}
-                            currentPage={currentPage}
-                            isUnsavedChanges={isUnsavedChanges}
-                        />
-                    }
-                />
-                <Tab
                     id={"AuthorGithub"}
                     onClick={(event) => {
                         event.preventDefault();

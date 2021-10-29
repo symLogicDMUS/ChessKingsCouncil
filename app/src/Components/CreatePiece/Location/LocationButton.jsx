@@ -51,7 +51,11 @@ const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
                         [classes.button_selected]: selected,
                     })}
                     variant="outlined"
-                    style={{color: selected ? themes[theme].button_text : themes[theme].text}}
+                    style={{
+                        color: selected
+                            ? themes[theme].button_text
+                            : themes[theme].text,
+                    }}
                 >
                     {children}
                 </Button>

@@ -45,14 +45,18 @@ function SaveAs({ changeName, save, close, theme }) {
             <DialogActions className={classes.dialog_actions}>
                 <Button
                     onClick={save}
-                    className={clsx(classes.button, {[classes.primary]: true})}
+                    className={clsx(classes.button, {
+                        [classes.primary]: true,
+                    })}
                     variant={"contained"}
                 >
                     Save
                 </Button>
                 <Button
                     onClick={close}
-                    className={clsx(classes.button, {[classes.secondary]: true})}
+                    className={clsx(classes.button, {
+                        [classes.secondary]: true,
+                    })}
                     variant={"text"}
                 >
                     Cancel

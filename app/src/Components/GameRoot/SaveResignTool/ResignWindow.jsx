@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import {Button, Portal} from "@material-ui/core";
+import { Button, Portal } from "@material-ui/core";
 import { StandardModal } from "../../Reuseables/Modals/StandardModal";
 import { useStyles } from "./ResignModal.jss";
 

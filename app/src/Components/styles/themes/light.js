@@ -39,7 +39,7 @@ export const light = {
     sqr_hover: "rgba(255, 255, 255, 0.3)",
     sqr_hover_alt: "#253b73",
     page_link: "#253b73",
-    page_link_hover: "#253b9b",
+    page_link_hover: "#1a73e8",
     drawer_outline: "#373737",
     switch_active: "#cdcdcd",
     title: "#253b73",

@@ -4,7 +4,6 @@ import { GameType } from "./GameType";
 import Box from "@material-ui/core/Box";
 import { ReactComponent as Standard } from "./svg/game types/Standard.svg";
 import { ReactComponent as Custom } from "./svg/game types/Custom.svg";
-import { ReactComponent as Council } from "./svg/game types/Council.svg";
 import { ReactComponent as Title } from "./svg/text/Pick Type.svg";
 import { useStyles as useMoreStyles } from "../NewGame.jss";
 import { themes } from "../../styles/themes/themes.jss";
@@ -28,21 +27,6 @@ function PickType({ gameType, setGameType, theme }) {
             />
             <Box className={classes.game_types}>
                 <GameType
-                    gameType="Standard"
-                    setGameType={setGameType}
-                    selectedType={gameType}
-                    theme={theme}
-                >
-                    <Standard
-                        style={gameTypeStyle}
-                        className={clsx({
-                            [classes.normal]: gameType !== "Standard",
-                            [classes.selected]: gameType === "Standard",
-                        })}
-                    />
-                </GameType>
-                <div className={classes.game_types_divider} />
-                <GameType
                     gameType="Custom"
                     setGameType={setGameType}
                     selectedType={gameType}
@@ -56,18 +40,18 @@ function PickType({ gameType, setGameType, theme }) {
                         })}
                     />
                 </GameType>
-                <div className={classes.game_types_divider} />
+                <div className={classes.game_types_divider}/>
                 <GameType
-                    gameType="Council"
+                    gameType="Standard"
                     setGameType={setGameType}
                     selectedType={gameType}
                     theme={theme}
                 >
-                    <Council
+                    <Standard
                         style={gameTypeStyle}
                         className={clsx({
-                            [classes.normal]: gameType !== "Council",
-                            [classes.selected]: gameType === "Council",
+                            [classes.normal]: gameType !== "Standard",
+                            [classes.selected]: gameType === "Standard",
                         })}
                     />
                 </GameType>

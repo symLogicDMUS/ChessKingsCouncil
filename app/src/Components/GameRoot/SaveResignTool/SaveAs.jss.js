@@ -65,7 +65,7 @@ export const useStyles = makeStyles(
         }),
         primary: (props) => ({
             color: themes[props.theme].button_text,
-            backgroundColor: themes[props.theme].button_fill
+            backgroundColor: themes[props.theme].button_fill,
         }),
         secondary: (props) => ({
             color: themes[props.theme].button_fill,

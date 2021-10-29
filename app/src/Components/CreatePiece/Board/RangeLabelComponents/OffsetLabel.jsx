@@ -25,10 +25,12 @@ export function OffsetLabel({ offset, showOffsetText, theme }) {
             {showOffsetText && (
                 <Box className={classes2.sqr_text}>
                     <OffsetInt theme={theme}>
-                        {xSign}{Math.abs(offset[0])}
+                        {xSign}
+                        {Math.abs(offset[0])}
                     </OffsetInt>
                     <OffsetInt theme={theme}>
-                        {ySign}{Math.abs(offset[1])}
+                        {ySign}
+                        {Math.abs(offset[1])}
                     </OffsetInt>
                 </Box>
             )}

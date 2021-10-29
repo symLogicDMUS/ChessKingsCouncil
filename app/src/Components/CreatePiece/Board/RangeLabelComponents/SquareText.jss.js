@@ -20,12 +20,12 @@ export const useStyles = makeStyles(
     {
         sqr_text: (props) => ({
             margin: "auto",
-            display: 'flex',
+            display: "flex",
             "@media (max-width:600px)": {
-                flexDirection: 'column',
+                flexDirection: "column",
             },
             "@media (min-width: 600px)": {
-                flexDirection: 'row',
+                flexDirection: "row",
             },
             "@media screen and (max-width: 360px)": {
                 width: "10vw",

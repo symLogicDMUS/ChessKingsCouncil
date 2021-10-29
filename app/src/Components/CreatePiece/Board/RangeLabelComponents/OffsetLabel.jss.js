@@ -1,7 +1,8 @@
-import {makeStyles} from "@material-ui/styles";
+import { makeStyles } from "@material-ui/styles";
 
-export const useStyles = makeStyles((theme) => ({
-    integer: (props) => ({
-
-    })
-}), { index: 1 });
+export const useStyles = makeStyles(
+    (theme) => ({
+        integer: (props) => ({}),
+    }),
+    { index: 1 }
+);

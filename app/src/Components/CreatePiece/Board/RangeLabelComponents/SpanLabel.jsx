@@ -19,11 +19,7 @@ export function SpanLabel({ theme, showSpanText, children }) {
             height="100%"
         >
             {showSpanText && (
-                <Typography
-                    className={classes.sqr_text}
-                >
-                    {children}
-                </Typography>
+                <Typography className={classes.sqr_text}>{children}</Typography>
             )}
         </Frame>
     );

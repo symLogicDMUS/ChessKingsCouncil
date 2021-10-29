@@ -24,7 +24,7 @@ export const useStyles = makeStyles(
                 fontSize: "3.5vw",
             },
             margin: "auto",
-            color: themes[props.theme].text
+            color: themes[props.theme].text,
         }),
     },
     { index: 1 }

@@ -178,22 +178,6 @@ function NavBarRow(props) {
                             }
                         />
                         <Tab
-                            id={"CouncilRules"}
-                            label={
-                                <NavBarButton
-                                    key="/CouncilRules"
-                                    path="/CouncilRules"
-                                    pageName="Council Rules"
-                                    pageIcon="council-rules"
-                                    isLocalLink={true}
-                                    theme={theme}
-                                    screenCase={screenCase}
-                                    currentPage={currentPage}
-                                    isUnsavedChanges={isUnsavedChanges}
-                                />
-                            }
-                        />
-                        <Tab
                             id={"AuthorGithub"}
                             label={
                                 <NavBarButton
