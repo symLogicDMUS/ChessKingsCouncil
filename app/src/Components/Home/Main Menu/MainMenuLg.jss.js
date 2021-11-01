@@ -6,19 +6,19 @@ export const topAreaHeight = 100;
 
 /* for themes not svgBannerThemes */
 export const homepageBackgroundImages = {
-    light: "move king.jpg",
-    dark: "chess white pieces.jpg",
-    tan: "king knock over king.jpg",
-    tan_dark: "king knock over king.jpg",
-    blue: "move king.jpg",
-    NBA: "swish.jpg",
+    light: "move king.png",
+    dark: "chess black pawns.png",
+    tan: "king knock over king.png",
+    tan_dark: "king knock over king.png",
+    blue: "move king.png",
+    NBA: "swish.png",
     mechwarrior_a_team: "red desert 2.png",
     mechwarrior_b_team: "red desert 2.png",
-    star_wars: "a long time ago.svg",
-    red_blue: "chess white pieces.jpg",
-    dark_alt: "chess white pieces.jpg",
-    red_blue_alt: "chess white pieces.jpg",
-    classic_dark: "chess white pieces.jpg",
+    star_wars: "death star 2.png",
+    red_blue: "chess black pawns.png",
+    dark_alt: "chess black pawns.png",
+    red_blue_alt: "chess black pawns.png",
+    classic_dark: "chess black pawns.png",
 };
 
 export const bannerStyle = (theme) => ({
@@ -31,7 +31,8 @@ export const useStyles = makeStyles(
     {
         banner: (props) => ({
             zIndex: -1,
-            width: "100vw",
+            height: "100vh",
+            minWidth: "100vw",
             position: "fixed",
             top: 0,
         }),
@@ -52,11 +53,30 @@ export const useStyles = makeStyles(
             display: "flex",
             flexDirection: "column",
         }),
+        content: {
+            position: 'fixed',
+            top: '7vw',
+            left: 24,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 'auto'
+        },
         title: (props) => ({
+            width: '50vw',
             fill: themes[props.theme].title,
-            height: topAreaHeight * 0.65,
-            margin: "auto",
         }),
+        subtitle: (props) => ({
+            width: '35vw',
+            minWidth: 400,
+            fill: themes[props.theme].title,
+        }),
+        watch_demo: {
+            position: 'fixed',
+            top: '45vh',
+            left: '20vw',
+        },
         navBar: (props) => ({
             "& .MuiListItemText-primary": {
                 color: themes[props.theme].title,
@@ -67,7 +87,46 @@ export const useStyles = makeStyles(
             "& .MuiTypography-root": {
                 color: themes[props.theme].title,
             },
+            "& .MuiListItem-root": {
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                "&:hover": {
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderBottom: `2px solid ${themes[props.theme].title}`,
+                }
+            },
+            "& .MuiButton-root": {
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                "&:hover": {
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderBottom: `2px solid ${themes[props.theme].title}`,
+                }
+            },
         }),
+        demo: (props) => ({
+            width: "100vw",
+            position: "absolute",
+            top: 48,
+            height: `calc(100vh - 48px)`,
+            display: "flex",
+            flexDirection: "column",
+        }),
+        iframe: {
+            "--height1": `calc(100vh - 48px)`,
+            "--height2": `calc(var(--height1) - 6rem)`,
+            width: "calc(var(--height2) * 1.7769)",
+            height: "var(--height2)",
+            margin: "auto",
+        },
+        about: {
+            "@media (max-width:960px)": {
+                width: "100vw",
+            },
+            "@media (min-width:960px)": {
+                width: "60vw",
+            },
+            marginLeft: "auto",
+            marginRight: "auto",
+        },
         page_links: (props) => ({
             display: "flex",
         }),

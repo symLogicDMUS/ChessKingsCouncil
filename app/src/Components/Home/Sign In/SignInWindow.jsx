@@ -11,7 +11,7 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { KeyboardBackspace } from "@material-ui/icons";
 import "../../styles/Background/_backgrounds.scss";
-import { useStyles } from "./SignInWindow.jss";
+import { fontColor, useStyles } from "./SignInWindow.jss";
 
 function SignInWindow({ goBack }) {
     const [helpReminder, setHelpReminder] = useState(false);
@@ -49,6 +49,7 @@ function SignInWindow({ goBack }) {
                         <Box className={classes.buttons}>
                             <Typography
                                 className={classes.help_reminder}
+                                style={fontColor}
                                 variant="h5"
                                 paragraph
                             >

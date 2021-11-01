@@ -14,7 +14,6 @@ import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
 import { getBinaryBoardAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { replacePawnIdWithCurrentLoc } from "../helpers/replacePawnIdWithCurrentLoc";
 import { kingStartingRf, rookStartingRf } from "../helpers/castleRankfiles";
-import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
 import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
 import { update } from "../../game_logic/callHierarchyTop/update";
@@ -120,26 +119,14 @@ class GameRoot extends React.Component {
      * called after a move is made. update the game reducers so know where other player can now move.
      * */
     updateTurnData = () => {
-        let turnData;
-        if (this.gameType === "council") {
-            turnData = updateCouncil(
-                this.board,
-                this.jsonRecords,
-                this.turn,
-                this.playerType,
-                this.defs,
-                this.idDict
-            );
-        } else {
-            turnData = update(
-                this.board,
-                this.jsonRecords,
-                this.turn,
-                this.playerType,
-                this.defs,
-                this.idDict
-            );
-        }
+        let turnData = update(
+            this.board,
+            this.jsonRecords,
+            this.turn,
+            this.playerType,
+            this.defs,
+            this.idDict
+        );
 
         this.ranges = turnData.ranges;
         this.enemyRanges = turnData.enemyRanges;

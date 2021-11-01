@@ -40,7 +40,7 @@ export const tan = {
     switch_active: "#d7bb99",
     modal_actions: "#90caf9",
     location_sqr: "#fff172",
-    title: "#d7bb99",
+    title: "#000",
     text_link: "#551a8b",
     menu_container: "#000",
     site_description_backdrop: "rgba(0, 0, 0, 0)",

@@ -33,9 +33,7 @@ const CreatePiece = React.lazy(() =>
 const Customize = React.lazy(() =>
     import("./Components/NewGame/Customize/Customize")
 );
-const CouncilRules = React.lazy(() =>
-    import("./Components/CouncilRules/CouncilRules")
-);
+
 const NotFound = React.lazy(() => import("./Components/Home/NotFound"));
 
 function App() {

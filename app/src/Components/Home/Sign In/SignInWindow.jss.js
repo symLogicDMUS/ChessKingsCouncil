@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const fontColor = {
-    color: "#000",
+    color: "#fff",
 };
 
 export const useStyles = makeStyles(
@@ -72,11 +72,11 @@ export const useStyles = makeStyles(
             left: "7.5vw",
             textAlign: "center",
             "& .MuiButton-root": {
-                color: "#253b73",
+                color: "#fff",
                 marginLeft: "0.5rem",
             },
             "& .MuiTypography-root": {
-                color: "#253b73",
+                color: "#fff",
             },
         }),
         fill: (props) => ({

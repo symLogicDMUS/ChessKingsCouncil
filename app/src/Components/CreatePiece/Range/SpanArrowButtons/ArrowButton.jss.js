@@ -82,7 +82,7 @@ export const useStyles = makeStyles(
             height: "2.15vw",
         }),
         vector_active_lg: (props) => ({
-            color: themes[props.theme].arrow_inactive,
+            color: themes[props.theme].text,
         }),
         vector_inactive_lg: (props) => ({
             color: themes[props.theme].text,

@@ -6,7 +6,6 @@ import "../styles/Background/_backgrounds.scss";
 import { deleteGame } from "../../API/deleteGame";
 import { filterSamples } from "../../API/filterSamples";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { Background } from "../styles/Background/Background";
 import { getSampleGames } from "../../API/sampleData/getSampleGames";
 import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";

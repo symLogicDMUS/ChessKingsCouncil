@@ -111,6 +111,10 @@ export default function MainMenuSm({ theme, toggleAboutPage }) {
                 })}
             >
                 <div className={classes.drawerHeader} />
+                <iframe
+                    className={classes.iframe}
+                    src="https://youtu.be/JMfDZIoA5xA"
+                />
                 <MainMenuBody theme={theme} />
             </main>
         </div>

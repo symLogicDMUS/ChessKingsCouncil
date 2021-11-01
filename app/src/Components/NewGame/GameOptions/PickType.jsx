@@ -40,7 +40,7 @@ function PickType({ gameType, setGameType, theme }) {
                         })}
                     />
                 </GameType>
-                <div className={classes.game_types_divider}/>
+                <div className={classes.game_types_divider} />
                 <GameType
                     gameType="Standard"
                     setGameType={setGameType}

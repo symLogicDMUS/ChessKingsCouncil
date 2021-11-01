@@ -25,15 +25,7 @@ export const useStyles = makeStyles(
         content: (props) => ({
             width: "100%",
             flexGrow: 10,
-            paddingTop: "7.5vw",
-            "@media screen and (max-width: 768px)": {
-                paddingLeft: "7.5vw",
-                paddingRight: "7.5vw",
-            },
-            "@media screen and (min-width: 768px)": {
-                paddingLeft: "11.25vw",
-                paddingRight: "11.25vw",
-            },
+            // paddingTop: "7.5vw",
         }),
     }),
     { index: 1 }

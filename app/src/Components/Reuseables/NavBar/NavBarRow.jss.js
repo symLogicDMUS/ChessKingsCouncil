@@ -73,6 +73,9 @@ export const useStyles = makeStyles(
                 height: "1rem",
                 color: themes[props.theme].text,
             },
+            "& .MuiTypography-root": {
+                color: themes[props.theme].text,
+            },
         }),
     }),
     { index: 1 }

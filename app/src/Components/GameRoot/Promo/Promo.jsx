@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import ForwardIcon from "@material-ui/icons/Forward";
 import { ArrowLeft, ArrowRight } from "@material-ui/icons";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {Backdrop, Button, IconButton, Portal} from "@material-ui/core";
+import { Backdrop, Button, IconButton, Portal } from "@material-ui/core";
 import { standardPieceNames } from "../../helpers/standardPieceNames";
 import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
 import { specialThemeList } from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
@@ -215,7 +215,7 @@ function Promo(props) {
                         <Button
                             size={"large"}
                             className={classes.icon}
-                            style={{opacity: 0.6}}
+                            style={{ opacity: 0.6 }}
                             startIcon={<ListAltIcon size={"small"} />}
                             onClick={() => setProfileModal(true)}
                         >

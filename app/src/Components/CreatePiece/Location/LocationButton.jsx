@@ -4,6 +4,7 @@ import { Frame } from "framer";
 import MediaQuery from "react-responsive/src";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
+import { themes } from "../../styles/themes/themes.jss";
 import { useStyles as useMoreStyles } from "../../Reuseables/Clickables/Option.jss";
 import {
     clickAnimation,
@@ -11,7 +12,6 @@ import {
     frame,
     useStyles,
 } from "./LocationButton.jss";
-import { themes } from "../../styles/themes/themes.jss";
 
 const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
     const classes = useStyles({ theme: theme, rf: rf });

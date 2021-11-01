@@ -67,4 +67,24 @@ export const useStyles = makeStyles((theme) => ({
     title: (props) => ({
         flexGrow: 1,
     }),
+    demo: (props) => ({
+        width: "100vw",
+        border: "3px dashed red",
+        height: `calc(100vh - 100px - 48px)`,
+        display: "flex",
+        flexDirection: "column",
+    }),
+    iframe: {
+        "@media (max-width:960px)": {
+            width: "100vw",
+            height: `calc(100vw * 0.56277)`,
+        },
+        "@media (min-width:960px)": {
+            width: "60vw",
+            height: `calc(60vw * 0.56277)`,
+        },
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: "2.5%",
+    },
 }));

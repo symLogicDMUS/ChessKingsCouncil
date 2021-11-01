@@ -1,6 +1,5 @@
 import { Fen } from "../../game_logic/fenParser/Fen";
 import { getTurnData } from "../../game_logic/callHierarchyTop/getTurnData";
-import { getTurnDataCouncil } from "../../game_logic/callHierarchyTop/getTurnDataCouncil";
 import { getFenDict } from "../../game_logic/fenParser/getFenDict";
 import { getBoard } from "../../game_logic/fenParser/getBoard/top/getBoard";
 import { getFenData } from "../../game_logic/fenParser/GameStatus/getFenData";
@@ -29,32 +28,14 @@ export function parseData(data) {
     const color = fenObj.turn.toUpperCase();
     const enemyColor = getEnemyColor(color);
 
-    let turnData, enemyTurnData;
-    if (data.type === "council") {
-        turnData = getTurnDataCouncil(
-            board,
-            color,
-            jsonRecords,
-            pieceDefs,
-            idDict
-        );
-        enemyTurnData = getTurnDataCouncil(
-            board,
-            enemyColor,
-            jsonRecords,
-            pieceDefs,
-            idDict
-        );
-    } else {
-        turnData = getTurnData(board, color, jsonRecords, pieceDefs, idDict);
-        enemyTurnData = getTurnData(
-            board,
-            enemyColor,
-            jsonRecords,
-            pieceDefs,
-            idDict
-        );
-    }
+    let turnData = getTurnData(board, color, jsonRecords, pieceDefs, idDict);
+    let enemyTurnData = getTurnData(
+        board,
+        enemyColor,
+        jsonRecords,
+        pieceDefs,
+        idDict
+    );
 
     return {
         board: board,

@@ -74,8 +74,8 @@ export function SiteDescription({ theme }) {
     );
 
     return (
-        <Typography paragraph className={classes.paragraph}>
-            {appTitle(classes.app_title, initial(theme))}
+        <Typography className={classes.paragraph}>
+            {/*{appTitle(classes.app_title, initial(theme))}*/}
             Welcome! Create your own game of Chess with pieces that move how you
             decide! Start out by visiting the {createPieceLink}. After you save
             your piece there, visit the New Game page and choose the Custom
