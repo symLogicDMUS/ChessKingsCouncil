@@ -65,6 +65,7 @@ function MainMenuLg(props) {
                         color={"secondary"}
                         variant={"contained"}
                         startIcon={<YouTube />}
+                        onClick={() => window.location.href = "https://youtu.be/JMfDZIoA5xA"}
                     >
                         Watch Demo
                     </Button>
