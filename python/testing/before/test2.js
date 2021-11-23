@@ -14,5 +14,5 @@ const test2Before = {
     "2Fnode-green|,png": 4, //er: 5,
     "2Fnode-red|,png": 4, //er: 5,
     "2Fwhite_firehat|,svg": 2, //er: 3,
-    "2Fscream|,png": 2 //er: 3,
-}
+    "2Fscream|,png": 2, //er: 3,
+};

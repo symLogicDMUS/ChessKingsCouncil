@@ -1,6 +1,22 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes/themes.jss";
 
+export const homepageBackgroundImages = {
+    light: "move king.jpg",
+    dark: "chess black pawns.jpg",
+    tan: "king knock over king.jpg",
+    tan_dark: "king knock over king.jpg",
+    blue: "move king.jpg",
+    NBA: "swish.jpg",
+    mechwarrior_a_team: "red desert 2.png",
+    mechwarrior_b_team: "red desert 2.png",
+    star_wars: "a long time ago.svg",
+    red_blue: "chess black pawns.jpg",
+    dark_alt: "chess black pawns.jpg",
+    red_blue_alt: "chess black pawns.jpg",
+    classic_dark: "chess black pawns.jpg",
+};
+
 export const drawerWidth = 200;
 
 export const useStyles = makeStyles((theme) => ({
@@ -67,6 +83,9 @@ export const useStyles = makeStyles((theme) => ({
     title: (props) => ({
         flexGrow: 1,
     }),
+    app_title: (props) => ({
+        height: 24,
+    }),
     demo: (props) => ({
         width: "100vw",
         border: "3px dashed red",
@@ -85,6 +104,9 @@ export const useStyles = makeStyles((theme) => ({
         },
         marginLeft: "auto",
         marginRight: "auto",
-        marginTop: "2.5%",
+    },
+    banner: {
+        width: "100vw",
+        maxHeight: "50vh",
     },
 }));

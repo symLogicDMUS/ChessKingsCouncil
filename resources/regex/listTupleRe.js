@@ -1,1 +1,1 @@
-export const listTupleRe = /\[(-*\d+),\s*(-*\d+)\]/
+export const listTupleRe = /\[(-*\d+),\s*(-*\d+)\]/;

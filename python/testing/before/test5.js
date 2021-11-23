@@ -11,5 +11,5 @@ const test5Before = {
     "2Fnode-green|,png": 3, //er: 3 (in new & old),
     "2Fnode-red|,png": 1, //er: missing,
     "2Fwhite_firehat|,svg": 1, //er: missing,
-    "2Fsilver-node|,png": 2 //er: 3 (in new game),
-}
+    "2Fsilver-node|,png": 2, //er: 3 (in new game),
+};

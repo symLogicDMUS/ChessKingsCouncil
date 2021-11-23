@@ -1,4 +1,5 @@
 import { defaultThemes } from "./defaultThemes";
+import { themeSubset } from "./Components/styles/themes/themeSubset";
 
 export function reducer(state, action) {
     switch (action.type) {
@@ -47,6 +48,21 @@ export function reducer(state, action) {
                     myPieces: action.theme,
                     councilRules: action.theme,
                     home: action.theme,
+                },
+            };
+        case "rotate-home-theme":
+            let newIndex;
+            if (state.themeIndex === themeSubset.length - 1) {
+                newIndex = 0;
+            } else {
+                newIndex = state.themeIndex + 1;
+            }
+            return {
+                ...state,
+                themeIndex: newIndex,
+                themes: {
+                    ...state.themes,
+                    home: themeSubset[newIndex],
                 },
             };
         case "update-help":

@@ -54,28 +54,28 @@ export const useStyles = makeStyles(
             flexDirection: "column",
         }),
         content: {
-            position: 'fixed',
-            top: '7vw',
+            position: "fixed",
+            top: "7vw",
             left: 24,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 'auto'
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "auto",
         },
         title: (props) => ({
-            width: '50vw',
+            width: "50vw",
             fill: themes[props.theme].title,
         }),
         subtitle: (props) => ({
-            width: '35vw',
+            width: "35vw",
             minWidth: 400,
             fill: themes[props.theme].title,
         }),
         watch_demo: {
-            position: 'fixed',
-            top: '45vh',
-            left: '20vw',
+            position: "fixed",
+            top: "45vh",
+            left: "20vw",
         },
         navBar: (props) => ({
             "& .MuiListItemText-primary": {
@@ -88,18 +88,18 @@ export const useStyles = makeStyles(
                 color: themes[props.theme].title,
             },
             "& .MuiListItem-root": {
-                backgroundColor: 'rgba(0, 0, 0, 0)',
+                backgroundColor: "rgba(0, 0, 0, 0)",
                 "&:hover": {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    backgroundColor: "rgba(0, 0, 0, 0)",
                     borderBottom: `2px solid ${themes[props.theme].title}`,
-                }
+                },
             },
             "& .MuiButton-root": {
-                backgroundColor: 'rgba(0, 0, 0, 0)',
+                backgroundColor: "rgba(0, 0, 0, 0)",
                 "&:hover": {
-                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    backgroundColor: "rgba(0, 0, 0, 0)",
                     borderBottom: `2px solid ${themes[props.theme].title}`,
-                }
+                },
             },
         }),
         demo: (props) => ({

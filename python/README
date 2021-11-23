@@ -1,1 +1,1 @@
-Each directory should have it's own virtual environment instead of a shared one, in order to avoid bugs with Flask. (Each also has it's own write_json. Avoid them sharing files). 
+Each directory should have it's own virtual environment instead of a shared one, in order to avoid bugs with Flask. (Each also has it's own write_json. Avoid them sharing files).

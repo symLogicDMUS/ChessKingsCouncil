@@ -7,6 +7,7 @@ import TabBarLg from "./TabBarLg";
 function TabBar(props) {
     useEffect(() => {
         document.body.className = `${props.theme}-background`;
+        document.documentElement.className = `${props.theme}-background`;
     }, [props.theme]);
 
     return (

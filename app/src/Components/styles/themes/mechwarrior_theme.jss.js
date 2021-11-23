@@ -1,4 +1,3 @@
-const textColor = "#ff981a";
 
 export const mechwarrior_theme = {
     outline: "#2b2b2b",
@@ -6,7 +5,7 @@ export const mechwarrior_theme = {
     outline_alt2: "#363636",
     fill: "#3f3f3f",
     fill2: "#3f3f3f",
-    text: textColor,
+    text: "#ff981a",
     text_alt: "#ff981a",
     text_alt2: "#ff5309",
     text_alt3: "#1d0000",
@@ -35,13 +34,13 @@ export const mechwarrior_theme = {
     sqr_text: "#ffccbc",
     sqr_hover: "#ff0000",
     sqr_hover_alt: "#72e2ff",
-    page_link: textColor,
+    page_link: "#ff981a",
     page_link_hover: "#f9e9e9",
     drawer_outline: "#373737",
     switch_active: "#ff5309",
     modal_actions: "#90caf9",
     location_sqr: "#b80056",
-    title: textColor,
+    title: "#ff981a",
     text_link: "#fff",
     menu_container: "#3f3f3f",
     site_description_backdrop: "#3f3f3f",

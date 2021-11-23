@@ -29,6 +29,7 @@ function CreatePieceBoard(props) {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
+        document.documentElement.className = `${theme}-background`;
     }, [theme]);
 
     const isWide = useMediaQuery("(min-width: 960px)");

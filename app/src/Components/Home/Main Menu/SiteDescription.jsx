@@ -3,11 +3,12 @@ import React from "react";
 import { useContext } from "react";
 import { appTitle } from "./appTitle";
 import { Link } from "react-router-dom";
-import { Undo } from "@material-ui/icons";
+import { Undo, YouTube } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { ThemeContext } from "../../../Context/ThemeContext";
 import { initial, useStyles } from "./SiteDescription.jss";
+import ThemeRotation from "./ThemeRotation/ThemeRotation";
 
 export function SiteDescription({ theme }) {
     const { themes, themeDispatch } = useContext(ThemeContext);
@@ -75,7 +76,19 @@ export function SiteDescription({ theme }) {
 
     return (
         <Typography className={classes.paragraph}>
-            {/*{appTitle(classes.app_title, initial(theme))}*/}
+            <Button
+                fullWidth
+                size={"large"}
+                color={"secondary"}
+                variant={"contained"}
+                startIcon={<YouTube />}
+                style={{ marginBottom: "1rem" }}
+                onClick={() =>
+                    (window.location.href = "https://youtu.be/JMfDZIoA5xA")
+                }
+            >
+                Watch Demo
+            </Button>
             Welcome! Create your own game of Chess with pieces that move how you
             decide! Start out by visiting the {createPieceLink}. After you save
             your piece there, visit the New Game page and choose the Custom

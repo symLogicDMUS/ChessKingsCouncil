@@ -14,5 +14,5 @@ export const test3Before = {
     "2Fnode-green|,png": 5, //er: 4,
     "2Fnode-red|,png": 5, //er: 4,
     "2Fwhite_firehat|,svg": 3, //er: 2,
-    "2Fscream|,png": 3 //er: 2,
-}
+    "2Fscream|,png": 3, //er: 2,
+};

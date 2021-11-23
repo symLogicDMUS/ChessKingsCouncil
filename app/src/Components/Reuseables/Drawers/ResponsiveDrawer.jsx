@@ -45,6 +45,7 @@ function ResponsiveDrawer(props) {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
+        document.documentElement.className = `${theme}-background`;
     }, [theme]);
 
     return (

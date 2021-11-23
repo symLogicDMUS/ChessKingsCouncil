@@ -7,6 +7,7 @@ import { useStyles, initial } from "./MainMenuBody.jss";
 export function MainMenuBody({ theme }) {
     useEffect(() => {
         document.body.className = `${theme}-background`;
+        document.documentElement.className = `${theme}-background`;
     }, []);
 
     const classes = useStyles({ theme: theme });

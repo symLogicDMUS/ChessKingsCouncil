@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import NavBar from "../NavBar/NavBar";
-import { MainMenuBody } from "../../Home/Main Menu/MainMenuBody";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Divider from "@material-ui/core/Divider";
+import { NavBarHome } from "../NavBar/NavBarHome";
 import { useTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { MainMenuBody } from "../../Home/Main Menu/MainMenuBody";
 import SignInOutButton from "../../Home/Sign In/SignInOutButton";
-import { useStyles } from "./MainMenuSm.jss";
-import { NavBarHome } from "../NavBar/NavBarHome";
+import { useStyles, homepageBackgroundImages } from "./MainMenuSm.jss";
+import ThemeRotation from "../../Home/Main Menu/ThemeRotation/ThemeRotation";
+import {appBarHeight} from "./ResponsiveDrawer.jss";
 
 export default function MainMenuSm({ theme, toggleAboutPage }) {
     const classes = useStyles({ theme: theme });
@@ -23,6 +25,7 @@ export default function MainMenuSm({ theme, toggleAboutPage }) {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
+        document.documentElement.className = `${theme}-background`;
     }, [theme]);
 
     const [open, setOpen] = useState(false);
@@ -64,7 +67,7 @@ export default function MainMenuSm({ theme, toggleAboutPage }) {
                         noWrap
                         variant="button"
                     >
-                        Main Menu
+                        Chess King's Council
                     </Typography>
                     <SignInOutButton theme={theme} />
                 </Toolbar>
@@ -111,12 +114,14 @@ export default function MainMenuSm({ theme, toggleAboutPage }) {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <iframe
-                    className={classes.iframe}
-                    src="https://youtu.be/JMfDZIoA5xA"
+                <img
+                    className={classes.banner}
+                    src={`/Images/home page background images/sm/${homepageBackgroundImages[theme]}`}
+                    alt=""
                 />
                 <MainMenuBody theme={theme} />
             </main>
+            <ThemeRotation variant={"sm"} />
         </div>
     );
 }

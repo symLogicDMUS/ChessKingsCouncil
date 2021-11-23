@@ -5,6 +5,7 @@ export const appDefaultState = {
     isSignedIn: false,
     isAnonymous: false,
     themes: defaultThemes,
+    themeIndex: 0, // home page rotation
     help: {
         NewGame: true,
         LoadGame: true,
