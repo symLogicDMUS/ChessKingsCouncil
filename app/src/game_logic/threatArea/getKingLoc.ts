@@ -1,12 +1,16 @@
 import { rfToXy } from "../coordType/crdCnvrt";
 import { getPieceType } from "../pieceType/getPieceType";
 import { getColor } from "../color/getColor";
+import XY from "../types/XY";
+import Board from "../types/Board";
+import Color from "../types/Color";
+import Rankfile from "../types/Rankfile";
 
-export function getKingLoc(board, color) {
+export function getKingLoc(board: Board, color: Color): XY {
     /*get the location of the king of given color NOTE: in the modified chess can return list instead of single item**/
-    var locs = Object.keys(board).filter(
-        (s) => getPieceType(board[s]) === "K" && getColor(board[s]) === color
-    );
+    const locs: Rankfile [] = Object.keys(board).filter(
+        (s: Rankfile) => getPieceType(board[s]) === "K" && getColor(board[s]) === color
+    ) as Rankfile [];
     return rfToXy(locs[0]);
 }
 

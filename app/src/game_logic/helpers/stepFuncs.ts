@@ -1,6 +1,8 @@
 /**
 methods are numbered by, and order.includes(listed) of, degrees counterclockwise from x axis.
 */
+import Angle from "../types/Angle";
+
 export function step_1sqr0d(x, y) {
     /*step 1 square 0 degrees**/
     x += 1;
@@ -53,7 +55,7 @@ export function step_1sqr315d(x, y) {
     return [x, y];
 }
 
-export var angles = [
+export var angles: Angle [] = [
     "90d",
     "45d",
     "0d",

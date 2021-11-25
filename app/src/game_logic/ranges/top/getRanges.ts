@@ -5,14 +5,20 @@ import { getRange } from "../getRange";
 import { getColor } from "../../color/getColor";
 import { rfToXy } from "../../coordType/crdCnvrt";
 import { SpecialMoves } from "../specialMoves/SpecialMoves";
+import Board from "../../types/Board";
+import Color from "../../types/Color";
+import IdDict from "../../types/IdDict";
+import PieceDef from "../../types/PieceDef";
+import Rankfile from "../../types/Rankfile";
+import SqrContent from "../../types/SqrContent";
 
 export function getRanges(
-    board,
-    color,
+    board: Board,
+    color: Color,
     ranges,
     jsonRecords,
-    pieceDefs,
-    idDict
+    pieceDefs: PieceDef [],
+    idDict: IdDict
 ) {
     /**get the range of every piece on board of specific color, including special moves
      these ranges are initial ranges. They don't take into consideration if the move endangers the king || not. This is
@@ -25,7 +31,7 @@ export function getRanges(
     let pieceType, pieceRange;
     let specialMoves = new SpecialMoves(null);
 
-    for (const [rf, id] of Object.entries(board)) {
+    for (const [rf, id] of Object.entries(board) as [Rankfile, SqrContent] []) {
         if (id === "#") {
             continue;
         }

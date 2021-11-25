@@ -4,8 +4,12 @@ import { getPiecesOnPath } from "./getPiecesOnPath";
 import { getStatuses } from "./getStatuses";
 import { getPieceMatchesPath } from "./getPieceMatchesPath";
 import { stepFuncDict } from "../helpers/stepFuncs";
+import Board from "../types/Board";
+import XY from "../types/XY";
+import Color from "../types/Color";
+import PieceDef from "../types/PieceDef";
 
-export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
+export function getPathData(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict, pathDir) {
     /*get all info about a path on board determined by step function stemming from sqr**/
     const stepFunc = stepFuncDict["step_1sqr" + pathDir];
     let [x, y] = [...sqr];

@@ -1,7 +1,10 @@
 import { isPiece } from "../pieceType/isPiece";
 import { getColor } from "../color/getColor";
+import Board from "../types/Board";
+import Color from "../types/Color";
+import Range from "../types/Range";
 
-export function getResetPieceDicts(board, color) {
+export function getResetPieceDicts(board: Board, color: Color) {
     /*create &&  return dicts for the initial ranges, pins, mt-restrictions &&  final ranges, of pieces on board**/
 
     const initRanges = {};
@@ -16,10 +19,10 @@ export function getResetPieceDicts(board, color) {
         if (getColor(id) !== color) {
             continue;
         }
-        initRanges[id] = [];
-        pins[id] = [];
-        mtRestricts[id] = [];
-        finalRanges[id] = [];
+        initRanges[id] = <Range>[];
+        pins[id] = <Range>[];
+        mtRestricts[id] = <Range>[];
+        finalRanges[id] = <Range>[];
     }
 
     return [initRanges, pins, mtRestricts, finalRanges];

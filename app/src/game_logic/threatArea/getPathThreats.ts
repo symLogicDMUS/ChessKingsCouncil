@@ -1,12 +1,17 @@
 import { getPathdataDict } from "../pathsInfo/top/getpathDataDict";
 import { getIndexFirstPiece } from "../pathsInfo/getIndexFirstPiece";
+import Board from "../types/Board";
+import XY from "../types/XY";
+import Color from "../types/Color";
+import IdDict from "../types/IdDict";
+import PieceDef from "../types/PieceDef";
 
-export function getPathThreats(board, sqr, color, pieceDefs, idDict) {
+export function getPathThreats(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict: IdDict) {
     /*get all squares that are path threats to sqr**/
-    var pathDict, pathThreats;
+    let pathDict, pathThreats;
     pathDict = getPathdataDict(board, sqr, color, pieceDefs, idDict);
     pathThreats = [];
-    for (var direction of Object.keys(pathDict)) {
+    for (const direction of Object.keys(pathDict)) {
         if (pathDict[direction].pieces.length === 0) {
             continue;
         }

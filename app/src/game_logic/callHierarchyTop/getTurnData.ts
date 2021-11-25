@@ -8,8 +8,13 @@ import { getMultithreatRestriction } from "../restriction/getMultithreatRestrict
 import { getFinalRanges } from "../ranges/top/getFinalRanges";
 import { getPins } from "../pins/top/getPins";
 import { convertToRf } from "../coordType/convertToRf";
+import PieceDef from "../types/PieceDef";
+import IdDict from "../types/IdDict";
+import Board from "../types/Board";
+import Color from "../types/Color";
+import XY from "../types/XY";
 
-export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
+export function getTurnData(board : Board, color: Color, jsonRecords, pieceDefs: PieceDef [], idDict: IdDict) {
     /**data for player who's turn it is now, at current the.includes(point) game
     calculations:
     ............
@@ -32,7 +37,7 @@ export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
         pieceDefs,
         idDict
     );
-    const kLoc = getKingLoc(board, color);
+    const kLoc: XY = getKingLoc(board, color);
     let threatArea = getThreatArea(board, kLoc, color, pieceDefs, idDict);
     const pdDict = getPathdataDict(board, kLoc, color, pieceDefs, idDict);
     pins = getPins(pdDict, pins);

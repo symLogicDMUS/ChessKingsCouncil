@@ -1,18 +1,22 @@
 import { PathData } from "../PathData";
 import { getPathData } from "../getPathData";
 import { angles } from "../../helpers/stepFuncs";
+import Board from "../../types/Board";
+import XY from "../../types/XY";
+import Color from "../../types/Color";
+import PieceDef from "../../types/PieceDef";
 
 /** */
-export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {
+export function getPathdataDict(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict) {
     /*get data about every path stemming from sqr, &&  dict.includes(record)**/
 
-    var pdDict = {};
-    for (var pathDir of angles) {
+    const pdDict = {};
+    for (const pathDir of angles) {
         // initialize class for given direction
         pdDict[pathDir] = new PathData(pathDir);
 
         // get path data for given direction
-        var pathData = getPathData(
+        const pathData = getPathData(
             board,
             sqr,
             color,
