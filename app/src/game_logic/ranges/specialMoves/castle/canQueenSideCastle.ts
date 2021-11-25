@@ -3,7 +3,6 @@ import { kingStartPos } from "./kingStartPos";
 import { safePath } from "./safePath";
 import { sqrUnderAttack } from "../../../threatArea/top/sqrUnderAttack";
 import { clearPath } from "../../../bools/clearPath";
-import { printBoard } from "../../../printers/printBoard";
 import { rfToXy } from "../../../coordType/crdCnvrt";
 
 export function canQueenSideCastle(

@@ -5,12 +5,3 @@ export function strfind(list, b) {
 }
 
 // module.exports = strfind;
-
-/** for node.js
-if (require.main === module) {
-    console.log(strfind([[1, 1], [2, 2], [3, 3]], [2, 2]))
-    console.log(strfind([[1, 1], [2, 2], [3, 3]], [2, 1]))
-    console.log(strfind([[1, 1], [2, 2], [3, 3]], "[2, 2]"))
-
-}
-*/

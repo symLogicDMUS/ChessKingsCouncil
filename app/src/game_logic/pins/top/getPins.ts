@@ -3,7 +3,7 @@ import { getPin } from "../getPin";
 import { getPieceType } from "../../pieceType/getPieceType";
 import { getResetPieceDicts } from "../../getters/getResetPieceDicts";
 
-export function getPins(pdDict, pins) {
+export function getPins(pdDict, pins: Range) {
     /**get dict, let key = pieceId, let value = coordList
      pieceId: a pinned piece
      coordList: path the piece is pinned to.

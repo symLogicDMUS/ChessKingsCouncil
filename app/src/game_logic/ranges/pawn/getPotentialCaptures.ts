@@ -4,8 +4,10 @@ import {
     step_1sqr315d,
     step_1sqr225d,
 } from "../../helpers/stepFuncs";
+import XY from "../../types/XY";
+import Color from "../../types/Color";
 
-export function getPotentialCaptures(sqr, color) {
+export function getPotentialCaptures(sqr: XY, color: Color) {
     /*get the squares that the pawn of given color at sqr could potentially move to capture a piece**/
     const potentialPawnCaptures = [];
     if (color === "W") {
@@ -19,23 +21,3 @@ export function getPotentialCaptures(sqr, color) {
     }
     return potentialPawnCaptures;
 }
-
-// module.exports = getPotentialCaptures;
-
-/** for node.js
-if (require.main === module) {
-    
-    import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
-    import {printBoard} from "../../printers/printBoard";
-
-    let board = sampleBoardDicts["pawn_range"]
-    
-     // test 1, b4 pawn:
-    console.log('test 1: b4 pawn')
-    potentialPawnCaptures = getPotentialCaptures([2, 4], 'W')
-    //console.log(potentialPawnCaptures)
-    printBoard(board, null, mapListXyToRf(potentialPawnCaptures), null, ["b4"])
-    console.log('\n')
-
-}
-*/

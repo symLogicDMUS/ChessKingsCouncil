@@ -1,4 +1,4 @@
-import { getPathdataDict } from "../pathsInfo/top/getpathDataDict";
+import { getPathdataDict } from "../pathsInfo/top/getPathdataDict";
 import { getIndexFirstPiece } from "../pathsInfo/getIndexFirstPiece";
 import Board from "../types/Board";
 import XY from "../types/XY";
@@ -22,7 +22,7 @@ export function getPathThreats(board: Board, sqr: XY, color: Color, pieceDefs: P
             continue;
         }
         let i = getIndexFirstPiece(pathDict[direction].path);
-        pathThreats.push(...pathDict[direction].coordPath.slice(0, i + 1));
+        pathThreats.push(...pathDict[direction].coordPath.slice(0, i as number + 1));
     }
     return pathThreats;
 }

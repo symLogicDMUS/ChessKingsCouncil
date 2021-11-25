@@ -1,15 +1,7 @@
-export function getSubPath(path, i) {
+import SqrContent from "../types/SqrContent";
+import XY from "../types/XY";
+
+export function getSubPath(path: XY [], i: number) {
     /*get up to &&  including the index i in path**/
     return path.slice(0, i + 1);
 }
-
-// module.exports = getSubPath;
-
-/** for node.js
-if (require.main === module) {
-    console.log(getSubPath(['#', 'WP1', 'WP2', 'BB1'], 1))
-    console.log(getSubPath(['#', 'WP1', 'WP2', 'BB1'], 2))
-    console.log(getSubPath(['#', 'WP1', 'WP2', 'BB1'], 3))
-
-}
-*/

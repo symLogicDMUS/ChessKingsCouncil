@@ -1,7 +1,11 @@
 import { getTurnData } from "./getTurnData";
 import { getNextColor as getEnemyColor } from "../color/getNextColor";
+import PieceDef from "../types/PieceDef";
+import IdDict from "../types/IdDict";
+import Color from "../types/Color";
+import Board from "../types/Board";
 
-export function update(board, jsonRecords, color, pt, pieceDefs, idDict) {
+export function update(board: Board, jsonRecords, color: Color, pt: string, pieceDefs: PieceDef [], idDict: IdDict) {
     const turnData = getTurnData(board, color, jsonRecords, pieceDefs, idDict);
     const enemyTurnData = getTurnData(
         board,
@@ -10,6 +14,6 @@ export function update(board, jsonRecords, color, pt, pieceDefs, idDict) {
         pieceDefs,
         idDict
     );
-    turnData.enemyRanges = enemyTurnData.ranges;
+    turnData["enemyRanges"] = enemyTurnData.ranges;
     return turnData;
 }

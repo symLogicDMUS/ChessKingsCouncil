@@ -1,10 +1,13 @@
 enum SqrCases {
-    OOB = 0,
+    OOB,
     EMPTY,
     FRIEND,
     ENEMY,
 }
-
+enum GameStatus {
+    OVER,
+    IN_PROGRESS
+}
 type Color = "W" | "B";
 
 type Rank = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h";

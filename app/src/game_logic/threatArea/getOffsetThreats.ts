@@ -3,11 +3,16 @@ import { getNextColor as getEnemyColor } from "../color/getNextColor";
 import { strfind } from "../helpers/strfind";
 import { rfToXy } from "../coordType/crdCnvrt";
 import { mapListRfToXy } from "../coordType/mapListRfToXy";
+import Board from "../types/Board";
+import XY from "../types/XY";
+import Color from "../types/Color";
+import PieceDef from "../types/PieceDef";
+import IdDict from "../types/IdDict";
 
-export function getOffsetThreats(board, kingLoc, color, pieceDefs, idDict) {
+export function getOffsetThreats(board: Board, kingLoc: XY, color: Color, pieceDefs: PieceDef [], idDict: IdDict) {
     /* **/
 
-    var id,
+    let id,
         rf,
         sqr,
         offset,

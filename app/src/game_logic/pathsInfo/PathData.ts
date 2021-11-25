@@ -1,4 +1,15 @@
+import Rankfile from "../types/Rankfile";
+import SqrContent from "../types/SqrContent";
+import Angle from "../types/Angle";
+import XY from "../types/XY";
+
 export class PathData {
+    direction: Angle;
+    path: SqrContent [];
+    pieces: SqrContent [];
+    coordPath: XY [];
+    pieceMatchesPath: boolean [];
+    statuses: string [];
     /*description of class**/
 
     constructor(direction) {

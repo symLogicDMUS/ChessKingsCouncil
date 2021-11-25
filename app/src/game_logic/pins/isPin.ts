@@ -1,4 +1,6 @@
-export function isPin(pathData) {
+import {PathData} from "../pathsInfo/PathData";
+
+export function isPin(pathData: PathData): boolean {
     /**return true if the path contains a pinned piece, otherwise false 
         see class PathData
     */

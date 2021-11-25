@@ -3,8 +3,9 @@ import { getPieceFens } from "../getPieceFens";
 import { joinToRows } from "../joinToRows";
 import { joinToFen } from "../joinToFen";
 import { getDigits } from "../getDigits";
+import Board from "../../../types/Board";
 
-export function getFen(board) {
+export function getFen(board: Board) {
     /*convert a board dict to a fen position string &&  return**/
     let pos = getIdBoard(board);
     pos = getPieceFens(pos);

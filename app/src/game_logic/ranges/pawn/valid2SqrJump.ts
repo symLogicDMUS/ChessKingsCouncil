@@ -1,9 +1,13 @@
+import { step_1sqr90d, step_1sqr270d } from "../../helpers/stepFuncs";
 import { getSqrCase } from "../../sqrCase/getSqrCase";
 import { xyToRf } from "../../coordType/crdCnvrt";
-import { EMPTY } from "../../sqrCase/sqrCases";
-import { step_1sqr90d, step_1sqr270d } from "../../helpers/stepFuncs";
+import SqrCase from "../../types/SqrCase";
+import Color from "../../types/Color";
+import Board from "../../types/Board";
+import XY from "../../types/XY";
+import Coord from "../../types/Coord";
 
-export function valid2SqrJump(board, sqr, color, pawnHist) {
+export function valid2SqrJump(board: Board, sqr: XY, color: Color, pawnHist: XY []) {
     /*get the square that might be a first move 2 square jump for pawn**/
 
     const id = board[xyToRf(...sqr)];
@@ -15,20 +19,20 @@ export function valid2SqrJump(board, sqr, color, pawnHist) {
 
     if (color === "W") {
         [x, y] = step_1sqr90d(...sqr);
-        if (getSqrCase(board, x, y, color) !== EMPTY) {
+        if (getSqrCase(board, x, y, color) !== SqrCase.EMPTY) {
             return false;
         }
         [x, y] = step_1sqr90d(x, y);
-        if (getSqrCase(board, x, y, color) !== EMPTY) {
+        if (getSqrCase(board, x, y, color) !== SqrCase.EMPTY) {
             return false;
         }
     } else if (color === "B") {
         [x, y] = step_1sqr270d(...sqr);
-        if (getSqrCase(board, x, y, color) !== EMPTY) {
+        if (getSqrCase(board, x, y, color) !== SqrCase.EMPTY) {
             return false;
         }
         [x, y] = step_1sqr270d(x, y);
-        if (getSqrCase(board, x, y, color) !== EMPTY) {
+        if (getSqrCase(board, x, y, color) !== SqrCase.EMPTY) {
             return false;
         }
     } else {
@@ -39,4 +43,3 @@ export function valid2SqrJump(board, sqr, color, pawnHist) {
     return true;
 }
 
-// module.exports = valid2SqrJump;

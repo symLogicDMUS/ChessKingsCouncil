@@ -1,7 +1,7 @@
-enum SqrCases {
+enum SqrCase {
     OOB = 0,
     EMPTY,
     FRIEND,
     ENEMY,
 }
-export default SqrCases;
+export default SqrCase;

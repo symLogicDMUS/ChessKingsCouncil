@@ -1,13 +1,17 @@
 import { getPieceType } from "../pieceType/getPieceType";
 import { getColor } from "../color/getColor";
 import { rfToXy } from "../coordType/crdCnvrt";
+import Rankfile from "../types/Rankfile";
+import Ranges from "../types/Ranges";
+import Board from "../types/Board";
+import Color from "../types/Color";
 
-export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
+export function getMultiThreatRestriction(board: Board, numPiecesCheckingKing: number, color: Color) {
     /**
      if there is more than 1 piece checking the king then each piece of color will be restricted to the square it's
      currently on, otherwise no multi-threat restriction so each piece gets all 64 coordinates
      */
-    const multithreatRestriction = {};
+    const multithreatRestriction: Ranges = {};
 
     if (numPiecesCheckingKing > 1) {
         for (const [rf, id] of Object.entries(board)) {
@@ -21,7 +25,7 @@ export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
                 continue;
             }
 
-            multithreatRestriction[id] = [rfToXy(rf)];
+            multithreatRestriction[id] = [rfToXy(rf as Rankfile)];
         }
     } else {
         for (const [rf, id] of Object.entries(board)) {
@@ -41,34 +45,3 @@ export function getMultithreatRestriction(board, numPiecesCheckingKing, color) {
 
     return multithreatRestriction;
 }
-
-// module.exports = getMultithreatRestriction;
-
-/** for node.js
-if (require.main === module) {
-
-    import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-    import {printBoard} from "../printers/printBoard";
-
-    var board = {}
-
-    board = sampleBoardDicts['check_example3']
-    var [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(board, 'W')
-    multithreatRestriction = getMultithreatRestriction(board, 1, 'W')
-    printBoard(board, '\ncheck_example3, 1 piece checking king')
-    console.log(multithreatRestriction)
-
-    board = sampleBoardDicts['knight_threat2']
-    var [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(board, 'W')
-    multithreatRestriction = getMultithreatRestriction(board, 2, 'W')
-    printBoard(board, '\nknight_threat2, 2 pieces checking king')
-    console.log(multithreatRestriction)
-
-    board = sampleBoardDicts['super_checkmate_impossible_example']
-    var [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(board, 'W')
-    multithreatRestriction = getMultithreatRestriction(board, 8, 'W')
-    printBoard(board, '\nsuper_checkmate_impossible_example, 8 pieces checking king')
-    console.log(multithreatRestriction)
-
-}
-*/

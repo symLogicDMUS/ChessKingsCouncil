@@ -2,15 +2,17 @@ import { isPiece } from "../pieceType/isPiece";
 import { getColor } from "../color/getColor";
 import Board from "../types/Board";
 import Color from "../types/Color";
+import Ranges from "../types/Ranges";
 import Range from "../types/Range";
+import XY from "../types/XY";
 
 export function getResetPieceDicts(board: Board, color: Color) {
     /*create &&  return dicts for the initial ranges, pins, mt-restrictions &&  final ranges, of pieces on board**/
 
-    const initRanges = {};
-    const pins = {};
-    const mtRestricts = {};
-    const finalRanges = {};
+    const initRanges: Ranges = {};
+    const pins: Ranges = {};
+    const mtRestricts: Ranges = {};
+    const finalRanges: Ranges = {};
 
     for (const id of Object.values(board)) {
         if (!isPiece(id)) {

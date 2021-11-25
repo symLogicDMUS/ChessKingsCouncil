@@ -1,5 +1,6 @@
 import { getSqrCase } from "../../sqrCase/getSqrCase";
 import { OOB, EMPTY, FRIEND, ENEMY } from "../../sqrCase/sqrCases";
+import SqrCase from "../../types/SqrCase";
 
 export function travelPath(board, x, y, color, sqrList, stepTaker) {
     /*travel the path adding squares to the list, then return the path.
@@ -7,16 +8,16 @@ export function travelPath(board, x, y, color, sqrList, stepTaker) {
      **/
     let sqrCase = getSqrCase(board, x, y, color);
 
-    if (sqrCase === OOB) {
+    if (sqrCase === SqrCase.OOB) {
         return sqrList;
-    } else if (sqrCase === EMPTY) {
+    } else if (sqrCase === SqrCase.EMPTY) {
         sqrList.push([x, y]);
         [x, y] = stepTaker(x, y);
         sqrList = travelPath(board, x, y, color, sqrList, stepTaker);
-    } else if (sqrCase === ENEMY) {
+    } else if (sqrCase === SqrCase.ENEMY) {
         sqrList.push([x, y]);
         return sqrList;
-    } else if (sqrCase === FRIEND) {
+    } else if (sqrCase === SqrCase.FRIEND) {
         return sqrList;
     } else {
         console.log("error: square type ! recognized");

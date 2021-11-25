@@ -1,9 +1,6 @@
 import { OVER, IN_PROGRESS } from "./gStatusTypes";
 import { getPieceTypeInstances } from "../../pieceType/getPieceTypeInstances";
 import { getNextColor as getEnemyColor } from "../../color/getNextColor";
-import { numKings } from "../../council_logic/numKings";
-import { numPawns } from "../../council_logic/numPawns";
-import { onlyKings } from "../../council_logic/onlyKings";
 
 export class GameStatus {
     /**

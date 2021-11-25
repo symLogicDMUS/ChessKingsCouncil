@@ -3,16 +3,21 @@ import { ENEMY } from "../sqrCase/sqrCases";
 import { dist } from "../helpers/formulas";
 import { xyToRf, rfToXy } from "../coordType/crdCnvrt";
 import { mapListRfToXy } from "../coordType/mapListRfToXy";
+import Rankfile from "../types/Rankfile";
+import Board from "../types/Board";
+import Color from "../types/Color";
+import XY from "../types/XY";
+import Rank from "../types/Rank";
 
-export function getKingThreats(board, sqr, color) {
-    /*for a square ! containg the king, get list of kings threatening that square**/
-    var kingThreats = Object.keys(board).filter((sqr2) => {
-        sqr2 = rfToXy(sqr2);
-
+export function getKingThreats(board: Board, sqr: XY, color: Color) {
+    /*for a square not containing the king, get list of kings threatening that square**/
+    let sqrXY: XY;
+    const kingThreats = Object.keys(board).filter((sqrRf: Rankfile) => {
+        sqrXY = rfToXy(sqrRf);
         if (
-            (dist(sqr, sqr2) === 1 || dist(sqr, sqr2) === Math.sqrt(2)) &&
-            getSqrCase(board, sqr2[0], sqr2[1], color) === ENEMY &&
-            board[xyToRf(...sqr2)][1] === "K"
+            (dist(sqr, sqrXY) === 1 || dist(sqr, sqrXY) === Math.sqrt(2)) &&
+            getSqrCase(board, sqrXY[0], sqrXY[1], color) === ENEMY &&
+            board[xyToRf(...sqrXY)][1] === "K"
         ) {
             return true;
         } else {

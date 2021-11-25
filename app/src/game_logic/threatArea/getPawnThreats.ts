@@ -1,12 +1,14 @@
 import { getPotentialPawnThreats } from "./getPotentialPawnThreats";
 import { getActualPawnThreats } from "./getActualPawnThreats";
-import { sampleBoardDicts } from "../testObjects/sampleBoardDicts";
 import { mapListRfToXy } from "../coordType/mapListRfToXy";
+import Color from "../types/Color";
+import XY from "../types/XY";
+import Board from "../types/Board";
 
-export function getPawnThreats(board, sqr, color) {
+export function getPawnThreats(board: Board, sqr: XY, color: Color) {
     /*return list of squares containing a pawn putting the check.includes(king)**/
-    var potentialPawnThreats = getPotentialPawnThreats(board, sqr, color);
-    var actualPawnThreats = getActualPawnThreats(
+    const potentialPawnThreats = getPotentialPawnThreats(board, sqr, color);
+    const actualPawnThreats = getActualPawnThreats(
         board,
         mapListRfToXy(potentialPawnThreats),
         color

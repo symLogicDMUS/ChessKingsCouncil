@@ -1,3 +1,5 @@
+import Rankfile from "../../../types/Rankfile";
+
 export const rookStartAndDest = {
     c1: ["a1", "d1"],
     g1: ["h1", "f1"],

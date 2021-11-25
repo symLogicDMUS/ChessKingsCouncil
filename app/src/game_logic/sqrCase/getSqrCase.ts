@@ -1,17 +1,20 @@
-import { OOB, EMPTY, FRIEND, ENEMY } from "./sqrCases";
 import { outOfBounds } from "./oob";
 import { xyToRf } from "../coordType/crdCnvrt";
+import SqrCase from "../types/SqrCase";
+import Board from "../types/Board";
+import Coord from "../types/Coord";
+import Color from '../types/Color';
 
-export function getSqrCase(board, x, y, color) {
+export function getSqrCase(board: Board, x: Coord, y: Coord, color: Color): SqrCase {
     /*get the case of square at location x, y on the board. see sqrTypes.py**/
     if (outOfBounds(x, y)) {
-        return OOB;
+        return SqrCase.OOB;
     } else if (board[xyToRf(x, y)] === "#") {
-        return EMPTY;
+        return SqrCase.EMPTY;
     } else if (board[xyToRf(x, y)][0] === color) {
-        return FRIEND;
+        return SqrCase.FRIEND;
     }
-    return ENEMY;
+    return SqrCase.ENEMY;
 }
 
 // module.exports = getSqrCase;

@@ -1,6 +1,6 @@
-import { getAiColor } from "./getAiColor";
+import Color from "../types/Color";
 
-export function getNextColor(color) {
+export function getNextColor(color): Color {
     /*get the color of player who's turn it is next**/
     if (color === "W") {
         return "B";
@@ -8,5 +8,3 @@ export function getNextColor(color) {
         return "W";
     }
 }
-
-// module.exports = getNextColor;

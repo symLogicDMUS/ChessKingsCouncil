@@ -1,4 +1,7 @@
-export function movedOnce_2Sqrs(pawnHist, color) {
+import XY from "../../types/XY";
+import Color from "../../types/Color";
+
+export function movedOnce_2Sqrs(pawnHist: XY [], color: Color) {
     /**
     takes a pawn history as input &&  returns true if  history indicates a single 
     move 2 square jump

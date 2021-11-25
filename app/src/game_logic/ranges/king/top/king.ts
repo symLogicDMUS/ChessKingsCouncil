@@ -3,15 +3,20 @@ import { canQueenSideCastle } from "../../specialMoves/castle/canQueenSideCastle
 import { getCastleTargetSquare } from "../../specialMoves/castle/getCastleTargetSquare";
 import { getKingInitialMoves } from "../getKingInitialMoves";
 import { getKingActualMoves } from "../getKingActualMoves";
+import PieceDef from "../../../types/PieceDef";
+import IdDict from "../../../types/IdDict";
+import Board from "../../../types/Board";
+import XY from "../../../types/XY";
+import Color from "../../../types/Color";
 
 export function king(
-    board,
-    sqr,
-    color,
+    board: Board,
+    sqr: XY,
+    color: Color,
     jsonRecords,
     specialMoves,
-    pieceDefs,
-    idDict
+    pieceDefs : PieceDef [],
+    idDict: IdDict
 ) {
     /**get the range of king at location sqr on board of given color
      pseudocode

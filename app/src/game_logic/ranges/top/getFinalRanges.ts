@@ -4,11 +4,11 @@ import { intersection } from "../../helpers/setOps";
 
 // initRanges, pins, threatArea, finalRanges, mtRestrict
 export function getFinalRanges(
-    initRanges,
-    pins,
+    initRanges: Range,
+    pins: Range,
     threatArea,
-    finalRanges,
-    mtRestriction
+    finalRanges: Range,
+    mtRestriction: Range
 ) {
     /**the final range is the intersection of the initial range, pin, threat area, &&  multi-threat restriction
      :param initRanges:

@@ -1,13 +1,13 @@
 import { getRanges } from "../ranges/top/getRanges";
-import { getPathdataDict } from "../pathsInfo/top/getpathDataDict";
+import { getPathdataDict } from "../pathsInfo/top/getPathdataDict";
 import { getResetPieceDicts } from "../getters/getResetPieceDicts";
 import { getKingLoc } from "../threatArea/getKingLoc";
 import { getThreatArea } from "../threatArea/top/getThreatArea";
 import { getNumPiecesCheckingKing } from "../restriction/getNumPiecesCheckingKing";
-import { getMultithreatRestriction } from "../restriction/getMultithreatRestriction";
+import { getMultiThreatRestriction } from "../restriction/getMultiThreatRestriction";
 import { getFinalRanges } from "../ranges/top/getFinalRanges";
-import { getPins } from "../pins/top/getPins";
 import { convertToRf } from "../coordType/convertToRf";
+import { getPins } from "../pins/top/getPins";
 import PieceDef from "../types/PieceDef";
 import IdDict from "../types/IdDict";
 import Board from "../types/Board";
@@ -41,7 +41,7 @@ export function getTurnData(board : Board, color: Color, jsonRecords, pieceDefs:
     let threatArea = getThreatArea(board, kLoc, color, pieceDefs, idDict);
     const pdDict = getPathdataDict(board, kLoc, color, pieceDefs, idDict);
     pins = getPins(pdDict, pins);
-    const npck = getNumPiecesCheckingKing(
+    const npck: number = getNumPiecesCheckingKing(
         board,
         kLoc,
         color,
@@ -49,7 +49,7 @@ export function getTurnData(board : Board, color: Color, jsonRecords, pieceDefs:
         pieceDefs,
         idDict
     );
-    mtRestricts = getMultithreatRestriction(board, npck, color);
+    mtRestricts = getMultiThreatRestriction(board, npck, color);
     [initRanges, pins, threatArea, mtRestricts] = convertToRf(
         initRanges,
         pins,

@@ -15,7 +15,7 @@ import SqrContent from "../../types/SqrContent";
 export function getRanges(
     board: Board,
     color: Color,
-    ranges,
+    ranges: Range,
     jsonRecords,
     pieceDefs: PieceDef [],
     idDict: IdDict

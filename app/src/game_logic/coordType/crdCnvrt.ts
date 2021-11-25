@@ -20,20 +20,3 @@ export function rfToXy(rf: Rankfile): XY {
     const y = Number(rf[1]);
     return [x, y] as XY;
 }
-
-// module.exports = {xyToRf, rfToXy};
-
-/** for node.js
-if (require.main === module) {
-    import {getXyBoard} from "../helpers/getXyBoard";
-    let xyBoard = getXyBoard();
-    let board = {}
-    for (let y = 0; y < xyBoard.length; y++) {
-        for (let x = 0; x < xyBoard[y].length; x++) {
-            xyBoard[y][x] = xyToRf(xyBoard[y][x][0], xyBoard[y][x][1])
-        }
-    }
-    console.log(xyBoard)
-
-}
-*/

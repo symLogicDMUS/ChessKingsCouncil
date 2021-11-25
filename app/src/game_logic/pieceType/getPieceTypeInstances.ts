@@ -8,4 +8,3 @@ export function getPieceTypeInstances(board) {
     return pieceTypes;
 }
 
-// module.exports = getPieceTypes;

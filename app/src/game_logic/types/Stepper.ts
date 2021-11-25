@@ -1,5 +1,4 @@
 import Coord from "./Coord";
-import {XY} from "./XY";
 
-type Stepper = (x: Coord, y: Coord) => XY;
-export default Stepper
+type Stepper = (x: Coord, y: Coord) => [number, number];
+export default Stepper;

@@ -5,8 +5,9 @@ import Board from "../../types/Board";
 import XY from "../../types/XY";
 import Color from "../../types/Color";
 import PieceDef from "../../types/PieceDef";
+import IdDict from "../../types/IdDict";
 
-export function getThreatArea(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict) {
+export function getThreatArea(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict: IdDict) {
     /* **/
     const threatArea = [];
     let pathThreats, offsetThreats, pawnThreats;

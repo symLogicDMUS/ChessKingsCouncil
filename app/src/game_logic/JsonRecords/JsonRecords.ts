@@ -1,7 +1,12 @@
 import { rfToXy, xyToRf } from "../coordType/crdCnvrt";
-import { mapDictListRfToXy } from "../coordType/mapDictListRfToXy";
 import { mapDictListXyToRf } from "../coordType/mapDictListXyToRf";
 import { getPieceType } from "../pieceType/getPieceType";
+import Records from "../types/Records";
+import RooksMoved from "../types/RooksMoved";
+import KingsMoved from "../types/KingsMoved";
+import PawnHistories from "../types/PawnHistories";
+import Rankfile from "../types/Rankfile";
+import XY from "../types/XY";
 
 /**
  * Data that need to keep for Castling, En passants, and Pawn promotions.
@@ -10,7 +15,13 @@ import { getPieceType } from "../pieceType/getPieceType";
  *       new instance each turn and component side updates its instance. Most of its methods are used by game-reducers side.
  */
 export class JsonRecords {
-    constructor(records) {
+    rooksMoved: RooksMoved;
+    kingsMoved: KingsMoved;
+    pawnHistories: PawnHistories;
+    lastPawnMove: Rankfile | XY;
+    numConsecutiveNonPawnMoves: number;
+
+    constructor(records: Records) {
         this.rooksMoved = records["rooks_moved"];
         this.kingsMoved = records["kings_moved"];
         this.pawnHistories = records["pawn_histories"];
@@ -72,7 +83,7 @@ export class JsonRecords {
     getMapRecords() {
         /**convert pawnHistories and last_pawn_move to rankfile format, than return all records */
         this.pawnHistories = mapDictListXyToRf(this.pawnHistories);
-        this.lastPawnMove = xyToRf(...this.lastPawnMove);
+        this.lastPawnMove = xyToRf(...this.lastPawnMove as XY);
         return this.getRecords();
     }
 

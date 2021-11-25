@@ -1,6 +1,7 @@
-export function getPieceColor(pieceId) {
-    /* **/
-    return pieceId[0];
-}
+import Color from "../types/Color";
+import PieceId from "../types/PieceId";
 
-// module.exports = getPieceColor;
+export function getPieceColor(pieceId: PieceId): Color {
+    /* **/
+    return pieceId[0] as Color;
+}

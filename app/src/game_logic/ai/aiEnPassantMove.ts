@@ -1,12 +1,15 @@
 import { xyToRf } from "../coordType/crdCnvrt";
 import { step_1sqr0d, step_1sqr180d } from "../helpers/stepFuncs";
 import { isEnemyPawn } from "./isEnemyPawn";
+import Board from "../types/Board";
+import Rankfile from "../types/Rankfile";
+import Color from "../types/Color";
 
 export function aiEnPassantMove(
-    responseBoard,
-    start,
-    dest,
-    color,
+    responseBoard: Board,
+    start: Rankfile,
+    dest: Rankfile,
+    color: Color,
     specialMoves
 ) {
     if (!specialMoves.isEnPassant([start, dest])) {

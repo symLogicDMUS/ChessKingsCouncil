@@ -1,17 +1,22 @@
 import { rfToXy } from "../coordType/crdCnvrt";
 import { dist } from "../helpers/formulas";
+import Board from "../types/Board";
+import Color from "../types/Color";
+import XY from "../types/XY";
+import Rankfile from "../types/Rankfile";
 
-export function getPotentialPawnThreats(board, sqr, color) {
+export function getPotentialPawnThreats(board: Board, sqr: XY, color: Color) {
     /* return list of locations that might be pawn attacking king **/
 
+    let sqr2: XY;
     if (color === "W") {
-        return Object.keys(board).filter((sqr2) => {
-            sqr2 = rfToXy(sqr2);
+        return Object.keys(board).filter((sqrRf: Rankfile) => {
+            sqr2 = rfToXy(sqrRf);
             return sqr2[1] > sqr[1] && dist(sqr, sqr2) === Math.sqrt(2);
         });
     } else if (color === "B") {
-        return Object.keys(board).filter((sqr2) => {
-            sqr2 = rfToXy(sqr2);
+        return Object.keys(board).filter((sqrRf: Rankfile) => {
+            sqr2 = rfToXy(sqrRf);
             return sqr2[1] < sqr[1] && dist(sqr, sqr2) === Math.sqrt(2);
         });
     } else {
