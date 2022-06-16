@@ -1,0 +1,69 @@
+import { PathData } from "../PathData";
+import { getPathData } from "../getPathData";
+import { angles } from "../../helpers/stepFuncs";
+import Board from "../../types/Board";
+import XY from "../../types/XY";
+import Color from "../../types/Color";
+import PieceDef from "../../types/PieceDef";
+import IdDict from "../../types/IdDict";
+
+/** */
+export function getPathdataDict(board: Board, sqr: XY, color: Color, pieceDefs: PieceDef [], idDict: IdDict) {
+    /*get data about every path stemming from sqr, &&  dict.includes(record)**/
+
+    const pdDict = {};
+    for (const pathDir of angles) {
+        // initialize class for given direction
+        pdDict[pathDir] = new PathData(pathDir);
+
+        // get path data for given direction
+        const pathData = getPathData(
+            board,
+            sqr,
+            color,
+            pieceDefs,
+            idDict,
+            pathDir
+        ); //changed let to var
+
+        //initialize class attributes to path data results
+        pdDict[pathDir].coordPath = pathData[0];
+        pdDict[pathDir].path = pathData[1];
+        pdDict[pathDir].pieces = pathData[2];
+        pdDict[pathDir].statuses = pathData[3];
+        pdDict[pathDir].pieceMatchesPath = pathData[4];
+    }
+
+    return pdDict;
+}
+
+// module.exports = getPathdataDict;
+
+/** for node.js
+if (require.main === module) {
+
+    import {getPieceLocs} from "../../helpers/getPieceLocsOnPath";
+    import {getMatchesPathLists} from "../../helpers/getMatchesPathLists"
+    import {getFandR} from "../../helpers/getFandR";
+    import {printBoard} from "../../printers/printBoard";
+    import {getEmptySqrsOnPath} from "../../helpers/getEmptySqrsOnPath"
+
+    let board = sampleBoardDicts['check_example3']
+    let pieceDefs = getStandardPieceDefs()
+    let idDict = getStandardIdDict()
+    var coordPath;
+
+    let pdDict = getPathdataDict(board, [4, 4], 'W', pieceDefs, idDict)
+    for (var angle of Object.keys(pdDict)) {
+        console.log(`---------------- ${angle} ----------------`.blueJss)
+        coordPath = mapListXyToRf(pdDict[angle].coordPath)
+        let pieceLocs = getPieceLocs(board, coordPath)
+        var [matchesPath, doesNotMatchPath] = getMatchesPathLists(pieceLocs, pdDict[angle].pieceMatchesPath)
+        var [friends, enemies] = getFandR(pieceLocs, pdDict[angle].statuses)
+        var emptySqrs = getEmptySqrsOnPath(coordPath, pieceLocs)
+        printBoard(board, "friends: green, enemies: red, start square: blueJss", enemies, friends, ["d4"], emptySqrs)
+        printBoard(board, "piece ability matches path: green, does not match path: red, start square: blueJss", doesNotMatchPath, matchesPath, ["d4"], emptySqrs)
+    }
+
+}
+*/
