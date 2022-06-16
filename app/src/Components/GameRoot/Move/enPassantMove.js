@@ -1,7 +1,7 @@
 import { getSqrCase } from "../../helpers/getSqrCase";
 import { isPawn } from "../../helpers/isPawn";
 import { step1sqr0d, step1sqr180d } from "../../helpers/stepFuncs";
-import { OOB, EMPTY, FRIEND, ENEMY } from "../../helpers/sqrCases";
+import SqrCase from "../../../game_logic/types/SqrCase";
 
 const capturePawn = (enemyPawnRf, gameRoot, start, dest, dispatch) => {
     gameRoot.captured = gameRoot.board[enemyPawnRf];
@@ -24,13 +24,13 @@ export function enPassantMove(gameRoot, start, dest, dispatch) {
         const rf0 = step1sqr0d(start);
         const rf180 = step1sqr180d(start);
         if (
-            getSqrCase(gameRoot.board, rf0, gameRoot.turn) === ENEMY &&
+            getSqrCase(gameRoot.board, rf0, gameRoot.turn) === SqrCase.ENEMY &&
             isPawn(gameRoot.board[rf0]) &&
             gameRoot.jsonRecords.isLastPawnMove(rf0)
         ) {
             capturePawn(rf0, gameRoot, start, dest, dispatch);
         } else if (
-            getSqrCase(gameRoot.board, rf180, gameRoot.turn) === ENEMY &&
+            getSqrCase(gameRoot.board, rf180, gameRoot.turn) === SqrCase.ENEMY &&
             isPawn(gameRoot.board[rf180]) &&
             gameRoot.jsonRecords.isLastPawnMove(rf180)
         ) {
